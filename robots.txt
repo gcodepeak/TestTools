@@ -1,0 +1,9 @@
+User-Agent: Mediapartners-Google
+Allow: /
+
+User-Agent: *
+Disallow: /anchor/
+Disallow: /manage/
+Disallow: /Manage/viewLogin.html
+
+Sitemap: http://xiu800.cn/sitemapxml/index.xml

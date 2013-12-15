@@ -1,0 +1,236 @@
+<?php
+/* @var $this SiteController */
+
+$this->pageTitle=Yii::app()->name;
+?>
+
+<@idx.header title="秀800美女主播导航 - 美女视频 - 美女直播 - 视频聊天 - 视频交友" body="class=\"bodyBg\"">
+<meta property="wb:webmaster" content="b6a76d5d189086ef" />
+<meta property="qc:admins" content="44401151750006367" />
+<meta name="baidu_union_verify" content="028e1cf29fe36d02e70625bbce9b5a61">
+</@idx.header>
+
+<#if RequestParameters["frame"]?exists && RequestParameters["frame"] != "0">
+<#assign otherParam = "?frame=1"/>
+<#assign otherParamFamily = "-1"/>
+<#else>
+<#assign otherParam = ""/>
+<#assign otherParamFamily = ""/>
+</#if>
+
+
+<#macro familySuggest familyList familyName>
+<li>
+	<span class="g_fr"><a href="${base}familyRank.html${otherParam}" class="fch">更多&gt;&gt;</a></span>
+	<h4 class="g_fl"><a href="${base}familyRank.html${otherParam}" class="g_green-red">${familyName}</a></h4>
+	<#if familyList?exists>
+	<#list familyList as family>
+	<span><a href="${base}family/${family.id}${otherParamFamily}.html">${family.name}</a></span>
+		<#if family_has_next>&nbsp;<span class="t-group-split">|</span>&nbsp;</#if>
+	</#list>
+	</#if>
+</li>
+</#macro>
+
+<#if !RequestParameters["frame"]?exists || RequestParameters["frame"] == "0">
+<div class="top-tool" id="suggestAddToFav">
+	<div class="user-tool-bar">
+		<a class="btn-close" href="javascript:void(0);" onclick="closeSuggestAddToFav();">关闭</a>
+		按<span class="fcql fwb"> Ctrl+D </span>,把<span class="fwb">秀800</span>放入收藏夹，或点击 <a href="${base}downloadDesktopUrl.html" title="下载后请将图标复制到您的桌面" class="fcql fwb ftu">+桌面图标</a>，赏鉴万千美女！ <a  class="fcw ftu" href="javascript:neverShowSuggestAddToFav();">不再提醒</a>
+	</div>
+</div>
+
+<@idx.commonNav/>
+</#if>
+
+<div class="t-main-wrapper">
+	<div class="t-main-container clear">
+		<div class="t-main-right">
+			<div class="website-list">
+				<div class="icon-minlogo">
+					<a class="i-ljf" target="_blank" href="http://www.6.cn/"><img src="${base}images/transparent.gif" alt="六间房" >六间房</a>
+					<a class="i-56" target="_blank" href="http://xiu.56.com/"><img src="${base}images/transparent.gif" alt="我秀" >我秀</a>
+					<a class="i-9518" target="_blank" href="http://v.9158.com/"><img src="images/transparent.gif" alt="9158">9158</a>
+					<a class="i-kgfx" target="_blank" href="http://fanxing.kugou.com/"><img src="${base}images/transparent.gif" alt="酷狗繁星" >酷狗繁星</a>
+					<#--
+					<a class="i-jdxx" target="_blank" href="http://x.joy.cn/"><img src="${base}images/transparent.gif" alt="激动星秀" >激动星秀</a>
+					-->
+					<a class="i-btjy" target="_blank" href="http://www.baitu.com/"><img src="${base}images/transparent.gif" alt="白兔交友" >白兔交友</a>
+					<a class="i-ggsq" target="_blank" href="http://www.5bo.com/"><img src="${base}images/transparent.gif" alt="呱呱视频" >呱呱视频</a>
+					<span class="web-famous"></span>
+				</div>
+			</div>
+			<h3 class="t-currentLive">
+				正在直播 <span class="fcqh">LIVE</span>
+				<div class="t-currentLive-ad-img">
+					<img src="${base}images/ad/link_ad-mark.gif" alt="正在直播"/>
+				</div>
+				<div class="t-currentLive-ad">
+					<script type="text/javascript">
+					var sogou_ad_id=109921;
+					var sogou_ad_height=15;
+					var sogou_ad_width=234;
+					</script>
+					<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/l.js'></script>
+				</div>
+			</h3>
+			<div class="t-live-show">
+				<#list indexOnlineAnchorList as anchor>
+				<#if anchor_index == 0 || anchor_index == 3>
+				<ul class="clear">
+				</#if>
+					<li>
+						<p class="t-from-name">
+							<@idx.type t=anchor.type addLink=true/>
+						</p>
+						<a href="${base}anchor/${anchor.id}.html" target="_blank">
+							<img src="${anchor.img?default('${base}images/noimg_large.gif')}" alt="${anchor.name}" title="${anchor.name}" 
+							onerror="javascript:this.src='/images/noimg_large.gif';"/>
+							<span class="btn-play" title="立即观看"></span>
+							<div class="t-info-wrapper">
+								<div class="just-for-bg"></div>
+								<p>
+									<span class="t-room-name">${anchor.name}</span>
+									<span class="t-num">${anchor.audience?default(0)}人</span>
+								</p>
+							</div>
+						</a>
+						<span class="icon-new"></span>
+					</li>
+				<#if anchor_index == 2 || !anchor_has_next>
+				</ul>
+				</#if>
+				</#list>
+			</div>
+			<h3 class="t-currentLive">热门主播</h3>
+			<div class="t-hot min-list">
+				<#list indexHotAnchorList as anchor>
+				<#if anchor_index == 0 || anchor_index == 6>
+				<ul class="clear">
+				</#if>
+				<#if anchor_index == 12>
+				<ul class="clear t-bn">
+				</#if>
+					<li>
+						<a class="t-show" href="${base}anchor/${anchor.id}.html" target="_blank">
+							<img src="${anchor.img?default('${base}images/noimg.gif')}" alt="${anchor.name}" 
+								title="${anchor.name}" 
+								onerror="javascript:this.src='/images/noimg.gif';"/>
+							<span class="icon-hd"></span>
+							<div class="t-info-wrapper">
+								<div class="just-for-bg"></div>
+								<p>
+									<span class="t-user-num">${anchor.audience?default(0)}</span>
+									<span class="t-from-name">
+										<@idx.type anchor.type/>
+									</span>
+								</p>
+							</div>
+						</a>
+						<div class="t-name"><a href="${base}anchor/${anchor.id}.html" target="_blank">${anchor.name}</a></div>
+						<div class="t-start-time">开播 <#if anchor.startTime?has_content>${anchor.startTime}<#else>美女走开了^^</#if></div>
+					</li>
+				<#if anchor_index == 5 || anchor_index == 11 || !anchor_has_next> 
+				</ul>
+				</#if>
+				</#list>
+			</div>
+			<h3 class="t-currentLive">
+				主播家族
+				<div class="t-currentLive-ad-img">
+					<img src="${base}images/ad/link_ad-mark.gif" alt="赞助商广告"/>
+				</div>
+				<div class="t-currentLive-ad">
+					<span class="t-currentLive-ad-content">
+						<script type="text/javascript">
+						var sogou_ad_id=109923;
+						var sogou_ad_height=15;
+						var sogou_ad_width=234;
+						</script>
+						<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/l.js'></script>
+					</span>
+				</div>
+			</h3>
+			<div class="t-anchor">
+				<ul class="t-group">
+					<@familySuggest familyList=indexFamilyList.woxiu familyName="我 秀"/>
+					<@familySuggest familyList=indexFamilyList.liuJianFangList familyName="六间房"/>
+					<@familySuggest familyList=indexFamilyList.woBoList familyName="我播"/>
+					<#--<@familySuggest familyList=indexFamilyList.xingXiuList familyName="星秀"/>-->
+					<@familySuggest familyList=indexFamilyList.soHuList familyName="搜狐"/>
+				</ul>
+			</div>
+			<h3 class="t-currentLive">充值直通车</h3>
+			<div class="t-recharge clear">
+				<a href="http://xiu.56.com/pay.html" target="_blank"><img src="${base}images/ad/logo-56.png" alt="56"></a>
+				<a href="http://order.17guagua.com/buy_money_bank.jsp" target="_blank"><img src="${base}images/ad/logo-5bo.gif" alt="5BO"></a>
+				<#--<a class="last" href="http://chong.joy.cn/chargebind.do?AppID=1" target="_blank"><img src="${base}images/ad/logo-xjoy.png" alt="星秀"></a>-->
+				<a class="last" href="http://fanxing.kugou.com/index.php?action=rechargeIndex" target="_blank"><img src="${base}images/ad/logo-kgfx.png" alt="酷狗繁星"></a>
+				<a href="http://xiu.ku6.com/cms/announ/201211/23/26.shtml" target="_blank"><img src="http://xiu.ku6.com/common/new_home/images/logo_ku6.png" style="width:205px;height:74px;border:1px solid #BEBEBE" alt="六间房"></a>
+				<a href="http://v.6.cn/user/payshow.php" target="_blank"><img src="${base}images/ad/logo-6.png" alt="6间房"></a>
+				<a class="last" href="http://my.tv.sohu.com/l/rc_index.action?null" target="_blank"><img src="${base}images/ad/logo-sohu.gif" alt="搜狐秀场" style="height:76px;width:207px;"></a>
+			</div>
+		</div>
+		<@idx.commonLeft frame=RequestParameters["frame"]/>
+	</div>
+</div>
+<#if !RequestParameters["frame"]?exists>
+<div class="t-footer">
+	<div class="foot-box clear">
+		<div class="t-links">
+			<dl>
+				<dt>友情链接</dt>
+				<#list friendLinksList as friendLinks>
+				<#if friendLinks_index %7 == 0>
+				<dd>
+				</#if>
+					<a href="${friendLinks.url}" target="_blank" title="${friendLinks.title}">${friendLinks.name}</a>
+				<#if friendLinks_index %7 == 6>
+				</dd>
+				</#if>
+				</#list>
+					<a class="ftu" href="mailto:sites@xiu800.cn?subject=申请友情链接：贵网站名称" target="_blank" title="申请友链">[+申请友链]</a>
+				</dd>
+			</dl>
+		</div>
+		<div class="t-copy">
+			<div class="t-share">
+				<a href="http://weibo.com/xiu800" target="_blank"><img class="i-sinawb" src="${base}images/transparent.gif" alt="新浪微博" /></a>
+				<a href="http://t.qq.com/xiu800" target="_blank"><img class="i-txwb" src="${base}images/transparent.gif" alt="腾讯微博" /></a>
+			</div>
+			<p>© 2012-2021 XIU800.CN<br />
+				All rights reserved. <br />
+				京ICP备12050577号
+			</p>
+		</div>
+	</div>
+</div>
+</#if>
+<@idx.footer showFooter=false>
+<#if !RequestParameters["frame"]?exists || RequestParameters["frame"] == "0">
+<script type="text/javascript" src="Yii::app()->theme->baseUrl/js/xiu800_index.js"></script>
+</#if>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=7&amp;mini=1&amp;pos=left&amp;uid=1358571" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+var bds_config={
+	"bdTop":205,
+	"bdText":"快来快来,我发现了一个好网站哦~全是美女,还都直播,实时的哦~~~http://xiu800.cn @秀800 ",
+	"bdDesc":"秀800美女主播导航是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。"
+};
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
+<script id="bdaddtocite_shell"></script>
+<script>
+var bdShare_config_addtocite = {
+	"type":"slide"
+	,"pos":"right"
+	,"color":"darkblue"
+	,"top":"205"
+	,"uid":"1358571"
+};
+document.getElementById("bdaddtocite_shell").src="http://bdimg.share.baidu.com/static/js/addtocite_shell.js?t=" + Math.ceil(new Date()/3600000);
+</script>
+</@idx.footer>
