@@ -1,0 +1,22 @@
+
+/* 展示封面 begin */
+.post{ font-size:12px; display:block; float:left; overflow:hidden;}
+.post .cover{ border:#ccc solid 1px; display:block; margin-bottom:5px; position:relative; overflow:hidden; zoom:1;}
+.post .cover a{ display:block; overflow:hidden; color:#bbb; position:relative;}
+.post .cover img{ display:block;}
+.post .cover .vPic{ position: absolute; top: 5px; right: 5px; background:url(../images/video.png) no-repeat; width:26px; height:26px; display:inline-block;}
+.post .cover .overlay{ height:60px; padding:20px 0 0 15px; color:#666; background:#fff; font-size:16px; font-weight:bold; position:absolute; bottom:0; width:100%; overflow:hidden; cursor:pointer; display:none;}
+.post li{ padding-left:3px; line-height:18px; height:18px; overflow:hidden; white-space:nowrap;}
+.post .nickname{ color:#666; font-weight:bold;}
+.post .nickname:hover{ color:#f09; text-decoration:underline;}
+.post label{ color:#cbcbcb; }
+.post span{ color:#999; }
+
+.big-post{ width:236px; margin:0 5px 10px 0px;} 
+.big-post .cover img{ width: 234px; height: 250px;}
+.big-post .cover .overlay{ height:60px; padding:20px 10px 0 15px; width:211px; line-height: 25px;}
+
+.small-post{ width:154px; margin:0 7px 10px 0px;} 
+.small-post .cover  img{ width: 152px; height: 162px;} 
+.small-post .cover .overlay{ height:40px; padding:12px 10px 0 10px; font-size:12px; width:134px; line-height:18px;} 
+/* 展示封面 end */

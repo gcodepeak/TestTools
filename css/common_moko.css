@@ -1,0 +1,642 @@
+
+@charset "utf-8";
+html {
+}
+body, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, dl, dd, hr, button {
+    margin: 0;
+    padding: 0;
+}
+body, h1, h2, h3, h4, h5, h6, pre {
+    font: 14px/1.231 "微软雅黑",arial,"宋体",sans-serif normal;
+}
+pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+ul {
+    list-style: none outside none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #666666;
+    height: 100%;
+}
+a {
+    color: #666666;
+    display: inline-block;
+    text-decoration: none;
+}
+a:hover {
+    color: #FF0099;
+}
+img {
+    border: 0 none;
+    display: block;
+    vertical-align: top;
+}
+input[type="text"], input[type="password"], textarea, select, .text {
+    outline: 0 none;
+    resize: none;
+}
+input[type="button"], input[type="submit"], button, .btn {
+    background-color: #FFFFFF;
+    color: #666666;
+    cursor: pointer;
+    font-family: "微软雅黑",arial,"宋体",sans-serif;
+    outline: 0 none;
+}
+section, article, aside, header, footer, nav, dialog, figure {
+    display: block;
+}
+.text {
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+}
+.tar {
+    text-align: right;
+}
+.tac {
+    text-align: center;
+}
+.tal {
+    text-align: left;
+}
+.dn {
+    display: none;
+}
+.over-zoom {
+    overflow: hidden;
+}
+.fwb, .weight700 {
+    font-weight: 700;
+}
+.fwn, .weight400 {
+    font-weight: normal;
+}
+.flr, .r {
+    float: right;
+}
+.fll, .l {
+    float: left;
+}
+.clb {
+    clear: both;
+}
+.fs8 {
+    font-size: 8px;
+}
+.fs10 {
+    font-size: 10px;
+}
+.fs12, .f12 {
+    font-size: 12px;
+}
+.fs16 {
+    font-size: 16px;
+}
+.fs18 {
+    font-size: 18px;
+}
+.fs20 {
+    font-size: 20px;
+}
+.fs30 {
+    font-size: 30px;
+}
+.cf09, input.cf09, .cf09 a, .mC {
+    color: #FF0099;
+}
+.ceee, input.ceee, .ceee a {
+    color: #EEEEEE;
+}
+.cccc, input.cccc, .cccc a {
+    color: #CCCCCC;
+}
+.c666, input.c666, .c666 a, .gC {
+    color: #666666;
+}
+.c999, input.c999, .c999 a, .g1mC {
+    color: #999999;
+}
+.c9c3, input.c9c3, .c9c3 a {
+    color: #99CC33;
+}
+.c333, input.c333, .c333 a {
+    color: #333333;
+}
+.cf03, input.cf03, .cf03 a {
+    color: #FF0099;
+}
+.tdu, .u {
+    text-decoration: underline;
+}
+a.iBd {
+    border: 1px solid #CCCCCC;
+}
+a.iBd:hover {
+    border-color: #FF0099;
+}
+.bd {
+    border: 1px solid #CCCCCC;
+}
+.oz {
+    overflow: hidden;
+}
+.w970 {
+    overflow: hidden;
+    width: 970px;
+}
+.w960 {
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 960px;
+}
+.w950 {
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 950px;
+}
+.outter-width {
+    overflow: hidden;
+    width: 105%;
+}
+.posa {
+    position: absolute;
+}
+.posr {
+    position: relative;
+}
+.break-word {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.nowarp {
+    white-space: nowrap;
+}
+.approve, .star-approve, .id-approve {
+    background: url("../images/approve.jpg?20120302") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.approve {
+    background-position: 0 2px;
+    display: inline-block;
+    height: 16px;
+    line-height: 18px;
+    margin-left: 5px;
+    vertical-align: top;
+    width: 13px;
+}
+.star-approve {
+    background-position: 0 -13px;
+    border: 1px solid #CCCCCC;
+    display: inline-block;
+    height: 25px;
+    width: 137px;
+}
+.id-approve {
+    background-position: 0 -41px;
+    display: inline-block;
+    height: 9px;
+    width: 13px;
+}
+.cp-label, .personal-label {
+    display: inline-block;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 82px;
+}
+.cp-label {
+    background: none repeat scroll 0 0 #32CCFE;
+    color: #FFFFFF;
+}
+.personal-label {
+    background: none repeat scroll 0 0 #EDEDED;
+    color: #999999;
+}
+.wrap {
+    margin: 0 auto;
+    padding: 30px 10px 80px;
+    width: 960px;
+}
+.index-module {
+    border-top: 2px solid #666666;
+    margin: 20px 0 40px;
+    overflow: hidden;
+}
+.index-module h3 {
+    color: #666666;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+}
+.index-module h3 .title {
+    background: url("../images/index_title.jpg?20120603") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    float: left;
+    font-size: 22px;
+    height: 50px;
+    line-height: 50px;
+    width: 110px;
+}
+.index-module .more {
+    color: #666666;
+    float: right;
+    text-decoration: underline;
+}
+.index-module .more2 {
+    color: #999999;
+    float: right;
+    font-weight: bold;
+}
+.index-module .more:hover, .index-module .more2:hover {
+    color: #FF0099;
+}
+.noborder-module {
+    border: medium none;
+}
+.post {
+    display: block;
+    float: left;
+    font-size: 12px;
+    overflow: hidden;
+}
+.post .cover {
+    border: 1px solid #CCCCCC;
+    display: block;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.post .cover a {
+    color: #BBBBBB;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+.post .cover img {
+    display: block;
+}
+.post .cover .vPic {
+    background: url("../images/video.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 26px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 26px;
+}
+.post .cover .overlay {
+    background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 0;
+    color: #666666;
+    cursor: pointer;
+    display: none;
+    font-size: 16px;
+    font-weight: bold;
+    height: 60px;
+    overflow: hidden;
+    padding: 20px 0 0 15px;
+    position: absolute;
+    width: 100%;
+}
+.post li {
+    height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    padding-left: 3px;
+    white-space: nowrap;
+}
+.post .nickname {
+    color: #666666;
+    font-weight: bold;
+}
+.post .nickname:hover {
+    color: #FF0099;
+    text-decoration: underline;
+}
+.post label {
+    color: #CBCBCB;
+}
+.post span {
+    color: #999999;
+}
+.big-post {
+    margin: 0 5px 10px 0;
+    width: 236px;
+}
+.big-post .cover img {
+    height: 250px;
+    width: 234px;
+}
+.big-post .cover .overlay {
+    height: 60px;
+    line-height: 25px;
+    padding: 20px 10px 0 15px;
+    width: 211px;
+}
+.small-post {
+    margin: 0 7px 10px 0;
+    width: 154px;
+}
+.small-post .cover img {
+    height: 162px;
+    width: 152px;
+}
+.small-post .cover .overlay {
+    font-size: 12px;
+    height: 40px;
+    line-height: 18px;
+    padding: 12px 10px 0;
+    width: 134px;
+}
+.index-user {
+    float: left;
+    font-size: 12px;
+    margin: 0 6px 10px 0;
+    width: 132px;
+}
+.index-user span.level {
+    color: #FF0099;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.index-user .cover {
+    border: 1px solid #CCCCCC;
+    display: block;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.index-user .cover a {
+    color: #BBBBBB;
+    display: block;
+    overflow: hidden;
+}
+.index-user .cover img {
+    height: 140px;
+    width: 130px;
+}
+.index-user .cover .overlay {
+    background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 0;
+    color: #666666;
+    cursor: pointer;
+    display: none;
+    font-size: 16px;
+    font-weight: bold;
+    height: 60px;
+    overflow: hidden;
+    padding: 20px 0 0 15px;
+    position: absolute;
+    width: 100%;
+}
+.index-user li {
+    line-height: 18px;
+    padding-left: 3px;
+}
+.index-user .nickname {
+    color: #666666;
+    font-weight: bold;
+}
+.index-user .nickname:hover {
+    color: #FF0099;
+    text-decoration: underline;
+}
+.index-user label {
+    color: #CBCBCB;
+}
+.index-user span {
+    color: #999999;
+}
+.big-label {
+    color: #FF0099;
+    display: inline-block;
+    float: left;
+    font-size: 32px;
+    line-height: 55px;
+}
+.big-label2 {
+    color: #CCCCCC;
+    float: left;
+    font-size: 24px;
+}
+.big-label2 a {
+    color: #CCCCCC;
+}
+.big-label2 a:hover {
+    color: #FF0099;
+}
+.page {
+    text-align: center;
+}
+.page a {
+    border: 1px solid #FFFFFF;
+    color: #333333;
+    height: 28px;
+    line-height: 28px;
+    margin: 0 3px;
+    padding: 0 10px;
+    text-align: center;
+}
+.page a:hover {
+    border-color: #FF0099;
+}
+.page a.active, .page a.mBC {
+    background: none repeat scroll 0 0 #FF0099;
+    border-color: #FF0099;
+    color: #FFFFFF;
+}
+.voc-color-28 {
+    color: #00CCFF;
+}
+.voc-color-23 {
+    color: #FF0099;
+}
+.voc-color-41 {
+    color: #99CC00;
+}
+.voc-color-151 {
+    color: #FFCC00;
+}
+.voc-color-148 {
+    color: #204363;
+}
+.voc-color-150 {
+    color: #653366;
+}
+.voc-color-53 {
+    color: #CC0000;
+}
+.voc-color-71 {
+    color: #FF6600;
+}
+.voc-color-94 {
+    color: #C7C7C7;
+}
+.public-dialog {
+    border: 1px solid #CCCCCC;
+    height: 200px;
+    overflow: hidden;
+    padding-bottom: 70px;
+    position: relative;
+    width: 450px;
+}
+.public-dialog .title {
+    border-bottom: 1px solid #CCCCCC;
+    color: #333333;
+    font-size: 18px;
+    font-weight: bold;
+    height: 48px;
+    line-height: 48px;
+    overflow: hidden;
+    padding: 0 15px;
+    position: relative;
+}
+.public-dialog .close {
+    color: #666666;
+    font-size: 24px;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    top: 0;
+    transition: all 1s ease-in-out 0s;
+}
+.public-dialog .close:hover {
+    color: #FF0099;
+    transform: rotate(1080deg);
+}
+.public-dialog .dialog-tip {
+    font-weight: bold;
+    margin-top: 110px;
+    text-align: center;
+}
+.public-dialog .buttons {
+    bottom: 20px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.public-dialog .buttons .btn {
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    margin: 0 20px;
+    width: 110px;
+}
+.comment-part {
+    background: none repeat scroll 0 0 #FFFFFF;
+    overflow: hidden;
+}
+.comment-part .no-login {
+    border: 1px dashed #FF0099;
+    margin: 100px auto 20px;
+    padding: 25px 43px 17px;
+    width: 254px;
+}
+.comment-part .no-login h3 {
+    border-bottom: 1px solid #E8E8E8;
+    line-height: 30px;
+}
+.comment-part .no-login b {
+    display: inline-block;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: middle;
+    width: 123px;
+}
+.comment-part .no-login ul {
+    margin-top: 5px;
+}
+.comment-part .no-login li {
+    margin: 5px 0;
+}
+.comment-part .comment {
+    margin: 100px auto 20px;
+    padding-left: 96px;
+    width: 662px;
+}
+.comment-part .comment h1 {
+    margin-bottom: 10px;
+}
+.comment-part .comment h1 span {
+    color: #FF0099;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.comment-part .comment .normal-btn {
+    font-size: 14px;
+    height: 28px;
+    vertical-align: top;
+    width: 86px;
+}
+.comment-part .comment .input-text {
+    height: 90px;
+    margin-right: 10px;
+    width: 543px;
+}
+.comment-part .comment .checkbox {
+    font-size: 12px;
+    line-height: 18px;
+    vertical-align: top;
+}
+.comment-part .comment .checkbox input {
+    margin: 0 5px 0 0;
+}
+.comment-part .comment-list {
+    color: #666666;
+    margin: 0 auto 100px;
+    width: 760px;
+}
+.comment-part .comment-list li {
+    border-top: 1px dashed #CCCCCC;
+    overflow: hidden;
+    padding: 10px 108px 10px 96px;
+}
+.comment-part .comment-list .icon {
+    border: 1px solid #CCCCCC;
+    float: left;
+}
+.comment-part .comment-list .icon:hover {
+    border-color: #FF0099;
+}
+.comment-part .comment-list .name {
+    color: #666666;
+    text-decoration: underline;
+}
+.comment-part .comment-list p {
+    line-height: 22px;
+    margin-left: 63px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.comment-part .comment-list .comment-ctrl {
+    margin-top: 20px;
+    text-align: right;
+}
+.comment-part .comment-list .comment-ctrl a {
+    color: #999999;
+    font-size: 12px;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+.comment-part .comment-list .comment-ctrl a:hover {
+    color: #FF0099;
+}
+.comment-part .comment-list .page {
+    margin: 0;
+}
+.comment-part .comment-list .page a {
+    color: #666666;
+}
+.comment-part .comment-list .page .wC {
+    color: #FFFFFF;
+}
+
