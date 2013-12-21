@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Zhubo #<?php echo $model->id; ?></h1>
+<h1>查看主播详细信息： 编号 #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

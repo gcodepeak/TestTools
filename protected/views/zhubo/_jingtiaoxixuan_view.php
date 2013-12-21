@@ -11,6 +11,8 @@
 	</div>
 	<li><label>秀场/</label><a href="<?php echo $data->site_id?>" title="<?php echo $data->site_id?>"
 		hidefocus="true" class="nickname" target="_blank"><?php echo $data->site_id?></a></li>
+	<li><?php echo $data->name?></span></li>
 	<li><label>等级/</label><span><?php echo $data->level?></span></li>
 	<li><label>粉丝/</label><span><?php echo $data->fans?></span></li>
+	<li><label>开播/</label><span><?php echo $data->last_live_time?></span></li>
 </ul>

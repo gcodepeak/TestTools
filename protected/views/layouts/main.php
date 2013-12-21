@@ -29,23 +29,36 @@
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
+<script>
+		window._bd_share_config={
+			"common":{"bdSnsKey":{},"bdText":"meilizhubo","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+			"share":{}
+		};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
 <body>
 
 <div class="container" id="page">
-	<!-- 
+	<!--p align="right">美播去哪儿</p>
+	<div class="bdsharebuttonbox" style="align:right">
+		<a href="#" class="bds_more" data-cmd="more"></a>
+		<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+		<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+	</div-->
+	
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Zhubo', 'url'=>array('/zhubo/admin')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Logo', 'url'=>array('/site/index')),
+				array('label'=>'主播大厅', 'url'=>array('/zhubo/homepage')),
+				array('label'=>'我的关注', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'收录站点', 'url'=>array('/site/contact')),
+				array('label'=>'网站合作', 'url'=>array('/site/contact')),
+				array('label'=>'登录', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'注销 ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
-	 -->
+		
 	</div><!-- mainmenu -->
 	<!-- 面包屑导航
 	<?php if(isset($this->breadcrumbs)):?>
@@ -64,6 +77,7 @@
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/xiu800_show.js");
 	?>
 	<!-- Baidu Button BEGIN -->
+	<!-- 
 	<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=7&amp;mini=1&amp;pos=left&amp;uid=1358571" ></script>
 	<script type="text/javascript" id="bdshell_js"></script>
 	<script type="text/javascript">
@@ -74,8 +88,10 @@
 		};
 		document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
 	</script>
-	<!-- Baidu Button END -->
+	 -->
+	 <!-- Baidu Button END -->
 	
+	<!--
 	<script id="bdaddtocite_shell"></script>
 	<script>
 		var bdShare_config_addtocite = {
@@ -101,6 +117,7 @@
 		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 	</script>
+	-->
 
 	<div id="footer">
 		<div class="foot-box clear">
@@ -132,8 +149,8 @@
 		</div>
 		<div class="t-copy">
 			<div class="t-share">
-				<a href="http://weibo.com/xiu800" target="_blank"><img class="i-sinawb" src="<?php Yii::getPathOfAlias('webroot')?>/images/transparent.gif" alt="新浪微博" /></a>
-				<a href="http://t.qq.com/xiu800" target="_blank"><img class="i-txwb" src="<?php Yii::getPathOfAlias('webroot')?>/images/transparent.gif" alt="腾讯微博" /></a>
+				<a href="http://weibo.com/xiu800" target="_blank"><img class="i-sinawb" src="/images/transparent.gif" alt="新浪微博" /></a>
+				<a href="http://t.qq.com/xiu800" target="_blank"><img class="i-txwb" src="/images/transparent.gif" alt="腾讯微博" /></a>
 			</div>
 			<p>© 2012-2021 meilizhubo.CN<br />
 				All rights reserved. <br />

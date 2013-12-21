@@ -85,28 +85,28 @@ class Zhubo extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'local_id' => 'Local',
-			'url' => 'Url',
-			'name' => 'Name',
-			'head_img' => 'Head Img',
-			'site_id' => 'Site',
-			'level' => 'Level',
-			'wealth_level' => 'Wealth Level',
-			'time_level' => 'Time Level',
-			'sex' => 'Sex',
-			'region' => 'Region',
-			'familys' => 'Familys',
-			'constellation' => 'Constellation',
-			'age' => 'Age',
-			'hots' => 'Hots',
-			'fans' => 'Fans',
-			'tags' => 'Tags',
-			'news_num' => 'News Num',
-			'news_photo_num' => 'News Photo Num',
-			'is_live' => 'Is Live',
-			'last_live_time' => 'Last Live Time',
-			'photos' => 'Photos',
+			'id' => '本站ID',
+			'local_id' => '原始ID',
+			'url' => '直播房间',
+			'name' => '昵称',
+			'head_img' => '头像',
+			'site_id' => '秀场',
+			'level' => '等级',
+			'wealth_level' => '财富等级',
+			'time_level' => '时间等级',
+			'sex' => '性别',
+			'region' => '地区',
+			'familys' => '家族',
+			'constellation' => '星座',
+			'age' => '年龄',
+			'hots' => '关注数',
+			'fans' => '粉丝数',
+			'tags' => '标签',
+			'news_num' => '动态数',
+			'news_photo_num' => '照片数',
+			'is_live' => '直播',
+			'last_live_time' => '上次直播时间',
+			'photos' => '照片链接',
 		);
 	}
 
@@ -146,6 +146,44 @@ class Zhubo extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+		));
+	}
+	
+	/**
+	 * 请求精挑细选主播
+	 * @param integer $tag_id ： 标签的ID
+	 * @return CActiveDataProvider
+	 */
+	public function jingtiaoxixuan($tag)
+	{
+		$criteria=new CDbCriteria;
+		$criteria->condition = 'tag=:tag';
+		
+		$criteria->params = array(
+			':tag' => $tag,
+		);
+		
+		return new CActiveDataProvider($this, array(
+			'criteria' => $criteria,
+		));
+	}
+	
+	/**
+	 * 请求最佳新人主播
+	 * @param integer $time ： 时间
+	 * @return CActiveDataProvider
+	 */
+	public function zuijiaxinren($time)
+	{
+		$criteria=new CDbCriteria;
+		$criteria->condition = 'time=:time';
+	
+		$criteria->params = array(
+				':time' => $time,
+		);
+	
+		return new CActiveDataProvider($this, array(
+				'criteria' => $criteria,
 		));
 	}
 }

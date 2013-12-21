@@ -8,10 +8,6 @@
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/common_moko.css" />
 
-<div>
-<h1>美丽主播<span>美播去哪儿？</span></h1>
-</div>
-
 <div class="index-module">
 	<h3>
 		<a href="" hidefocus="true" class="title"
@@ -63,5 +59,19 @@
 			<a href="" target="_blank" hidefocus="true">大富大贵</a>|
 			<a href="" target="_blank" hidefocus="true">历史悠久</a>|
 		</div>
+	</h3>
+</div>
+
+<div class="">
+	<h3>
+		<p>M Top 5</p>
+		<p>本周人气主播排行</p>
+	</h3>
+</div>
+
+<div class="">
+	<h3>
+		<p>$ Top 5</p>
+		<p>本周财富主播排行</p>
 	</h3>
 </div>
