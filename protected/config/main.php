@@ -7,9 +7,12 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Meilizhubo',
+	'name'=>'美丽主播',
 	'language'=>'zh_cn',
 	'charset'=>'UTF-8',
+	'defaultController'=>'zhubo',
+	//'layout' => 'main',
+	//'homeUrl'=>'/zhubo/homepage',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -72,11 +75,10 @@ return array(
 					'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				/*
+				
 				array(
 					'class'=>'CWebLogRoute',
 				),
-				*/
 			),
 		),
 	),
@@ -85,6 +87,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'wangming@baidu.com',
+		'adminEmail'=>'gcodepeak@gmail.com',
+		'pageTitle'=>'美丽主播 - 主播导航 - 美女视频 - 美女直播 - 视频聊天 - 视频交友',
 	),
 );

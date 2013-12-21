@@ -33,16 +33,6 @@
 <body>
 
 <div class="container" id="page">
-	<div id="header">
-		<!-- div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>  -->
-		<div class="top-tool" id="suggestAddToFav">
-			<div class="user-tool-bar">
-				<a class="btn-close" href="javascript:void(0);" onclick="closeSuggestAddToFav();">关闭</a>
-				按<span class="fcql fwb"> Ctrl+D </span>,把<span class="fwb">秀800</span>放入收藏夹，或点击 <a href="http://xiu800.cn/downloadDesktopUrl.html" title="下载后请将图标复制到您的桌面" class="fcql fwb ftu">+桌面图标</a>，赏鉴万千美女！ <a  class="fcw ftu" href="javascript:neverShowSuggestAddToFav();">不再提醒</a>
-			</div>
-		</div>
-	</div><!-- header -->
-
 	<!-- 
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(

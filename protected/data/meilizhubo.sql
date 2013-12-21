@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS `meilizhubo`;
+use meilizhubo;
 --
 -- Table structure for table `zhubo`
 --
