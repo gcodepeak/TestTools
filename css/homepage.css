@@ -1,22 +1,207 @@
+@charset "utf-8";
 
-/* 展示封面 begin */
-.post{ font-size:12px; display:block; float:left; overflow:hidden;}
-.post .cover{ border:#ccc solid 1px; display:block; margin-bottom:5px; position:relative; overflow:hidden; zoom:1;}
-.post .cover a{ display:block; overflow:hidden; color:#bbb; position:relative;}
-.post .cover img{ display:block;}
-.post .cover .vPic{ position: absolute; top: 5px; right: 5px; background:url(../images/video.png) no-repeat; width:26px; height:26px; display:inline-block;}
-.post .cover .overlay{ height:60px; padding:20px 0 0 15px; color:#666; background:#fff; font-size:16px; font-weight:bold; position:absolute; bottom:0; width:100%; overflow:hidden; cursor:pointer; display:none;}
-.post li{ padding-left:3px; line-height:18px; height:18px; overflow:hidden; white-space:nowrap;}
-.post .nickname{ color:#666; font-weight:bold;}
-.post .nickname:hover{ color:#f09; text-decoration:underline;}
-.post label{ color:#cbcbcb; }
-.post span{ color:#999; }
+body, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, dl, dd, hr, button {
+    margin: 0;
+    padding: 0;
+}
 
-.big-post{ width:236px; margin:0 5px 10px 0px;} 
-.big-post .cover img{ width: 234px; height: 250px;}
-.big-post .cover .overlay{ height:60px; padding:20px 10px 0 15px; width:211px; line-height: 25px;}
+body, h1, h2, h3, h4, h5, h6, pre, span {
+    font: 14px/1.231 "微软雅黑",arial,"宋体",sans-serif normal;
+}
 
-.small-post{ width:154px; margin:0 7px 10px 0px;} 
-.small-post .cover  img{ width: 152px; height: 162px;} 
-.small-post .cover .overlay{ height:40px; padding:12px 10px 0 10px; font-size:12px; width:134px; line-height:18px;} 
-/* 展示封面 end */
+/* 设定最顶上top N的格式 */
+.head_top_N {
+	background-color:rgb(235,209,250);
+	height:350px;
+	width:100%;
+	margin-bottom:20px;
+}
+
+.top14 {
+	width: 100%; 
+	height: 100%;
+}
+
+.top14 ul {
+	width: 100%;
+	position: relative;
+	margin-left: -15px;
+}
+
+.top14 li.head_cube {
+	display: inline-block;
+	list-style: none;
+	position: absolute;
+
+	width: 148px;
+	height: 114px;
+	margin: 1px 1px 1px 1px;
+}
+
+.top14 li.doublesize {
+	width: 298px;
+	height: 228px;
+}
+
+/* 设定右边侧栏 top 5的格式 */
+.right_top5 {
+	background-color: rgb(225,225,225); 
+	margin-right:40px;
+	margin-top:10px;
+}
+
+.gray {
+	color: #E5E5E5;
+}
+
+.bg-gray {
+	background-color: #E5E5E5;
+}
+
+.green {
+	color: #99CC33;
+}
+
+.bg-green {
+	background-color: #99CC33;
+}
+
+.bg-pink {
+	background-color: #FFE9F7;
+}
+
+.fs16 {
+	font-size: 16px;
+}
+
+.fs22 {
+	font-size: 22px;
+}
+
+.fs26 {
+	font-size: 26px;
+}
+
+#footer {
+	background-color: #f4f4f4;
+}
+
+/* 设置主播标签的格式 */
+.zhubo_tag {
+	background-color: #99CC33;
+	color: #ffffff;
+	padding: 6px 3px;
+  	font-size: 20px;
+  	line-height: 22px;
+  	border-radius: 3px;
+	text-align: center;
+	display: block;
+  	width: 100%;
+	float: right;
+}
+
+/* 设置精挑细选部分的样式 */
+p.zhubo {
+	position: relative;
+	display: block;
+}
+
+p.zhubo em {
+	display: block;
+	position: absolute;
+}
+
+.zhubo em.viewer {
+	z-index: 3;
+	height: 14px;
+	line-height: 42px;
+	color: #fff;
+	top: 139px;
+	right: 15px;
+}
+
+.zhubo em.viewer i {
+	display: inline-block;
+	height: 14px;
+	width: 12px;
+	overflow: hidden;
+	background: url(http://vr2.6.cn/imges/live2013/mmlist_num.png) no-repeat 0 1px;
+	_background-image: url(http://vr2.6.cn/imges/live2013/mmlist_num_ie.gif);
+	vertical-align: center;
+	margin-right: 3px;
+}
+
+.zhubo em.bg {
+	display: inline-block;
+	z-index: 2;
+	left: 0;
+	top: 139px;
+	width: 235px;
+	height: 42px;
+	background: #000;
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+
+.zhubo em.play {
+	z-index: 1;
+	display: none;
+	width: 235px;
+	height: 180px;
+	top: 0;
+	background: url(http://vr2.6.cn/imges/live2013/mmlist_play_v1.png) no-repeat 0 0;
+	_background: 0;
+}
+
+/* 设置最佳新人部分 */
+p.best_newer {
+	position: relative;
+	display: block;
+}
+
+p.best_newer em {
+	display: block;
+	position: absolute;
+}
+
+.best_newer em.viewer {
+	z-index: 3;
+	height: 14px;
+	line-height: 23px;
+	color: #fff;
+	top: 92px;
+	right: 15px;
+}
+
+.best_newer em.viewer i {
+	display: inline-block;
+	height: 14px;
+	width: 12px;
+	overflow: hidden;
+	background: url(http://vr2.6.cn/imges/live2013/mmlist_num.png) no-repeat 0 1px;
+	_background-image: url(http://vr2.6.cn/imges/live2013/mmlist_num_ie.gif);
+	vertical-align: center;
+	margin-right: 3px;
+}
+
+.best_newer em.bg {
+	display: inline-block;
+	z-index: 2;
+	left: 0;
+	top: 92px;
+	width: 153px;
+	height: 23px;
+	background: #000;
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+
+.best_newer em.play {
+	z-index: 1;
+	display: none;
+	width: 153px;
+	height: 115px;
+	top: 0;
+	background: url(http://vr2.6.cn/imges/live2013/mmlist_play_v1.png) no-repeat 0 0;
+	_background: 0;
+}
