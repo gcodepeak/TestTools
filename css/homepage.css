@@ -70,6 +70,10 @@ body, h1, h2, h3, h4, h5, h6, pre, span {
 	background-color: #FFE9F7;
 }
 
+.fs8 {
+	font-size: 8px;
+}
+
 .fs16 {
 	font-size: 16px;
 }

@@ -133,9 +133,34 @@ class ZhuboController extends Controller
 	
 	public function actionHomepage()
 	{
-		$dataProvider=new CActiveDataProvider('Zhubo');
+		$jingtiaoxixuan_criteria=new CDbCriteria;
+		$jingtiaoxixuan_criteria->limit = 8;
+		
+		
+		$jingtiaoxixuan_dataProvider=new CActiveDataProvider('Zhubo',
+			array('criteria'=> $jingtiaoxixuan_criteria,
+					 'pagination'=>FALSE));
+		
+		$zuijiaxinren_criteria=new CDbCriteria;
+		$zuijiaxinren_criteria->limit = 12;
+		
+		$zuijiaxinren_dataProvider=new CActiveDataProvider('Zhubo',
+				array('criteria'=> $zuijiaxinren_criteria,
+		 				'pagination'=>FALSE));
+		
+		$top5_criteria=new CDbCriteria;
+		$top5_criteria->limit = 5;
+		
+		
+		$top5_dataProvider=new CActiveDataProvider('Zhubo',
+				array('criteria'=> $top5_criteria,
+						 'pagination'=>FALSE));
+		
+		
 		$this->render('homepage',array(
-				'dataProvider'=>$dataProvider,
+				'jingtiaoxixuan_dataProvider'=>$jingtiaoxixuan_dataProvider,
+				'zuijiaxinren_dataProvider'=>$zuijiaxinren_dataProvider,
+				'top5_dataProvider'=>$top5_dataProvider,
 		));
 	}
 

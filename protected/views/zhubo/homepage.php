@@ -30,30 +30,46 @@
         	
         	<div class="row" id="jingtiaoxixuan">
         		<?php $this->widget ( 'zii.widgets.CListView', array (
-						'dataProvider' => $dataProvider,
+						'dataProvider' => $jingtiaoxixuan_dataProvider,
 						'enablePagination'=>false,
 						'itemView' => '_jingtiaoxixuan_view',
         				'summaryText'=>'',
 				));?>
         	</div><!--/row-->
         	
-        	<!-- 最佳新人部分 -->    	      
-		    <hr color=#99CC33 size=3>
+        	<!-- 最佳新人部分 -->
+        	<div class="row">
+        		<HR color=#99CC33 SIZE=5>
+        		<HR align=center width=300 color="red" SIZE=1>
+        	</div>    	      
+		    
 		    <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-        		<div class="col-md-3"><span style="font-size: 26px;">最佳新人</span></div>
-        		<div class="col-md-9 pull-right">
-        			<a href="" target="_blank" hidefocus="true">一周内</a>|
-					<a href="" target="_blank" hidefocus="true">两周内</a>|
-					<a href="" target="_blank" hidefocus="true">一月内</a>|
+        		<div class="col-md-3"><span class="green" style="font-size: 26px;">最佳新人</span></div>
+        		<div class="col-md-3 col-md-offset-6">
+        			<a href="" target="_blank" hidefocus="true">一周内</a>
+					<a href="" target="_blank" hidefocus="true">两周内</a>
+					<a href="" target="_blank" hidefocus="true">一月内</a>
         		</div>
         	</div> 
 		    <div class="row" id="zuijiaxinren">
 		    	<?php $this->widget ( 'zii.widgets.CListView', array (
-						'dataProvider' => $dataProvider,
+						'dataProvider' => $zuijiaxinren_dataProvider,
 						'enablePagination'=>false,
 						'itemView' => '_zuijiaxinren_view',
         				'summaryText'=>'',
 				));?>
+		    </div>
+		    
+		    <!-- 主播家族部分 -->    	      
+		    <hr color=#99CC33 size=3>
+		    <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+		    	<div class="col-md-4"><span style="color: red;font-size: 26px">主播家族</span> ANCHOR FAMILY</div>
+				<div class="col-md-4 col-md-offset-4">
+					<a href="" target="_blank" hidefocus="true" class="label label-default">主播最多</a>
+					<a href="" target="_blank" hidefocus="true" class="label label-warning">粉丝最多</a>
+					<a href="" target="_blank" hidefocus="true" class="label label-success">大富大贵</a>
+					<a href="" target="_blank" hidefocus="true" class="label label-danger">历史悠久</a>
+				</div>
 		    </div>
         </div><!--/span-->
         
@@ -62,7 +78,7 @@
 		    <div class="row gray"><span class="fs22">本周人气主播排行</span></div>
 		    <div class="row" id="top_hots_5">
         		<?php $this->widget ( 'zii.widgets.CListView', array (
-						'dataProvider' => $dataProvider,
+						'dataProvider' => $top5_dataProvider,
 						'enablePagination'=>false,
 						'itemView' => '_top_5',
         				'summaryText'=>'',
@@ -73,7 +89,7 @@
 		    <div class="row gray"><span class="fs22">本周财富主播排行</span></div>
 		    <div class="row" id="top_wealth_5">
         		<?php $this->widget ( 'zii.widgets.CListView', array (
-						'dataProvider' => $dataProvider,
+						'dataProvider' => $top5_dataProvider,
 						'enablePagination'=>false,
 						'itemView' => '_top_5',
         				'summaryText'=>'',

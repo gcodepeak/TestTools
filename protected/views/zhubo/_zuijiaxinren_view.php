@@ -20,6 +20,6 @@
 		<span class="fs16"><?php echo $data->name?></span>
 	</div>
 	<div class="row gray">
-		<span>开播:<?php echo $data->last_live_time?></span>
+		<span class="fs8">开播:<?php echo $data->last_live_time;?></span>
 	</div>
 </div>
