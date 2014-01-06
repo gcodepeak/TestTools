@@ -17,7 +17,7 @@
 		</p>
 	</div>
 	<div class="row gray">
-		<span class="fs16"><?php echo $data->name?></span>
+		<span class="fs14"><?php echo $data->name?></span>
 	</div>
 	<div class="row gray">
 		<span class="fs8">开播:<?php echo $data->last_live_time;?></span>

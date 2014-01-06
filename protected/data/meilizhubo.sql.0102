@@ -1,0 +1,71 @@
+-- MySQL dump 10.13  Distrib 5.1.71, for redhat-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: meilizhubo
+-- ------------------------------------------------------
+-- Server version	5.1.71
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `zhubo`
+--
+
+DROP TABLE IF EXISTS `zhubo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `zhubo` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `local_id` int(10) unsigned DEFAULT NULL,
+  `url` varchar(64) DEFAULT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  `head_img` varchar(128) DEFAULT NULL,
+  `site_id` tinyint(4) DEFAULT NULL,
+  `level` tinyint(4) DEFAULT NULL,
+  `wealth_level` tinyint(4) DEFAULT NULL,
+  `time_level` tinyint(4) DEFAULT NULL,
+  `sex` tinyint(4) DEFAULT NULL,
+  `region` varchar(32) DEFAULT NULL,
+  `familys` varchar(128) DEFAULT NULL,
+  `constellation` varchar(16) DEFAULT NULL,
+  `age` tinyint(3) unsigned DEFAULT NULL,
+  `hots` int(10) unsigned DEFAULT NULL,
+  `fans` int(10) unsigned DEFAULT NULL,
+  `tags` varchar(128) DEFAULT NULL,
+  `news_num` int(10) unsigned DEFAULT NULL,
+  `news_photo_num` int(10) unsigned DEFAULT NULL,
+  `is_live` tinyint(4) DEFAULT NULL,
+  `last_live_time` datetime DEFAULT NULL,
+  `photos` mediumtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='the zhubo';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `zhubo`
+--
+
+LOCK TABLES `zhubo` WRITE;
+/*!40000 ALTER TABLE `zhubo` DISABLE KEYS */;
+INSERT INTO `zhubo` VALUES (1,1001,'http://xiu.56.com/9998','最爱棒棒糖','http://uface.xiu.56img.com/photo/21/45/qq-bcfaaabhyw_b_56.com_.jpg',1,1,22,0,0,'保密','非常非凡','保密',0,192,192,'',0,0,0,'2013-12-08 12:00:00',''),(2,1010,'http://xiu.56.com/9925','小表妹','http://uface.xiu.56img.com/photo/9/94/a158765339_b_56.com_.jpg',1,9,14,25,2,'保密','✿真小小王国ﾟ{}狼堡{}弦月神曲{}倾城','保密',0,61816,61417,'可爱',140,35,0,'2013-12-05 21:47:00',''),(3,1017,'http://xiu.56.com/9921','❤。洛朵朵﹌','http://uface.xiu.56img.com/photo/12/73/love7duoduo_b_56.com_.jpg',1,0,16,23,2,'保密','❀滔天传说°{}优你陪伴真好{}❉灬女王范儿ら','保密',0,28823,28302,'可爱,活泼,靓号贵族,小清新',1,1,0,'2013-12-04 21:29:00',''),(4,1018,'http://xiu.56.com/9920','ＴＭＤ、花火','http://uface.xiu.56img.com/photo/11/1/r455306721_b_56.com_.jpg',1,4,20,0,0,'保密','❀滔天传说°{}☆浅陌╮花开°{}优你陪伴真好{}梦','保密',0,404,403,'',0,0,1,'0000-00-00 00:00:00',''),(5,1030,'http://xiu.56.com/9858\r\n','懵懵懂懂的肉肉\r\n','http://uface.xiu.56img.com/photo/52/23/pingxiaogai520_b_56.com_.jpg',1,1,10,13,2,'保密','星月家族{}゛Ｃhinａ{}❤懿芯蘭❤\r\n','保密',0,12031,12031,'靓号贵族\r\n',86,55,0,'2013-12-10 01:51:37',NULL),(6,1031,'http://xiu.56.com/9770\r\n','最爱小米\r\n','http://uface.xiu.56img.com/photo/46/39/qq-ohroobidpn_b_56.com_.jpg',1,0,19,0,0,'保密','❀滔天传说°{}☜朵朵守护☞{}小米家\r\n','保密',0,752,752,NULL,0,0,1,NULL,NULL),(7,1129,'http://xiu.56.com/9200\r\n','筱筱筱〃\r\n','http://uface.xiu.56img.com/photo/90/71/aimomo131_b_56.com_.jpg',1,8,16,24,2,'保密',NULL,'保密',0,17113,17113,'活泼,好声音,小清新,可爱\r\n',2,2,1,NULL,NULL),(8,1314,'http://xiu.56.com/9011\r\n','℡╰つ狐美美\r\n','http://uface.xiu.56img.com/photo/65/95/q124025222_b_56.com_.jpg',1,7,13,23,2,'浙江省 衢州市\r\n','☂゛皇室家族灬{}兄弟之盟{}♪゜唯美一族{}今天你微笑了吗\r\n','保密',0,14642,14482,'小清新,可爱,活泼\r\n',8,7,0,'2013-12-10 01:51:37',NULL),(9,1379,'http://xiu.56.com/9009\r\n','看什么看.Gun\r\n','http://uface.xiu.56img.com/photo/28/59/qq-76058949_b_56.com_.jpg',1,7,13,16,2,'北京市','Baby{}梦{}夜貓°\r\n','保密',0,23555,23348,'好声音,活泼,小清新,可爱\r\n',0,0,1,NULL,NULL),(10,2258,'http://xiu.56.com/6999\r\n','ヾ★ゞ颜。。\r\n','http://uface.xiu.56img.com/photo/15/96/baijiaxiaoxi_b_56.com_.jpg',1,6,12,11,2,'保密','★佳人★归来★\r\n','保密',0,10233,10100,'活泼,好声音,靓号贵族\r\n',0,0,1,NULL,NULL),(11,2999,'http://xiu.56.com/6699\r\n','Maomao*\r\n','http://uface.xiu.56img.com/photo/62/23/qq372169283_b_56.com_.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(12,3003,'http://xiu.56.com/6698\r\n','нoゝ伊人、美\r\n','http://uface.xiu.56img.com/photo/25/53/z342979285_b_56.com_.jpg',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `zhubo` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-01-02  0:46:34

@@ -1,8 +1,8 @@
+
 <?php
 
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
-Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
@@ -13,7 +13,7 @@ return array(
 	'charset'=>'UTF-8',
 	'defaultController'=>'zhubo',
 	//'layout' => 'main',
-	//'homeUrl'=>'/zhubo/homepage',
+	'homeUrl'=>'',
 
 	// preloading 'log' component
 	'preload'=>array('log'),

@@ -51,7 +51,7 @@ body, h1, h2, h3, h4, h5, h6, pre, span {
 }
 
 .gray {
-	color: #E5E5E5;
+	color: #989898;
 }
 
 .bg-gray {
@@ -72,6 +72,10 @@ body, h1, h2, h3, h4, h5, h6, pre, span {
 
 .fs8 {
 	font-size: 8px;
+}
+
+.fs14 {
+	font-size: 14px;
 }
 
 .fs16 {
@@ -208,4 +212,46 @@ p.best_newer em {
 	top: 0;
 	background: url(http://vr2.6.cn/imges/live2013/mmlist_play_v1.png) no-repeat 0 0;
 	_background: 0;
+}
+
+
+/* 主播家族部分 */
+/* 主播最多标签 */
+.label-zhubozuiduo {
+  background-color: #989898;
+}
+
+.label-zhubozuiduo[href]:hover,
+.label-zhubozuiduo[href]:focus {
+  background-color: #808080;
+}
+
+/* 粉丝最多 */
+.label-fensizuiduo {
+  background-color: #FFCC00;
+}
+
+.label-fensizuiduo[href]:hover,
+.label-fensizuiduo[href]:focus {
+  background-color: #808080;
+}
+
+/* 大富大贵 */
+.label-dafudagui {
+  background-color: #99CC00;
+}
+
+.label-dafudagui[href]:hover,
+.label-dafudagui[href]:focus {
+  background-color: #808080;
+}
+
+/* 历史悠久 */
+.label-lishiyoujiu {
+  background-color: #FF6600;
+}
+
+.label-lishiyoujiu[href]:hover,
+.label-lishiyoujiu[href]:focus {
+  background-color: #808080;
 }

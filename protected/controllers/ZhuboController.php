@@ -31,7 +31,7 @@ class ZhuboController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','homepage'),
+				'actions'=>array('index','view','homepage','jingtiaoxixuan','zuijiaxinren'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -133,6 +133,13 @@ class ZhuboController extends Controller
 	
 	public function actionHomepage()
 	{
+		$top_14_criteria=new CDbCriteria;
+		$top_14_criteria->limit = 14;
+		
+		$top_14_dataProvider=new CActiveDataProvider('Zhubo',
+				array('criteria'=> $top_14_criteria,
+						'pagination'=>FALSE));
+		
 		$jingtiaoxixuan_criteria=new CDbCriteria;
 		$jingtiaoxixuan_criteria->limit = 8;
 		
@@ -156,12 +163,57 @@ class ZhuboController extends Controller
 				array('criteria'=> $top5_criteria,
 						 'pagination'=>FALSE));
 		
-		
 		$this->render('homepage',array(
+				'top_14_dataProvider'=>$top_14_dataProvider,
 				'jingtiaoxixuan_dataProvider'=>$jingtiaoxixuan_dataProvider,
 				'zuijiaxinren_dataProvider'=>$zuijiaxinren_dataProvider,
 				'top5_dataProvider'=>$top5_dataProvider,
 		));
+	}
+	
+	/* ajax */
+	public function actionJingtiaoxixuan()
+	{
+		//if(Yii::app()->request->isAjaxRequest){
+		
+		if(isset($_GET['tag']))
+		{
+			$jingtiaoxixuan_criteria=new CDbCriteria;
+			$jingtiaoxixuan_criteria->limit = 8;
+			if ($_GET['tag'] != '') {
+				$jingtiaoxixuan_criteria->addCondition("tags = :tag");
+				$jingtiaoxixuan_criteria->params[':tag']=$_GET['tag'];
+			}
+			
+			$jingtiaoxixuan_dataProvider=new CActiveDataProvider('Zhubo',
+					array('criteria'=> $jingtiaoxixuan_criteria,
+							'pagination'=>FALSE));
+		}
+	
+		$this->renderPartial("_jingtiaoxixuan",
+				array('dataProvider'=>$jingtiaoxixuan_dataProvider));
+	}
+	
+	/* ajax */
+	public function actionZuijiaxinren()
+	{
+		if(isset($_GET['time']))
+		{
+			$zuijiaxinren_criteria=new CDbCriteria;
+			$zuijiaxinren_criteria->limit = 12;
+		
+			if ($_GET['time'] != '') {
+				//$jingtiaoxixuan_criteria->addCondition("tags = :tag");
+				//$jingtiaoxixuan_criteria->params[':tag']=$_GET['tag'];
+			}
+				
+			$zuijiaxinren_dataProvider=new CActiveDataProvider('Zhubo',
+				array('criteria'=> $zuijiaxinren_criteria,
+		 				'pagination'=>FALSE));
+		}
+	
+		$this->renderPartial("_zuijiaxinren",
+				array('dataProvider'=>$zuijiaxinren_dataProvider));
 	}
 
 	/**
