@@ -8,7 +8,7 @@
 	
 	<div class="row" cover-text="<?php echo $data->name?>">
 		<p class="zhubo">
-		<a href="<?php echo $data->url?>" target="_blank"><img style="width: 235px; height: 180px;"
+		<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$data->id,))?>" target="_blank"><img style="width: 235px; height: 180px; border:#E5E5E5 1px solid"
 			src="<?php echo $data->head_img?>" alt="<?php echo $data->name?>" />
 			<em class="bg"></em>
 			<em class="viewer"><em style="right:215px;"><?php echo $data->site_id;?></em><i></i><?php echo $data->hots?></em>

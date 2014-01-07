@@ -64,6 +64,8 @@
 						array('dataProvider'=>$jingtiaoxixuan_dataProvider)); 
 				?>
         	</div>
+        	
+        	
         	<!-- 最佳新人部分 -->
         	<div class="row">
         		<HR color=#99CC33 SIZE=5>
@@ -109,7 +111,7 @@
 		    		<span style="color:#FE089F;font-size: 26px">主播家族</span>
 		    		<span class="gray" style="font-size:26px">ANCHOR FAMILY</span>
 		    		</div>
-				<div class="col-md-4 col-md-offset-2 pull-right">
+				<div class="col-md-5 col-md-offset-1 pull-right">
 					<a href="" target="_blank" hidefocus="true" class="label label-zhubozuiduo">&nbsp主播最多&nbsp</a>
 					<a href="" target="_blank" hidefocus="true" class="label label-fensizuiduo">&nbsp粉丝最多&nbsp</a>
 					<a href="" target="_blank" hidefocus="true" class="label label-dafudagui">&nbsp大富大贵&nbsp</a>

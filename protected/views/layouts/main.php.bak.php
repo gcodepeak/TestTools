@@ -74,12 +74,12 @@
 							<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
 						</div>
 					</div>
-				</div>				
+				</div>
 
 				<!-- the head of home page -->				
-			  	<div class="navbar" role="navigation">
-			  		<div class="collapse navbar-collapse">
-				    	<ul class="nav navbar-nav nav-justified">
+				<div class="navbar navbar-default" role="navigation">
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+					    <ul class="nav navbar-nav pull-right">
 					        <li >
 								<a href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>">主播大厅</a></li>
 							<li class="disabled">
@@ -87,17 +87,27 @@
 							<li class="dropdown">
 								<a class="dropdown-toggle" data-toggle="dropdown" href="#">收藏站点<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">56我秀</a></li>
-									<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">9158</a></li>
-									<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">6间房</a></li>
-									<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">酷狗繁星</a></li>
-									<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">搜狐秀场</a></li>
+									<li><a href="<?php echo Yii::app()->createUrl('zhubo/show')?>">56我秀</a></li>
+									<li><a href="<?php echo Yii::app()->createUrl('zhubo/show')?>">9158</a></li>
+									<li><a href="<?php echo Yii::app()->createUrl('zhubo/show')?>">6间房</a></li>
+									<li><a href="<?php echo Yii::app()->createUrl('zhubo/show')?>">酷狗繁星</a></li>
+									<li><a href="<?php echo Yii::app()->createUrl('zhubo/show')?>">搜狐秀场</a></li>
 								</ul></li>
 							<li><a href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>">网站合作</a></li>
 							<li><a href="<?php echo Yii::app()->createUrl('zhubo/admin');?>">管理主播</a></li>
-					    </ul>
-			    	</div>
-			   </div>   
+					    </ul>   
+					</div>
+				</div>
+				<script>
+					$('.navbar li a').click(function(e) {
+					    $('.navbar li').removeClass('active');
+					    var $parent = $(this).parent();
+				        if (!$parent.hasClass('active')) {
+				            $parent.addClass('active');
+				        }
+				        //e.preventDefault();
+					});
+				</script>
 			</div>
 		</div>
 
@@ -158,5 +168,16 @@
 
 	</div>
 	<!-- page -->
+<script type="text/javascript">
+	$(document).ready(function () {
+	    /*var url = window.location;
+	    $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+	    $('ul.nav a').filter(function() {
+	         return this.href == url;
+	    }).parent().addClass('active');
+		*/    
+	};
+
+</script>
 </body>
 </html>
