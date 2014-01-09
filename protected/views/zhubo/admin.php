@@ -39,29 +39,29 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'local_id',
+		//'local_id',
 		'url',
 		'name',
-		'head_img',
+		//'head_img',
 		'site_id',
-		/*
+		
 		'level',
 		'wealth_level',
 		'time_level',
 		'sex',
 		'region',
 		'familys',
-		'constellation',
-		'age',
+		//'constellation',
+		//'age',
 		'hots',
 		'fans',
 		'tags',
-		'news_num',
-		'news_photo_num',
+		//'news_num',
+		//'news_photo_num',
 		'is_live',
 		'last_live_time',
-		'photos',
-		*/
+		//'photos',
+		
 		array(
 			'class'=>'CButtonColumn',
 		),

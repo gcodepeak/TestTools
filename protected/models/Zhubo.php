@@ -104,7 +104,7 @@ class Zhubo extends CActiveRecord
 			'tags' => '标签',
 			'news_num' => '动态数',
 			'news_photo_num' => '照片数',
-			'is_live' => '直播',
+			'is_live' => '正在直播',
 			'last_live_time' => '上次直播时间',
 			'photos' => '照片链接',
 		);

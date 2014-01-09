@@ -14,14 +14,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="form-group">
-		<?php echo $form->labelEx($model,'local_id',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'local_id',array('size'=>10,'maxlength'=>10,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'local_id'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
 		<?php echo $form->labelEx($model,'url',array('class'=>'col-sm-2 control-label',)); ?>
 		<div class="col-sm-10">
 		<?php echo $form->textField($model,'url',array('size'=>60,'maxlength'=>64,'class'=>'form-control')); ?>
@@ -30,50 +22,10 @@
 	</div>
 
 	<div class="form-group">
-		<?php echo $form->labelEx($model,'name',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>64,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'name'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
 		<?php echo $form->labelEx($model,'head_img',array('class'=>'col-sm-2 control-label',)); ?>
 		<div class="col-sm-10">
 		<?php echo $form->textField($model,'head_img',array('size'=>60,'maxlength'=>128,'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'head_img'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'site_id',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'site_id',array('class'=>'form-control')); ?>
-		<?php echo $form->error($model,'site_id'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'level',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'level',array('class'=>'form-control')); ?>
-		<?php echo $form->error($model,'level'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'wealth_level',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'wealth_level',array('class'=>'form-control')); ?>
-		<?php echo $form->error($model,'wealth_level'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'time_level',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'time_level',array('class'=>'form-control')); ?>
-		<?php echo $form->error($model,'time_level'); ?>
 		</div>
 	</div>
 
@@ -118,42 +70,10 @@
 	</div>
 
 	<div class="form-group">
-		<?php echo $form->labelEx($model,'hots',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'hots',array('size'=>10,'maxlength'=>10,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'hots'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'fans',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'fans',array('size'=>10,'maxlength'=>10,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'fans'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
 		<?php echo $form->labelEx($model,'tags',array('class'=>'col-sm-2 control-label',)); ?>
 		<div class="col-sm-10">
 		<?php echo $form->textField($model,'tags',array('size'=>60,'maxlength'=>128,'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'tags'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'news_num',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'news_num',array('size'=>10,'maxlength'=>10,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'news_num'); ?>
-		</div>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'news_photo_num',array('class'=>'col-sm-2 control-label',)); ?>
-		<div class="col-sm-10">
-		<?php echo $form->textField($model,'news_photo_num',array('size'=>10,'maxlength'=>10,'class'=>'form-control')); ?>
-		<?php echo $form->error($model,'news_photo_num',array('class'=>'form-control')); ?>
 		</div>
 	</div>
 

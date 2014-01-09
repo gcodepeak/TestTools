@@ -1,17 +1,17 @@
 <?php
 
-class ShowSiteController extends Controller
+class FamilyController extends Controller
 {
 	public $layout='//layouts/column1';
 	
 	public function actionIndex()
 	{
-		if(isset($_GET['site_id']) && $_GET['site_id'] != "")
-		{
+		//if(isset($_GET['familyName']) && $_GET['familyName'] != "")
+		if(true){
 			$criteria=new CDbCriteria;
 			$criteria->limit = 250;
-			$criteria->addCondition("site_id = :site_id");
-			$criteria->params[':site_id']=$_GET['site_id'];
+			//$criteria->addCondition("family = :familyName");
+			//$criteria->params[':familyName']=$_GET['familyName'];
 		
 			$dataProvider=new CActiveDataProvider('Zhubo', array(
 					'criteria'=> $criteria,
@@ -19,13 +19,15 @@ class ShowSiteController extends Controller
 			            'defaultOrder'=>'id ASC', 
 			        ),
 			        'pagination'=>array( 
-			            'pageSize'=>6, 
+			            'pageSize'=>5, 
 			        ), 	
 			));
 		}
 		
-		$this->render("index",
-				array('siteName'=>"56我秀",'dataProvider'=>$dataProvider));
+		$this->render("index",array(
+				'familyName'=>"江湖|兄弟姐妹族",'dataProvider'=>$dataProvider,
+				
+		));
 	}
 
 	// Uncomment the following methods and override them if needed

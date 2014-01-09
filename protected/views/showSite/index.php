@@ -10,30 +10,34 @@
 		</div>
 		<div class="col-md-1">
 			<?php echo CHtml::ajaxLink(  
-			     '<span class="label label-zhubozuiduo">&nbsp主播最多&nbsp</span>',  
+			     '&nbsp主播最多&nbsp',  
 			     array('showsite/zhubo', 'tag' =>'zhubozuiduo'), // Yii URL  
-			     array('update' => '#_zhubo_of_site')// jQuery selector
+			     array('update' => '#_zhubo_of_site'),// jQuery selector
+			     array('class'=>"label label-zhubozuiduo")
 			); ?>
 		</div>
 		<div class="col-md-1">
 			<?php echo CHtml::ajaxLink(  
-			     '<span class="label label-fensizuiduo">&nbsp粉丝最多&nbsp</span>',  
+			     '&nbsp粉丝最多&nbsp',  
 			     array('showsite/zhubo', 'tag' =>'fensizuiduo'), // Yii URL  
-			     array('update' => '#_zhubo_of_site')// jQuery selector
+			     array('update' => '#_zhubo_of_site'),// jQuery selector
+			     array('class'=>"label label-fensizuiduo")
 			); ?>
 		</div>
 		<div class="col-md-1">
 			<?php echo CHtml::ajaxLink(  
-			     '<span class="label label-dafudagui">&nbsp大富大贵&nbsp</span>',  
+			     '&nbsp大富大贵&nbsp',  
 			     array('showsite/zhubo', 'tag' =>'dafudagui'), // Yii URL  
-			     array('update' => '#_zhubo_of_site')// jQuery selector
+			     array('update' => '#_zhubo_of_site'),// jQuery selector
+			     array('class'=>"label label-dafudagui")
 			); ?>
 		</div>
 		<div class="col-md-1">
 			<?php echo CHtml::ajaxLink(  
-			     '<span class="label label-lishiyoujiu">&nbsp历史悠久&nbsp</span>',  
+			     '&nbsp历史悠久&nbsp',  
 			     array('showsite/zhubo', 'tag' =>'lishiyoujiu'), // Yii URL  
-			     array('update' => '#_zhubo_of_site')// jQuery selector
+			     array('update' => '#_zhubo_of_site'),// jQuery selector
+			     array('class'=>"label label-lishiyoujiu")
 			); ?>
 		</div>
     </div>

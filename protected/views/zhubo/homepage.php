@@ -68,9 +68,8 @@
         	
         	<!-- 最佳新人部分 -->
         	<div class="row">
-        		<HR color=#99CC33 SIZE=5>
-        		<HR align=center width=300 color="red" SIZE=1>
-        	</div>    	      
+        		<hr style="height:1px;border:1px solid #99CC33; background-color:#99CC33"></hr>
+        	</div>     
 		    
 		    <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
         		<div class="col-md-6  pull-left">
@@ -105,7 +104,10 @@
 		    </div>
 		    
 		    <!-- 主播家族部分 -->    	      
-		    <hr color=#99CC33 size=3>
+		    <div class="row">
+        		<hr style="height:1px;border:1px solid #FE089F; background-color:#FE089F"></hr>
+        	</div>  
+        	
 		    <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
 		    	<div class="col-md-6 pull-left">
 		    		<span style="color:#FE089F;font-size: 26px">主播家族</span>
@@ -120,7 +122,7 @@
 		    </div>
         </div><!--/span-->
         
-        <div class="col-md-2" id="right_top5" style="margin-top:20px">
+        <div class="col-md-2 pull-right" id="right_top5" style="margin-top:20px;">
         	<div class="row green"><span class="fs22">MTop 5</span></div>
 		    <div class="row gray"><span class="fs22">本周人气主播排行</span></div>
 		    <div class="row" id="top_hots_5">
