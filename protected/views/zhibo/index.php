@@ -1,10 +1,13 @@
 <?php
 /* @var $this ZhiboController */
 ?>
+<script>
+		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89343201.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
 <div class="container" style="width: 100%;padding: 0 15px;">
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-2" style="background-color: #eee;">
 			<div class="row" style="background-color: #BA2C49;">
 				<div class="col-md-8">
 					<a href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>"><img style="width: 90px; height: 30px; border:#E5E5E5 1px solid"
@@ -26,16 +29,24 @@
 					<div class="row gray" style="margin-top:5px;margin-bottom:5px;">开播时间&nbsp/&nbsp 00:00</div>
 					<div class="row gray" style="margin-top:5px;margin-bottom:5px;">观众人数&nbsp/&nbsp<?php echo $zhubo->hots;?></div>
 					<div class="row gray" style="margin-top:5px;margin-bottom:5px;">喜欢就分享到</div>
-					
+					<div class="bdsharebuttonbox">
+						<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+						<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+						<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+						<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+					</div>
 					<div class="row gray" style="margin-top:15px;margin-bottom:5px;">换一换看看</span></div>
 			</div>
 			
 			<!-- 换一换主播 -->				
 			<div class="row" id='random' style="margin-top: 5px;">
-	        	<?php	
-					$this->renderPartial("_zhubo",
-						array('dataProvider'=>$dataProvider));
-				?>
+				<div class="t-reco">
+					<span class="btn-co pre"></span>
+		        	<?php	
+						$this->renderPartial("_zhubo",
+							array('dataProvider'=>$dataProvider));
+					?>
+				</div>
         	</div>
 
 			

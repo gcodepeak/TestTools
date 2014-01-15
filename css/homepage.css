@@ -9,6 +9,16 @@ body, h1, h2, h3, h4, h5, h6, pre, span {
     font: 14px/1.231 "微软雅黑",arial,"宋体",sans-serif normal;
 }
 
+/* 修改 bootstrap的样式 */
+.nav>li>a:hover, .nav>li>a:focus {
+	background-color: #fff;
+	border-color: #000;
+}
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+	background-color: #fff;
+	border-color: #000;
+}
+
 /* 设定最顶上top N的格式 */
 .head_top_N {
 	background-color:rgb(235,209,250);
@@ -269,3 +279,15 @@ a:hover{color:red;}
 }
 
 /*img:hover{border:#000000 1px solid;}*/
+
+.t-reco .pre {
+background-position: 0 -390px;
+top: -13px;
+}
+.t-reco .btn-co {
+position: absolute;
+left: 43px;
+width: 120px;
+height: 26px;
+cursor: pointer;
+}

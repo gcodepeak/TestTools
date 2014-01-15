@@ -42,14 +42,12 @@
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
-<script>
-
 </head>
 
 <script>
 		window._bd_share_config={
 			"common":{"bdSnsKey":{},"bdText":"快来快来,我发现了一个好网站哦~全是美女,还都直播,实时的哦~~~http://xiu800.cn @秀800 秀800美女主播导航是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
-			"share":{}
+			share:[{"tag":"share_top","bdSize":16,},{"tag":"share_footer","bdSize":32,"bdStyle":"0"}]
 		};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];
 </script>
 
@@ -57,27 +55,28 @@
 
 	<div class="container" id="page">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-5" style="margin-top:15px">
 				<a href="<?php echo Yii::app()->homeUrl?>"><img
 					src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-7">
 
 				<div class="row">
-					<div class="col-md-4">.</div>
-					<div class="col-md-3" style="margin: 5px; align ='float: right'">美播去哪儿？</div>
-					<div class="col-md-3">
-						<div class="bdsharebuttonbox" style="align: left">
-							<!-- a href="#" class="bds_more" data-cmd="more"></a-->
+					<div class="col-md-2 col-md-offset-8" style="padding-top: 10px;padding-bottom: 5px;font-size:10px;">
+						<div class="pull-right">美播去哪儿？</div>
+					</div>
+					<div class="col-md-2">
+						<div class="bdsharebuttonbox" data-tag="share_top" style="background-color:#C02747;width:90%;">
 							<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
 							<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
 						</div>
 					</div>
 				</div>				
 
+				<div class="row">
 				<!-- the head of home page -->				
-			  	<div class="navbar" role="navigation">
+			  	<div class="navbar" role="navigation" style="font-size: 16px">
 			  		<div class="collapse navbar-collapse">
 				    	<ul class="nav navbar-nav nav-justified">
 					        <li >
@@ -97,6 +96,7 @@
 							<li><a href="<?php echo Yii::app()->createUrl('zhubo/admin');?>">管理主播</a></li>
 					    </ul>
 			    	</div>
+			   </div>
 			   </div>   
 			</div>
 		</div>
@@ -137,18 +137,32 @@
 					</div>
 
 					<!-- 微博&二维码 -->
-					<div class="col-md-4">
-						<div class="t-copy">
-							<div class="t-share">
-								<a href="http://weibo.com/xiu800" target="_blank"><img
-									class="i-sinawb" src="/images/transparent.gif" alt="新浪微博" /></a>
-								<a href="http://t.qq.com/xiu800" target="_blank"><img
-									class="i-txwb" src="/images/transparent.gif" alt="腾讯微博" /></a>
+					<div class="col-md-4" >
+						<div class="row">
+							<div class="col-md-6">
+								<div class="row">
+									<div class="bdsharebuttonbox" data-tag="share_footer">
+										<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+										<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+									</div>			
+								</div>
+								<div class="row" style="font-size:12px">
+									<p>© 2013-2023<br />
+									MEILIZHUBO.COM<br /> 
+									ALL RIGHTS RESERVED.<br />
+										京ICP备12050577号
+									</p>
+								</div>
+								<div class="row">
+									<img src="<?php echo Yii::app()->baseUrl;?>/images/footer_logo.png"></img>
+								</div>		
 							</div>
-							<p>
-								© 2012-2021 meilizhubo.CN<br /> All rights reserved. <br />
-								京ICP备12050577号
-							</p>
+							
+							<div class="col-md-6" style="margin-left: -60px; margin-top:-20px">
+								<!-- div style="background-image: url(/images/saoyisao.png);background-repeat: no-repeat;background-position: top center;hight:60%;width:60%;">
+								</div-->
+								<img src="<?php echo Yii::app()->baseUrl;?>/images/saoyisao.png"></img>
+							</div>
 						</div>
 					</div>
 				</div>
