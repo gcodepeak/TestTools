@@ -41,6 +41,7 @@
 	?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i">
 
 </head>
 
