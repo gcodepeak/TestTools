@@ -7,9 +7,9 @@ use meilizhubo;
 /*DROP TABLE IF EXISTS `user`;*/
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `username` varchar(64),
-  `password` varchar(64),
-  `register_time` datetime,
+  `username` varchar(64) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `register_time` datetime
 )
 ENGINE=InnoDB,
 DEFAULT CHARSET=utf8,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `zhubo` (
   `url` varchar(64) ,
   `name` varchar(64) ,
   `head_img` varchar(128),
-  `site_name` varchar(64),
+  `site_id` tinyint,
   `level` tinyint ,
   `wealth_level` tinyint ,
   `time_level` tinyint ,
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `tag_id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `tag_name` varchar(64),
   `class_1` varchar(32),
-  `class_2` varchar(32),
+  `class_2` varchar(32)
 )
 ENGINE=InnoDB,
 DEFAULT CHARSET=utf8,
@@ -61,8 +61,18 @@ CREATE TABLE IF NOT EXISTS `zhubo_tag` (
   `tag_id` int unsigned,
   `zhubo_id` int unsigned,
   `user_id` int unsigned,
-  `tag_time` datetime,
+  `tag_time` datetime
 )
 ENGINE=InnoDB,
 DEFAULT CHARSET=utf8,
-COMMENT = 'the zhubo_tag';
+COMMENT = 'the pm add tag to zhubo';
+
+/*DROP TABLE IF EXISTS `site`;*/
+CREATE TABLE IF NOT EXISTS `site` (
+  `site_id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `site_name` varchar(64) NOT NULL,
+  `site_weight` float DEFAULT 0
+)
+ENGINE=InnoDB,
+DEFAULT CHARSET=utf8,
+COMMENT = 'the show site';
