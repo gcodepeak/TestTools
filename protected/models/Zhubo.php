@@ -76,6 +76,8 @@ class Zhubo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'showSite' => array(self::BELONGS_TO, 'ShowSite', 'site_id'),
+			'zhuboTags' => array(self::HAS_MANY, 'ZhuboTag', 'zhubo_id'),
 		);
 	}
 
@@ -120,6 +122,9 @@ class Zhubo extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
+		$criteria->with=array(
+				'showSite',
+		);
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('local_id',$this->local_id,true);
@@ -146,9 +151,49 @@ class Zhubo extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'pagination'=>array(
+					'pageSize'=>50,
+			),
 		));
 	}
 	
+	/**
+	 * 供待标注使用的函数
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function toTagSearch()
+	{
+		$criteria=new CDbCriteria;
+		//$criteria->with=array(
+		//		'showSite',
+		//);
+		
+		// 获取已经标记过的主播的id集合
+		$taged_zhubos = ZhuboTag::model()->findAll(array(
+			'select' => 'zhubo_id',
+			'distinct' => true,
+		));
+		
+		$taged_zhubo_arr = array();
+		foreach($taged_zhubos as $item){
+			array_push($taged_zhubo_arr,$item['zhubo_id']);
+		}
+		
+		$criteria->addNotInCondition('id', $taged_zhubo_arr);
+		
+		$criteria->compare('id',$this->id,true);
+		$criteria->compare('url',$this->url,true);
+		//$criteria->compare('site_id',$this->site_id);
+		$criteria->compare('is_live',$this->is_live);
+		$criteria->compare('last_live_time',$this->last_live_time,true);
+	
+		return new CActiveDataProvider($this, array(
+				'criteria'=>$criteria,
+				'pagination'=>array(
+						'pageSize'=>50,
+				),
+		));
+	}
 	/**
 	 * 请求精挑细选主播
 	 * @param integer $tag_id ： 标签的ID

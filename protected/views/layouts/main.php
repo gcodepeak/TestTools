@@ -94,11 +94,14 @@
 									<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">搜狐秀场</a></li>
 								</ul></li>
 							<li><a href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>">网站合作</a></li>
-							<li><a href="<?php echo Yii::app()->createUrl('zhubo/admin');?>">管理主播</a></li>
+							<?php if (false && !Yii::app()->user->isGuest) { ?>
+								<li><a href="<?php echo Yii::app()->createUrl('zhubo/admin');?>">管理主播</a></li>
+								<li><a href="<?php echo Yii::app()->createUrl('site/logout');?>">注销</a></li>
+							<?php }; ?>
 					    </ul>
 			    	</div>
 			   </div>
-			   </div>   
+			   </div>
 			</div>
 		</div>
 

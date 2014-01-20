@@ -13,7 +13,7 @@ return array(
 	'charset'=>'UTF-8',
 	'defaultController'=>'zhubo',
 	//'layout' => 'main',
-	'homeUrl'=>'',
+	'homeUrl'=>'/zhubo/homepage',
 
 	// preloading 'log' component
 	'preload'=>array('log'),

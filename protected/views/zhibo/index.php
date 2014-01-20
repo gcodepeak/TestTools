@@ -35,7 +35,14 @@
 						<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
 						<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
 					</div>
-					<div class="row gray" style="margin-top:15px;margin-bottom:5px;">换一换看看</span></div>
+					<div class="row gray" style="margin-top:15px;margin-bottom:5px;">换一换看看</span>
+						<?php 	if (!Yii::app()->user->isGuest) { 
+									echo "<a href=".$this->createUrl("/zhubo/update",array('id'=>$zhubo->id)).">更新主播</a>";									
+									echo "&nbsp|&nbsp";
+									echo "<a href=".$this->createUrl("/zhuboTag/doTag",array('zhubo_id'=>$zhubo->id)).">打tag</a>";
+								}
+						?>
+					</div>
 			</div>
 			
 			<!-- 换一换主播 -->				

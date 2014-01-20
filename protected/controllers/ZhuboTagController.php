@@ -1,16 +1,13 @@
 <?php
 
-class ZhuboController extends Controller
+class ZhuboTagController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	//public $layout='//layouts/column2';
-	public $layout='//layouts/homepage';
+	public $layout='//layouts/column1';
 
-	public $defaultAction = 'homepage';
-	
 	/**
 	 * @return array action filters
 	 */
@@ -31,11 +28,11 @@ class ZhuboController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','homepage','jingtiaoxixuan','zuijiaxinren'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','toTag','doTag','admin','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -58,27 +55,77 @@ class ZhuboController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-
+	
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionCreate()
 	{
-		$model=new Zhubo;
-
+		$model=new ZhuboTag;
+	
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Zhubo']))
+	
+		if(isset($_POST['ZhuboTag']))
 		{
-			$model->attributes=$_POST['Zhubo'];
+			$model->attributes=$_POST['ZhuboTag'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
+	
 		$this->render('create',array(
+				'model'=>$model,
+		));
+	}
+	
+	
+	/**
+	 * Creates a new model.
+	 * If creation is successful, the browser will be redirected to the 'view' page.
+	 */
+	public function actionDoTag($zhubo_id)
+	{
+		$model=new ZhuboTag;
+		
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		if (isset($zhubo_id)){
+			$model->zhubo_id = $zhubo_id;
+		}else{
+			throw new CHttpException(500,'错误的访问.');
+		}
+		
+		if(isset($_POST['submitButton']))
+		{
+			if (isset($_POST['selected_tags']))
+			{
+				$model->tag_time = date("Y-m-d H:i:s",time());
+				$model->user_id = Yii::app()->user->id;
+				foreach ($_POST['selected_tags'] as $tag_id)
+				{
+					$model->tag_id = $tag_id;
+					if(!$model->save())
+						throw new CHttpException(500,'插入tag失败，数据库错误.');
+				}
+				$this->redirect(array('/zhuboTag/toTag'));
+			}
+		}
+		
+		// 获取全tag列表
+		//$tags = Tag::model()->findAll();
+		$tags = new CActiveDataProvider('Tag', array(
+				'pagination'=>array(
+						'pageSize'=>100,
+				),
+				'sort'=>array(
+						'defaultOrder' => 'id',
+				),
+		));
+		
+		$this->render('doTag',array(
 			'model'=>$model,
+			'tags' =>$tags,
 		));
 	}
 
@@ -94,9 +141,9 @@ class ZhuboController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Zhubo']))
+		if(isset($_POST['ZhuboTag']))
 		{
-			$model->attributes=$_POST['Zhubo'];
+			$model->attributes=$_POST['ZhuboTag'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -125,95 +172,10 @@ class ZhuboController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Zhubo');
+		$dataProvider=new CActiveDataProvider('ZhuboTag');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
-	}
-	
-	public function actionHomepage()
-	{
-		$top_14_criteria=new CDbCriteria;
-		$top_14_criteria->limit = 14;
-		
-		$top_14_dataProvider=new CActiveDataProvider('Zhubo',
-				array('criteria'=> $top_14_criteria,
-						'pagination'=>FALSE));
-		
-		$jingtiaoxixuan_criteria=new CDbCriteria;
-		$jingtiaoxixuan_criteria->limit = 8;
-		
-		
-		$jingtiaoxixuan_dataProvider=new CActiveDataProvider('Zhubo',
-			array('criteria'=> $jingtiaoxixuan_criteria,
-					 'pagination'=>FALSE));
-		
-		$zuijiaxinren_criteria=new CDbCriteria;
-		$zuijiaxinren_criteria->limit = 12;
-		
-		$zuijiaxinren_dataProvider=new CActiveDataProvider('Zhubo',
-				array('criteria'=> $zuijiaxinren_criteria,
-		 				'pagination'=>FALSE));
-		
-		$top5_criteria=new CDbCriteria;
-		$top5_criteria->limit = 5;
-		
-		
-		$top5_dataProvider=new CActiveDataProvider('Zhubo',
-				array('criteria'=> $top5_criteria,
-						 'pagination'=>FALSE));
-		
-		$this->render('homepage',array(
-				'top_14_dataProvider'=>$top_14_dataProvider,
-				'jingtiaoxixuan_dataProvider'=>$jingtiaoxixuan_dataProvider,
-				'zuijiaxinren_dataProvider'=>$zuijiaxinren_dataProvider,
-				'top5_dataProvider'=>$top5_dataProvider,
-		));
-	}
-	
-	/* ajax */
-	public function actionJingtiaoxixuan()
-	{
-		//if(Yii::app()->request->isAjaxRequest){
-		
-		if(isset($_GET['tag']))
-		{
-			$jingtiaoxixuan_criteria=new CDbCriteria;
-			$jingtiaoxixuan_criteria->limit = 8;
-			if ($_GET['tag'] != '') {
-				$jingtiaoxixuan_criteria->addCondition("tags = :tag");
-				$jingtiaoxixuan_criteria->params[':tag']=$_GET['tag'];
-			}
-			
-			$jingtiaoxixuan_dataProvider=new CActiveDataProvider('Zhubo',
-					array('criteria'=> $jingtiaoxixuan_criteria,
-							'pagination'=>FALSE));
-		}
-	
-		$this->renderPartial("_jingtiaoxixuan",
-				array('dataProvider'=>$jingtiaoxixuan_dataProvider));
-	}
-	
-	/* ajax */
-	public function actionZuijiaxinren()
-	{
-		if(isset($_GET['time']))
-		{
-			$zuijiaxinren_criteria=new CDbCriteria;
-			$zuijiaxinren_criteria->limit = 12;
-		
-			if ($_GET['time'] != '') {
-				//$jingtiaoxixuan_criteria->addCondition("tags = :tag");
-				//$jingtiaoxixuan_criteria->params[':tag']=$_GET['tag'];
-			}
-				
-			$zuijiaxinren_dataProvider=new CActiveDataProvider('Zhubo',
-				array('criteria'=> $zuijiaxinren_criteria,
-		 				'pagination'=>FALSE));
-		}
-	
-		$this->renderPartial("_zuijiaxinren",
-				array('dataProvider'=>$zuijiaxinren_dataProvider));
 	}
 
 	/**
@@ -221,15 +183,28 @@ class ZhuboController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Zhubo('search');
+		$model=new ZhuboTag('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Zhubo']))
-			$model->attributes=$_GET['Zhubo'];
-		
-		$this->layout = "//layouts/column1";
+		if(isset($_GET['ZhuboTag']))
+			$model->attributes=$_GET['ZhuboTag'];
 
 		$this->render('admin',array(
 			'model'=>$model,
+		));
+	}
+	
+	// 等待标注的主播
+	public function actionToTag()
+	{
+		$zhubo=new Zhubo('toTagSearch');
+		$zhubo->unsetAttributes();  // clear any default values
+		if(isset($_GET['Zhubo'])){
+			$zhubo->attributes=$_GET['Zhubo'];
+			//$zhubo->;
+		}
+		
+		$this->render('toTag',array(
+				'zhubo'=>$zhubo,
 		));
 	}
 
@@ -237,12 +212,12 @@ class ZhuboController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Zhubo the loaded model
+	 * @return ZhuboTag the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Zhubo::model()->findByPk($id);
+		$model=ZhuboTag::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -250,11 +225,11 @@ class ZhuboController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Zhubo $model the model to be validated
+	 * @param ZhuboTag $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='zhubo-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='zhubo-tag-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

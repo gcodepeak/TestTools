@@ -1,18 +1,18 @@
 <?php
-/* @var $this ShowSiteController */
+/* @var $this ZhuboTagController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Show Sites',
+	'Zhubo Tags',
 );
 
 $this->menu=array(
-	array('label'=>'Create ShowSite', 'url'=>array('create')),
-	array('label'=>'Manage ShowSite', 'url'=>array('admin')),
+	array('label'=>'Create ZhuboTag', 'url'=>array('create')),
+	array('label'=>'Manage ZhuboTag', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Show Sites</h1>
+<h1>Zhubo Tags</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

@@ -1,18 +1,18 @@
 <?php
-/* @var $this ShowSiteController */
+/* @var $this UserController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Show Sites',
+	'Users',
 );
 
 $this->menu=array(
-	array('label'=>'Create ShowSite', 'url'=>array('create')),
-	array('label'=>'Manage ShowSite', 'url'=>array('admin')),
+	array('label'=>'Create User', 'url'=>array('create')),
+	array('label'=>'Manage User', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Show Sites</h1>
+<h1>Users</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

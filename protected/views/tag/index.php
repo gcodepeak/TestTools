@@ -1,18 +1,18 @@
 <?php
-/* @var $this ShowSiteController */
+/* @var $this TagController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Show Sites',
+	'Tags',
 );
 
 $this->menu=array(
-	array('label'=>'Create ShowSite', 'url'=>array('create')),
-	array('label'=>'Manage ShowSite', 'url'=>array('admin')),
+	array('label'=>'Create Tag', 'url'=>array('create')),
+	array('label'=>'Manage Tag', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Show Sites</h1>
+<h1>Tags</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

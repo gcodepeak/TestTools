@@ -44,6 +44,7 @@ $('.search-form form').submit(function(){
 		'name',
 		//'head_img',
 		'site_id',
+		//'showSite.name',
 		
 		'level',
 		'wealth_level',
