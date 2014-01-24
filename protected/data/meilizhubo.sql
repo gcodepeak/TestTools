@@ -15,7 +15,7 @@ ENGINE=InnoDB,
 DEFAULT CHARSET=utf8,
 COMMENT = 'the user';
 
-/*DROP TABLE IF EXISTS `ShowSite`;*/
+DROP TABLE IF EXISTS `ShowSite`;
 CREATE TABLE IF NOT EXISTS `ShowSite` (
   `id` tinyint NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(64) NOT NULL,
@@ -25,7 +25,7 @@ ENGINE=InnoDB,
 DEFAULT CHARSET=utf8,
 COMMENT = 'the show site';
 
-/*DROP TABLE IF EXISTS `zhubo`;*/
+DROP TABLE IF EXISTS `zhubo`;
 CREATE TABLE IF NOT EXISTS `zhubo` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `local_id` int unsigned DEFAULT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `zhubo` (
   `age` tinyint unsigned ,
   `hots` int unsigned ,
   `fans` int unsigned ,
-  `orignal_tags` varchar(128) ,
+  `tags` varchar(128) ,
   `news_num` int unsigned ,
   `news_photo_num` int unsigned ,
   `is_live` tinyint ,
