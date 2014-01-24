@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+Bootstrap 100% fluid</title>
+<!-- Latest compiled and minified CSS -->
+<!-- 最新 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var url = window.location;
+        $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+        $('ul.nav a').filter(function() {
+             return this.href == url;
+        }).parent().addClass('active');
+    });
+</script> 
+</head>
+<body>
+<div class="container">
+
+	<!-- div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+		    <ul class="nav navbar-nav pull-right">
+		        <li class="active "><a href="#">Home</a></li>
+		        <li><a href="#">Link 1</a></li>
+		        <li><a href="#">Link 2</a></li>
+		        <li><a href="#">Link 3</a></li>
+		        <li><a href="#">Link 4</a></li>
+		    </ul>   
+		</div>
+	</div -->
+<style>
+.mycaret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+span{
+	display:block;
+	overflow:hidden;
+	width:0px;height:0px;margin:10px 10px 100px;
+	padding:0;font-size:0;
+	border:10px dashed transparent;
+	border-top-style:solid;
+	border-top-color:green;
+}
+</style>
+	<div>
+		<b class="mycaret"></b>
+	</div>
+	
+	<div>
+		<span></span>
+	</div>
+	
+	
+	<ul class="nav nav-tabs nav-justified" data-tabs="tabs" role="navigation">
+	    <li class="active"><a data-toggle="tab" href="#red">Red</a></li>
+	    <li ><a data-toggle="tab" href="#orange">Orange</a><b class="mycaret" style="align:center;"></b></li>
+	    <li><a data-toggle="tab" href="#yellow">Yellow</a></li>
+	    <li><a data-toggle="tab" href="#green">Green</a></li>
+	    <li><a data-toggle="tab" href="#blue">Blue</a></li>
+	</ul>
+	
+	<div class="tab-content">
+	    <div class="tab-pane active" id="red">
+	        <h1>Red</h1>
+	        <p>red red red red red red</p>
+	    </div>
+	    <div class="tab-pane" id="orange">
+	        <h1>Orange</h1>
+	        <p>orange orange orange orange orange</p>
+	    </div>
+	    <div class="tab-pane" id="yellow">
+	        <h1>Yellow</h1>
+	        <p>yellow yellow yellow yellow yellow</p>
+	    </div>
+	    <div class="tab-pane" id="green">
+	        <h1>Green</h1>
+	        <p>green green green green green</p>
+	    </div>
+	    <div class="tab-pane" id="blue">
+	        <h1>Blue</h1>
+	        <p>blue blue blue blue blue</p>
+	    </div>
+	</div>
+</div>
+
+<script >
+$(document).ready(function(){
+	$('.navbar li').click(function(e) {
+	    $('.navbar li.active').removeClass('active');
+	    var $this = $(this);
+	    if (!$this.hasClass('active')) {
+	        $this.addClass('active');
+	    }
+	    e.preventDefault();
+	});
+}
+</script>
+
+
+
+</body>
+</html>

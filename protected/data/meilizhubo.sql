@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `zhubo` (
   `age` tinyint unsigned ,
   `hots` int unsigned ,
   `fans` int unsigned ,
-  `orignal_tags` varchar(128) ,
+  `tags` varchar(128) ,
   `news_num` int unsigned ,
   `news_photo_num` int unsigned ,
   `is_live` tinyint ,

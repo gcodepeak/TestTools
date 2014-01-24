@@ -10,54 +10,32 @@ body, h1, h2, h3, h4, h5, h6, pre, span {
 }
 
 /* 修改 bootstrap的样式 */
-.nav>li>a:hover, .nav>li>a:focus {
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover,
+.navbar .nav > li > ul > li > a:focus,
+.navbar .nav > li > ul > li > a:hover, {
+	color: #f09;
+	text-decoration: none;
 	background-color: #fff;
 	border-color: #000;
 }
-.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
-	background-color: #fff;
-	border-color: #000;
+
+.navbar .nav li.dropdown.open > .dropdown-toggle,
+.navbar .nav li.dropdown.active > .dropdown-toggle,
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: #fff;
 }
 
-/* 设定最顶上top N的格式 */
-.head_top_N {
-	background-color:rgb(235,209,250);
-	height:350px;
-	width:100%;
-	margin-bottom:20px;
+.dropdown-menu li > a {
+	color: #333333;
 }
 
-.top14 {
-	width: 100%; 
-	height: 100%;
+a{
+	color: #666;
 }
 
-.top14 ul {
-	width: 100%;
-	position: relative;
-	margin-left: -15px;
-}
-
-.top14 li.head_cube {
-	display: inline-block;
-	list-style: none;
-	position: absolute;
-
-	width: 148px;
-	height: 114px;
-	margin: 1px 1px 1px 1px;
-}
-
-.top14 li.doublesize {
-	width: 298px;
-	height: 228px;
-}
-
-/* 设定右边侧栏 top 5的格式 */
-.right_top5 {
-	background-color: rgb(225,225,225); 
-	margin-right:40px;
-	margin-top:10px;
+a:hover {
+	color: #f09;
 }
 
 .gray {
@@ -79,7 +57,6 @@ body, h1, h2, h3, h4, h5, h6, pre, span {
 .bg-pink {
 	background-color: #FFE9F7;
 }
-
 
 .fs8 {
 	font-size: 8px;
@@ -109,9 +86,9 @@ body, h1, h2, h3, h4, h5, h6, pre, span {
 .zhubo_tag {
 	background-color: #99CC33;
 	color: #ffffff;
-	padding: 6px 3px;
-  	font-size: 20px;
-  	line-height: 22px;
+	padding: 8px 1px;
+  	font-size: 24px;
+  	line-height: 24px;
   	border-radius: 3px;
 	text-align: center;
 	display: block;
@@ -119,175 +96,19 @@ body, h1, h2, h3, h4, h5, h6, pre, span {
 	float: right;
 }
 
-/* 设置精挑细选部分的样式 */
-p.zhubo {
-	position: relative;
-	display: block;
-}
-
-p.zhubo em {
-	display: block;
-	position: absolute;
-}
-
-.zhubo em.viewer {
-	z-index: 3;
-	height: 14px;
-	line-height: 42px;
-	color: #fff;
-	top: 139px;
-	right: 15px;
-}
-
-.zhubo em.viewer i {
-	display: inline-block;
-	height: 14px;
-	width: 12px;
-	overflow: hidden;
-	background: url(http://vr2.6.cn/imges/live2013/mmlist_num.png) no-repeat 0 1px;
-	_background-image: url(http://vr2.6.cn/imges/live2013/mmlist_num_ie.gif);
-	vertical-align: center;
-	margin-right: 3px;
-}
-
-.zhubo em.bg {
-	display: inline-block;
-	z-index: 2;
-	left: 0;
-	top: 139px;
-	width: 235px;
-	height: 42px;
-	background: #000;
-	opacity: .5;
-	filter: alpha(opacity=50);
-}
-
-.zhubo em.play {
-	z-index: 1;
-	display: none;
-	width: 235px;
-	height: 180px;
-	top: 0;
-	background: url(http://vr2.6.cn/imges/live2013/mmlist_play_v1.png) no-repeat 0 0;
-	_background: 0;
-}
-
-/* 设置最佳新人部分 */
-p.best_newer {
-	position: relative;
-	display: block;
-}
-
-p.best_newer em {
-	display: block;
-	position: absolute;
-}
-
-.best_newer em.viewer {
-	z-index: 3;
-	height: 14px;
-	line-height: 23px;
-	color: #fff;
-	top: 92px;
-	right: 15px;
-}
-
-.best_newer em.viewer i {
-	display: inline-block;
-	height: 14px;
-	width: 12px;
-	overflow: hidden;
-	background: url(http://vr2.6.cn/imges/live2013/mmlist_num.png) no-repeat 0 1px;
-	_background-image: url(http://vr2.6.cn/imges/live2013/mmlist_num_ie.gif);
-	vertical-align: center;
-	margin-right: 3px;
-}
-
-.best_newer em.bg {
-	display: inline-block;
-	z-index: 2;
-	left: 0;
-	top: 92px;
-	width: 153px;
-	height: 23px;
-	background: #000;
-	opacity: .5;
-	filter: alpha(opacity=50);
-}
-
-.best_newer em.play {
-	z-index: 1;
-	display: none;
-	width: 153px;
-	height: 115px;
-	top: 0;
-	background: url(http://vr2.6.cn/imges/live2013/mmlist_play_v1.png) no-repeat 0 0;
-	_background: 0;
-}
-
-
-/* 主播家族部分 */
-/* 主播最多标签 */
-.label-zhubozuiduo {
-  background-color: #989898;
-}
-
-.label-zhubozuiduo[href]:hover,
-.label-zhubozuiduo[href]:focus {
-  background-color: #808080;
-}
-
-/* 粉丝最多 */
-.label-fensizuiduo {
-  background-color: #FFCC00;
-}
-
-.label-fensizuiduo[href]:hover,
-.label-fensizuiduo[href]:focus {
-  background-color: #808080;
-}
-
-/* 大富大贵 */
-.label-dafudagui {
-  background-color: #99CC00;
-}
-
-.label-dafudagui[href]:hover,
-.label-dafudagui[href]:focus {
-  background-color: #808080;
-}
-
-/* 历史悠久 */
-.label-lishiyoujiu {
-  background-color: #FF6600;
-}
-
-.label-lishiyoujiu[href]:hover,
-.label-lishiyoujiu[href]:focus {
-  background-color: #808080;
-}
-
-a:hover{color:red;}
-
-.navbar-nav.nav-justified {
-    display:table;
-}
-
-.navbar-nav.nav-justified > li{
-    float:none;
-    width:auto;
-}
-
 /*img:hover{border:#000000 1px solid;}*/
 
 .t-reco .pre {
-background-position: 0 -390px;
-top: -13px;
+	background-position: 0 -390px;
+	top: -13px;
 }
 .t-reco .btn-co {
-position: absolute;
-left: 43px;
-width: 120px;
-height: 26px;
-cursor: pointer;
+	position: absolute;
+	left: 43px;
+	width: 120px;
+	height: 26px;
+	cursor: pointer;
 }
+
+.huanyihuan a {background:url(/images/index01-huan.gif) no-repeat;}
+.huanyihuan a:hover {background:url(/images/index01-huan-on.gif) no-repeat;}

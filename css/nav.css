@@ -1,0 +1,228 @@
+@charset "utf-8"; 
+
+ul {
+	list-style: none;
+}
+
+.moko-nav > .disabled > a {
+  color: #999999;
+}
+.moko-nav > .disabled > a:hover {
+  text-decoration: none;
+  background-color: transparent;
+  cursor: default;
+}
+
+.moko-nav {
+	height: 31px;
+	background: #fefefe;
+	border-bottom: #ccc solid 1px;
+	padding-top: 15px;
+	width: 100%;
+	font-size: 18px;
+}
+
+.moko-nav a {
+	display: inline-block;
+	text-decoration: none;
+	color: #666;
+}
+
+.moko-nav a:hover {
+	color: #f35777;
+}
+
+.moko-nav .max-width {
+	min-width: 800px;
+	max-width: 1000px;
+	margin: 0 auto;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px
+}
+
+/*
+.moko-nav .qq-login,.moko-nav .sina-login,.moko-nav .search-btn,.moko-nav .search-type,.moko-nav .logo span {
+	background: url('../images/nav_spirit.gif?20120330') no-repeat
+}
+*/
+
+.moko-nav .logo {
+	float: left;
+	margin-right: 13px;
+	width: 200px;
+	height: 30px;
+	display: block;
+	background: url('../images/nav_logo.jpg?20120330') no-repeat;
+	position: relative;
+	zoom: 1;
+	overflow: hidden
+}
+
+.moko-nav .logo span {
+	position: absolute;
+	left: 160px;
+	top: 2px;
+	display: inline-block;
+	width: 40px;
+	height: 10px;
+	background-position: 999px
+}
+
+.moko-nav .logo:hover span {
+	background-position: 0 -106px
+}
+
+.moko-nav .nav-pills li {
+	float: left
+}
+
+.moko-nav .nav-pills a {
+	padding: 0 10px
+}
+
+.moko-nav .split-line {
+	display: inline-block;
+	width: 1px;
+	height: 28px;
+	overflow: hidden;
+	float: left;
+	background: #ccc
+}
+
+.moko-nav .dropdown {
+	position: relative;
+	float: left;
+	margin: 0 10px;
+	z-index: 3
+}
+
+.moko-nav .dropdown .dropdown-toggle {
+	border: 0;
+	padding: 1px 17px 0 17px;
+	line-height: 13px;
+	vertical-align: top;
+	*margin-top: -3px;
+	_margin-top: -1px
+}
+
+.moko-nav .dropdown .dropdown-menu {
+	background: #fff;
+	border: #bbb solid 1px;
+	padding: 10px 0;
+	display: none;
+	position: absolute;
+	top: 30px;
+	*top: 27px;
+	left: 0;
+	_width: 107px
+}
+
+.moko-nav .dropdown .dropdown-menu li {
+	float: none;
+	margin: 0
+}
+
+.moko-nav .dropdown .dropdown-menu li a {
+	display: block;
+	padding: 0 16px;
+	white-space: nowrap
+}
+
+.moko-nav .dropdown .dropdown-menu li a:hover {
+	background: #dfdfdf
+}
+
+.moko-nav .active {
+	color: #f09
+}
+
+.moko-nav .active .dropdown-menu {
+	display: block
+}
+
+.moko-nav .active .dropdown-toggle {
+	border: #bbb solid;
+	border-width: 1px 1px 0 1px;
+	padding: 0 16px;
+	background: #fff;
+	color: #666;
+	position: relative;
+	z-index: 3
+}
+
+.moko-nav .right {
+	float: right
+}
+
+.moko-nav .right li {
+	float: left;
+	margin: 0 2px;
+}
+
+.moko-nav .right li a {
+	padding: 0 3px;
+}
+
+.moko-nav .right li .qq-login,.moko-nav .right li .sina-login {
+	width: 63px;
+	height: 24px;
+	padding: 0;
+	display: inline-block
+}
+
+.moko-nav .right li .qq-login {
+	background-position: 0 -24px
+}
+
+.msg-tip {
+	border: #bbb solid 1px;
+	padding: 5px;
+	z-index: 6;
+	background: #fff;
+	position: fixed;
+	_position: absolute;
+	top: 48px;
+	font-size: 12px;
+	width: 120px;
+	line-height: 28px
+}
+
+.msg-tip li {
+	overflow: hidden;
+	zoom: 1
+}
+
+.msg-tip li span {
+	float: right;
+	color: #666
+}
+
+.msg-tip li a {
+	display: block;
+	padding: 0 10px;
+	color: #f09
+}
+
+.msg-tip li a:hover {
+	background: #eee
+}
+
+.msg-tip .ctrl {
+	border-top: #bbb solid 1px;
+	text-align: center;
+	margin-top: 2px;
+	line-height: 25px;
+	font-size: 12px
+}
+
+.msg-tip .ctrl a {
+	text-decoration: underline
+}
+
+.wrap {
+	width: 960px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 30px 10px 80px 10px
+}
