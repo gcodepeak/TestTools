@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+.tooltips{
+	position:relative; /*这个是关键*/
+	z-index:2;
+}
+.tooltips:hover{
+	z-index:3;
+	background:none; /*没有这个在IE中不可用*/
+}
+.tooltips span{
+	display: none;
+}
+.tooltips:hover span{ /*span 标签仅在 :hover 状态时显示*/
+	display:block;
+	position:absolute;
+	top:25px;
+	left:9px;
+	width:8em;
+	border:1px solid #bbbbbb;
+	background-color:#F4F4F4;
+	padding: 3px;
+	color:black;
+}

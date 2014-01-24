@@ -6,8 +6,7 @@
 <?php 
 	$top14s = $dataProvider->getData();
 ?>
-
-<div class="container top14">
+<div class="top14">
 	<ul>
 		<li class="head_cube doublesize" style="top: 0px; left: 0px;" data-id="0">
 			<a href="<?php echo $top14s[0]['url'];?>">
@@ -64,32 +63,35 @@
 			</a>
 		</li>
 		<li class="head_cube" style="top: 230px; left: 150px;" data-id="1">
-			<a href="<?php echo $top14s[10]['url'];?>">
+			<a href="<?php echo $top14s[9]['url'];?>">
 			<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/head_cube.png">
 			</a>
 		</li>
 		<li class="head_cube" style="top: 230px; left: 300px;" data-id="1">
-			<a href="<?php echo $top14s[10]['url'];?>">
+			<a href="<?php echo $top14s[9]['url'];?>">
 			<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/head_cube.png">
 			</a>
 		</li>
 		<li class="head_cube" style="top: 230px; left: 750px;" data-id="1">
-			<a href="<?php echo $top14s[10]['url'];?>">
+			<a href="<?php echo $top14s[9]['url'];?>">
 			<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/head_cube.png">
 			</a>
 		</li>
 		<li class="head_cube" style="top: 230px; left: 900px;" data-id="1">
-			<a href="<?php echo $top14s[10]['url'];?>">
+			<a href="<?php echo $top14s[9]['url'];?>">
 			<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/head_cube.png">
 			</a>
 		</li>
 		<li class="head_cube" style="top: 231px; left: 1050px;" data-id="1">
-			<?php echo CHtml::ajaxButton(
-			     "",  
-			     array('zhubo/top_14'), // Yii URL  
-			     array('update' => '#top_14'),// jQuery selector
-			     array('style' => "width:100%;height:100%;background-image:url(". Yii::app()->baseUrl ."/images/head_flush.png)")
+			<span class="huanyihuan">
+			<?php echo CHtml::ajaxLink(
+			    "",  
+			    array('zhubo/top_14'), // Yii URL  
+			    array('update' => '#top_14'),// jQuery selector
+			    //array('style' => "width:100%;height:100%;background-image:url(". Yii::app()->baseUrl ."/images/index01-huan.gif)")
+				array('style' => "width:100%;height:100%;display:block;")
 			); ?>
+			</span>
 		</li>
 	</ul>
 </div>

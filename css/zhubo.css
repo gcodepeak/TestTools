@@ -1,0 +1,198 @@
+@charset "utf-8";
+
+a:hover {
+	color: #f09;
+}
+
+/* 设定最顶上top N的格式 */
+.top14 ul {
+	position: relative;
+}
+
+.top14 li.head_cube {
+	display: inline-block;
+	list-style: none;
+	position: absolute;
+	width: 148px;
+	height: 114px;
+	margin: 1px 1px 1px 1px;
+}
+
+.top14 li.doublesize {
+	width: 298px;
+	height: 228px;
+}
+
+/* 设置精挑细选部分的样式 */
+p.zhubo {
+	position: relative;
+	display: block;
+}
+
+p.zhubo em {
+	display: block;
+	position: absolute;
+}
+
+.zhubo em.viewer {
+	z-index: 3;
+	height: 14px;
+	line-height: 42px;
+	color: #fff;
+	top: 139px;
+	right: 15px;
+}
+
+.zhubo em.viewer i {
+	display: inline-block;
+	height: 14px;
+	width: 12px;
+	overflow: hidden;
+	/*background: url(http://vr2.6.cn/imges/live2013/mmlist_num.png) no-repeat 0 1px;
+	_background-image: url(http://vr2.6.cn/imges/live2013/mmlist_num_ie.gif);*/
+	background: url(/images/fensi-green.gif) no-repeat 0 1px;
+	_background-image: url(/images/fensi-green.gif);
+	vertical-align: center;
+	margin-right: 3px;
+}
+
+.zhubo em.bg {
+	display: inline-block;
+	z-index: 2;
+	left: 0;
+	top: 139px;
+	width: 100%;
+	height: 42px;
+	background: #000;
+	opacity: .4;
+	filter: alpha(opacity=50);
+}
+
+.zhubo em.showSiteName {
+	display: inline-block;
+	position: absolute;
+	top: 139px;
+	right:200px;
+	font-size:16px;
+	font-style:normal;
+	color: #fff;
+	line-height: 42px;
+	z-index: 3;
+}
+
+.zhubo em.play {
+	z-index: 1;
+	display: none;
+	width: 235px;
+	height: 180px;
+	top: 0;
+	background: url(http://vr2.6.cn/imges/live2013/mmlist_play_v1.png) no-repeat 0 0;
+	_background: 0;
+}
+
+/* 设置最佳新人部分 */
+p.best_newer {
+	position: relative;
+	display: block;
+}
+
+p.best_newer em {
+	display: block;
+	position: absolute;
+}
+
+.best_newer em.viewer {
+	z-index: 3;
+	height: 14px;
+	line-height: 23px;
+	color: #fff;
+	top: 94px;
+	right: 10px;
+}
+
+.best_newer em.viewer i {
+	display: inline-block;
+	height: 14px;
+	width: 12px;
+	overflow: hidden;
+	background: url(/images/fensi-green-s.gif) no-repeat 0 1px;
+	_background-image: url(/images/fensi-green-s.gif);
+	vertical-align: center;
+	margin-right: 3px;
+}
+
+.best_newer em.showSiteName {
+	display: inline-block;
+	position: absolute;
+	top: 94px;
+	right:120px;
+	font-size:12px;
+	font-style:normal;
+	color: #fff;
+	line-height: 23px;
+	z-index: 3;
+}
+
+.best_newer em.bg {
+	display: inline-block;
+	z-index: 2;
+	left: 0;
+	top: 94px;
+	width: 100%;
+	height: 23px;
+	background: #000;
+	opacity: .5;
+	filter: alpha(opacity=50);
+}
+
+.best_newer em.play {
+	z-index: 1;
+	display: none;
+	width: 153px;
+	height: 115px;
+	top: 0;
+	background: url(http://vr2.6.cn/imges/live2013/mmlist_play_v1.png) no-repeat 0 0;
+	_background: 0;
+}
+
+
+/* 主播家族部分 */
+/* 主播最多标签 */
+.label-zhubozuiduo {
+  background-color: #989898;
+}
+
+.label-zhubozuiduo[href]:hover,
+.label-zhubozuiduo[href]:focus {
+  background-color: #808080;
+}
+
+/* 粉丝最多 */
+.label-fensizuiduo {
+  background-color: #FFCC00;
+}
+
+.label-fensizuiduo[href]:hover,
+.label-fensizuiduo[href]:focus {
+  background-color: #808080;
+}
+
+/* 大富大贵 */
+.label-dafudagui {
+  background-color: #99CC00;
+}
+
+.label-dafudagui[href]:hover,
+.label-dafudagui[href]:focus {
+  background-color: #808080;
+}
+
+/* 历史悠久 */
+.label-lishiyoujiu {
+  background-color: #FF6600;
+}
+
+.label-lishiyoujiu[href]:hover,
+.label-lishiyoujiu[href]:focus {
+  background-color: #808080;
+}

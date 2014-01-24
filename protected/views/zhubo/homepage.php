@@ -5,52 +5,59 @@
 ?>
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homepage.css" />
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/zhubo.css" />
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/tooltips.css" />
+
 
 <!-- top 14 -->
-<div class="head_top_N" id="top_14">
-	<?php	
-		$this->renderPartial("_top_14",
-			array('dataProvider'=>$top_14_dataProvider)); 
-	?>
+<div style="width: 100%;background-color:#ead0db;border-style:solid;border-width:1pt; border-color:#d6d8d8;">
+	<div id="top_14" style="margin:0 auto;width:1190px;height:344px;">
+		<?php	
+			$this->renderPartial("_top_14",
+				array('dataProvider'=>$top_14_dataProvider)); 
+		?>
+	</div>
 </div>
 
-<div class="container">
-      <div class="row">
-        <div class="col-md-10">
-        	<!-- 精挑细选部分 -->
-        	<div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-				<div class="col-md-2  pull-left">
-					<span style="font-size: 26px;">精挑细选</span>
+
+<div style="width:1195px;margin:0 auto;">
+	<div style="width:960px;float:left;">
+		<!-- 精挑细选部分 -->
+        	<div class="row-fluid" style="margin-top: 20px; margin-bottom: 20px;">
+				<div class="span2  pull-left">
+					<span style="font-size: 32px;color:#7f7f7f;">精挑细选</span>
 				</div>
-				<div class="col-md-2">
+				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
 					     '<span class="zhubo_tag">All</span>',  
 					     array('zhubo/jingtiaoxixuan', 'tag' =>''), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
-				<div class="col-md-2">
+				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
 					     '<span class="zhubo_tag">好声音</span>',  
 					     array('zhubo/jingtiaoxixuan', 'tag' =>'haoshenyin'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
-				<div class="col-md-2">
+				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
 					     '<span class="zhubo_tag">小清新</span>',  
 					     array('zhubo/jingtiaoxixuan', 'tag' =>'xiaoqingxin'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
-				<div class="col-md-2">
+				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
 					     '<span class="zhubo_tag">活泼范</span>',  
 					     array('zhubo/jingtiaoxixuan', 'tag' =>'huopofan'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
-				<div class="col-md-2">
+				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
 					     '<span class="zhubo_tag">气质型</span>',  
 					     array('zhubo/jingtiaoxixuan', 'tag' =>'qizhixing'), // Yii URL  
@@ -58,92 +65,97 @@
 					); ?>
 				</div>
 			</div>
-			<div class="row" id='jingtiaoxixuan'>
+			<div class="row-fluid" id='jingtiaoxixuan'>
 	        	<?php	
 					$this->renderPartial("_jingtiaoxixuan",
 						array('dataProvider'=>$jingtiaoxixuan_dataProvider)); 
 				?>
         	</div>
         	
-        	
-        	<!-- 最佳新人部分 -->
-        	<div class="row">
+        <!-- 最佳新人部分 -->
+        	<div class="row-fluid">
         		<hr style="height:1px;border:1px solid #99CC33; background-color:#99CC33"></hr>
         	</div>     
 		    
-		    <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-        		<div class="col-md-6  pull-left">
-        			<span class="green" style="font-size: 26px;">最佳新人</span>
-        			<span class="gray" style="font-size: 26px;">BEST NEWCOMMER</span>
+		    <div class="row-fluid" style="margin-top: 20px; margin-bottom: 20px;">
+        		<div class="span9  pull-left">
+        			<span style="font-size: 24px;color:#99cc33;">最佳新人</span>
+        			<span style="font-size: 22px;color:#7f7f7f;">BEST NEWCOMMER</span>
         		</div>
-        		<div class="col-md-4 col-md-offset-2" style="font-size: 16px">
-        			<span class="pull-right">
+        		
+        		<div class="span3 pull-right" style="font-size: 14px;color:#99cc33;">
+        			<div>
         			<?php echo CHtml::ajaxLink(  
-					     '<span >一周内 &nbsp</span>',  
+					     '一周内 &nbsp',  
 					     array('zhubo/zuijiaxinren', 'time' =>'7'), // Yii URL  
 					     array('update' => '#zuijiaxinren')// jQuery selector
 					); ?> |
 					<?php echo CHtml::ajaxLink(  
-					     '<span >&nbsp 两周内 &nbsp</span>',  
+					     '&nbsp 两周内 &nbsp',  
 					     array('zhubo/zuijiaxinren', 'time' =>'14'), // Yii URL  
 					     array('update' => '#zuijiaxinren')// jQuery selector
 					); ?> |
 					<?php echo CHtml::ajaxLink(  
-					     '<span ">&nbsp 一月内</span>',  
+					     '&nbsp 一月内',  
 					     array('zhubo/zuijiaxinren', 'time' =>'30'), // Yii URL  
 					     array('update' => '#zuijiaxinren')// jQuery selector
 					); ?>
-					</span>
+					</div>
         		</div>
-        	</div> 
-		    <div class="row" id="zuijiaxinren">
+        	</div>
+        	 
+		    <div class="row-fluid" id="zuijiaxinren">
 		    	<?php	
 					$this->renderPartial("_zuijiaxinren",
 						array('dataProvider'=>$zuijiaxinren_dataProvider)); 
 				?>
 		    </div>
 		    
-		    <!-- 主播家族部分 -->    	      
-		    <div class="row">
-        		<hr style="height:1px;border:1px solid #FE089F; background-color:#FE089F"></hr>
-        	</div>  
+		    <div class="row-fluid">
+        		<hr style="height:1px;border:1px solid #FE089F; background-color:#FE019C"></hr>
+        	</div>
+		 <!-- 主播家族部分 --> 
+		    <!--   	      
+		     
         	
-		    <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-		    	<div class="col-md-6 pull-left">
+		    <div class="row-fluid" style="margin-top: 20px; margin-bottom: 20px;">
+		    	<div class="span6 pull-left">
 		    		<span style="color:#FE089F;font-size: 26px">主播家族</span>
 		    		<span class="gray" style="font-size:26px">ANCHOR FAMILY</span>
 		    		</div>
-				<div class="col-md-5 col-md-offset-1 pull-right">
+				<div class="span5 offset-1 pull-right">
 					<a href="" target="_blank" hidefocus="true" class="label label-zhubozuiduo">&nbsp主播最多&nbsp</a>
 					<a href="" target="_blank" hidefocus="true" class="label label-fensizuiduo">&nbsp粉丝最多&nbsp</a>
 					<a href="" target="_blank" hidefocus="true" class="label label-dafudagui">&nbsp大富大贵&nbsp</a>
 					<a href="" target="_blank" hidefocus="true" class="label label-lishiyoujiu">&nbsp历史悠久&nbsp</a>
 				</div>
 		    </div>
-        </div><!--/span-->
-        
-        <div class="col-md-2 pull-right" id="right_top5" style="margin-top:20px;">
-        	<div class="row green"><span class="fs22">MTop 5</span></div>
-		    <div class="row gray"><span class="fs22">本周人气主播排行</span></div>
-		    <div class="row" id="top_hots_5">
+		    -->
+    </div>
+    
+    <div style="width:235px;float:right;">
+		<div id="right_top5" style="margin-top:20px;margin-left:60px;">
+        	<div class="row-fluid"><span style="font-size:24px;color:#99cc33;"><strong>MTop 5</strong></span></div>
+		    <div class="row-fluid" style="margin: 4px 1px;"><span style="font-size:20px;color:#989898;">本周人气主播排行</span></div>
+		    <div class="row-fluid" id="top_hots_5">
         		<?php $this->widget ( 'zii.widgets.CListView', array (
 						'dataProvider' => $top5_dataProvider,
 						'enablePagination'=>false,
 						'itemView' => '_top_5',
         				'summaryText'=>'',
 				));?>
-        	</div><!--/row-->
+        	</div>
 		        	
-			<div class="row green"><span class="fs22">$Top 5</span></div>
-		    <div class="row gray"><span class="fs22">本周财富主播排行</span></div>
-		    <div class="row" id="top_wealth_5">
+			<div class="row-fluid" style="margin-top:15px;"><span style="font-size:24px;color:#99cc33;"><strong>$Top 5</strong></span></div>
+		    <div class="row-fluid" style="margin: 4px 1px;"><span style="font-size:20px;color:#989898;">本周财富主播排行</span></div>
+		    <div class="row-fluid" id="top_wealth_5">
         		<?php $this->widget ( 'zii.widgets.CListView', array (
 						'dataProvider' => $top5_dataProvider,
 						'enablePagination'=>false,
 						'itemView' => '_top_5',
         				'summaryText'=>'',
 				));?>
-        	</div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->     
+        	</div>
+        </div>
+	</div>
 </div>
