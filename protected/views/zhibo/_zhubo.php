@@ -3,7 +3,7 @@
 /* @var $data Zhubo */
 ?>
 
-<div class="col-md-12">
+<div class="span12">
 <?php $this->widget ( 'zii.widgets.CListView', array (
 	'dataProvider' => $dataProvider,
 	'enablePagination'=>false,

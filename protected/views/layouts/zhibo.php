@@ -19,6 +19,10 @@
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-theme.min.css" />
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homepage.css" />
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homepage.css" />
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/zhubo.css" />
 		
 	<?php
 		//Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);

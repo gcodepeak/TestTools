@@ -5,114 +5,88 @@
 		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89343201.js?cdnversion='+~(-new Date()/36e5)];
 </script>
 
-<div class="container" style="width: 100%;padding: 0 15px;">
-	<div class="row">
-		<div class="col-md-2" style="background-color: #eee;">
-			<div class="row" style="background-color: #BA2C49;">
-				<div class="col-md-8">
-					<a href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>"><img style="width: 90px; height: 30px; border:#E5E5E5 1px solid"
-					src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
-				</div>
-				<div class="col-md-4 pull-right">
-					<a class="btn" href="#" role="button">+收藏</a>
-				</div>
-			</div>
-			
-			<!-- 当前主播信息 -->
-			<div class="row" style="margin-left: 20px;">
-					<div class="row" style="margin-top:10px;margin-bottom:10px;">
-						<span class="fs22" style="color:#BA2C49;"><?php echo $zhubo->name;?></span>
-					</div>
-					<div class="row gray" style="margin-top:5px;margin-bottom:5px;">
-						<span>网站来源&nbsp/&nbsp</span><span style="color:#BA2C49"><?php echo $zhubo->site_id;?> </span>
-					</div>
-					<div class="row gray" style="margin-top:5px;margin-bottom:5px;">开播时间&nbsp/&nbsp 00:00</div>
-					<div class="row gray" style="margin-top:5px;margin-bottom:5px;">观众人数&nbsp/&nbsp<?php echo $zhubo->hots;?></div>
-					<div class="row gray" style="margin-top:5px;margin-bottom:5px;">喜欢就分享到</div>
-					<div class="bdsharebuttonbox">
-						<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-						<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-						<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-						<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-					</div>
-					<div class="row gray" style="margin-top:15px;margin-bottom:5px;">换一换看看</span>
-						<?php 	if (!Yii::app()->user->isGuest) { 
-									echo "<a href=".$this->createUrl("/zhubo/update",array('id'=>$zhubo->id)).">更新主播</a>";									
-									echo "&nbsp|&nbsp";
-									echo "<a href=".$this->createUrl("/zhuboTag/doTag",array('zhubo_id'=>$zhubo->id)).">打tag</a>";
-								}
-						?>
-					</div>
-			</div>
-			
-			<!-- 换一换主播 -->				
-			<div class="row" id='random' style="margin-top: 5px;">
-				<div class="t-reco">
-					<span class="btn-co pre"></span>
-		        	<?php	
-						$this->renderPartial("_zhubo",
-							array('dataProvider'=>$dataProvider));
-					?>
-				</div>
-        	</div>
+<script> 
+function show_Favorite(sURL, sTitle){   
+	sURL = encodeURI(sURL);
+	try{window.external.addFavorite(sURL, sTitle);
+	} catch(e) {
+		try{window.sidebar.addPanel(sTitle, sURL, "");
+		}catch (e) {
+			alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+		}
+	}
+}
 
-			
-			
-			<!-- 广告 -->
-			<div class="row" style="border: 1px solid;width:95%;height:200px;margin-left:5px">
-			</div>
-			
+function showList(id,num){
+	if(num==1){document.getElementById(id).style.display="block"}
+	else{document.getElementById(id).style.display="none"}
+}
+function show_index(url){
+    if (document.all) {
+        document.body.style.behavior='url(#default#homepage)';document.body.setHomePage(url);
+    } else {
+        alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");}
+}
+</script>
+
+<div style="width:195px;float:left;">
+	<div style="background-color: #BA2C49;">
+		<p>
+			<a href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>"><img style="width: 90px; height: 30px;"
+			src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
+
+			<span style="padding:5px 5px;float:right;">
+				<a class="btn" href="javascript:void(0);" style="color:#fff;" onclick="show_Favorite(window.location,document.title);">+收藏</a>
+			</span>
+		</p>
+	</div>
+		
+	<!-- 当前主播信息 -->
+	<div class="row" style="margin-left: 20px;">
+		<div class="row" style="margin-top:10px;margin-bottom:10px;">
+			<span style="color:#F35777;font-size:16px"><?php echo $zhubo->name;?></span>
 		</div>
-
-		<div class="col-md-10">			
-			<iframe id="zhibo_id" name="_zhibo_target" src="<?php echo $zhubo->url;?>" 
-				style="width:100%;height:700px;border:0px solid #fff;">
-				
-			</iframe>
+		<div class="row" style="margin-top:5px;margin-bottom:5px;">
+			<span style="color: #999;">网站来源&nbsp/&nbsp</span><span style="color:#F35777"><?php echo $zhubo->showSite->name;?> </span>
+		</div>
+		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">开播时间&nbsp/&nbsp <span style="color:#666">00:00</span></div>
+		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">观众人数&nbsp/&nbsp <span style="color:#666"><?php echo $zhubo->hots;?></span></div>
+		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">喜欢就分享到</div>
+		<div class="bdsharebuttonbox">
+			<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+			<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+			<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+			<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+		</div>
+		<div class="row" style="margin-top:15px;margin-bottom:5px;color: #999;font-size:12px">换一换看看</span>
+			<?php 	if (!Yii::app()->user->isGuest) { 
+						echo "<a href=".$this->createUrl("/zhubo/update",array('id'=>$zhubo->id)).">更新主播</a>";									
+						echo "&nbsp|&nbsp";
+						echo "<a href=".$this->createUrl("/zhuboTag/doTag",array('zhubo_id'=>$zhubo->id)).">打tag</a>";
+					}
+			?>
 		</div>
 	</div>
+		
+	<!-- 换一换主播 -->				
+	<div class="row" id='random' style="margin-top: 10px;">
+		<div class="t-reco">
+			<span class="btn-co pre"></span>
+        	<?php	
+				$this->renderPartial("_zhubo",
+					array('dataProvider'=>$dataProvider));
+			?>
+		</div>
+    </div>
+		
+	<!-- 广告 -->
+	<div class="row" style="border: 1px solid;width:153px;height:100px;margin-left:20px">
+	</div>
 </div>
-
-<script type="text/javascript"> 
-//下面这段代码可以实现IFrame自适应高度，即随着页面的长度，自动适应以免除页面和IFrame同时出现滚动条。  
-//源代码如下:  
-//** iframe自动适应页面 **//  
-//输入你希望根据页面高度自动调整高度的iframe的名称的列表  
-//用逗号把每个iframe的ID分隔. 例如: ["myframe1", "myframe2"]，可以只有一个窗体，则不用逗号。  
-//定义iframe的ID  
-var iframeids=["zhibo_room"]  
-//如果用户的浏览器不支持iframe是否将iframe隐藏 yes 表示隐藏，no表示不隐藏  
-var iframehide="yes"  
-function dyniframesize()  
-{  
-var dyniframe=new Array()  
-for (i=0; i<iframeids.length; i++)  
-{  
-if (document.getElementById)  
-{  
-//自动调整iframe高度  
-dyniframe[dyniframe.length] = document.getElementById(iframeids);  
-if (dyniframe && !window.opera)  
-{  
-dyniframe.style.display="block"  
-if (dyniframe.contentDocument && dyniframe.contentDocument.body.offsetHeight) //如果用户的浏览器是NetScape  
-dyniframe.height = dyniframe.contentDocument.body.offsetHeight;  
-else if (dyniframe.Document && dyniframe.Document.body.scrollHeight) //如果用户的浏览器是IE  
-dyniframe.height = dyniframe.Document.body.scrollHeight;  
-}  
-}  
-//根据设定的参数来处理不支持iframe的浏览器的显示问题  
-if ((document.all || document.getElementById) && iframehide=="no")  
-{  
-var tempobj=document.all? document.all[iframeids] : document.getElementById(iframeids)  
-tempobj.style.display="block"  
-}  
-}  
-}  
-if (window.addEventListener)  
-window.addEventListener("load", dyniframesize, false)  
-else if (window.attachEvent)  
-window.attachEvent("onload", dyniframesize)  
-else  
-window.onload=dyniframesize  
-</script>
+	
+<div style="margin-left:196px;width:1139px;">
+	<iframe id="zhibo_id" name="_zhibo_target" src="<?php echo $zhubo->url;?>" 
+		style="width:100%;height:700px;border:0px solid #fff;">
+		
+	</iframe>
+</div>
