@@ -134,8 +134,8 @@ class ZhuboController extends Controller
 	{
 		$top_14_criteria=new CDbCriteria;
 		$top_14_criteria->limit = 14;
-                $top_14_criteria->order = 'fans DESC';
-                $top_14_criteria->addCondition("is_live=1");
+        $top_14_criteria->order = 'fans DESC';
+        $top_14_criteria->addCondition("is_live=1");
 		
 		$top_14_dataProvider=new CActiveDataProvider('Zhubo',
 				array('criteria'=> $top_14_criteria,

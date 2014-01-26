@@ -134,68 +134,50 @@ $(document).ready(function(){
 
 	<?php echo $content; ?>
 
-	<div id="footer" style="width: 100%;background-color:#F4F4F4;clear:both;">
-		<div class="container">
-			<div class="row-fluid" style="margin-bottom: 10px; margin-left: 2px">
-				<div class="span2">
-					<span><strong>友情链接</strong></span>
+	<div style="clear: both"></div>
+	
+	<div id="footer" style="width: 100%;background-color:#F4F4F4;">
+		<div style="width:1190px;margin:0 auto;">
+			
+			<div style="width:835px;float:left;">
+				<p style="margin-top:18px;margin-bottom:18px"><strong>友情链接</strong></p>
+				<table>
+					<tr>
+						<td style="width: 15%"><a href="http://mm.56.com/" target="_blank" title="美女主播">美女主播</a></td>
+						<td style="width: 15%"><a href="http://xiu.56.com/" target="_blank" title="我秀">我秀</a></td>
+						<td style="width: 15%"><a href="http://www.6.cn/" target="_blank" title="6间房">6间房</a></td>
+						<td style="width: 15%"><a href="http://x.joy.cn/" target="_blank" title="星秀">星秀</a></td>
+						<td style="width: 15%"><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></td>
+						<td style="width: 15%"><a class="ftu" href="mailto:sites@meilizhubo.com?subject=申请友情链接：贵网站名称"
+							target="_blank" title="申请友链">[+申请友链]</a></td>
+					</tr>
+					
+				</table>
+			</div>
+			
+			<div style="width:150px;float:left;">
+				<div class="bdsharebuttonbox" data-tag="share_footer" style="margin-top:56px;float: right;">
+					<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+					<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+				</div>
+				<div class="row-fluid" style="font-size:12px;float: right;text-align:right;">
+					<p>© 2013-2023<br />
+					MEILIZHUBO.COM<br /> 
+					ALL RIGHTS RESERVED.<br />
+						京ICP备12050577号
+					</p>
+				</div>
+				<div class="row-fluid" style="float: right;">
+					<img src="<?php echo Yii::app()->baseUrl;?>/images/footer_logo.png"></img>
 				</div>
 			</div>
-			<div class="row-fluid">
-				<!-- 友情链接 -->
-				<div class="span8">
-					<div class="span2">
-						<a href="http://mm.56.com/" target="_blank" title="美女主播">美女主播</a>
-					</div>
-					<div class="span2">
-						<a href="http://xiu.56.com/" target="_blank" title="我秀">我秀</a>
-					</div>
-					<div class="span2">
-						<a href="http://www.6.cn/" target="_blank" title="6间房">6间房</a>
-					</div>
-					<div class="span2">
-						<a href="http://x.joy.cn/" target="_blank" title="星秀">星秀</a>
-					</div>
-					<div class="span2">
-						<a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a>
-					</div>
-					<div class="span2">
-						<a class="ftu" href="mailto:sites@xiu800.cn?subject=申请友情链接：贵网站名称"
-							target="_blank" title="申请友链">[+申请友链]</a>
-					</div>
-				</div>
-
-				<!-- 微博&二维码 -->
-				<div class="span4" >
-					<div class="row-fluid">
-						<div class="span6">
-							<div class="row-fluid">
-								<div class="bdsharebuttonbox" data-tag="share_footer">
-									<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
-									<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
-								</div>			
-							</div>
-							<div class="row-fluid" style="font-size:12px">
-								<p>© 2013-2023<br />
-								MEILIZHUBO.COM<br /> 
-								ALL RIGHTS RESERVED.<br />
-									京ICP备12050577号
-								</p>
-							</div>
-							<div class="row-fluid">
-								<img src="<?php echo Yii::app()->baseUrl;?>/images/footer_logo.png"></img>
-							</div>		
-						</div>
-						
-						<div class="span6" style="margin-left: -60px; margin-top:-20px">
-							<!-- div style="background-image: url(/images/saoyisao.png);background-repeat: no-repeat;background-position: top center;hight:60%;width:60%;">
-							</div-->
-							<img src="<?php echo Yii::app()->baseUrl;?>/images/saoyisao.png"></img>
-						</div>
-					</div>
-				</div>
+			
+			<div style="width:200px;float:right;margin-top:18px">
+				<img src="<?php echo Yii::app()->baseUrl;?>/images/saoyisao.png"></img>
 			</div>
 		</div>
+		
+		<div style="clear: both"></div>
 	</div>
 	<!-- footer -->
 </body>

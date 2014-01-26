@@ -27,7 +27,7 @@
 			<a href="<?php echo $data->url;?>"><span class="fs16"><?php echo $data->name;?></span></a>
 		</div>
 		<div class="row-fluid gray" style="padding-left:6px;margin-bottom:4px;">
-			<span style="color:#cbcbcb;font-size:12px;">选自/</span><span style="color:#999;font-size:12px;"><?php echo $data->site_id;?></span>
+			<span style="color:#cbcbcb;font-size:12px;">选自/</span><span style="color:#999;font-size:12px;"><?php echo $data->showSite->name;?></span>
 		</div>
 		<div class="row-fluid gray" style="padding-left:6px">
 			<span style="color:#cbcbcb;font-size:12px;">粉丝/</span><span style="color:#999;font-size:12px;"><?php echo $data->fans;?></span>
