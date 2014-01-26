@@ -12,9 +12,12 @@
 
 
 <!-- top 14 -->
-<div style="width: 100%;background-color:#ead0db;border-style:solid;border-width:1pt; border-color:#d6d8d8;">
-	<div id="top_14" style="margin:0 auto;width:1190px;height:344px;">
-		<?php	
+<div style="width: 100%;background-color:#ead0db;">
+	<div class="row-fluid" style="margin:0 auto;">
+    	<hr style="height:0px;border:1px solid #d6d8d8;background-color:#d6d8d8"></hr>
+    </div>
+	<div id="top_14" style="margin:2px auto;width:1190px;height:341px;">
+		<?php
 			$this->renderPartial("_top_14",
 				array('dataProvider'=>$top_14_dataProvider)); 
 		?>
@@ -22,11 +25,11 @@
 </div>
 
 
-<div style="width:1195px;margin:0 auto;">
+<div style="width:1190px;margin:32px auto;">
 	<div style="width:960px;float:left;">
 		<!-- 精挑细选部分 -->
-        	<div class="row-fluid" style="margin-top: 20px; margin-bottom: 20px;">
-				<div class="span2  pull-left">
+        	<div class="row-fluid" style="margin-bottom: 26px;">
+				<div class="span2  pull-left" style="margin-top:10px;">
 					<span style="font-size: 32px;color:#7f7f7f;">精挑细选</span>
 				</div>
 				<div class="span2">
@@ -73,7 +76,7 @@
         	</div>
         	
         <!-- 最佳新人部分 -->
-        	<div class="row-fluid">
+        	<div class="row-fluid" style="margin:0 auto;">
         		<hr style="height:1px;border:1px solid #99CC33; background-color:#99CC33"></hr>
         	</div>     
 		    
@@ -84,7 +87,7 @@
         		</div>
         		
         		<div class="span3 pull-right" style="font-size: 14px;color:#99cc33;">
-        			<div>
+        			<div style="text-align:right;">
         			<?php echo CHtml::ajaxLink(  
 					     '一周内 &nbsp',  
 					     array('zhubo/zuijiaxinren', 'time' =>'7'), // Yii URL  
@@ -111,7 +114,7 @@
 				?>
 		    </div>
 		    
-		    <div class="row-fluid">
+		    <div class="row-fluid" style="margin:0 auto;">
         		<hr style="height:1px;border:1px solid #FE089F; background-color:#FE019C"></hr>
         	</div>
 		 <!-- 主播家族部分 --> 
@@ -131,12 +134,20 @@
 				</div>
 		    </div>
 		    -->
+		    <div class="row-fluid" style="width:960px,height:95px;margin:0 auto;">
+		    	<script type="text/javascript">
+					var sogou_ad_id=307408;
+					var sogou_ad_height=90;
+					var sogou_ad_width=960;
+				</script>
+				<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+		    </div>
     </div>
     
-    <div style="width:235px;float:right;">
-		<div id="right_top5" style="margin-top:20px;margin-left:60px;">
-        	<div class="row-fluid"><span style="font-size:24px;color:#99cc33;"><strong>MTop 5</strong></span></div>
-		    <div class="row-fluid" style="margin: 4px 1px;"><span style="font-size:20px;color:#989898;">本周人气主播排行</span></div>
+    <div style="width:230px;float:right;">
+		<div id="right_top5" style="margin-top:-5px;margin-left:57px;">
+        	<div class="row-fluid"><span style="font-size:24px;color:#99cc33;"><strong>MTOP 5</strong></span></div>
+		    <div class="row-fluid" style="margin-top:2px;margin-bottom:26px;"><span style="font-size:20px;color:#989898;">本周人气主播排行</span></div>
 		    <div class="row-fluid" id="top_hots_5">
         		<?php $this->widget ( 'zii.widgets.CListView', array (
 						'dataProvider' => $top5_dataProvider,
@@ -146,8 +157,8 @@
 				));?>
         	</div>
 		        	
-			<div class="row-fluid" style="margin-top:15px;"><span style="font-size:24px;color:#99cc33;"><strong>$Top 5</strong></span></div>
-		    <div class="row-fluid" style="margin: 4px 1px;"><span style="font-size:20px;color:#989898;">本周财富主播排行</span></div>
+			<div class="row-fluid" style="margin-top:40px;"><span style="font-size:24px;color:#99cc33;"><strong>$TOP 5</strong></span></div>
+		    <div class="row-fluid" style="margin-top:2px;margin-bottom:26px;"><span style="font-size:20px;color:#989898;">本周财富主播排行</span></div>
 		    <div class="row-fluid" id="top_wealth_5">
         		<?php $this->widget ( 'zii.widgets.CListView', array (
 						'dataProvider' => $top5_dataProvider,

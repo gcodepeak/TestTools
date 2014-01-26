@@ -88,9 +88,8 @@ a:hover {
 .zhubo_tag {
 	background-color: #99CC33;
 	color: #ffffff;
-	padding: 8px 1px;
   	font-size: 24px;
-  	line-height: 24px;
+  	line-height: 50px;
   	border-radius: 3px;
 	text-align: center;
 	display: block;

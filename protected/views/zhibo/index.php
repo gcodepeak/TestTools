@@ -80,7 +80,13 @@ function show_index(url){
     </div>
 		
 	<!-- 广告 -->
-	<div class="row" style="border: 1px solid;width:153px;height:100px;margin-left:20px">
+	<div class="row" style="border: 1px solid;width:180px;height:150px;margin-left:20px">
+		<script type="text/javascript">
+			var sogou_ad_id=109874;
+			var sogou_ad_height=150;
+			var sogou_ad_width=180;
+		</script>
+		<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 	</div>
 </div>
 	

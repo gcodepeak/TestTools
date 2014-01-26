@@ -76,92 +76,61 @@ $(document).ready(function(){
 </script>
 
 <body>
-	<div class="container" id="nav" style="width:100%;background-color: #fefefe;">
-		<hr style="height:1px;border:1px solid #ba2c49; background-color:#ba2c49"></hr>
-		<div style="width:1214px;margin:0 auto;">
-			<div class="row-fluid">
-				<div class="span5" style="margin-top:15px">
+	<div style="width:100%;background-color: #fefefe;">
+		<hr style="height:2px;border:1px solid #ba2c49; background-color:#ba2c49"></hr>
+		
+		<div style="width:1190px;margin:0 auto;">
+			
+			<div style="width:195px;float:left;">
+				<div style="margin-top:17px;margin-bottom:19px;">
 					<a href="<?php echo Yii::app()->homeUrl?>"><img
 						src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
 				</div>
-	
-				<div class="span7">
-	
-					<div class="row-fluid">
-						<div class="span2 offset8" style="font-size:12px;color:#666666;">
-							<div style="float: right;padding:8px 1px">美播去哪儿？</div>
-						</div>
-						<div class="span2">
-							<div class="bdsharebuttonbox" data-tag="share_top" style="background-color:#C02747;width:90%;">
-								<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
-								<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
-							</div>
-							<!-- div>
-								<a href="#" class="lookUS"  hidefocus="true"><img alt="二维码" src="#"></img></a>
-							</div-->
-							
-						</div>
+			</div>
+			<div style="width:540px;float:right;">
+				<div>
+					<div style="padding-top:11px;padding-bottom:5px;float:left;margin-left:368px;">
+						<span style="font-size:12px;color:#666666;float:right;">美播去哪儿？</span>
 					</div>
-	
-					<div class="row-fluid">
 
-					<nav class="moko-nav">
-						<div class="max-width" style="max-width:600px; position: relative;">
-							<ul class="nav-pills" style="margin-left: 150px;">
-								<li class="dropdown"><a id="nav_home" href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>" hidefocus="true" 
-								<?php if (Yii::app()->controller->id == "zhubo"){echo 'style="color:#ba2c49;"';}?> >主播大厅</a></li>
-								<li  class="dropdown disabled"><a id="nav_care" class="tooltips" href="#" hidefocus="true">我的关注<span>即将上线敬请关注</span></a></li>
-								<li id="navmenu_fav" class="dropdown">
-									<a id="nav_fav" href="javascript:void(0)" hidefocus="true" class="dropdown-toggle tooltips">收录站点<b style="font-size: 10px;">&nbsp▼</b><span>即将上线敬请关注</span></a>
-									<!-- ul class="dropdown-menu">
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>" hidefocus="true" >56我秀</a></li>
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">9158</a></li>
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">6间房</a></li>
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">酷狗繁星</a></li>
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">搜狐秀场</a></li>
-									</ul> -->
-								</li>
-								
-								<li  class="dropdown"><a id="nav_contact" href="#" hidefocus="true">联系我们</a></li>
-							</ul>
+					<div style="background-color:#ba2c49;width:89px;height:28px;float:right;">
+						<div class="bdsharebuttonbox" data-tag="share_top" style="margin: 0px auto;">
+							<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+							<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
 						</div>
-					</nav>
-					
-					<!-- the head of home page -->				
-				  	<!-- div class="navbar" style="font-size: 16px;">
-				  		<div class="navbar-inner">
-				  		<div class="container">
-				  		<div class="nav-collapse collapse">
-					    	<ul class="nav">
-						        <li >
-									<a href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>">主播大厅</a></li>
-								<li class="disabled">
-									<a href="<?php echo Yii::app()->createUrl('')?>">我的关注</a></li>
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">收藏站点<b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">56我秀</a></li>
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">9158</a></li>
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">6间房</a></li>
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">酷狗繁星</a></li>
-										<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">搜狐秀场</a></li>
-									</ul></li>
-								<li><a href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>">网站合作</a></li>
-								<?php if (false && !Yii::app()->user->isGuest) { ?>
-									<li><a href="<?php echo Yii::app()->createUrl('zhubo/admin');?>">管理主播</a></li>
-									<li><a href="<?php echo Yii::app()->createUrl('site/logout');?>">注销</a></li>
-								<?php }; ?>
-						    </ul>
-						</div>
-				    	</div>
-				    	</div>
-				   </div>  -->
-				   </div>
+						<!-- div>
+							<a href="#" class="lookUS"  hidefocus="true"><img alt="二维码" src="#"></img></a>
+						</div-->
+						
+					</div>
 				</div>
+	
+				<div style="clear:both;"></div>
+
+				<nav class="moko-nav">
+					<ul class="nav-pills" style="height: 30px;line-height: 30px;">
+						<li class="dropdown"><a id="nav_home" href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>" hidefocus="true" 
+						<?php if (Yii::app()->controller->id == "zhubo"){echo 'style="color:#ba2c49;"';}?> >主播大厅</a></li>
+						<li  class="dropdown disabled"><a id="nav_care" class="tooltips" href="#" hidefocus="true">我的关注<span>即将上线敬请关注</span></a></li>
+						<li id="navmenu_fav" class="dropdown">
+							<a id="nav_fav" href="javascript:void(0)" hidefocus="true" class="dropdown-toggle tooltips">收录站点<b style="font-size: 10px;">&nbsp▼</b><span>即将上线敬请关注</span></a>
+							<!-- ul class="dropdown-menu">
+								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>" hidefocus="true" >56我秀</a></li>
+								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">9158</a></li>
+								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">6间房</a></li>
+								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">酷狗繁星</a></li>
+								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">搜狐秀场</a></li>
+							</ul> -->
+						</li>
+						
+						<li  class="dropdown"><a id="nav_contact" href="#" hidefocus="true">联系我们</a></li>
+					</ul>
+				</nav>
 			</div>
 		</div>
 	</div>
 	
+	<div style="clear: both;"></div>	
 
 	<?php echo $content; ?>
 
