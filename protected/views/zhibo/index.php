@@ -36,29 +36,29 @@ function show_index(url){
 			src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
 
 			<span style="padding:5px 5px;float:right;">
-				<a class="btn" href="javascript:void(0);" style="color:#fff;" onclick="show_Favorite(window.location,document.title);">+收藏</a>
+				<a href="javascript:void(0);" style="color:#fff;" onclick="show_Favorite(window.location,document.title);">+收藏</a>
 			</span>
 
 	</div>
 		
 	<!-- 当前主播信息 -->
 	<div class="row" style="margin-left: 15px;">
-		<div class="row" style="margin-top:10px;margin-bottom:10px;">
+		<div class="row" style="margin-left: 0px;margin-top:10px;margin-bottom:10px;">
 			<span style="color:#F35777;font-size:16px"><strong><?php echo $zhubo->name;?></strong></span>
 		</div>
-		<div class="row" style="margin-top:5px;margin-bottom:5px;">
+		<div class="row" style="margin-left: 0px;margin-top:5px;margin-bottom:5px;">
 			<span style="color: #999;">网站来源&nbsp/&nbsp</span><span style="color:#F35777"><?php echo $zhubo->showSite->name;?> </span>
 		</div>
-		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">开播时间&nbsp/&nbsp <span style="color:#666">00:00</span></div>
-		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">观众人数&nbsp/&nbsp <span style="color:#666"><?php echo $zhubo->hots;?></span></div>
-		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">喜欢就分享到:</div>
-		<div class="bdsharebuttonbox">
+		<div class="row" style="margin-left: 0px;margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">开播时间&nbsp/&nbsp <span style="color:#666">00:00</span></div>
+		<div class="row" style="margin-left: 0px;margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">观众人数&nbsp/&nbsp <span style="color:#666"><?php echo $zhubo->hots;?></span></div>
+		<div class="row" style="margin-left: 0px;margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">喜欢就分享到:</div>
+		<div class="bdsharebuttonbox" style="margin-left: 0px;">
 			<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
 			<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
 			<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
 			<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
 		</div>
-		<div class="row" style="margin-top:15px;margin-bottom:5px;color: #999;font-size:12px">换一换看看</span>
+		<div class="row" style="margin-left: 0px;margin-top:15px;margin-bottom:5px;color: #999;font-size:12px">换一换看看</span>
 			<?php 	if (!Yii::app()->user->isGuest) { 
 						echo "<a href=".$this->createUrl("/zhubo/update",array('id'=>$zhubo->id)).">更新主播</a>";									
 						echo "&nbsp|&nbsp";
@@ -69,14 +69,11 @@ function show_index(url){
 	</div>
 		
 	<!-- 换一换主播 -->				
-	<div class="row" id='random' style="margin-top: 5px;">
-		<div class="t-reco">
-			<span class="btn-co pre"></span>
-        	<?php	
-				$this->renderPartial("_zhubo",
-					array('dataProvider'=>$dataProvider));
-			?>
-		</div>
+	<div class="row" id='random' style="margin-left: 15px;margin-top: 5px;">
+        <?php	
+			$this->renderPartial("_zhubo",
+				array('dataProvider'=>$dataProvider));
+		?>
     </div>
 		
 	<!-- 广告 -->

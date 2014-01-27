@@ -6,4 +6,4 @@ Disallow: /anchor/
 Disallow: /manage/
 Disallow: /Manage/viewLogin.html
 
-Sitemap: http://xiu800.cn/sitemapxml/index.xml
+Sitemap: http://www.meilizhubo.cn/sitemapxml/index.xml
