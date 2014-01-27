@@ -24,7 +24,7 @@ class ZhiboController extends Controller
 			
 		// 提供换一换列表
 		$criteria=new CDbCriteria;
-		$criteria->limit = 3;
+		$criteria->limit = 2;
 		
 		$dataProvider=new CActiveDataProvider('Zhubo',
 				array('criteria'=> $criteria,

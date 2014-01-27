@@ -31,27 +31,27 @@ function show_index(url){
 
 <div style="width:195px;float:left;">
 	<div style="background-color: #BA2C49;">
-		<p>
-			<a href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>"><img style="width: 90px; height: 30px;"
+
+			<a href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>"><img style="width: 100px; height: 30px;"
 			src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
 
 			<span style="padding:5px 5px;float:right;">
 				<a class="btn" href="javascript:void(0);" style="color:#fff;" onclick="show_Favorite(window.location,document.title);">+收藏</a>
 			</span>
-		</p>
+
 	</div>
 		
 	<!-- 当前主播信息 -->
-	<div class="row" style="margin-left: 20px;">
+	<div class="row" style="margin-left: 15px;">
 		<div class="row" style="margin-top:10px;margin-bottom:10px;">
-			<span style="color:#F35777;font-size:16px"><?php echo $zhubo->name;?></span>
+			<span style="color:#F35777;font-size:16px"><strong><?php echo $zhubo->name;?></strong></span>
 		</div>
 		<div class="row" style="margin-top:5px;margin-bottom:5px;">
 			<span style="color: #999;">网站来源&nbsp/&nbsp</span><span style="color:#F35777"><?php echo $zhubo->showSite->name;?> </span>
 		</div>
 		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">开播时间&nbsp/&nbsp <span style="color:#666">00:00</span></div>
 		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">观众人数&nbsp/&nbsp <span style="color:#666"><?php echo $zhubo->hots;?></span></div>
-		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">喜欢就分享到</div>
+		<div class="row" style="margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">喜欢就分享到:</div>
 		<div class="bdsharebuttonbox">
 			<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
 			<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
@@ -69,7 +69,7 @@ function show_index(url){
 	</div>
 		
 	<!-- 换一换主播 -->				
-	<div class="row" id='random' style="margin-top: 10px;">
+	<div class="row" id='random' style="margin-top: 5px;">
 		<div class="t-reco">
 			<span class="btn-co pre"></span>
         	<?php	
@@ -80,7 +80,7 @@ function show_index(url){
     </div>
 		
 	<!-- 广告 -->
-	<div class="row" style="border: 1px solid;width:180px;height:150px;margin-left:20px">
+	<div class="row" style="border: 1px solid;width:180px;height:150px;margin-left:6px">
 		<script type="text/javascript">
 			var sogou_ad_id=109874;
 			var sogou_ad_height=150;
@@ -90,9 +90,11 @@ function show_index(url){
 	</div>
 </div>
 	
-<div style="margin-left:196px;width:1139px;">
+<div style="margin-left:196px;">
 	<iframe id="zhibo_id" name="_zhibo_target" src="<?php echo $zhubo->url;?>" 
-		style="width:100%;height:700px;border:0px solid #fff;">
+		style="width:100%;min-height:700px;border:0px solid #fff;">
 		
 	</iframe>
 </div>
+
+<div style="clear: both;"></div>
