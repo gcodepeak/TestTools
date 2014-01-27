@@ -143,6 +143,8 @@ class ZhuboController extends Controller
 		
 		$jingtiaoxixuan_criteria=new CDbCriteria;
 		$jingtiaoxixuan_criteria->limit = 8;
+                $jingtiaoxixuan_criteria->order = 'fans DESC';
+                $jingtiaoxixuan_criteria->addCondition("is_live=1");
 		
 		
 		$jingtiaoxixuan_dataProvider=new CActiveDataProvider('Zhubo',
@@ -151,6 +153,8 @@ class ZhuboController extends Controller
 		
 		$zuijiaxinren_criteria=new CDbCriteria;
 		$zuijiaxinren_criteria->limit = 12;
+                $zuijiaxinren_criteria->order = 'fans DESC';
+                $zuijiaxinren_criteria->addCondition("is_live=1");
 		
 		$zuijiaxinren_dataProvider=new CActiveDataProvider('Zhubo',
 				array('criteria'=> $zuijiaxinren_criteria,
@@ -158,6 +162,7 @@ class ZhuboController extends Controller
 		
 		$top5_criteria=new CDbCriteria;
 		$top5_criteria->limit = 5;
+                $top5_criteria->order = 'fans DESC';
 		
 		
 		$top5_dataProvider=new CActiveDataProvider('Zhubo',
