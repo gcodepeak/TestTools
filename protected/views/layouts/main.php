@@ -70,7 +70,7 @@ $(document).ready(function(){
 
 <script>
 		window._bd_share_config={
-			"common":{"bdSnsKey":{},"bdText":"快来快来,我发现了一个好网站哦~全是美女,还都直播,实时的哦~~~http://xiu800.cn @秀800 秀800美女主播导航是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+			"common":{"bdSnsKey":{},"bdText":"快来快来,我发现了一个好网站哦~全是美女,还都直播,实时的哦~~~http://www.meilizhubo.com @美丽主播 美丽主播美女主播导航是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
 			share:[{"tag":"share_top","bdSize":16,},{"tag":"share_footer","bdSize":32,"bdStyle":"0"}]
 		};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=86835285.js?cdnversion='+~(-new Date()/36e5)];
 </script>
@@ -81,13 +81,13 @@ $(document).ready(function(){
 		
 		<div style="width:1190px;margin:0 auto;">
 			
-			<div style="width:195px;float:left;">
+			<div style="width:195px;float:left;display:inline;">
 				<div style="margin-top:17px;margin-bottom:19px;">
 					<a href="<?php echo Yii::app()->homeUrl?>"><img
 						src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
 				</div>
 			</div>
-			<div style="width:540px;float:right;">
+			<div style="width:540px;float:right;display:inline;">
 				<div>
 					<div style="padding-top:11px;padding-bottom:5px;float:left;margin-left:368px;">
 						<span style="font-size:12px;color:#666666;float:right;">美播去哪儿？</span>

@@ -297,7 +297,7 @@ a.iBd:hover {
     bottom: 0;
     color: #666666;
     cursor: pointer;
-    display: none;
+    /*display: none;*/
     font-size: 16px;
     font-weight: bold;
     height: 60px;

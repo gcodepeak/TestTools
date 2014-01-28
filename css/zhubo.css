@@ -22,6 +22,36 @@ a:hover {
 	height: 226px;
 }
 
+.top14 .overlay {
+    background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 0;
+    color: #666666;
+    cursor: pointer;
+    display: none;
+    
+    font-weight: bold;
+    overflow: hidden;
+    position: absolute;
+	
+	opacity: .9;
+	filter: alpha(opacity=50);
+	
+	font-size: 12px;
+	height: 92px;
+	line-height:20px;
+	width: 133px;
+	padding-left:13px;
+}
+
+.top14 li.doublesize .overlay{
+	font-size: 16px;
+	height: 112px;
+	line-height:20px;
+	width: 272px;
+	padding-left:24px;	
+}
+
+
 /* 设置精挑细选部分的样式 */
 p.zhubo {
 	position: relative;
@@ -64,7 +94,7 @@ p.zhubo em {
 	height: 42px;
 	background: #000;
 	opacity: .4;
-	filter: alpha(opacity=50);
+	filter: alpha(opacity=90);
 }
 
 .zhubo em.showSiteName {
