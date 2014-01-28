@@ -146,7 +146,6 @@ class ZhuboController extends Controller
                 $jingtiaoxixuan_criteria->order = 'fans DESC';
                 $jingtiaoxixuan_criteria->addCondition("is_live=1");
 		
-		
 		$jingtiaoxixuan_dataProvider=new CActiveDataProvider('Zhubo',
 			array('criteria'=> $jingtiaoxixuan_criteria,
 					 'pagination'=>FALSE));
@@ -168,6 +167,9 @@ class ZhuboController extends Controller
 		$top5_dataProvider=new CActiveDataProvider('Zhubo',
 				array('criteria'=> $top5_criteria,
 						 'pagination'=>FALSE));
+		
+		// 添加展现log
+		//Yii::log("zhubo/homepage","info","system.web.Controller");
 		
 		$this->render('homepage',array(
 				'top_14_dataProvider'=>$top_14_dataProvider,

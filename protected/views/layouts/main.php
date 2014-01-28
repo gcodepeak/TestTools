@@ -18,7 +18,7 @@
 -->
 <!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
+<![endif]-->
 
 <!-- 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
@@ -67,7 +67,6 @@ $(document).ready(function(){
  });
 </script>
 
-
 <script>
 		window._bd_share_config={
 			"common":{"bdSnsKey":{},"bdText":"快来快来,我发现了一个好网站哦~全是美女,还都直播,实时的哦~~~http://www.meilizhubo.com @美丽主播 美丽主播美女主播导航是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
@@ -76,6 +75,16 @@ $(document).ready(function(){
 </script>
 
 <body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47546160-1', 'meilizhubo.com');
+  ga('send', 'pageview');
+
+</script>
 	<div style="width:100%;background-color: #fefefe;">
 		<hr style="height:2px;border:1px solid #ba2c49; background-color:#ba2c49"></hr>
 		

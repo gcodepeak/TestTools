@@ -79,6 +79,21 @@ return array(
 				
 				array(
 					'class'=>'CWebLogRoute',
+					'levels'=>'trace',
+				),
+				// visit log
+				array(
+					'class'=>'CFileLogRoute',
+					'levels'=>'info',
+					'categories'=> 'visit.*',
+					'logFile'=> 'visit.log',
+				),
+				// show log
+				array(
+					'class'=>'CFileLogRoute',
+					'levels'=>'info',
+					'categories'=> 'show.*',
+					'logFile'=> 'show.log',
 				),
 			),
 		),

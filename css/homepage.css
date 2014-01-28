@@ -92,7 +92,7 @@ a:hover {
   	line-height: 50px;
   	border-radius: 3px;
 	text-align: center;
-	display: block;
+	display: inline;
   	width: 100%;
 	float: right;
 }
