@@ -12,3 +12,23 @@
 	    'summaryText'=>'',
 	));
 ?>
+
+<script type="text/javascript">
+	//展示模块
+	$('.best_newer').each(function(){
+		var $this = jQuery(this),$a = $this.find('a'),$overlay=$this.find('.overlay'),$info=$this.find('.info');
+		if (!$this) {
+			alert("error");
+		}
+		
+		$a.hover(function(){
+			//$overlay.toggle();
+			$overlay.stop(true, true).slideDown(200);
+			$info.toggle();
+		},function(){
+			//$overlay.toggle();
+			$overlay.stop(true, true).slideUp(200);
+			$info.toggle();
+		});
+	});
+</script>

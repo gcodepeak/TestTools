@@ -34,7 +34,7 @@ a:hover {
     position: absolute;
 	
 	opacity: .9;
-	filter: alpha(opacity=50);
+	filter: alpha(opacity=90);
 	
 	font-size: 12px;
 	height: 92px;
@@ -51,14 +51,63 @@ a:hover {
 	padding-left:24px;	
 }
 
+.zhubo .overlay {
+    background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 0;
+    color: #666666;
+    cursor: pointer;
+    display: none;
+    
+    font-weight: bold;
+    overflow: hidden;
+    position: absolute;
+	
+	opacity: .9;
+	filter: alpha(opacity=90);
+	
+	font-size:16px;
+	height:42px;
+	line-height:42px;
+	width: 100%;
+	padding-left:13px;
+}
+
+.best_newer .overlay {
+    background: none repeat scroll 0 0 #FFFFFF;
+    bottom: 0;
+    color: #666666;
+    cursor: pointer;
+    display: none;
+    
+    font-weight: bold;
+    overflow: hidden;
+    position: absolute;
+	
+	opacity: .9;
+	filter: alpha(opacity=90);
+	
+	font-size:12px;
+	height:23px;
+	line-height:23px;
+	width: 100%;
+	padding-left:13px;
+}
+
+span.name:hover {
+	color:#666;
+}
+
+span.name:hover {
+	color:#f35777;
+}
 
 /* 设置精挑细选部分的样式 */
-p.zhubo {
+.zhubo {
 	position: relative;
 	display: block;
 }
 
-p.zhubo em {
+.zhubo em {
 	display: block;
 	position: absolute;
 }
@@ -120,12 +169,12 @@ p.zhubo em {
 }
 
 /* 设置最佳新人部分 */
-p.best_newer {
+.best_newer {
 	position: relative;
 	display: block;
 }
 
-p.best_newer em {
+.best_newer em {
 	display: block;
 	position: absolute;
 }
