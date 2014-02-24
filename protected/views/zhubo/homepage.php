@@ -42,28 +42,28 @@
 				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
 					     '<span class="zhubo_tag">好声音</span>',  
-					     array('zhubo/jingtiaoxixuan', 'tag' =>'haoshenyin'), // Yii URL  
+					     array('zhubo/jingtiaoxixuan', 'tag' =>'1'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
 				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
 					     '<span class="zhubo_tag">小清新</span>',  
-					     array('zhubo/jingtiaoxixuan', 'tag' =>'xiaoqingxin'), // Yii URL  
+					     array('zhubo/jingtiaoxixuan', 'tag' =>'2'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
 				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
 					     '<span class="zhubo_tag">活泼范</span>',  
-					     array('zhubo/jingtiaoxixuan', 'tag' =>'huopofan'), // Yii URL  
+					     array('zhubo/jingtiaoxixuan', 'tag' =>'3'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
 				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
 					     '<span class="zhubo_tag">气质型</span>',  
-					     array('zhubo/jingtiaoxixuan', 'tag' =>'qizhixing'), // Yii URL  
+					     array('zhubo/jingtiaoxixuan', 'tag' =>'4'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
