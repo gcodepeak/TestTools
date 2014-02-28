@@ -162,7 +162,7 @@ class ZhuboController extends Controller
 		*/
 		
 		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, last_live_time"
-				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id limit 8";
+				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
 		$connection = Yii::app()->db;
 		$command = $connection->createCommand($sql_cmd);
 		$jingtiaoxixuan_dataProvider = $command->queryAll();
@@ -170,7 +170,7 @@ class ZhuboController extends Controller
 		
 		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, last_live_time"
 					." from zhubo, ShowSite"
-					." where zhubo.site_id = ShowSite.id limit 12";
+					." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 12";
 		$command = $connection->createCommand($sql_cmd);
 		$zuijiaxinren_dataProvider = $command->queryAll();
 		
@@ -218,7 +218,7 @@ class ZhuboController extends Controller
 			
 			$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, last_live_time"
 						." from zhubo, ShowSite, ZhuboTag"
-						." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = :tag_id limit 8";
+						." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = :tag_id order by zhubo.is_live desc, zhubo.fans desc limit 8";
 			$connection = Yii::app()->db;
 			$command = $connection->createCommand($sql_cmd);
 			// 绑定参数
@@ -226,7 +226,7 @@ class ZhuboController extends Controller
 			$jingtiaoxixuan_dataProvider = $command->queryAll();
 		} else {
 			$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, last_live_time"
-					." from zhubo, ShowSite where zhubo.site_id = ShowSite.id limit 8";
+					." from zhubo, ShowSite where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
 			$connection = Yii::app()->db;
 			$command = $connection->createCommand($sql_cmd);
 			$jingtiaoxixuan_dataProvider = $command->queryAll();

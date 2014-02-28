@@ -41,32 +41,32 @@
 				</div>
 				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
-					     '<span class="zhubo_tag">好声音</span>',  
-					     array('zhubo/jingtiaoxixuan', 'tag' =>'1'), // Yii URL  
+					     '<span class="zhubo_tag">可爱</span>',  
+					     array('zhubo/jingtiaoxixuan', 'tag' =>'22'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
 				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
-					     '<span class="zhubo_tag">小清新</span>',  
-					     array('zhubo/jingtiaoxixuan', 'tag' =>'2'), // Yii URL  
+					     '<span class="zhubo_tag">妩媚</span>',  
+					     array('zhubo/jingtiaoxixuan', 'tag' =>'27'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
 				<div class="span2">
 					<?php echo CHtml::ajaxLink(  
-					     '<span class="zhubo_tag">活泼范</span>',  
-					     array('zhubo/jingtiaoxixuan', 'tag' =>'3'), // Yii URL  
+					     '<span class="zhubo_tag">女神</span>',  
+					     array('zhubo/jingtiaoxixuan', 'tag' =>'123'), // Yii URL  
 					     array('update' => '#jingtiaoxixuan')// jQuery selector
 					); ?>
 				</div>
-				<div class="span2">
-					<?php echo CHtml::ajaxLink(  
-					     '<span class="zhubo_tag">气质型</span>',  
-					     array('zhubo/jingtiaoxixuan', 'tag' =>'4'), // Yii URL  
-					     array('update' => '#jingtiaoxixuan')// jQuery selector
-					); ?>
-				</div>
+                                <div class="span2">
+                                        <?php echo CHtml::ajaxLink(
+                                             '<span class="zhubo_tag">好声音</span>',
+                                             array('zhubo/jingtiaoxixuan', 'tag' =>'122'), // Yii URL  
+                                             array('update' => '#jingtiaoxixuan')// jQuery selector
+                                        ); ?>
+                                </div>
 			</div>
 			<div class="row-fluid" id='jingtiaoxixuan'>
 	        	<?php	
