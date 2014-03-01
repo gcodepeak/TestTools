@@ -29,7 +29,10 @@ def resize_img(file):
         x2 = w
         y2 = int((h + new_h)/2)
 
-    img.save(file + ".png")
+    arr = file.split('.')
+    arr[-2] += "_bak"
+    backup_file = '.'.join(arr)
+    img.save(backup_file)
 
     new_img = img.crop((x1,y1,x2,y2));
     new_img.save(file);

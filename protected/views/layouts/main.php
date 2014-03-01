@@ -1,6 +1,7 @@
 <?php /* @var $this Controller */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<html xmlns:wb="http://open.weibo.com/wb">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="language" content="en" />
@@ -43,6 +44,7 @@
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
     <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i">
 
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey="" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <script type="text/javascript">
@@ -133,6 +135,7 @@ $(document).ready(function(){
 						</li>
 						
 						<li  class="dropdown"><a id="nav_contact" href="#" hidefocus="true">联系我们</a></li>
+						<!-- li><wb:login-button type="3,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button></li-->
 					</ul>
 				</nav>
 			</div>

@@ -18,7 +18,7 @@
 <?php if ($index == 0) { ?>
 	<div class="span10" style="width:153px;height:178px;margin:0 0 20px 0;">
 		<div class="row-fluid" style="width: 150px; height: 114px;margin-left:1px;margin-botom:4px;border:#E5E5E5 1px solid;">
-			<a href="<?php echo $data->url;?>"><img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/head_cube_right.png"></a>
+			<a href="<?php echo $data->url;?>"><img alt="" src="<?php echo $data->head_img;?>"></a>
 		</div>
 <?php }else { ?>
 	<div class="span10" style="height:60px; margin:0 0 20px 0;">
