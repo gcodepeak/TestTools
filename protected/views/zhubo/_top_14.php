@@ -11,7 +11,7 @@
 	<ul>
 		<li class="head_cube doublesize top" style="top: 0px; left: 0px;" data-id="0">
 			<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$top14s[0]['id'],))?>" target="_blank">
-				<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/static_image/modified_img/56-10060-a03.jpg" style="display: block;">
+				<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/static_image/modified_img/1-10060-a03.jpg" style="display: block;">
 				<div class="overlay" style="color:#999;font-size:16px;">
 					<p style="color:#333;font-size:20px;padding-top:20px;padding-bottom:16px;"><?php echo $top14s[0]->name;?></p>
 					<div style="display:inline;">观众/<span style="color:#666;font-size:16px;"><?php echo $top14s[0]->fans;?></span></div>
@@ -45,7 +45,7 @@
 		</li>
 		<li class="head_cube top" style="top: 0px; left: 594px;" data-id="1">
 			<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$top14s[3]['id'],))?>" target="_blank">
-			<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/static_image/modified_img/56-76543-a03.jpg">
+			<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/static_image/modified_img/1-76543-a03.jpg">
 			<div class="overlay " style="color:#999;">
 				<p style="color:#333;font-size:14px;padding-top:10px;"><?php echo $top14s[3]->name;?></p>
 				<p>观众/<span style="color:#666;font-size:12px;"><?php echo $top14s[3]->fans;?></span></p>
@@ -56,7 +56,7 @@
 		</li>
 		<li class="head_cube doublesize top" style="top: 0px; left: 743px;" data-id="1">
 			<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$top14s[4]['id'],))?>" target="_blank">
-			<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/static_image/modified_img/56-76543-a03.jpg">
+			<img alt="" src="<?php echo Yii::app()->baseUrl;?>/images/static_image/modified_img/1-76543-a03.jpg">
 			<div class="overlay" style="color:#999;font-size:16px;">
 				<p style="color:#333;font-size:20px;padding-top:20px;padding-bottom:16px;"><?php echo $top14s[4]->name;?></p>
 				<div style="display:inline;">观众/<span style="color:#666;font-size:16px;"><?php echo $top14s[4]->fans;?></span></div>
