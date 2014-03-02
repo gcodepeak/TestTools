@@ -98,21 +98,23 @@ class ZhuboTagController extends Controller
 
 		if(isset($_POST['submitButton']))
 		{
+			$taged_ids = array();
+			// 标记已经添加的tag
+			$sql_cmd = "select distinct tag_id from ZhuboTag where zhubo_id = :zhubo_id";
+			$command = Yii::app()->db->createCommand($sql_cmd);
+			$command->bindParam(":zhubo_id", $_GET['zhubo_id']);
+			$tageds = $command->queryAll();
+			//print_r($tageds);
+			
+			foreach($tageds as $tag){
+				array_push($taged_ids, $tag['tag_id']);
+			}
+			//print_r($taged_ids);
+			
+			$to_move_tags = $taged_ids;
+			
 			if (isset($_POST['selected_tags']))
 			{
-				// 标记已经添加的tag
-				$sql_cmd = "select distinct tag_id from ZhuboTag where zhubo_id = :zhubo_id";
-				$command = Yii::app()->db->createCommand($sql_cmd);
-				$command->bindParam(":zhubo_id", $_GET['zhubo_id']);
-				$tageds = $command->queryAll();
-				//print_r($tageds);
-				
-				$taged_ids = array();
-				foreach($tageds as $tag){
-					array_push($taged_ids, $tag['tag_id']);
-				}
-				//print_r($taged_ids);
-				
 				// 求需要被标记的tag
 				$to_tags = array_diff($_POST['selected_tags'], $taged_ids);
 				foreach ($to_tags as $tag){
@@ -126,23 +128,24 @@ class ZhuboTagController extends Controller
 						throw new CHttpException(500,'插入tag失败，数据库错误.');
 					}
 				}
-				
 				// 求需要被取消标记的tag
 				$to_move_tags = array_diff($taged_ids, $_POST['selected_tags']);
-				foreach ($to_move_tags as $tag){
-					//print "to move tag: ".$tag;
-					$sql = "select * from ZhuboTag where zhubo_id = ".$zhubo_id." and tag_id = ".$tag.";";
-					//print $sql;
-					$models = ZhuboTag::model()->findAllBySql($sql);
-					foreach ($models as $model){
-						if(!$model->delete()){
-							throw new CHttpException(500,'插入tag失败，数据库错误.');
-						}
+			}
+			
+			foreach ($to_move_tags as $tag){
+				//print "to move tag: ".$tag;
+				$sql = "select * from ZhuboTag where zhubo_id = ".$zhubo_id." and tag_id = ".$tag.";";
+				//print $sql;
+				$models = ZhuboTag::model()->findAllBySql($sql);
+				foreach ($models as $model){
+					if(!$model->delete()){
+						throw new CHttpException(500,'插入tag失败，数据库错误.');
 					}
 				}
-				
-				$this->redirect(array('/zhuboTag/toTag'));
 			}
+			
+			$this->redirect(array('/zhuboTag/toTag'));
+			
 		}
 		
 		// 重新计算已经被标记的tag数组

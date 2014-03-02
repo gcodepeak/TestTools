@@ -145,8 +145,7 @@ foreach ($tags as $key1 => $class_1){
 </tbody>
 </table>
 </div>
-
-
+					
 <div id="for-link" style="text-align: center;">
 <?php echo CHtml::submitButton('提交', array('name' => 'submitButton')); ?>
 <!-- ?php
