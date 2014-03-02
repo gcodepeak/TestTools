@@ -31,6 +31,14 @@
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/yii/detailview/styles.css" />
 	
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+
+<style>
+#page ul.yiiPager .first,
+#page ul.yiiPager .last
+{
+    display: inline;
+}
+</style>
 </head>
 
 <body>
