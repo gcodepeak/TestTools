@@ -29,6 +29,10 @@
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/yii/pager.css" />
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/yii/detailview/styles.css" />
+
+<?php
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/yii/gridview/jquery.yiigridview.js");
+?>
 	
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
