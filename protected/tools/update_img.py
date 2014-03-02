@@ -15,7 +15,7 @@ def update_db(files):
         siteid = fields[0]
         local_id = fields[1]
         head_img = img_dir + file
-        print "update zhubo set head_img = '%s' where site_id = %s and local_id = %s" % (head_img, siteid, local_id) 
+        print "update zhubo set head_img = '%s' where site_id = '%s' and local_id = '%s';" % (head_img, siteid, local_id) 
 
 
 if __name__ == '__main__':

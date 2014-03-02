@@ -8,6 +8,7 @@
  * @property string $name
  * @property string $class_1
  * @property string $class_2
+ * @property integer $status
  *
  * The followings are the available model relations:
  * @property ZhuboTag[] $zhuboTags
@@ -40,11 +41,12 @@ class Tag extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('status', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>64),
 			array('class_1, class_2', 'length', 'max'=>32),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, class_1, class_2', 'safe', 'on'=>'search'),
+			array('id, name, class_1, class_2, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,6 +72,7 @@ class Tag extends CActiveRecord
 			'name' => 'Tag',
 			'class_1' => '一级分类',
 			'class_2' => '二级分类',
+			'status' => '有效',
 		);
 	}
 
@@ -88,6 +91,7 @@ class Tag extends CActiveRecord
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('class_1',$this->class_1,true);
 		$criteria->compare('class_2',$this->class_2,true);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

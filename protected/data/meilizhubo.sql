@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   `id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `username` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
+  `loginType` tinyint default 0, /** 登录方式：0：注册用户；1:新浪微博；2:QQ；**/
   `register_time` datetime
 )
 ENGINE=InnoDB,
@@ -66,7 +67,8 @@ CREATE TABLE IF NOT EXISTS `Tag` (
   `id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(64),
   `class_1` varchar(32),
-  `class_2` varchar(32)
+  `class_2` varchar(32),
+  `status` tinyint default 1, /* 1:valide 2:deleted*/
 )
 ENGINE=InnoDB,
 DEFAULT CHARSET=utf8,
@@ -86,3 +88,17 @@ CREATE TABLE IF NOT EXISTS `ZhuboTag` (
 ENGINE=InnoDB,
 DEFAULT CHARSET=utf8,
 COMMENT = 'the pm add tag to zhubo';
+
+CREATE TABLE IF NOT EXISTS `Guanzhu` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `user_id` int unsigned,
+  `zhubo_id` int unsigned,
+  `add_time` datetime,
+  `del_time` datetime,
+  status tinyint default 0, /** 状态 0：关注；1：取消关注 **/
+  foreign key (zhubo_id) references zhubo(id),
+  foreign key (user_id) references User(id)
+)
+ENGINE=InnoDB,
+DEFAULT CHARSET=utf8,
+COMMENT = 'user likes zhubo';

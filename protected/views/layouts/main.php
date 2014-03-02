@@ -45,6 +45,8 @@
     <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i">
 
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey="" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
+		data-appid="101029271" data-redirecturi="http://www.meilizhubo.com/call_back.html" charset="utf-8"></script>
 </head>
 
 <script type="text/javascript">
@@ -102,6 +104,12 @@ $(document).ready(function(){
 				<div>
 					<div style="padding-top:11px;padding-bottom:5px;float:left;margin-left:368px;">
 						<span style="font-size:12px;color:#666666;float:right;">美播去哪儿？</span>
+						<!-- span id="qqLoginBtn"></span>
+						<script type="text/javascript">
+							    QC.Login({
+							       btnId:"qqLoginBtn"    //插入按钮的节点id
+							});
+						</script-->
 					</div>
 
 					<div style="background-color:#ba2c49;width:89px;height:28px;float:right;">

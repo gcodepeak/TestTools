@@ -22,6 +22,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.extensions.*',
+		'application.extensions.smarty.sysplugins.*',
 	),
 
 	'modules'=>array(
@@ -39,6 +41,17 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+		),
+		
+		'smarty'=>array(
+				'class'=>'application.extensions.CSmarty',
+		),
+		
+		'session'=>array(
+			'autoStart'=>true,
+			'sessionName'=>'meilizhubo',
+			'cookieMode'=>'only',
+			//'savePath'=>'/path/to/new/directory',
 		),
 		// uncomment the following to enable URLs in path-format
 		

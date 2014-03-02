@@ -106,7 +106,7 @@ class Zhubo extends CActiveRecord
 			'tags' => '标签',
 			'news_num' => '动态数',
 			'news_photo_num' => '照片数',
-			'is_live' => '正在直播',
+			'is_live' => '正直播',
 			'last_live_time' => '上次直播时间',
 			'photos' => '照片链接',
 		);
@@ -182,18 +182,69 @@ class Zhubo extends CActiveRecord
 		$criteria->addNotInCondition('id', $taged_zhubo_arr);
 		
 		$criteria->compare('id',$this->id,true);
+		$criteria->compare('local_id',$this->local_id,true);
 		$criteria->compare('url',$this->url,true);
-		//$criteria->compare('site_id',$this->site_id);
+		$criteria->compare('site_id',$this->site_id);
 		$criteria->compare('is_live',$this->is_live);
+		$criteria->compare('sex',$this->sex);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('region',$this->region,true);
 		$criteria->compare('last_live_time',$this->last_live_time,true);
 	
+		$criteria->order = 'fans desc';
+		
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+			'pagination'=>array(
+					'pageSize'=>50,
+			),
+		));
+	}
+	
+	/**
+	 * 供待标注使用的函数
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 */
+	public function tagedSearch()
+	{
+		$criteria=new CDbCriteria;
+		//$criteria->with=array(
+		//		'showSite',
+		//);
+	
+		// 获取已经标记过的主播的id集合
+		$taged_zhubos = ZhuboTag::model()->findAll(array(
+				'select' => 'zhubo_id',
+				'distinct' => true,
+		));
+	
+		$taged_zhubo_arr = array();
+		foreach($taged_zhubos as $item){
+			array_push($taged_zhubo_arr,$item['zhubo_id']);
+		}
+	
+		$criteria->addInCondition('id', $taged_zhubo_arr);
+	
+		$criteria->compare('id',$this->id,true);
+		$criteria->compare('local_id',$this->local_id,true);
+		$criteria->compare('url',$this->url,true);
+		$criteria->compare('site_id',$this->site_id);
+		$criteria->compare('is_live',$this->is_live);
+		$criteria->compare('sex',$this->sex);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('region',$this->region,true);
+		$criteria->compare('last_live_time',$this->last_live_time,true);
+	
+		$criteria->order = 'fans';
+		
 		return new CActiveDataProvider($this, array(
 				'criteria'=>$criteria,
 				'pagination'=>array(
-						'pageSize'=>50,
+					'pageSize'=>50,
 				),
 		));
 	}
+	
 	/**
 	 * 请求精挑细选主播
 	 * @param integer $tag_id ： 标签的ID
