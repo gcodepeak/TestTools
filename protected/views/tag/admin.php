@@ -63,7 +63,7 @@ table td {
 			'template'=>'{view1}',
 			'buttons'=>array(
 				'view1'=>array(
-					'label'=>"修改主播信息",
+					'label'=>"修改信息",
 					'url'=>'Yii::app()->createUrl("tag/update",array("id"=>$data->id))',
 					//'options'=>array("target"=>"_blank"),
 				),
