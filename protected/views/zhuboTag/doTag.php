@@ -111,8 +111,10 @@ foreach ($tags as $key1 => $class_1){
 		print '<table class="inner">';
 		$index_3 = 0;
 		foreach ($class_2 as $name=>$arr) {
-			if($index_3 % 10 == 0){
+			if($index_3 == 0){
 				print '<tr>';
+			} else if($index_3 % 10 == 0){
+				print '</tr><tr>';
 			}
 			
 			print '<td style="border:0 white solid;">';
@@ -123,20 +125,15 @@ foreach ($tags as $key1 => $class_1){
 			}
 			print '/>'.$name.'</td>';
 			
-			if($index_3 != 0 && $index_3 % 10 == 0 ){
-				print '</tr>';
-			}
 			$index_3 ++;
 		}
-		if($index_3 == 0){
-			print '</tr>';
-		} else if ($index_3 % 10 != 0){
-			while($index_3 % 10 != 0){
-				print '<td style="width:100px;border:0 white solid;"/>';
-				$index_3 ++;
-			}
-			print '</tr>';
+		
+		while($index_3 % 10 != 0){
+			print '<td style="width:100px;border:0 white solid;"/>';
+			$index_3 ++;
 		}
+		print '</tr>';
+		
 		print '</table></td>';
 		print '</tr>';
 		$index_2++;
