@@ -3,8 +3,8 @@
 /* @var $model ZhuboTag */
 
 $this->breadcrumbs=array(
-	'Zhubo Tags'=>array('index'),
-	'Manage',
+	//'Zhubo Tags'=>array('index'),
+	'标注主播',
 );
 
 $this->menu=array(

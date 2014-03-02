@@ -34,8 +34,26 @@ $('.search-form form').submit(function(){
 		'id',
 		'name',
 		'weight',
+		//array(
+		//	'class'=>'CButtonColumn',
+		//),
 		array(
-			'class'=>'CButtonColumn',
+			'class'=>'CLinkColumn',
+			'header'=>'查看',
+			'label'=>'查看',
+			'urlExpression'=>'Yii::app()->createUrl("showSite/view",array("id"=>$data->id))',
+		),
+		array(
+			'class'=>'CLinkColumn',
+			'header'=>'修改',
+			'label'=>'修改',
+			'urlExpression'=>'Yii::app()->createUrl("showSite/update",array("id"=>$data->id))',
+		),
+		array(
+			'class'=>'CLinkColumn',
+			'header'=>'删除',
+			'label'=>'删除',
+			'urlExpression'=>'Yii::app()->createUrl("showSite/delete",array("id"=>$data->id))',
 		),
 	),
 )); ?>

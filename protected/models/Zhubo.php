@@ -235,7 +235,7 @@ class Zhubo extends CActiveRecord
 		$criteria->compare('region',$this->region,true);
 		$criteria->compare('last_live_time',$this->last_live_time,true);
 	
-		$criteria->order = 'fans';
+		//$criteria->order = 'fans';
 		
 		return new CActiveDataProvider($this, array(
 				'criteria'=>$criteria,

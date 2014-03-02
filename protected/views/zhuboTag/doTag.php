@@ -20,6 +20,22 @@
 	),
 )); ?-->
 
+<style>
+table td {
+	text-align:center;
+}
+
+table.inner td {
+	width:100px;
+	text-align:left;
+	margin-bottom:0;
+}
+
+table.inner {
+	margin-bottom:0;
+}
+</style>
+
 <div id="tag-grid" class="grid-view">
 <table class="items">
 <thead>
@@ -84,24 +100,44 @@ foreach ($tags as $key1 => $class_1){
 		}
 			
 		if($index_2 == 0){
-			print '<td rowspan='.$rows.' width="150px" style="text-align:center">'. $key1 .'</td>';
+			print '<td rowspan='.$rows.' width="150px">'. $key1 .'</td>';
 		} else {
 			//print '<td></td>';
 		}
 		
-		print '<td class="even" width="150px" style="text-align:center">'. $key2 .'</td>';
+		print '<td class="even" width="150px">'. $key2 .'</td>';
 		
 		print '<td>';
+		print '<table class="inner">';
+		$index_3 = 0;
 		foreach ($class_2 as $name=>$arr) {
-			print '&nbsp&nbsp&nbsp&nbsp';
-			print '<input class="select-on-check" value="'
+			if($index_3 % 10 == 0){
+				print '<tr>';
+			}
+			
+			print '<td style="border:0 white solid;">';
+			print '&nbsp&nbsp&nbsp&nbsp<input class="select-on-check" value="'
 					. $arr['id'] .'" type="checkbox" name="selected_tags[]"';
 			if($arr['checked'] == 1) {
 				print ' checked="checked"';
 			}
-			print '/>'.$name.'&nbsp&nbsp&nbsp&nbsp';
+			print '/>'.$name.'</td>';
+			
+			if($index_3 != 0 && $index_3 % 10 == 0 ){
+				print '</tr>';
+			}
+			$index_3 ++;
 		}
-		print '</td>';
+		if($index_3 == 0){
+			print '</tr>';
+		} else if ($index_3 % 10 != 0){
+			while($index_3 % 10 != 0){
+				print '<td style="width:100px;border:0 white solid;"/>';
+				$index_3 ++;
+			}
+			print '</tr>';
+		}
+		print '</table></td>';
 		print '</tr>';
 		$index_2++;
 	}

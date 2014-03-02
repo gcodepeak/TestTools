@@ -27,6 +27,8 @@
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/yii/gridview/styles.css" />
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/yii/pager.css" />
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/yii/detailview/styles.css" />
 	
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>

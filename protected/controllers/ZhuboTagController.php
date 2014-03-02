@@ -32,7 +32,7 @@ class ZhuboTagController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','toTag','doTag','admin','delete'),
+				'actions'=>array('create','update','toTag','doTag','admin','delete','taged'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -284,15 +284,51 @@ class ZhuboTagController extends Controller
 	// 已经标注的主播
 	public function actionTaged()
 	{
-		$zhubo=new Zhubo('tagedSearch');
+		/*$zhubo=new Zhubo('tagedSearch');
 		$zhubo->unsetAttributes();  // clear any default values
 		if(isset($_GET['Zhubo'])){
 			$zhubo->attributes=$_GET['Zhubo'];
 			//print_r($zhubo);
+		}*/
+		$conditions = ' ';
+		$search = array();
+		if(isset($_POST['Search'])){
+			//print_r($_POST['Search']);
+			$search = $_POST['Search'];
+			if ($search['tagName'] != ''){
+				$conditions = $conditions . " and Tag.name like '%" . $search['tagName'] . "%' ";
+			}
+			if ($search['zhuboName'] != ''){
+				$conditions = $conditions . " and zhubo.name like '%" . $search['zhuboName'] . "%' ";
+			}
+			if ($search['siteName'] != ''){
+				$conditions = $conditions . " and ShowSite.name like '%" . $search['siteName'] . "%' ";
+			}
+			if ($search['is_live'] != ''){
+				$conditions = $conditions . " and zhubo.is_live = '" . $search['is_live'] . "' ";
+			}
+			if ($search['username'] != ''){
+				$conditions = $conditions . " and User.username like '%" . $search['username'] . "%' ";
+			}
 		}
 		
+		// 标记已经添加的tag
+		$sql_cmd = "select zhubo.id as id, local_id, zhubo.name as name, ShowSite.name as SiteName, is_live, username ".
+					", GROUP_CONCAT(Tag.name ORDER BY Tag.id DESC SEPARATOR '  ') as tageds ".
+					" from zhubo, ZhuboTag, Tag, ShowSite, User ".
+					" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and ShowSite.id = zhubo.site_id and ZhuboTag.user_id = User.id ".
+					$conditions.
+					" group by id order by zhubo.hots desc";
+		
+		$command = Yii::app()->db->createCommand($sql_cmd);
+		//$command->bindParam(":zhubo_id", $_GET['zhubo_id']);
+		$taged_zhobos = $command->queryAll();
+		
+		//print_r($taged_zhobos);
+		
 		$this->render('taged',array(
-			'zhubo'=>$zhubo,
+			'zhubos'=>$taged_zhobos,
+			'search'=>$search,
 		));
 	}
 

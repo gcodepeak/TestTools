@@ -3,8 +3,8 @@
 /* @var $model ZhuboTag */
 
 $this->breadcrumbs=array(
-	'Zhubo Tags'=>array('index'),
-	'Manage',
+	//'Zhubo Tags'=>array('index'),
+	'Tag主播管理',
 );
 
 $this->menu=array(
@@ -32,20 +32,85 @@ table td {
 }
 </style>
 
-<form id="yw0" action="/zhuboTag/admin" method="get">
-	<div class="row">		
-		<label for="ZhuboTag_tag_id">Tag</label>
-		<input size="10" maxlength="10" name="ZhuboTag[tag_id]" id="ZhuboTag_tag_id" type="text" />
-		<label for="ZhuboTag_zhubo_id">主播名称</label>
-		<input size="10" maxlength="10" name="ZhuboTag[zhubo_id]" id="ZhuboTag_zhubo_id" type="text" />
-		<label for="ZhuboTag_user_id">标注人</label>		
-		<input size="10" maxlength="10" name="ZhuboTag[user_id]" id="ZhuboTag_user_id" type="text" />
-		<label for="ZhuboTag_tag_time">标注时间</label>		
-		<input name="ZhuboTag[tag_time]" id="ZhuboTag_tag_time" type="text" />
+<form id="yw0" action="/zhuboTag/taged" method="post">
+	<div class="row">
+		<label>Tag名称</label>
+		<input size="10" maxlength="10" name="Search[tagName]" type="text" placeholder="好声音"
+		<?php if(isset($search['tagName'])) echo "value=".$search['tagName'] ?>
+		/>
+		
+		<label>主播名称</label>
+		<input size="10" maxlength="10" name="Search[zhuboName]" type="text" placeholder="美"
+		<?php if(isset($search['zhuboName'])) echo "value=".$search['zhuboName'] ?>
+		/>
+		
+		<label>秀场名称</label>
+		<input size="10" maxlength="10" name="Search[siteName]" type="text" placeholder="我秀"
+		<?php if(isset($search['siteName'])) echo "value=".$search['siteName'] ?>
+		/>
+		
+		<label>正在直播(0/1)</label>
+		<input size="10" maxlength="10" name="Search[is_live]" type="text" placeholder="1"
+		<?php if(isset($search['is_live'])) echo "value=".$search['is_live'] ?>
+		/>
+		
+		<label>标注人</label>		
+		<input size="10" maxlength="10" name="Search[username]" type="text" placeholder="xiaoming"
+		<?php if(isset($search['username'])) echo "value=".$search['username'] ?>
+		/>
 		
 		<input type="submit" name="yt0" value="搜索" />
+		
+		<a href="/zhuboTag/taged">清空搜索条件</a>
+		
+		<label>(框内是提示，请自行输入条件，支持部分匹配)</label>
 	</div>
 </form>
+
+<div id="taged-grid" class="grid-view">
+<table class="items">
+<thead>
+<tr>
+<th>本站ID</th>
+<th>原始ID</th>
+<th>昵称</th>
+<th>秀场</th>
+<th>直播</th>
+<th>标注人</th>
+<th>Tags</th>
+<th>修改主播信息</th>
+<th>直播房间</th>
+<th>打tag</th>
+</thead>
+<tbody>
+<?php 
+$index = 0;
+
+foreach ($zhubos as $zhubo){
+	if ($index % 2 == 0){
+		print '<tr class="odd">';
+	}else {
+		print '<tr class="even">';
+	}
+	
+	print '<td>'.$zhubo['id'].'</td>';
+	print '<td>'.$zhubo['local_id'].'</td>';
+	print '<td>'.$zhubo['name'].'</td>';
+	print '<td>'.$zhubo['SiteName'].'</td>';
+	print '<td>'.$zhubo['is_live'].'</td>';
+	print '<td>'.$zhubo['username'].'</td>';
+	print '<td>'.$zhubo['tageds'].'</td>';
+	print '<td><a target="_blank" title="打tag" href="/zhubo/update/'.$zhubo['id'].'">修改主播信息</a></td>';
+	print '<td><a target="_blank" title="打tag" href="/zhibo/zhibo/'.$zhubo['id'].'">直播链接</a></td>';
+	print '<td><a target="_blank" title="打tag" href="/zhuboTag/doTag?zhubo_id='.$zhubo['id'].'">打tag</a></td>';
+	
+	$index++;
+}
+?>
+</tbody>
+</table>
+</div>
+
 <!--?php echo CHtml::link('高级搜索','#',array('class'=>'search-button')); ?-->
 
 <div class="search-form" style="display:none">
@@ -53,102 +118,3 @@ table td {
 	//'model'=>$model,
 )); ?-->
 </div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'zhubo-grid',
-	'dataProvider'=>$zhubo->tagedSearch(),
-	'filter'=>$zhubo,
-	'template' => "{items}\n{summary}\n{pager}",
-	'columns'=>array(
-		//'id',
-		/*
-		array(
-			'class'=>'CDataColumn',
-			'name'=>'id',
-			'htmlOptions'=>array('width'=>'10px','style'=>'text-align:center'),
-		),*/
-		//'local_id',
-		array(
-			'class'=>'CDataColumn',
-			'name'=>'local_id',
-			'htmlOptions'=>array('width'=>'10px','style'=>'text-align:center'),
-		),
-		//'url',
-		'name',
-		//'head_img',
-		//'site_id',
-		array(
-				'class'=>'CDataColumn',
-				'name'=>'site_id',
-				'htmlOptions'=>array('width'=>'10px','style'=>'text-align:center'),
-		),
-		//'showSite.name',
-		//'level',
-		//'wealth_level',
-		//'time_level',
-		'sex',
-		'region',
-		//'familys',
-		//'constellation',
-		//'age',
-		//'hots',
-		//'fans',
-		//'tags',
-		//'news_num',
-		//'news_photo_num',
-		//'is_live',
-		array(
-			'class'=>'CDataColumn',
-			'name'=>'is_live',
-			'htmlOptions'=>array('width'=>'10px','style'=>'text-align:center'),
-		),
-		'last_live_time',
-		//'photos',
-		
-		array(
-			'class'=>'CButtonColumn',
-			'header'=>'修改主播信息',
-			'template'=>'{view1}',
-			'buttons'=>array(
-					'view1'=>array(
-							'label'=>"修改主播信息",
-							'url'=>'Yii::app()->createUrl("zhubo/update",array("id"=>$data->id))',
-							'options'=>array("target"=>"_blank"),
-					),
-			),
-			'htmlOptions'=>array(
-					'width'=>'100px',
-					'style'=>'text-align:center',
-			),
-		),
-		array(
-				'class'=>'CButtonColumn',
-				'header'=>'直播房间',
-				'template'=>'{view1}',
-				'buttons'=>array(
-						'view1'=>array(
-								'label'=>"直播链接",
-								'url'=>'Yii::app()->createUrl("zhibo/zhibo",array("id"=>$data->id))',
-								'options'=>array("target"=>"_blank"),
-						),
-				),
-				'htmlOptions'=>array(
-					'width'=>'100px',
-					'style'=>'text-align:center',
-				),
-		),
-		
-		array(
-				'class'=>'CButtonColumn',
-				'header'=>'打tag',
-				'template'=>'{view1}',
-				'buttons'=>array(
-						'view1'=>array(
-								'label'=>"打tag",
-								'url'=>'Yii::app()->createUrl("zhuboTag/doTag",array("zhubo_id"=>$data->id))',
-								'options'=>array("target"=>"_blank"),
-						),
-				),
-		),
-	),
-)); ?>
