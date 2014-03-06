@@ -34,12 +34,15 @@
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/nav.css" />
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/tooltips.css" />
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homeindex.css" />
 		
-	<?php
-		//Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);
-		//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery-1.10.2.min.js");
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/bootstrap.min.js");
-	?>
+<?php
+	//Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);
+	//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery-1.10.2.min.js");
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/bootstrap.min.js");
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/login.js");
+?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
     <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i">
@@ -48,28 +51,6 @@
 	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
 		data-appid="101029271" data-redirecturi="http://www.meilizhubo.com/call_back.html" charset="utf-8"></script>
 </head>
-
-<script type="text/javascript">
-$(document).ready(function(){
-	   
-    $('.logo').hover(function(){	
-	    	$('.logo').find('img:eq(0)').show();
-     },function(){
-	$('.logo').find('img:eq(0)').hide();
-    	
-    });
-    
-    $('.lookUs').hover(function(){	 
-    	  $('.lookUs').find('.MOKO_QRcode').show();   	  
-    	  return;
-    },function(){
-    	$('.lookUs').find('.MOKO_QRcode').hide();
-    	return;
-    	
-    });
-    
- });
-</script>
 
 <script>
 		window._bd_share_config={
@@ -89,116 +70,138 @@ $(document).ready(function(){
   ga('send', 'pageview');
 
 </script>
-	<div style="width:100%;background-color: #fefefe;">
-		<hr style="height:2px;border:1px solid #ba2c49; background-color:#ba2c49"></hr>
-		
-		<div style="width:1190px;margin:0 auto;">
-			
-			<div style="width:195px;float:left;display:inline;">
-				<div style="margin-top:17px;margin-bottom:19px;">
-					<a href="<?php echo Yii::app()->homeUrl?>"><img
-						src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
+
+<div class="clearfix" style="width:100%;background-color: #fefefe;">
+	<hr style="height:5px; background-color:#ba2c49;border: 0;"></hr>
+	<div style="width:1190px;margin:0 auto;" class="clearfix">
+		<div class="bar_left">
+			<div class="bar_icon_div">
+				<a href="<?php echo Yii::app()->homeUrl?>"><img src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
+			</div>
+		</div>
+		<div class="bar_right">
+			<div class="clearfix">
+				<div class="bar_login_lab">
+					<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>
+				</div>
+				<div class="bar_login">
+					<div class="bar_login_div">
+						<a title="用新浪微博账号登录" href="#" class="icon_weibo" data-cmd="tsina"><b></b><span>微博</span></a><a title="用QQ号登录" href="#" class="icon_qq" data-cmd="tqq"><b></b><span>QQ</span></a><a title="用人人账号登录" href="#" class="icon_renren" data-cmd="tqq"><b></b><span>人人</span></a>
+					</div>
+					<div class="bar_loginout_div"></div>
 				</div>
 			</div>
-			<div style="width:540px;float:right;display:inline;">
-				<div>
-					<div style="padding-top:11px;padding-bottom:5px;float:left;margin-left:368px;">
-						<span style="font-size:12px;color:#666666;float:right;">美播去哪儿？</span>
-						<!-- span id="qqLoginBtn"></span>
-						<script type="text/javascript">
-							    QC.Login({
-							       btnId:"qqLoginBtn"    //插入按钮的节点id
-							});
-						</script-->
-					</div>
-
-					<div style="background-color:#ba2c49;width:89px;height:28px;float:right;">
-						<div class="bdsharebuttonbox" data-tag="share_top" style="margin: 0px auto;">
-							<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
-							<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
-						</div>
-						<!-- div>
-							<a href="#" class="lookUS"  hidefocus="true"><img alt="二维码" src="#"></img></a>
-						</div-->
-						
-					</div>
-				</div>
-	
-				<div style="clear:both;"></div>
-
-				<nav class="moko-nav">
-					<ul class="nav-pills" style="height: 30px;line-height: 30px;">
-						<li class="dropdown"><a id="nav_home" href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>" hidefocus="true" 
-						<?php if (Yii::app()->controller->id == "zhubo"){echo 'style="color:#ba2c49;"';}?> >主播大厅</a></li>
-						<li  class="dropdown disabled"><a id="nav_care" class="tooltips" href="#" hidefocus="true">我的关注<span>即将上线敬请关注</span></a></li>
-						<li id="navmenu_fav" class="dropdown">
-							<a id="nav_fav" href="javascript:void(0)" hidefocus="true" class="dropdown-toggle tooltips">收录站点<b style="font-size: 10px;">&nbsp▼</b><span>即将上线敬请关注</span></a>
-							<!-- ul class="dropdown-menu">
-								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>" hidefocus="true" >56我秀</a></li>
-								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">9158</a></li>
-								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">6间房</a></li>
-								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">酷狗繁星</a></li>
-								<li><a href="<?php echo Yii::app()->createUrl('showsite/index',array('site_id'=>1,))?>">搜狐秀场</a></li>
-							</ul> -->
+			<div>
+				<ul class="bar_nav">
+					<li class="dropdown bar_home"><a id="nav_home" href="<?php echo Yii::app()->request->baseUrl;?>/zhubo/homepage" hidefocus="true"
+					style="color:#ba2c49;" >主播大厅</a></li>
+						<li class="dropdown bar_gz disabled"><a id="nav_care" class="tooltips" href="#" hidefocus="true">我的关注<span>即将上线敬请关注</span></a></li>
+						<li id="navmenu_fav" class="dropdown bar_sl">
+							<a id="nav_fav" href="javascript:void(0)" hidefocus="true" class="dropdown-toggle tooltips">收录站点<b></b></a>
 						</li>
-						
-						<li  class="dropdown"><a id="nav_contact" href="#" hidefocus="true">联系我们</a></li>
-						<!-- li><wb:login-button type="3,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button></li-->
+                        <li class="dropdown bar_rank"><a id="nav_contact" href="#" hidefocus="true">排行榜</a></li>
+						<li class="dropdown"><a id="nav_contact" href="#" hidefocus="true">网站合作</a></li>
+                        <div class="bar_nav_sitelist">
+                        <div class="bar_nav_span"></div>
+                        <div class="bar_nav_fav_menu">
+                            <div class="bar_nav_fav_menu1"><a href="/showsite/index?site_id=1">56我秀</a></div>
+                            <div><a href="/showsite/index?site_id=1">9158</a></div>
+                            <div><a href="/showsite/index?site_id=1">6间房</a></div>
+                            <div><a href="/showsite/index?site_id=1">酷狗繁星</a></div>
+                            <div><a href="/showsite/index?site_id=1">搜狐秀场</a></div>
+                        </div>
+                        </div>
 					</ul>
-				</nav>
+				</div>
 			</div>
 		</div>
 	</div>
 	
-	<div style="clear: both;"></div>	
-
-	<?php echo $content; ?>
-
-	<div style="clear: both"></div>
+<?php echo $content; ?>
 	
-	<div id="footer" style="width: 100%;background-color:#F4F4F4;">
-		<div style="width:1190px;margin:0 auto;">
-			
-			<div style="width:835px;float:left;">
-				<p style="margin-top:18px;margin-bottom:18px"><strong>友情链接</strong></p>
-				<table>
-					<tr>
-						<td style="width: 15%"><a href="http://mm.56.com/" target="_blank" title="美女主播">美女主播</a></td>
-						<td style="width: 15%"><a href="http://xiu.56.com/" target="_blank" title="我秀">我秀</a></td>
-						<td style="width: 15%"><a href="http://www.6.cn/" target="_blank" title="6间房">6间房</a></td>
-						<td style="width: 15%"><a href="http://x.joy.cn/" target="_blank" title="星秀">星秀</a></td>
-						<td style="width: 15%"><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></td>
-						<td style="width: 15%"><a class="ftu" href="mailto:sites@meilizhubo.com?subject=申请友情链接：贵网站名称"
-							target="_blank" title="申请友链">[+申请友链]</a></td>
-					</tr>
-					
-				</table>
-			</div>
-			
-			<div style="width:150px;float:left;">
-				<div class="bdsharebuttonbox" data-tag="share_footer" style="margin-top:56px;float: right;">
-					<a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
-					<a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
-				</div>
-				<div class="row-fluid" style="font-size:12px;float: right;text-align:right;">
-					<p>© 2013-2023<br />
-					MEILIZHUBO.COM<br /> 
-					ALL RIGHTS RESERVED.<br />
-						京ICP备12050577号
-					</p>
-				</div>
-				<div class="row-fluid" style="float: right;">
-					<img src="<?php echo Yii::app()->baseUrl;?>/images/footer_logo.png"></img>
-				</div>
-			</div>
-			
-			<div style="width:200px;float:right;margin-top:18px">
-				<img src="<?php echo Yii::app()->baseUrl;?>/images/saoyisao.png"></img>
-			</div>
+<!-- footer -->
+<!-- 友情连接 -->
+<div id="footer" class="clearfix">
+    <div class="footer_par clearfix">
+        <div class="footer_left">
+            <p class="footer_left_link_title"><strong>友情链接</strong></p>
+            <div class="footer_link_div">
+	            <ul class="clearfix">
+	                <li><a href="http://mm.56.com/" target="_blank" title="美女主播">美女主播</a></li>
+	                <li><a href="http://xiu.56.com/" target="_blank" title="我秀">我秀</a></li>
+	                <li><a href="http://www.6.cn/" target="_blank" title="6间房">6间房</a></li>
+	                <li><a href="http://x.joy.cn/" target="_blank" title="星秀">星秀</a></li>
+	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
+	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
+	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
+	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
+	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
+	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
+	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
+	                <li><a class="ftu" href="mailto:sites@meilizhubo.com?subject=申请友情链接：贵网站名称" target="_blank" title="申请友链">[+申请友链]</a></li>
+	            </ul>
+	        </div>
+            </table>
+        </div>
+        
+        <div class="footer_right clearfix">
+            <div class="bdsharebuttonbox bdshare-button-style0-32 footer_share" data-tag="share_footer" data-bd-bind="1393773940056">
+                <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+                <a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+            </div>
+            <div class="row-fluid footer_cup">
+                <p>© 2013-2023 MEILIZHUBO.COM</p>
+                <p class="cup_2">ALL RIGHTS RESERVED.</p>
+                <p class="cup_3">京ICP备12050577号</p>
+            </div>
+        	<div class="footer_cup_icon">
+            	<img src="<?php echo Yii::app()->request->baseUrl;?>/images/footer_logo.png">
+         	</div>
+         	<div class="footer_image_saomiao">
+	            <img src="<?php echo Yii::app()->request->baseUrl;?>/images/icon_footer_saomiao.png" alt="" title="扫一扫，关注我的官方微博">
+	        </div>
+    	</div>
+    </div>
+</div>
+<div id="login_div" style="display:none;">
+	<div id="login_content">
+		<div class="login_img">
+			<img src="<?php echo Yii::app()->request->baseUrl;?>/images/login_weibo.png" alt="">
 		</div>
-		
-		<div style="clear: both"></div>
+		<div class="login_img">
+			<img src="<?php echo Yii::app()->request->baseUrl;?>/images/login_qq.png" alt="">
+		</div>
+		<div class="login_img">
+			<img src="<?php echo Yii::app()->request->baseUrl;?>/images/login_renren.png" alt="">
+		</div>
 	</div>
-	<!-- footer -->
+</div>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+jQuery('body').on('click','#yt0',function(){
+
+	return false;
+});
+jQuery('body').on('click','#yt1',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
+jQuery('body').on('click','#yt2',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=22','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
+jQuery('body').on('click','#yt3',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=27','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
+jQuery('body').on('click','#yt4',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=123','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
+jQuery('body').on('click','#yt5',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=122','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
+jQuery('body').on('click','#yt6',function(){jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=7','cache':false,'success':function(html){jQuery("#zuijiaxinren").html(html)}});return false;});
+jQuery('body').on('click','#yt7',function(){jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=14','cache':false,'success':function(html){jQuery("#zuijiaxinren").html(html)}});return false;});
+jQuery('body').on('click','#yt8',function(){jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=30','cache':false,'success':function(html){jQuery("#zuijiaxinren").html(html)}});return false;});
+//jQuery('#yw0').yiiListView({'ajaxUpdate':['yw0'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'list-view-loading','sorterClass':'sorter','enableHistory':false});
+//jQuery('#yw1').yiiListView({'ajaxUpdate':['yw1'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'list-view-loading','sorterClass':'sorter','enableHistory':false});
+});
+/*]]>*/
+</script>
+
+<?php 
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/homepage.js");
+?>
+<!-- footer -->
+
 </body>
 </html>

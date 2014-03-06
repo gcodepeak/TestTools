@@ -1,0 +1,277 @@
+@charset "utf-8"; 
+body{
+    padding: 0;
+    margin: 0;
+}
+a{
+	text-decoration: none;
+}
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix{*zoom:1;}
+
+.zb_left_per
+{
+	background-color: #FAFAFA;
+}
+.zb_left
+{
+	width:195px;
+	float:left;
+	position:relative;
+}
+.zb_left_titlediv
+{
+	text-align: right;
+	background: url('../images/zu_img_list.png') #BA2C49;
+	height: 30px;
+}
+.goto_homepage
+{
+	line-height: 30px;
+}
+.goto_homepage a
+{
+	color: #FFF;
+	margin-right: 2px;
+}
+.goto_homepage b
+{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	vertical-align: middle;
+	background: url('../images/zu_img_list.png') 0px 182px #BA2C49;
+}
+.zb_info
+{
+	padding: 10px 0 0 12px;
+	background-color: #F4F4F4;
+}
+.zb_info div
+{
+	padding-bottom:12px;
+}
+.zb_uname
+{
+	color:#F35777;
+	font-size:16px;
+	font-weight: bold;
+	display:block;
+	padding-bottom:12px;
+}
+.bdsharebuttonbox b
+{
+	display: inline-block;
+	width: 13px;
+	height: 32px;
+	vertical-align: middle;
+	background: url('../images/zu_img_list.png') 0px 226px #FFF;
+	margin-right: 5px;
+}
+.bdsharebuttonbox a
+{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+	margin-right: 6px;
+}
+.bdsharebuttonbox .bds_qzone
+{
+	background: url('../images/zu_img_list.png') -17px 226px #FFF;
+}
+.bdsharebuttonbox .bds_tsina
+{
+	background: url('../images/zu_img_list.png') -51px 226px #FFF;
+}
+.bdsharebuttonbox .bds_tqq
+{
+	background: url('../images/zu_img_list.png') -84px 226px #FFF;
+}
+.bdsharebuttonbox .bds_renren
+{
+	background: url('../images/zu_img_list.png') -118px 226px #FFF;
+}
+.zb_change
+{
+	background-color:#fafafa;
+	padding: 9px 0 12px 15px;
+}
+
+
+.new_peo_div
+{
+	margin-bottom:20px;
+}
+.new_peo_image_div
+{
+    width: 154px;
+}
+.new_peo_image_big a {
+    display: block;
+    border: 1px solid #CCC;
+    position: relative;
+}
+.new_peo_image_big img {
+    width: 152px;
+    height: 116px;
+}
+.new_peo_image_title {
+    color: #999;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    opacity: .9;
+    filter: alpha(opacity=90);
+    width: 152px;
+    height: 24px;
+}
+.new_peo_image_title span {
+    font-size: 16px;
+    line-height: 24px;
+    color: #666;
+    margin-left: 5px;
+}
+.new_peo_image_title b {
+    cursor: pointer;
+	background: url(../images/icon_gz_s_none.png) 0px 0px no-repeat;
+	width: 21px;
+	height: 17px;
+	margin: 0px 0px 0 66px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.new_peo_image_title .gz_bt_ok {
+    background: url(../images/icon_gz_s_ok.png) -1px -2px no-repeat;
+}
+.new_peo_image_icon {
+	background: url(../images/icon_zb_big.png) 0px 0px no-repeat;
+	display: inline-block;
+	width: 55px;
+	height: 55px;
+	position: absolute;
+	right: 0px;
+	top: 0;
+}
+.new_peo_div1
+{
+	margin-bottom:10px;
+}
+
+.zb_change_bt
+{
+	margin-left:30px;
+}
+.zb_change_peo
+{
+	background: url('../images/zu_img_list.png') 0px 287px #FFF;
+	display: inline-block;
+	width: 96px;
+	height: 21px;
+	margin-bottom:6px;
+	cursor:pointer;
+}
+.zb_change_peo_hover
+{
+	background-position:-103px 287px;
+}
+.zb_gohome
+{
+	background: url('../images/zu_img_list.png') -103px 256px #FFF;
+	display: inline-block;
+	width: 96px;
+	height: 21px;
+	cursor:pointer;
+}
+.zb_gohome_hover
+{
+	background-position:0 256px;
+}
+.zb_ad
+{
+	border:1px solid #3485d6;
+	margin:0 6px 2px;
+	background-color: #FAFAFA;
+}
+.zb_ss_bt
+{
+	width: 20px;
+	height: 200px;
+	background-color: #CFCFCF;
+	position: absolute;
+	top: 67px;
+	left: 185px;
+	text-align: center;
+}
+.zb_ss_bt b
+{
+	display:inline-block;
+	width:12px;
+	height:20px;
+	cursor:pointer;
+	background: url('../images/zu_img_list.png') 0px 170px #FFF;
+	margin-top: 90px;
+}
+.zb_left_sdiv {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.zb_right
+{
+	margin-left:195px;
+}
+
+.new_peo_image_border
+{
+	width:158px;
+	text-align:center;
+}
+.new_peo_image_border_hover
+{
+	background-color:#ff826a;
+}
+.new_peo_image_big a:hover
+{
+	border:2px solid #ff826a;
+}
+.zb_info .zb_gz_bt
+{
+	background: url('../images/zu_img_list.png') 0px 363px #FFF;
+	display: inline-block;
+	width: 162px;
+	height: 29px;
+	cursor:pointer;
+	line-height:29px;
+	padding:0;
+}
+.zb_gz_bt span
+{
+	margin-left: 103px;
+}
+.zb_info .no_gz_hover
+{
+	background: url('../images/zu_img_list.png') 228px 363px #FFF;
+}
+.zb_info .gz_info
+{
+	background: url('../images/zu_img_list.png') 228px 326px #FFF;
+}
+.zb_info .gz_hover
+{
+	background: url('../images/zu_img_list.png') 0px 326px #FFF
+}
+.zb_gohome
+{
+	display: inline-block;
+	height: 21px;
+	width: 96px;
+}
