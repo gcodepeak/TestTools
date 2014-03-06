@@ -22,7 +22,7 @@ foreach ($dataProvider as $data){
 		</div>
 	</div>
 	<div class="category_time_div new_peo_time_div">
-		<span class="kb_time_s">开播:</span><span class="kb_time"><?php echo $data['last_live_time'];?></span><span
+		<span class="kb_time_s">开播:</span><span class="kb_time"><!--?php echo $data['last_live_time'];?--></span><span
 			class="icon icon_split"></span><span class="icon icon_peo"></span><span><?php echo $data['hots']?></span>
 	</div>
 	<div class="category_tag_div new_peo_tag">

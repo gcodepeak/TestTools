@@ -6,7 +6,7 @@
 <?php if ($index == 0) { ?>
 <div class="clearfix">
 	<div class="list_left">
-		<span class="list_left_span"><?php echo $index;?></span>
+		<span class="list_left_span"><?php echo $index+1;?></span>
 	</div>
 	<div class="list_right">
 		<div class="new_peo_image_div" cover-text="<?php echo $data->name;?>">
