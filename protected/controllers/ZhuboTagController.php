@@ -321,7 +321,7 @@ class ZhuboTagController extends Controller
 					" from zhubo, ZhuboTag, Tag, ShowSite, User ".
 					" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and ShowSite.id = zhubo.site_id and ZhuboTag.user_id = User.id ".
 					$conditions.
-					" group by id order by zhubo.hots desc ZhuboTag.tag_time desc";
+					" group by id order by zhubo.hots desc, ZhuboTag.tag_time desc";
 		
 		$command = Yii::app()->db->createCommand($sql_cmd);
 		//$command->bindParam(":zhubo_id", $_GET['zhubo_id']);
