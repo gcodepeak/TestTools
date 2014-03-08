@@ -101,11 +101,10 @@
                         <div class="bar_nav_sitelist">
                         <div class="bar_nav_span"></div>
                         <div class="bar_nav_fav_menu">
-                            <div class="bar_nav_fav_menu1"><a href="/showsite/index?site_id=1">56我秀</a></div>
-                            <div><a href="/showsite/index?site_id=1">9158</a></div>
-                            <div><a href="/showsite/index?site_id=1">6间房</a></div>
-                            <div><a href="/showsite/index?site_id=1">酷狗繁星</a></div>
-                            <div><a href="/showsite/index?site_id=1">搜狐秀场</a></div>
+                            <div class="bar_nav_fav_menu1"><a href="/xiuchang/index?site=1">我秀</a></div>
+                            <div><a href="/xiuchang/index?site=2">YY</a></div>
+                            <div><a href="/xiuchang/index?site=3"">Sina</a></div>
+                            <div><a href="/xiuchang/index?site=4"">六间房</a></div>
                         </div>
                         </div>
 					</ul>

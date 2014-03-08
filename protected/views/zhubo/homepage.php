@@ -142,12 +142,10 @@
             </div>
             
 		    <div class="mtop5_list" id="top_hots_5">
-        		<?php $this->widget ( 'zii.widgets.CListView', array (
-						'dataProvider' => $top5_dataProvider,
-						'enablePagination'=>false,
-						'itemView' => '_top_5',
-        				'summaryText'=>'',
-				));?>
+				<?php	
+					$this->renderPartial("_top_5",
+						array('dataProvider'=>$top5_dataProvider)); 
+				?>
         	</div>
         </div>
 		        	
@@ -156,12 +154,10 @@
                 <span>MTOP 5</span><span class="mtop5_rank">本周人气主播排行</span>
             </div>
 		    <div class="mtop5_list" id="top_wealth_5">
-        		<?php $this->widget ( 'zii.widgets.CListView', array (
-						'dataProvider' => $top5_dataProvider,
-						'enablePagination'=>false,
-						'itemView' => '_top_5',
-        				'summaryText'=>'',
-				));?>
+        		<?php	
+					$this->renderPartial("_top_5",
+						array('dataProvider'=>$top5_dataProvider)); 
+				?>
         	</div>
         </div>
 	</div>

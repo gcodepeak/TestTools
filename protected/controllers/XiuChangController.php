@@ -1,6 +1,6 @@
 <?php
 
-class TopListController extends Controller
+class XiuChangController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -52,16 +52,27 @@ class TopListController extends Controller
 	 */
 	public function actionIndex()
 	{
+		if(!isset($_GET['site']) || $_GET['site'] == '')
+		{
+			// redirect
+			$this->redirect("/zhubo/homepage");
+		}
+		
 		$connection = Yii::app()->db;
 		
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, last_live_time"
-				." from zhubo, ShowSite"
-				." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 5";
+		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, hots, fans, last_live_time"
+				." from zhubo"
+				." where zhubo.site_id = :siteid order by zhubo.is_live desc, zhubo.fans desc limit 12";
 		$command = $connection->createCommand($sql_cmd);
-		$top5_dataProvider = $command->queryAll();
+		$command->bindParam(":siteid", $_GET['site']);
+		
+		$dataProvider = $command->queryAll();
+		
+		$showSiteName = ShowSite::model()->findByPk($_GET['site'])->name;
 		
 		$this->render('index',array(
-			'dataProvider'=>$top5_dataProvider,
+			'showSiteName'=>$showSiteName,
+			'dataProvider'=>$dataProvider,
 		));
 	}
 }
