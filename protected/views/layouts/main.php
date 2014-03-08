@@ -27,17 +27,12 @@
 -->
 
 <!-- bootstrapt -->
+<link rel="stylesheet" type="text/css" href="/css/nav.css" />
+<link rel="stylesheet" type="text/css" href="/css/tooltips.css" />
+<link rel="stylesheet" type="text/css" href="/css/homeindex.css" />
 
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" />
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homepage.css" />
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homeindex.css" />
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/nav.css" />
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/tooltips.css" />
+<link rel="stylesheet" type="text/css" href="/css/homepage.css" />
+<link rel="stylesheet" type="text/css" href="/css/tooltips.css" />
 		
 <?php
 	//Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);

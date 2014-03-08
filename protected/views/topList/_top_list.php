@@ -3,6 +3,11 @@
 /* @var $data Zhubo */
 ?>
 
+<?php 
+$index = 0;
+foreach ($dataProvider as $data){
+?>
+
 <?php if ($index == 0) { ?>
 <div class="clearfix">
 	<div class="list_left">
@@ -26,7 +31,7 @@
 			</div>
 			<div>
 				<span class="span_left">粉丝/</span> <span class="span_right"><?php echo $data->fans;?></span>
-				<span class="span_icon"></span>
+				<span class="span_icon" title="正在直播"></span>
 			</div>
 		</div>
 	</div>
@@ -53,3 +58,8 @@
 	</div>
 </div>
 <?php } ?>
+
+<?php
+	$index++;
+}
+?>

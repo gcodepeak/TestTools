@@ -4,8 +4,7 @@
 
 ?>
 
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/zhubo.css" />
+<link rel="stylesheet" type="text/css" href="/css/zhubo.css" />
 
 <!-- top 14 -->
 <div style="width: 100%;background-color:#ead0db;">
@@ -24,7 +23,7 @@
 <div class="paghear clearfix">
 	<div class="bar_left_par">
 		<!-- 精挑细选部分 -->
-        	<div class="row-fluid" style="margin-bottom: 26px;">
+        	<div class="row-fluid clearfix" style="margin-bottom: 26px;">
 				<div class="span2  pull-left" style="margin-top:10px;">
 					<span style="font-size: 32px;color:#7f7f7f;">精挑细选</span>
 				</div>
@@ -40,7 +39,7 @@
                     <a href="#" id="yt5"><span class="zhubo_tag" rel="list5">好声音</span></a></div>
                 <b class="sanjiao"></b>
 			</div>
-			<div class="row-fluid" id='jingtiaoxixuan'>
+			<div class="row-fluid clearfix" id='jingtiaoxixuan'>
 	        	<?php	
 					$this->renderPartial("_jingtiaoxixuan",
 						array('dataProvider'=>$jingtiaoxixuan_dataProvider)); 

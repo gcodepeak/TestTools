@@ -34,7 +34,3 @@ foreach ($dataProvider as $data){
 	$index++;
 }
 ?>
-
-<script>
-	imageHover();
-</script>

@@ -1,9 +1,9 @@
 <?php
 /* @var $this ZhiboController */
 ?>
-<!-- script>
+<script>
 	window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89343201.js?cdnversion='+~(-new Date()/36e5)];
-</script-->
+</script>
 
 <div class="zb_left_per clearfix">
 	<div class="zb_left_sdiv">

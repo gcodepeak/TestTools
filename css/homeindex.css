@@ -268,10 +268,13 @@ position: relative;
 .row-fluid .fluid_tag
 {
     margin-left: 12px;
+float: left;
 }
 .row-fluid .pull-left
 {
     margin-right: 38px;
+	width: 141px;
+	float: left;
 }
 .zhubo a
 {
@@ -439,6 +442,7 @@ position: relative;
       width: 240px;
       margin: 0px;
       height: 285px;
+      float: left;
   }
 .category_image_div_big
 {
@@ -501,8 +505,7 @@ position: relative;
 .category_time_div_right
 {
 	float:right;
-	text-align: right;
-	margin-right: 2px;
+	text-align: right;	
 }
 .category_time_div span
 {
@@ -1086,7 +1089,7 @@ width: 100%;background-color:#F4F4F4;
 	display:none;
 }
 
-/***О©╫О©╫О©╫ж╡О©╫****/
+/***узуж╡Ц****/
 .dialog-overlay {
 	BACKGROUND: gray; FILTER: alpha(opacity:50); opacity: 0.5;
 }
@@ -1137,15 +1140,4 @@ width: 100%;background-color:#F4F4F4;
 }
 .content img {
 	cursor:pointer;
-}
-
-.top14_1 img, .top14_5 img, .top14_8 img {
-width: 296px;
-height: 228px;
-}
-
-.top14_2 img, .top14_3 img , .top14_4 img , .top14_6 img , .top14_7 img, .top14_9 img , 
-.top14_10 img , .top14_11 img , .top14_12 img , .top14_13 img, .top14_14 img {
-width: 148px;
-height: 114px;
 }

@@ -17,10 +17,29 @@
 				src="/images/list_ad.png" alt="">
 			</span>
 		</div>
-
+		<!--图内容-->
+		
+		<div class="list_con_list clearfix">
+			<!--广告上部分内容-->
+			<div class="top_con_title"><span>活泼范</span><span>小清新</span><span>好声音</span><span>女神</span><span>气质型</span></div>
+			<div class="top_con_img clearfix">
+				<div class="top_con_top_list">
+				<?php
+					$index = 0;
+					for($index = 0; $index < 5; $index++) {
+						$this->renderPartial("_top_list",
+							array('dataProvider'=>$dataProvider));
+					} 
+				?>
+				</div>
+			</div>
+		</div>
 	</div>
+	
+	<!--广告-->
+	<div class="top_con_top_ad">
+		<img src="/images/toplist_ad.png" alt="">
+	</div>
+	
+	
 </div>
-<!-- ?php
-	$this->renderPartial("_top_14",
-		array('dataProvider'=>$top_14_dataProvider)); 
-?-->

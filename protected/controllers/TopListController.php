@@ -51,7 +51,7 @@ class TopListController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{	
+	{	/*
 		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, last_live_time"
 				." from zhubo, ShowSite, ZhuboTag"
 				." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = :tag_id order by zhubo.is_live desc, zhubo.fans desc limit 8";
@@ -60,9 +60,18 @@ class TopListController extends Controller
 		// 绑定参数
 		//$command->bindParam(":tag_id", $_GET['tag']);
 		//$dataProvider = $command->queryAll();
+		*/
+		
+		$top5_criteria=new CDbCriteria;
+		$top5_criteria->limit = 5;
+		$top5_criteria->order = 'fans DESC';
+		
+		$dataProvider=new CActiveDataProvider('Zhubo',
+				array('criteria'=> $top5_criteria,
+						'pagination'=>FALSE));
 		
 		$this->render('index',array(
-			//'dataProvider'=>$dataProvider,
+			'dataProvider'=>$dataProvider->getData(),
 		));
 	}
 }
