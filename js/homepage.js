@@ -106,6 +106,8 @@ $(document).ready(function(){
                      $(".sanjiao").css({"left":"880px"});
                      break;
            	}
+            //返回数据后需要重新加载
+            imageHover();
     	});
     });
 
@@ -126,6 +128,7 @@ $(document).ready(function(){
     	$(this).attr("title","正在直播");
     });
     //图片鼠标移上去效果
+    function imageHover(){
     $(".new_peo_image_big a").mousemove(function(){
         $(this).css("margin","-1px");
         var span = $(this).find("span");
@@ -146,7 +149,9 @@ $(document).ready(function(){
         var span = $(this).find("span");
         $(span).removeClass("hover_color")
     });   
-    
+    }
+    imageHover();
+                  
     //回到顶部
     $(document).scroll( function() { 
         var s_top = $(document).scrollTop();

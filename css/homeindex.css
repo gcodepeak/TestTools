@@ -202,6 +202,7 @@ float:right;
 #navmenu_fav
 {
     z-index: 10000;
+position: relative;
 }
 .bar_nav_fav_menu
 {
@@ -488,8 +489,20 @@ float:right;
 }
 .category_time_div
 {
-  padding-top: 18px;
-  color:#999;
+  	padding-top: 18px;
+  	color:#999;
+	margin-right: 7px;
+}
+.category_time_div_left
+{
+	float:left;
+	
+}
+.category_time_div_right
+{
+	float:right;
+	text-align: right;
+	margin-right: 2px;
 }
 .category_time_div span
 {
@@ -549,7 +562,10 @@ float:right;
 {
   background-color:#fdab5a;
 }
-              
+.category_tag_div a
+{
+	color:#fff;
+}        
               
               
 
@@ -656,6 +672,12 @@ float:right;
 }
 .new_peo_div .new_peo_time_div {
     padding-top: 10px;
+}
+.new_peo_time_div_left {
+	float:left;	
+}
+.new_peo_time_div_right {
+	float:right;	
 }
 .new_peo_div .new_peo_tag
 {
@@ -1055,10 +1077,10 @@ width: 100%;background-color:#F4F4F4;
 .goto_top
 {
 	position: fixed;
-	width: 47px;
+	width: 32px;
 	height: 98px;
-	background: url(../images/go_top.png) 0px 0px no-repeat;
-	left: 96.8%;
+	background: url(../images/go_top.png) -8px 0px no-repeat;
+	left: 97.2%;
 	cursor: pointer;
 	bottom: 290px;
 	display:none;

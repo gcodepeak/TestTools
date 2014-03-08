@@ -177,27 +177,6 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-/*<![CDATA[*/
-jQuery(function($) {
-jQuery('body').on('click','#yt0',function(){
-
-	return false;
-});
-jQuery('body').on('click','#yt1',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
-jQuery('body').on('click','#yt2',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=22','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
-jQuery('body').on('click','#yt3',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=27','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
-jQuery('body').on('click','#yt4',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=123','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
-jQuery('body').on('click','#yt5',function(){jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag=122','cache':false,'success':function(html){jQuery("#jingtiaoxixuan").html(html)}});return false;});
-jQuery('body').on('click','#yt6',function(){jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=7','cache':false,'success':function(html){jQuery("#zuijiaxinren").html(html)}});return false;});
-jQuery('body').on('click','#yt7',function(){jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=14','cache':false,'success':function(html){jQuery("#zuijiaxinren").html(html)}});return false;});
-jQuery('body').on('click','#yt8',function(){jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=30','cache':false,'success':function(html){jQuery("#zuijiaxinren").html(html)}});return false;});
-//jQuery('#yw0').yiiListView({'ajaxUpdate':['yw0'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'list-view-loading','sorterClass':'sorter','enableHistory':false});
-//jQuery('#yw1').yiiListView({'ajaxUpdate':['yw1'],'ajaxVar':'ajax','pagerClass':'pager','loadingClass':'list-view-loading','sorterClass':'sorter','enableHistory':false});
-});
-/*]]>*/
-</script>
-
 <?php 
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/homepage.js");
 ?>

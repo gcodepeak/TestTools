@@ -1,6 +1,10 @@
 <?php
 /* @var $this ZhiboController */
 ?>
+
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/zhubo_new.css" />
+
 <script>
 		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89343201.js?cdnversion='+~(-new Date()/36e5)];
 </script>
@@ -29,69 +33,187 @@ function show_index(url){
 }
 </script>
 
-<div style="width:195px;float:left;">
-	<div style="background-color: #BA2C49;">
+<div class="zb_left_per clearfix">
+	<div class="zb_left_sdiv">
+		<div class="zb_left clearfix">
+			<div class="zb_left_titlediv">
+				<span class="goto_homepage"><a
+					href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>">大厅</a><b></b></span>
+			</div>
+			<!-- 当前主播信息 -->
+			<div class="zb_info">
+				<div>
+					<span class="zb_uname"><?php echo $zhubo->name;?></span>
+					<div class="zb_gz_bt gz_info" rel="1" uid="1234">
+						<span><?php echo $zhubo->hots;?></span>
+					</div>
+				</div>
+				<div class="bdsharebuttonbox">
+					<b></b><a href="#" class="bds_qzone" data-cmd="qzone"
+						title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina"
+						title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq"
+						title="分享到腾讯微博"></a><a href="#" class="bds_renren"
+						data-cmd="renren" title="分享到人人网"></a>
+				</div>
+			</div>
 
-			<a href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>"><img style="width: 100px; height: 30px;"
-			src="<?php echo Yii::app()->request->baseUrl;?>/images/logo.png"></img></a>
+			<!-- 换一换主播 -->
+			<div class="zb_change clearfix" id='random'>
+				<?php	
+					$this->renderPartial("_zhubo",
+						array('dataProvider'=>$dataProvider));
+				?>
 
-			<span style="padding:5px 5px;float:right;">
-				<a href="javascript:void(0);" style="color:#fff;" onclick="show_Favorite(window.location,document.title);">+收藏</a>
-			</span>
+				<!-- 换一换按钮 -->
+				<div class="zb_change_bt">
+					<b class="zb_change_peo"></b> <b class="zb_gohome"><a href="#"></a></b>
+				</div>
+			</div>
 
+			<!-- 广告 -->
+			<div class="zb_ad">
+				<script type="text/javascript">
+			            var sogou_ad_id=109874;
+			            var sogou_ad_height=150;
+			            var sogou_ad_width=180;
+			         </script>
+				<script language='JavaScript' type='text/javascript'
+					src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+			</div>
+
+			<!-- 收缩按钮 -->
+			<div class="zb_ss_bt">
+				<b id="zb_ss_b"></b>
+			</div>
+		</div>
 	</div>
-		
-	<!-- 当前主播信息 -->
-	<div class="row" style="margin-left: 15px;">
-		<div class="row" style="margin-left: 0px;margin-top:10px;margin-bottom:10px;">
-			<span style="color:#F35777;font-size:16px"><strong><?php echo $zhubo->name;?></strong></span>
-		</div>
-		<div class="row" style="margin-left: 0px;margin-top:5px;margin-bottom:5px;">
-			<span style="color: #999;">网站来源&nbsp/&nbsp</span><span style="color:#F35777"><?php echo $zhubo->showSite->name;?> </span>
-		</div>
-		<div class="row" style="margin-left: 0px;margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">开播时间&nbsp/&nbsp <span style="color:#666">00:00</span></div>
-		<div class="row" style="margin-left: 0px;margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">观众人数&nbsp/&nbsp <span style="color:#666"><?php echo $zhubo->hots;?></span></div>
-		<div class="row" style="margin-left: 0px;margin-top:5px;margin-bottom:5px;color: #999;font-size:12px">喜欢就分享到:</div>
-		<div class="bdsharebuttonbox" style="margin-left: 0px;">
-			<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-			<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-			<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-			<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
-		</div>
-		<div class="row" style="margin-left: 0px;margin-top:15px;margin-bottom:5px;color: #999;font-size:12px">换一换看看</span>
-			<?php 	if (!Yii::app()->user->isGuest) { 
-						echo "<a href=".$this->createUrl("/zhubo/update",array('id'=>$zhubo->id)).">更新主播</a>";									
-						echo "&nbsp|&nbsp";
-						echo "<a href=".$this->createUrl("/zhuboTag/doTag",array('zhubo_id'=>$zhubo->id)).">打tag</a>";
-					}
-			?>
-		</div>
-	</div>
-		
-	<!-- 换一换主播 -->				
-	<div class="row" id='random' style="margin-left: 15px;margin-top: 5px;">
-        <?php	
-			$this->renderPartial("_zhubo",
-				array('dataProvider'=>$dataProvider));
-		?>
-    </div>
-		
-	<!-- 广告 -->
-	<div class="row" style="border: 1px solid;width:180px;height:150px;margin-left:6px">
-		<script type="text/javascript">
-			var sogou_ad_id=109874;
-			var sogou_ad_height=150;
-			var sogou_ad_width=180;
-		</script>
-		<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+	<!-- 右边 -->
+	<div class="zb_right">
+		<iframe id="zhibo_iframe" name="_zhibo_target"
+			src="<?php echo $zhubo->url;?>"
+			style="width: 100%; min-height: 700px; height: 700px; border: 0px solid #fff;"></iframe>
 	</div>
 </div>
-	
-<div style="margin-left:196px;">
-	<iframe id="zhibo_iframe" name="_zhibo_target" src="<?php echo $zhubo->url;?>" 
-		style="width:100%;min-height:700px;height: 700px;border:0px solid #fff;">
-		
-	</iframe>
-</div>
 
-<div style="clear: both;"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#zb_ss_b").click(function(){
+		var left = $(".zb_left_sdiv").offset().left;
+		if (left < 0) {
+			$(".zb_left_sdiv").animate( { left: 0}, 500 );
+			$(".zb_right").animate( { marginLeft: 195}, 500 );
+		}
+		else
+		{
+			$(".zb_left_sdiv").animate( { left: -185}, 500 );
+			$(".zb_right").animate( { marginLeft: 0}, 500 );
+		}
+	});
+	$(".new_peo_image_big a").mousemove(function(){
+        $(this).css("margin","-1px");
+    }); 
+    $(".new_peo_image_big a").mouseout(function(){
+        $(this).css("margin","0px");
+    });
+    $(".zb_change_peo").mousemove(function(){
+        $(this).addClass("zb_change_peo_hover");
+    }); 
+    $(".zb_change_peo").mouseout(function(){
+        $(this).removeClass("zb_change_peo_hover");
+    });
+    $(".zb_gohome").mousemove(function(){
+        $(this).addClass("zb_gohome_hover");
+    }); 
+    $(".zb_gohome").mouseout(function(){
+        $(this).removeClass("zb_gohome_hover");
+    });
+    //关注hover 效果
+    $(".zb_gz_bt").mousemove(function(){
+        var rel = $(this).attr("rel");
+        if(rel!=1)
+        {
+            $(this).addClass("no_gz_hover");
+        }
+        else
+        {
+            $(this).addClass("gz_hover");
+        }
+    });
+    $(".zb_gz_bt").mouseout(function(){
+        var rel = $(this).attr("rel");
+        if(rel!=1)
+        {
+            $(this).removeClass("no_gz_hover");
+        }
+        else
+        {
+            $(this).removeClass("gz_hover");
+        }
+    });
+    //关注按钮
+    $(".zb_gz_bt").click(function(){
+        var rel = $(this).attr("rel");
+        var uid = $(this).attr("uid");
+        if(rel!=1)
+        {
+            //
+            $(this).removeClass("no_gz_hover");
+            $(this).removeClass("gz_info");
+            
+            $(this).attr("rel","1");
+            $(this).addClass("gz_info");
+            var span = $(this).find('span');
+            var num = parseInt($(span).html());
+            $(span).html(num+1);
+        }
+        else
+        {
+            $(this).removeClass("gz_hover");
+            $(this).removeClass("no_gz_hover");
+            //如果请求网络成功
+            $(this).attr("rel","0");
+            $(this).removeClass("gz_info");
+        }
+    });
+    
+    //加关注&&取消关注
+    $(".gz_bt").click(function(){
+        var className = $(this).attr("class");
+        var uid = $(this).attr("uid");
+        
+        if(className == "gz_bt")
+        {
+            //发出请求加关注
+    //        jQuery.ajax({'url':'http://www.meilizhubo.com/xxx',data:"uid=" + uid,
+    //       'success':function(msg){
+    //        	var error = msg.error;
+    //        	if(error==0)
+    //            {
+                    $(this).attr("class","gz_bt_ok");
+                    $(this).attr("title","取消关注");     
+    //            }
+    //        }});
+        }
+        else if(className == "gz_bt_ok")
+        {
+            //发出取消关注请求
+     //       jQuery.ajax({'url':'http://www.meilizhubo.com/xxx',data:"uid=" + uid,
+      //      'success':function(msg){
+     //       	var error = msg.error;
+     //       	if(error==0)
+     //           {
+                    $(this).attr("class","gz_bt");
+        	        $(this).attr("title","加入关注");    
+     //           }
+    //        }});
+        }
+        return false;
+    });
+    
+    //换一组
+    $(".zb_change_peo").click(function(){
+    
+    });
+    //
+});
+</script>

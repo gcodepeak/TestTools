@@ -31,7 +31,7 @@ class ZhiboController extends Controller
 						'pagination'=>FALSE));
 		
 		$this->render('index',array('zhubo'=>$zhubo,
-				'dataProvider'=>$dataProvider));
+				'dataProvider'=>$dataProvider->getData()));
 	}
 
 	// Uncomment the following methods and override them if needed
