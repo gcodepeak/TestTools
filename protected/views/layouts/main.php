@@ -31,15 +31,17 @@
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homepage.css" />
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homeindex.css" />
+<link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/nav.css" />
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/tooltips.css" />
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homeindex.css" />
 		
 <?php
 	//Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);
-	//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery-1.10.2.min.js");
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery-1.10.2.min.js");
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/bootstrap.min.js");
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/login.js");
 ?>
@@ -99,7 +101,7 @@
 						<li id="navmenu_fav" class="dropdown bar_sl">
 							<a id="nav_fav" href="javascript:void(0)" hidefocus="true" class="dropdown-toggle tooltips">收录站点<b></b></a>
 						</li>
-                        <li class="dropdown bar_rank"><a id="nav_contact" href="#" hidefocus="true">排行榜</a></li>
+                        <li class="dropdown bar_rank"><a id="nav_contact" href="/topList" hidefocus="true">排行榜</a></li>
 						<li class="dropdown"><a id="nav_contact" href="#" hidefocus="true">网站合作</a></li>
                         <div class="bar_nav_sitelist">
                         <div class="bar_nav_span"></div>

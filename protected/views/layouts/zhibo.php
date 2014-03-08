@@ -11,32 +11,16 @@
 <meta name="robots"
 	content="<?php Yii::getPathOfAlias('webroot')?>/robots.txt" />
 
-<!-- bootstrapt -->
-
 <link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" />
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/homepage.css" />
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/zhubo.css" />
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/zhubo_new.css" />
 		
 	<?php
 		//Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);
-		//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery-1.10.2.min.js");
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery-1.10.2.min.js");
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/bootstrap.min.js");
 	?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-	<script type="text/javascript">
-		//$(document).ready(function(){
-			
-			  $("a").click(function(){
-				  alert("catch");
-			      $(this).attr("target", "");;
-			  });
-			  
-		//});
-	</script>
 </head>
 
 <body>

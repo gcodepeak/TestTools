@@ -1,37 +1,9 @@
 <?php
 /* @var $this ZhiboController */
 ?>
-
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/zhubo_new.css" />
-
-<script>
-		window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89343201.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-
-<script> 
-function show_Favorite(sURL, sTitle){   
-	sURL = encodeURI(sURL);
-	try{window.external.addFavorite(sURL, sTitle);
-	} catch(e) {
-		try{window.sidebar.addPanel(sTitle, sURL, "");
-		}catch (e) {
-			alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
-		}
-	}
-}
-
-function showList(id,num){
-	if(num==1){document.getElementById(id).style.display="block"}
-	else{document.getElementById(id).style.display="none"}
-}
-function show_index(url){
-    if (document.all) {
-        document.body.style.behavior='url(#default#homepage)';document.body.setHomePage(url);
-    } else {
-        alert("您好,您的浏览器不支持自动设置页面为首页功能,请您手动在浏览器里设置该页面为首页!");}
-}
-</script>
+<!-- script>
+	window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89343201.js?cdnversion='+~(-new Date()/36e5)];
+</script-->
 
 <div class="zb_left_per clearfix">
 	<div class="zb_left_sdiv">

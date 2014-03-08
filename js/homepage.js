@@ -80,6 +80,7 @@ $(document).ready(function(){
                 addLoveEvent(par.find(".gz_bt"));
             });
     	}
+        return false;
     });
 
     //精挑细选切换
@@ -88,6 +89,7 @@ $(document).ready(function(){
         $a.click(function(){
              var span = $this.find('span')[0];
              var tag = $(span).attr("rel");
+             var flag = "";
              switch(tag)
              {
                  case "list1":
@@ -95,21 +97,49 @@ $(document).ready(function(){
                      break;
                  case "list2":
                      $(".sanjiao").css({"left":"413px"});
+                     flag = "22";
                      break;
                  case "list3":
                      $(".sanjiao").css({"left":"567px"});
+                     flag = "27";
                      break;
                  case "list4":
                      $(".sanjiao").css({"left":"724px"});
+                     flag = "123";
                      break;
                  case "list5":
                      $(".sanjiao").css({"left":"880px"});
+                     flag = "122";
                      break;
            	}
-            //返回数据后需要重新加载
-            imageHover();
+            jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag='+flag,'cache':false,'success':function(html){
+                        jQuery("#jingtiaoxixuan").html(html);
+                        imageHover($("#jingtiaoxixuan").find(".category_image_div_big a"));
+                        addLoveEvent($("#jingtiaoxixuan").find(".gz_bt"));
+                    }});
+                 return false;
     	});
     });
+    
+    //最佳新人
+    jQuery('body').on('click','#yt6',function(){
+        jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=7','cache':false,'success':function(html){
+                        jQuery("#zuijiaxinren").html(html);
+                        imageHover($("#zuijiaxinren").find(".new_peo_image_big a"));
+                        addLoveEvent($("#zuijiaxinren").find(".gz_bt"));
+                }});
+        return false;});
+    jQuery('body').on('click','#yt7',function(){
+                      jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=14','cache':false,'success':function(html){
+                                  jQuery("#zuijiaxinren").html(html);
+                                  imageHover($("#zuijiaxinren").find(".new_peo_image_big a"));
+                                  addLoveEvent($("#zuijiaxinren").find(".gz_bt"));
+                }});return false;});
+    jQuery('body').on('click','#yt8',function(){jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=30','cache':false,'success':function(html){
+                                jQuery("#zuijiaxinren").html(html);
+                                imageHover($("#zuijiaxinren").find(".new_peo_image_big a"));
+                                addLoveEvent($("#zuijiaxinren").find(".gz_bt"));
+                }});return false;});
 
     //关注鼠标移上去效果
     $(".gz_bt").each(function(){
@@ -128,29 +158,22 @@ $(document).ready(function(){
     	$(this).attr("title","正在直播");
     });
     //图片鼠标移上去效果
-    function imageHover(){
-    $(".new_peo_image_big a").mousemove(function(){
-        $(this).css("margin","-1px");
-        var span = $(this).find("span");
-        $(span).addClass("hover_color");
-    }); 
-    $(".new_peo_image_big a").mouseout(function(){
-        $(this).css("margin","0px");
-        var span = $(this).find("span");
-        $(span).removeClass("hover_color")
+    function imageHover(obj){
+    $(obj).each(function(){
+        $(this).mousemove(function(){
+            $(this).css("margin","-1px");
+            var span = $(this).find("span");
+            $(span).addClass("hover_color");
+        });
+        $(this).mouseout(function(){
+            $(this).css("margin","0px");
+            var span = $(this).find("span");
+            $(span).removeClass("hover_color");
+        });
     });
-    $(".category_image_div_big a").mousemove(function(){
-        $(this).css("margin","-1px");
-        var span = $(this).find("span");
-        $(span).addClass("hover_color");
-    }); 
-    $(".category_image_div_big a").mouseout(function(){
-        $(this).css("margin","0px");
-        var span = $(this).find("span");
-        $(span).removeClass("hover_color")
-    });   
     }
-    imageHover();
+    imageHover($(".new_peo_image_big a"));
+    imageHover($(".category_image_div_big a"));
                   
     //回到顶部
     $(document).scroll( function() { 
