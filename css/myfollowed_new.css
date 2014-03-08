@@ -16,7 +16,7 @@
 }
 .list_con_titlebar b
 {
-	background: url('../images/new_image/list_img_list.png') 0px 0px #FFF;
+	background: url('../images/list_img_list.png') 0px 0px #FFF;
 	display: inline-block;
 	width: 3px;
 	height: 18px;
@@ -83,7 +83,7 @@
 }
 .list_pagenext
 {
-	background: url('../images/new_image/list_img_list.png') 0px -21px #FFF;
+	background: url('../images/list_img_list.png') 0px -21px #FFF;
 	display: inline-block;
 	width: 18px;
 	height: 18px;
@@ -127,7 +127,7 @@
 }
 .mf_recommend_img
 {
-	background: url(../images/new_image/myfollow_recommend.png) -2px 0 #FFF;
+	background: url(../images/myfollow_recommend.png) -2px 0 #FFF;
 	display: inline-block;
 	width: 231px;
 	height: 36px;
@@ -186,7 +186,7 @@
 }
 .mf_gz_icon
 {
-background: url(../images/new_image/icon_gz_s_none.png) 0px 0px no-repeat;
+background: url(../images/icon_gz_s_none.png) 0px 0px no-repeat;
 width: 20px;
 height: 17px;
 display: inline-block;
