@@ -16,7 +16,7 @@
 }
 .list_con_titlebar b
 {
-	background: url('../images/list_img_list.png') 0px 0px #FFF;
+	background: url('../images/new_image/list_img_list.png') 0px 0px #FFF;
 	display: inline-block;
 	width: 3px;
 	height: 18px;
@@ -54,19 +54,19 @@
 
 .top_month_bt
 {
-	background: url('../images/top_img_list.png') 0px 0px #FFF;
+	background: url('../images/new_image/top_img_list.png') 0px 0px #FFF;
 }
 .month_cur .select
 {
-	background: url('../images/top_img_list.png') -89px 0px #FFF;
+	background: url('../images/new_image/top_img_list.png') -89px 0px #FFF;
 }
 .top_week_bt
 {
-	background: url('../images/top_img_list.png') -89px -37px #FFF;
+	background: url('../images/new_image/top_img_list.png') -89px -37px #FFF;
 }
 .week_cur .select
 {
-	background: url('../images/top_img_list.png') 0px -37px #FFF;
+	background: url('../images/new_image/top_img_list.png') 0px -37px #FFF;
 }
 .top_con_title
 {

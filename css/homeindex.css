@@ -74,7 +74,7 @@ float:right;
 .icon_weibo b
 {
 	width: 21px;
-	background: url(../images/login_icon.png) 0 -1px no-repeat;
+	background: url(../images/new_image/login_icon.png) 0 -1px no-repeat;
 }
 .login_b
 {
@@ -88,7 +88,7 @@ float:right;
 }
 .icon_weibo .icon_login_hover
 {
-	background: url(../images/login_icon.png) -21px 0px no-repeat;
+	background: url(../images/new_image/login_icon.png) -21px 0px no-repeat;
 }
 .icon_weibo span,.icon_qq span,.icon_renren span
 {
@@ -104,16 +104,16 @@ float:right;
 .icon_qq b
 {
 	width: 17px;
-	background: url(../images/login_icon.png) 0 -22px no-repeat;
+	background: url(../images/new_image/login_icon.png) 0 -22px no-repeat;
 }
 .icon_qq .icon_login_hover
 {
-	background: url(../images/login_icon.png) -21px -22px no-repeat;
+	background: url(../images/new_image/login_icon.png) -21px -22px no-repeat;
 }
 .icon_renren b
 {
     width: 24px;
-	background: url(../images/login_icon.png) 0 -43px no-repeat;
+	background: url(../images/new_image/login_icon.png) 0 -43px no-repeat;
 }
 .bar_loginout_div
 {
@@ -121,7 +121,7 @@ float:right;
 }
 .icon_renren .icon_login_hover
 {
-	background: url(../images/login_icon.png) -29px -43px no-repeat;
+	background: url(../images/new_image/login_icon.png) -29px -43px no-repeat;
 }
 .icon_weibo .a_hover,.icon_qq .a_hover,.icon_renren .a_hover
 {
@@ -181,7 +181,7 @@ float:right;
     height: 14px;
     width: 14px;
     margin-left: 2px;
-    background: transparent url('../images/icon_list.png') no-repeat scroll;
+    background: transparent url('../images/new_image/icon_list.png') no-repeat scroll;
 }
 .bar_rank{
     margin-left: 40px;
@@ -253,7 +253,7 @@ position: relative;
 }
 .sanjiao
 {
-    background: url(../images/sanjiao.png) 0px 0px no-repeat;
+    background: url(../images/new_image/sanjiao.png) 0px 0px no-repeat;
     width: 14px;
     height: 7px;
     position: absolute;
@@ -279,7 +279,7 @@ position: relative;
 }
 .gz_bt
 {
-    background: url(../images/icon_gz_none.png) 0px 0px no-repeat;
+    background: url(../images/new_image/icon_gz_none.png) 0px 0px no-repeat;
     width: 25px;
     height: 19px;
     display: inline-block;
@@ -289,7 +289,7 @@ position: relative;
 }
 .gz_bt_ok
 {
-    background: url(../images/icon_gz_ok.png) 0px 0px no-repeat;
+    background: url(../images/new_image/icon_gz_ok.png) 0px 0px no-repeat;
     width: 25px;
     height: 19px;
     display: inline-block;
@@ -346,12 +346,12 @@ position: relative;
 }
 .gz_sim .gz_bt
 {
-   background: url(../images/icon_gz_s_none.png) 0px 1px no-repeat;
+   background: url(../images/new_image/icon_gz_s_none.png) 0px 1px no-repeat;
    vertical-align: middle;
 }
 .gz_sim .gz_bt_ok
 {
-    background: url(../images/icon_gz_s_ok.png) -1px -1px no-repeat;
+    background: url(../images/new_image/icon_gz_s_ok.png) -1px -1px no-repeat;
     vertical-align: middle;
     margin-right:4px;
 }
@@ -527,11 +527,11 @@ position: relative;
 }
 .icon_peo
 {
-  background: url(../images/icon_peo.png) 0px 0px no-repeat;
+  background: url(../images/new_image/icon_peo.png) 0px 0px no-repeat;
 }
 .icon_split
 {
-  background: url(../images/icon_split.png) 0px 0px no-repeat;
+  background: url(../images/new_image/icon_split.png) 0px 0px no-repeat;
   margin-right: 5px;
 }
 .icon_split_none
@@ -660,13 +660,13 @@ position: relative;
 .new_peo_image_title b {
     margin-top: 4px;
     cursor: pointer;
-    background: url(../images/icon_gz_s_none.png) 0px 0px no-repeat;
+    background: url(../images/new_image/icon_gz_s_none.png) 0px 0px no-repeat;
     width: 20px;
     height: 17px;
     margin-right: 5px;
 }
 .new_peo_image_title .gz_bt_ok {
-    background: url(../images/icon_gz_s_ok.png) 0px 0px no-repeat;
+    background: url(../images/new_image/icon_gz_s_ok.png) 0px 0px no-repeat;
     margin-top: 2px;
     margin-right: 6px;
 }
@@ -733,7 +733,7 @@ position: relative;
 .hot-tag span
 {
     margin: 0 10px;
-background: url(../images/inco_split_line.png) 0px 0px no-repeat;
+background: url(../images/new_image/inco_split_line.png) 0px 0px no-repeat;
 width: 7px;
 height: 25px;
 display: inline-block;
@@ -804,67 +804,67 @@ vertical-align: middle;
 }
 .zb_image_wx
 {
-    background: url(../images/homepag_link.png) 0px -146px no-repeat;
+    background: url(../images/new_image/homepag_link.png) 0px -146px no-repeat;
 }
 .zb_image_wx_hover
 {
-	background: url(../images/homepag_link.png) 0px -218px no-repeat;
+	background: url(../images/new_image/homepag_link.png) 0px -218px no-repeat;
 }
 .zb_image_6u
 {
-    background: url(../images/homepag_link.png) -128px -71px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -128px -71px no-repeat;
 }
 .zb_image_6u_hover
 {
-    background: url(../images/homepag_link.png) -128px 1px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -128px 1px no-repeat;
 }
 .zb_image_xx
 {
-    background: url(../images/homepag_link.png) -252px -77px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -252px -77px no-repeat;
 }
 .zb_image_xx_hover
 {
-    background: url(../images/homepag_link.png) -252px -5px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -252px -5px no-repeat;
 }
 .zb_image_9158
 {
-    background: url(../images/homepag_link.png) -128px -217px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -128px -217px no-repeat;
 }
 .zb_image_9158_hover
 {
-	background: url(../images/homepag_link.png) -128px -145px no-repeat;
+	background: url(../images/new_image/homepag_link.png) -128px -145px no-repeat;
 }
 .zb_image_kg
 {
-    background: url(../images/homepag_link.png) 0 -77px no-repeat;
+    background: url(../images/new_image/homepag_link.png) 0 -77px no-repeat;
 }
 .zb_image_kg_hover
 {
-    background: url(../images/homepag_link.png) 0 -5px no-repeat;
+    background: url(../images/new_image/homepag_link.png) 0 -5px no-repeat;
 }
 .zb_image_sh
 {
-    background:url(../images/homepag_link.png) -382px -222px no-repeat;
+    background:url(../images/new_image/homepag_link.png) -382px -222px no-repeat;
 }
 .zb_image_sh_hover
 {
-    background: url(../images/homepag_link.png) -382px -150px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -382px -150px no-repeat;
 }
 .zb_image_5b
 {
-    background: url(../images/homepag_link.png) -252px -220px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -252px -220px no-repeat;
 }
 .zb_image_5b_hover
 {
-    background: url(../images/homepag_link.png) -252px -148px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -252px -148px no-repeat;
 }
 .zb_image_tz
 {
-    background: url(../images/homepag_link.png) -384px -74px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -384px -74px no-repeat;
 }
 .zb_image_tz_hover
 {
-    background: url(../images/homepag_link.png) -384px -2px no-repeat;
+    background: url(../images/new_image/homepag_link.png) -384px -2px no-repeat;
 }
 
 .cont_right
@@ -985,7 +985,7 @@ vertical-align: middle;
 }
 .new_peo_image_icon
 {
-	background: url(../images/icon_zb_big.png) 0px 0px no-repeat;
+	background: url(../images/new_image/icon_zb_big.png) 0px 0px no-repeat;
 	display:blcok;
 	width:55px;
 	height:55px;
@@ -999,7 +999,7 @@ vertical-align: middle;
 }
 .span_icon
 {
-	background: url(../images/icon_zb_min.png) 0px 0px no-repeat;
+	background: url(../images/new_image/icon_zb_min.png) 0px 0px no-repeat;
 	display:blcok;
 	width: 28px;
 	height: 14px;
@@ -1079,14 +1079,14 @@ width: 100%;background-color:#F4F4F4;
 	position: fixed;
 	width: 32px;
 	height: 98px;
-	background: url(../images/go_top.png) -8px 0px no-repeat;
+	background: url(../images/new_image/go_top.png) -8px 0px no-repeat;
 	left: 97.2%;
 	cursor: pointer;
 	bottom: 290px;
 	display:none;
 }
 
-/***О©╫О©╫О©╫ж╡О©╫****/
+/***узуж╡Ц****/
 .dialog-overlay {
 	BACKGROUND: gray; FILTER: alpha(opacity:50); opacity: 0.5;
 }
@@ -1126,7 +1126,7 @@ width: 100%;background-color:#F4F4F4;
 	CURSOR: pointer;
 	width: 28px;
 	height: 21px;
-	background: url(../images/close_icon.png) 0px 0px no-repeat;
+	background: url(../images/new_image/close_icon.png) 0px 0px no-repeat;
 	margin-top: -4px;
 }
 .dialog .content {

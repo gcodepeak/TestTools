@@ -29,7 +29,7 @@ a{
 .zb_left_titlediv
 {
 	text-align: right;
-	background: url('../images/zu_img_list.png') #BA2C49;
+	background: url('../images/new_image/zu_img_list.png') #BA2C49;
 	height: 30px;
 }
 .goto_homepage
@@ -47,7 +47,7 @@ a{
 	width: 10px;
 	height: 10px;
 	vertical-align: middle;
-	background: url('../images/zu_img_list.png') 0px 182px #BA2C49;
+	background: url('../images/new_image/zu_img_list.png') 0px 182px #BA2C49;
 }
 .zb_info
 {
@@ -72,7 +72,7 @@ a{
 	width: 13px;
 	height: 32px;
 	vertical-align: middle;
-	background: url('../images/zu_img_list.png') 0px 226px #FFF;
+	background: url('../images/new_image/zu_img_list.png') 0px 226px #FFF;
 	margin-right: 5px;
 }
 .bdsharebuttonbox a
@@ -85,19 +85,19 @@ a{
 }
 .bdsharebuttonbox .bds_qzone
 {
-	background: url('../images/zu_img_list.png') -17px 226px #FFF;
+	background: url('../images/new_image/zu_img_list.png') -17px 226px #FFF;
 }
 .bdsharebuttonbox .bds_tsina
 {
-	background: url('../images/zu_img_list.png') -51px 226px #FFF;
+	background: url('../images/new_image/zu_img_list.png') -51px 226px #FFF;
 }
 .bdsharebuttonbox .bds_tqq
 {
-	background: url('../images/zu_img_list.png') -84px 226px #FFF;
+	background: url('../images/new_image/zu_img_list.png') -84px 226px #FFF;
 }
 .bdsharebuttonbox .bds_renren
 {
-	background: url('../images/zu_img_list.png') -118px 226px #FFF;
+	background: url('../images/new_image/zu_img_list.png') -118px 226px #FFF;
 }
 .zb_change
 {
@@ -141,19 +141,32 @@ a{
     margin-left: 5px;
 }
 .new_peo_image_title b {
+    margin-top: 4px;
     cursor: pointer;
-	background: url(../images/icon_gz_s_none.png) 0px 0px no-repeat;
-	width: 21px;
-	height: 17px;
-	margin: 0px 0px 0 66px;
-	display: inline-block;
-	vertical-align: middle;
+    background: url(../images/new_image/icon_gz_s_none.png) 0px 0px no-repeat;
+    width: 20px;
+    height: 17px;
+    margin-right: 5px;
+display: inline-block;
+vertical-align: baseline;
+float: right;
 }
 .new_peo_image_title .gz_bt_ok {
-    background: url(../images/icon_gz_s_ok.png) -1px -2px no-repeat;
+    background: url(../images/new_image/icon_gz_s_ok.png) 0px 0px no-repeat;
+    margin-top: 2px;
+    margin-right: 6px;
+}
+.new_peo_div .new_peo_time_div {
+    padding-top: 10px;
+}
+.new_peo_time_div_left {
+	float:left;	
+}
+.new_peo_time_div_right {
+	float:right;	
 }
 .new_peo_image_icon {
-	background: url(../images/icon_zb_big.png) 0px 0px no-repeat;
+	background: url(../images/new_image/icon_zb_big.png) 0px 0px no-repeat;
 	display: inline-block;
 	width: 55px;
 	height: 55px;
@@ -172,7 +185,7 @@ a{
 }
 .zb_change_peo
 {
-	background: url('../images/zu_img_list.png') 0px 287px #FFF;
+	background: url('../images/new_image/zu_img_list.png') 0px 287px #FFF;
 	display: inline-block;
 	width: 96px;
 	height: 21px;
@@ -185,7 +198,7 @@ a{
 }
 .zb_gohome
 {
-	background: url('../images/zu_img_list.png') -103px 256px #FFF;
+	background: url('../images/new_image/zu_img_list.png') -103px 256px #FFF;
 	display: inline-block;
 	width: 96px;
 	height: 21px;
@@ -217,7 +230,7 @@ a{
 	width:12px;
 	height:20px;
 	cursor:pointer;
-	background: url('../images/zu_img_list.png') 0px 170px #FFF;
+	background: url('../images/new_image/zu_img_list.png') 0px 170px #FFF;
 	margin-top: 90px;
 }
 .zb_left_sdiv {
@@ -245,7 +258,7 @@ a{
 }
 .zb_info .zb_gz_bt
 {
-	background: url('../images/zu_img_list.png') 0px 363px #FFF;
+	background: url('../images/new_image/zu_img_list.png') 0px 363px #FFF;
 	display: inline-block;
 	width: 162px;
 	height: 29px;
@@ -256,18 +269,19 @@ a{
 .zb_gz_bt span
 {
 	margin-left: 103px;
+	line-height: 29px;
 }
 .zb_info .no_gz_hover
 {
-	background: url('../images/zu_img_list.png') 228px 363px #FFF;
+	background: url('../images/new_image/zu_img_list.png') 228px 363px #FFF;
 }
 .zb_info .gz_info
 {
-	background: url('../images/zu_img_list.png') 228px 326px #FFF;
+	background: url('../images/new_image/zu_img_list.png') 228px 326px #FFF;
 }
 .zb_info .gz_hover
 {
-	background: url('../images/zu_img_list.png') 0px 326px #FFF
+	background: url('../images/new_image/zu_img_list.png') 0px 326px #FFF
 }
 .zb_gohome
 {

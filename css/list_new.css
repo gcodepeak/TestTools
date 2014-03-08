@@ -16,7 +16,7 @@
 }
 .list_con_titlebar b
 {
-	background: url('../images/list_img_list.png') 0px 0px #FFF;
+	background: url('../images/new_image/list_img_list.png') 0px 0px #FFF;
 	display: inline-block;
 	width: 3px;
 	height: 18px;
@@ -74,7 +74,7 @@
 }
 .list_pagenext
 {
-	background: url('../images/list_img_list.png') 0px -21px #FFF;
+	background: url('../images/new_image/list_img_list.png') 0px -21px #FFF;
 	display: inline-block;
 	width: 18px;
 	height: 18px;
