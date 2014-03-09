@@ -82,6 +82,7 @@ a{
 	height: 32px;
 	vertical-align: middle;
 	margin-right: 6px;
+	float:none;
 }
 .bdsharebuttonbox .bds_qzone
 {
