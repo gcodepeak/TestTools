@@ -36,27 +36,27 @@ table td {
 	<div class="row">
 		<label>Tag名称</label>
 		<input size="10" maxlength="10" name="Search[tagName]" type="text" placeholder="好声音"
-		<?php if(isset($search['tagName'])) echo "value=".$search['tagName'] ?>
+		<?php if(isset($search['tagName'])) echo 'value="'.$search['tagName'].'"' ?>
 		/>
 		
 		<label>主播名称</label>
 		<input size="10" maxlength="10" name="Search[zhuboName]" type="text" placeholder="美"
-		<?php if(isset($search['zhuboName'])) echo "value=".$search['zhuboName'] ?>
+		<?php if(isset($search['zhuboName'])) echo 'value="'.$search['zhuboName'].'"' ?>
 		/>
 		
 		<label>秀场名称</label>
 		<input size="10" maxlength="10" name="Search[siteName]" type="text" placeholder="我秀"
-		<?php if(isset($search['siteName'])) echo "value=".$search['siteName'] ?>
+		<?php if(isset($search['siteName'])) echo 'value="'.$search['siteName'].'"' ?>
 		/>
 		
 		<label>正在直播(0/1)</label>
 		<input size="10" maxlength="10" name="Search[is_live]" type="text" placeholder="1"
-		<?php if(isset($search['is_live'])) echo "value=".$search['is_live'] ?>
+		<?php if(isset($search['is_live'])) echo 'value="'.$search['is_live'].'"'; ?>
 		/>
 		
 		<label>标注人</label>		
 		<input size="10" maxlength="10" name="Search[username]" type="text" placeholder="xiaoming"
-		<?php if(isset($search['username'])) echo "value=".$search['username'] ?>
+		<?php if(isset($search['username'])) echo 'value="'.$search['username'].'"' ?>
 		/>
 		
 		<input type="submit" name="yt0" value="搜索" />

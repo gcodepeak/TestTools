@@ -13,7 +13,7 @@
 		<div class="zb_left clearfix">
 			<div class="zb_left_titlediv">
 				<span class="goto_homepage"><a
-					href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>">大厅</a><b></b></span>
+					href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>">返回大厅</a><b></b></span>
 			</div>
 			<!-- 当前主播信息 -->
 			<div class="zb_info">
@@ -41,7 +41,8 @@
 
 				<!-- 换一换按钮 -->
 				<div class="zb_change_bt">
-					<b class="zb_change_peo"></b> <b class="zb_gohome"><a href="#"></a></b>
+					<b class="zb_change_peo"></b>
+					<b class="zb_gohome"><a href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>"></a></b>
 				</div>
 			</div>
 

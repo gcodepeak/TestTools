@@ -62,10 +62,10 @@
 					'htmlOptions'=>array('id'=>'','class'=>'dropdown dropdown-horizontal'),
 					'items'=>array(
 							array('label'=>'美丽主播首页', 'url'=>array('zhubo/homepage')),
-							array('label'=>'主播管理', 'url'=>array('zhubo/admin')),
+							//array('label'=>'主播管理', 'url'=>array('zhubo/admin')),
 							array('label'=>'秀场管理', 'url'=>array('showSite/admin')),
 							array('label'=>'TAG管理', 'url'=>array('tag/admin')),
-							array('label'=>'主播tag管理', 'url'=>array('zhuboTag/taged')),
+							array('label'=>'已标注主播', 'url'=>array('zhuboTag/taged')),
 							array('label'=>'未标注主播', 'url'=>array('zhuboTag/toTag')),
 							array('label'=>'登录', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
 							array('label'=>'注销('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
