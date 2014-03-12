@@ -58,13 +58,24 @@ class XiuChangController extends Controller
 			$this->redirect("/zhubo/homepage");
 		}
 		
+		// 获取当前分页
+		$page = 1;
+		if(isset($_GET['p'])) {
+			$page = $_GET['p'];
+		}
+		$pageSize = 12;
+		$startIndex = ($page - 1) * $pageSize;
+		
 		$connection = Yii::app()->db;
 		
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, hots, fans, last_live_time"
+		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
 				." from zhubo"
-				." where zhubo.site_id = :siteid order by zhubo.is_live desc, zhubo.fans desc limit 12";
+				." where zhubo.site_id = :siteid order by zhubo.is_live desc, zhubo.fans desc limit :startIndex, :pageSize";
+		//print $sql_cmd;
 		$command = $connection->createCommand($sql_cmd);
 		$command->bindParam(":siteid", $_GET['site']);
+		$command->bindParam(":startIndex", $startIndex);
+		$command->bindParam(":pageSize", $pageSize);
 		
 		$dataProvider = $command->queryAll();
 		
@@ -73,6 +84,8 @@ class XiuChangController extends Controller
 		$this->render('index',array(
 			'showSiteName'=>$showSiteName,
 			'dataProvider'=>$dataProvider,
+			'site'=>$_GET['site'],
+			'p'=>$page,
 		));
 	}
 }

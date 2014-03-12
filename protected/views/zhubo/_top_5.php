@@ -22,7 +22,11 @@ foreach ($dataProvider as $data){
 					alt="<?php echo $data['name'];?>">
 					<div class="new_peo_image_title">
 						<span><?php echo $data['name'];?></span> <b class="gz_bt" rel="id1"></b>
-					</div> <b class="new_peo_image_icon"></b> </a>
+					</div> 
+					<?php if ($data['is_live']) {?>
+						<b class="new_peo_image_icon"></b>
+					<?php }?>
+				</a>
 			</div>
 		</div>
 		<div class="list_cont">
@@ -30,8 +34,9 @@ foreach ($dataProvider as $data){
 				<span class="span_left">选自/</span><span class="span_right"><?php echo $data['showSiteName'];?></span>
 			</div>
 			<div>
-				<span class="span_left">粉丝/</span> <span class="span_right"><?php echo $data['fans'];?></span>
-				<span class="span_icon"></span>
+				<span class="span_left">粉丝/</span>
+				<span class="span_right"><?php echo $data['fans'];?></span>
+				<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$data['id'],))?>"><span class="span_icon"></span></a>
 			</div>
 		</div>
 	</div>

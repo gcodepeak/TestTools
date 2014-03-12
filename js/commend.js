@@ -18,127 +18,6 @@ $(document).ready(function(){
     $(".bar_nav_fav_menu div").mouseout(function(e){
         $(this).removeClass("bar_list_mo");
     });
-    
-    //最底部链接效果
-    $(".zb_form_link").hover(function(){
-        var obj = $(this).find("div");
-        var objClass = $(obj).attr('class')+"_hover";
-        $(obj).attr('class',objClass);
-    },function(){
-        var obj = $(this).find("div");
-        var objClass = $(obj).attr('class').replace("_hover",'');
-        $(obj).attr("class",objClass);
-    });
-        
-    //top14展示模块
-    function topEvent(obj)
-    {
-    	$(obj).each(function(){
-    		var $this = jQuery(this),$a = $this.find('a'),$overlaylist = $this.find('.tc_gz_div');
-    		if (!$this) {
-    			alert("error");
-    		}
-    		$a.hover(function(){
-    	        $overlaylist.stop(true, true).slideDown(200);
-    		},function(){
-    	        $overlaylist.stop(true, true).slideUp(200);
-    		});
-    	});
-    }
-    topEvent($('li.head_cube'));
-    //产生随机数
-    function getRandomNum(Min,Max)
-    {   
-        var Range = Max - Min;   
-        var Rand = Math.random();   
-        return(Min + Math.round(Rand * Range));   
-    } 
-    //换一换功能
-    $(".huanyihuan").click(function(){
-    	//请求服务端返回数据
-        //
-        var al = new Array();
-        for (var i=1; i <= 14; i++) {
-            var obj = $('.top14_'+i).clone();
-            al.push($(obj).html());
-        };
-        
-    	for (var i=1; i <= 14; i++) {
-    	    var curObj = $("#top_14").find('.top14_'+i),a = $(curObj).find('a');
-            var insertHtml = al[i-1];
-            curObj.append(insertHtml);
-            //动画，随机时间
-            var time = getRandomNum(1000,1500);
-            $(a).animate( { height: 0}, time,'',function(){
-                var par = $(this).parent();
-                $(this).remove();
-                topEvent(par);
-                addLoveEvent(par.find(".gz_bt"));
-            });
-    	}
-		return false;
-    });
-
-    //精挑细选切换
-    $('.row-fluid .fluid_tag').each(function(){
-        var $this = jQuery(this),$a = $this.find('a');
-        $a.click(function(){
-             var span = $this.find('span')[0];
-             var tag = $(span).attr("rel");
-             var flag = "";
-             switch(tag)
-             {
-                 case "list1":
-                     $(".sanjiao").css({"left":"257px"});
-                     break;
-                 case "list2":
-                     $(".sanjiao").css({"left":"413px"});
-                     flag = "22";
-                     break;
-                 case "list3":
-                     $(".sanjiao").css({"left":"567px"});
-                     flag = "27";
-                     break;
-                 case "list4":
-                     $(".sanjiao").css({"left":"724px"});
-                     flag = "123";
-                     break;
-                 case "list5":
-                     $(".sanjiao").css({"left":"880px"});
-                     flag = "122";
-                     break;
-           	}
-            $.ajax({'url':'/zhubo/jingtiaoxixuan?tag='+flag,type:"get",'success':function(html){
-                        $("#jingtiaoxixuan").html($("#jingtiaoxixuan").html());
-                        imageHover($("#jingtiaoxixuan").find(".category_image_div_big a"));
-                        addLoveEvent($("#jingtiaoxixuan").find(".gz_bt"));
-                    }});
-                 return false;
-    	});
-    });
-
-	//最佳新人
-    jQuery('body').on('click','#yt6',function(){
-        jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=7','cache':false,'success':function(html){
-			jQuery("#zuijiaxinren").html(html);
-			imageHover($("#zuijiaxinren").find(".new_peo_image_big a"));
-			addLoveEvent($("#zuijiaxinren").find(".gz_bt"));
-			}});
-        return false;
-	});
-    jQuery('body').on('click','#yt7',function(){
-		jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=14','cache':false,'success':function(html){
-				jQuery("#zuijiaxinren").html(html);
-				imageHover($("#zuijiaxinren").find(".new_peo_image_big a"));
-				addLoveEvent($("#zuijiaxinren").find(".gz_bt"));
-			}});
-		return false;});
-	jQuery('body').on('click','#yt8',function(){jQuery.ajax({'url':'/zhubo/zuijiaxinren?time=30','cache':false,'success':function(html){
-			jQuery("#zuijiaxinren").html(html);
-			imageHover($("#zuijiaxinren").find(".new_peo_image_big a"));
-			addLoveEvent($("#zuijiaxinren").find(".gz_bt"));
-			}});
-		return false;});
 
     //关注鼠标移上去效果
     $(".gz_bt").each(function(){
@@ -156,7 +35,7 @@ $(document).ready(function(){
     $(".span_icon").each(function(){
     	$(this).attr("title","正在直播");
     });
-    //图片鼠标移上去效果
+	//图片鼠标移上去效果
     function imageHover(obj){
 		$(obj).each(function(){
 			$(this).mouseover(function(){
@@ -171,7 +50,7 @@ $(document).ready(function(){
     }
     imageHover($(".new_peo_image_big a"));
     imageHover($(".category_image_div_big a"));
-                  
+    
     //回到顶部
     $(document).scroll( function() { 
         var s_top = $(document).scrollTop();

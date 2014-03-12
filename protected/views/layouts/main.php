@@ -12,27 +12,9 @@
 <meta name="robots"
 	content="<?php Yii::getPathOfAlias('webroot')?>/robots.txt" />
 
-<!-- blueprint CSS framework -->
-<!-- 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
--->
-<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-<![endif]-->
-
-<!-- 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />  
--->
-
-<!-- bootstrapt -->
 <link rel="stylesheet" type="text/css" href="/css/nav.css" />
-<link rel="stylesheet" type="text/css" href="/css/tooltips.css" />
 <link rel="stylesheet" type="text/css" href="/css/homeindex.css" />
-
 <link rel="stylesheet" type="text/css" href="/css/homepage.css" />
-<link rel="stylesheet" type="text/css" href="/css/tooltips.css" />
 		
 <?php
 	//Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);
@@ -40,6 +22,10 @@
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/bootstrap.min.js");
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/login.js");
 ?>
+
+<!--[if IE 6]>
+<script src="/js/iepngfix.js" language="javascript" type="text/javascript"></script>
+<![endif]-->
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
     <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i">
@@ -69,7 +55,8 @@
 </script>
 
 <div class="clearfix" style="width:100%;background-color: #fefefe;">
-	<hr style="height:5px; background-color:#ba2c49;border: 0;"></hr>
+	<div class="topbar_bg"></div>
+	<!-- hr style="height:5px; background-color:#ba2c49;border: 0;"></hr-->
 	<div style="width:1190px;margin:0 auto;" class="clearfix">
 		<div class="bar_left">
 			<div class="bar_icon_div">
@@ -80,6 +67,7 @@
 			<div class="clearfix">
 				<div class="bar_login_lab">
 					<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>
+					<span class="bar_login_clew">:</span>
 				</div>
 				<div class="bar_login">
 					<div class="bar_login_div">
@@ -92,12 +80,14 @@
 				<ul class="bar_nav">
 					<li class="dropdown bar_home"><a id="nav_home" href="<?php echo Yii::app()->request->baseUrl;?>/zhubo/homepage" hidefocus="true"
 					style="color:#ba2c49;" >主播大厅</a></li>
-						<li class="dropdown bar_gz disabled"><a id="nav_care" class="tooltips" href="#" hidefocus="true">我的关注<span>即将上线敬请关注</span></a></li>
+						<li class="dropdown bar_gz disabled"><a id="nav_care" class="tooltips" href="<?php echo Yii::app()->createUrl("favorate");?>" >我的关注</a></li>
 						<li id="navmenu_fav" class="dropdown bar_sl">
 							<a id="nav_fav" href="javascript:void(0)" hidefocus="true" class="dropdown-toggle tooltips">收录站点<b></b></a>
 						</li>
                         <li class="dropdown bar_rank"><a id="nav_contact" href="/topList" hidefocus="true">排行榜</a></li>
 						<li class="dropdown"><a id="nav_contact" href="#" hidefocus="true">网站合作</a></li>
+                    </ul>
+                 </div>
                         <div class="bar_nav_sitelist">
                         <div class="bar_nav_span"></div>
                         <div class="bar_nav_fav_menu">
@@ -106,8 +96,6 @@
                             <div><a href="/xiuchang/index?site=3"">Sina</a></div>
                             <div><a href="/xiuchang/index?site=4"">六间房</a></div>
                         </div>
-                        </div>
-					</ul>
 				</div>
 			</div>
 		</div>
@@ -141,24 +129,27 @@
         </div>
         
         <div class="footer_right clearfix">
-            <div class="bdsharebuttonbox bdshare-button-style0-32 footer_share" data-tag="share_footer" data-bd-bind="1393773940056">
-                <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
-                <a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
-            </div>
-            <div class="row-fluid footer_cup">
-                <p>© 2013-2023 MEILIZHUBO.COM</p>
-                <p class="cup_2">ALL RIGHTS RESERVED.</p>
-                <p class="cup_3">京ICP备12050577号</p>
-            </div>
-        	<div class="footer_cup_icon">
-            	<img src="<?php echo Yii::app()->request->baseUrl;?>/images/footer_logo.png">
-         	</div>
-         	<div class="footer_image_saomiao">
-	            <img src="<?php echo Yii::app()->request->baseUrl;?>/images/icon_footer_saomiao.png" alt="" title="扫一扫，关注我的官方微博">
+        	<div class="footer_con_cpu">
+	            <div class="bdsharebuttonbox bdshare-button-style0-32 footer_share" data-tag="share_footer" data-bd-bind="1393773940056">
+	                <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
+	                <a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+	            </div>
+	            <div class="row-fluid footer_cup">
+	                <p>© 2013-2023 MEILIZHUBO.COM</p>
+	                <p class="cup_2">ALL RIGHTS RESERVED.</p>
+	                <p class="cup_3">京ICP备12050577号</p>
+	            </div>
+	        	<div class="footer_cup_icon">
+	            	<img src="<?php echo Yii::app()->request->baseUrl;?>/images/footer_logo.png">
+	         	</div>
+	         	<div class="footer_image_saomiao">
+		            <img src="<?php echo Yii::app()->request->baseUrl;?>/images/icon_footer_saomiao.png" alt="" title="扫一扫，关注我的官方微博">
+		        </div>
 	        </div>
     	</div>
     </div>
 </div>
+
 <div id="login_div" style="display:none;">
 	<div id="login_content">
 		<div class="login_img">

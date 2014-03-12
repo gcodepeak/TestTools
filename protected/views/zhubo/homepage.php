@@ -56,7 +56,7 @@
         		</div>
         		<div class="new_bar_right">
         			<div style="text-align:right;">
-                        <a href="#" id="yt6">一周内</a> | <a href="#" id="yt7">两周内</a> | <a href="#" id="yt8">一月内</a>
+                        <a href="#" id="yt6" class="cont_cur">一周内</a> | <a href="#" id="yt7">两周内</a> | <a href="#" id="yt8">一月内</a>
                     </div>
         		</div>
         	</div>
@@ -83,7 +83,7 @@
                  </div>
                  <div class="new_bar_right">
                      <div style="text-align:right;">
-                         <a href="#" id="yt6">主播最多</a> | <a href="#" id="yt7">粉丝最多</a> | <a href="#" id="yt8">大富大贵</a> | <a href="#" id="yt8">历史悠久</a>
+                         <a href="#" id="yt6" class="cont_cur">主播最多</a> | <a href="#" id="yt7">粉丝最多</a> | <a href="#" id="yt8">大富大贵</a> | <a href="#" id="yt8">历史悠久</a>
                      </div>
                  </div>
              </div>

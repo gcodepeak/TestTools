@@ -3,6 +3,7 @@ body{
     padding: 0;
     margin: 0;
 }
+img{border:0;}
 a{
 	text-decoration: none;
 }
@@ -35,6 +36,8 @@ a{
 .goto_homepage
 {
 	line-height: 30px;
+	display:inline-block;
+	_margin-top:5px;
 }
 .goto_homepage a
 {
@@ -48,6 +51,7 @@ a{
 	height: 10px;
 	vertical-align: middle;
 	background: url('../images/zu_img_list.png') 0px 182px #BA2C49;
+	_background: url('../images/zu_img_list.png') 0px 189px #BA2C49;
 }
 .zb_info
 {
@@ -82,7 +86,6 @@ a{
 	height: 32px;
 	vertical-align: middle;
 	margin-right: 6px;
-	float:none;
 }
 .bdsharebuttonbox .bds_qzone
 {
@@ -117,18 +120,26 @@ a{
 }
 .new_peo_image_big a {
     display: block;
-    border: 1px solid #CCC;
     position: relative;
+    font-size:0;
+	height: 118px;
 }
 .new_peo_image_big img {
     width: 152px;
     height: 116px;
+    border: 1px solid #CCC;
+	margin:1px;
+}
+.new_peo_image_big .imghover {
+    border: 2px solid #ff826a;
+	margin:0px;
 }
 .new_peo_image_title {
     color: #999;
     position: absolute;
     bottom: 0px;
-    left: 0px;
+	_bottom: 2px;
+    left: 2px;
     background: none repeat scroll 0 0 #FFFFFF;
     opacity: .9;
     filter: alpha(opacity=90);
@@ -140,31 +151,20 @@ a{
     line-height: 24px;
     color: #666;
     margin-left: 5px;
+    float:left;
 }
 .new_peo_image_title b {
-    margin-top: 4px;
     cursor: pointer;
-    background: url(../images/icon_gz_s_none.png) 0px 0px no-repeat;
-    width: 20px;
-    height: 17px;
-    margin-right: 5px;
-display: inline-block;
-vertical-align: baseline;
-float: right;
+	background: url(../images/icon_gz_s_none.png) 0px 0px no-repeat;
+	width: 21px;
+	height: 17px;
+	display: inline-block;
+	vertical-align: middle;
+	float: right;
+	margin-top: 5px;
 }
 .new_peo_image_title .gz_bt_ok {
-    background: url(../images/icon_gz_s_ok.png) 0px 0px no-repeat;
-    margin-top: 2px;
-    margin-right: 6px;
-}
-.new_peo_div .new_peo_time_div {
-    padding-top: 10px;
-}
-.new_peo_time_div_left {
-	float:left;	
-}
-.new_peo_time_div_right {
-	float:right;	
+    background: url(../images/icon_gz_s_ok.png) -1px -2px no-repeat;
 }
 .new_peo_image_icon {
 	background: url(../images/icon_zb_big.png) 0px 0px no-repeat;
@@ -173,7 +173,7 @@ float: right;
 	height: 55px;
 	position: absolute;
 	right: 0px;
-	top: 0;
+	top: 2px;
 }
 .new_peo_div1
 {
@@ -253,10 +253,6 @@ float: right;
 {
 	background-color:#ff826a;
 }
-.new_peo_image_big a:hover
-{
-	border:2px solid #ff826a;
-}
 .zb_info .zb_gz_bt
 {
 	background: url('../images/zu_img_list.png') 0px 363px #FFF;
@@ -270,7 +266,6 @@ float: right;
 .zb_gz_bt span
 {
 	margin-left: 103px;
-	line-height: 29px;
 }
 .zb_info .no_gz_hover
 {

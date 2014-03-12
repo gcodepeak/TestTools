@@ -18,7 +18,7 @@ for ($index=0; $index < 14; $index++) {
 		<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$top14s[$index]['id'],))?>" target="_blank">
 			<img alt="" src="<?php echo $top14s[$index]['head_img']?>" style="display: block;">
 				<div class="tc_gz_div gz_big">
-					<div class="fc_div">
+					<div class="fc_div clearfix">
 	                	<span class="fc_div_name"><?php echo $top14s[$index]->name;?></span>
 	                    <span class="gz_bt" uid="<?php echo $index?>"></span>
 	                </div>
@@ -33,7 +33,7 @@ for ($index=0; $index < 14; $index++) {
 		<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$top14s[$index]['id'],))?>" target="_blank">
 			<img alt="" src="<?php echo $top14s[$index]['head_img']?>">
 			<div class="tc_gz_div gz_sim">
-				<div class="fc_div">
+				<div class="fc_div clearfix">
                 	<span class="fc_div_name"><?php echo $top14s[$index]->name;?></span>
                     <span class="gz_bt" uid="<?php echo $index?>"></span>
                 </div>
