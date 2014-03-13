@@ -21,13 +21,13 @@
 		
 		<div class="list_con_list clearfix">
 			<!--广告上部分内容-->
-			<div class="top_con_title"><span>活泼范</span><span>小清新</span><span>好声音</span><span>女神</span><span>气质型</span></div>
+			<div class="top_con_title"><span>ALL</span><span>可爱</span><span>妩媚</span><span>女神</span><span>好声音</span></div>
 			<div class="top_con_img clearfix">	
 				<?php
 					$index = 0;
 					for($index = 0; $index < 5; $index++) {
 						$this->renderPartial("_top_list",
-							array('dataProvider'=>$dataProvider));
+							array('dataProvider'=>$dataProvider[$index]));
 					} 
 				?>
 			</div>
@@ -38,13 +38,13 @@
 			</div>
 			
 			<!--广告下部分内容-->
-			<div class="top_con_title"><span>活泼范</span><span>小清新</span><span>好声音</span><span>女神</span><span>气质型</span></div>
+			<div class="top_con_title"><span>气质</span><span>熟女</span><span>甜美</span><span>巧嘴</span><span>娇滴滴</span></div>
 			<div class="top_con_img clearfix">	
 				<?php
 					$index = 0;
 					for($index = 0; $index < 5; $index++) {
 						$this->renderPartial("_top_list",
-							array('dataProvider'=>$dataProvider));
+							array('dataProvider'=>$dataProvider[$index+5]));
 					} 
 				?>
 			</div>
