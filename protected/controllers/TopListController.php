@@ -54,12 +54,74 @@ class TopListController extends Controller
 	{
 		$connection = Yii::app()->db;
 		
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
-				." from zhubo, ShowSite"
-				." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 5";
+		$sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+				." from zhubo, ShowSite, ZhuboTag"
+				." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id  order by zhubo.fans desc limit 5";
 		$command = $connection->createCommand($sql_cmd);
-		$top5_dataProvider = $command->queryAll();
 		
+                $top5_dataProvider = array();
+
+                array_push($top5_dataProvider,$command->queryAll());
+
+                $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+                                ." from zhubo, ShowSite, ZhuboTag"
+                                ." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = 22 order by zhubo.fans desc limit 5";
+                $command = $connection->createCommand($sql_cmd);
+                array_push($top5_dataProvider,$command->queryAll());
+
+                $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+                                ." from zhubo, ShowSite, ZhuboTag"
+                                ." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = 27 order by zhubo.fans desc limit 5";
+                $command = $connection->createCommand($sql_cmd);
+                array_push($top5_dataProvider,$command->queryAll());
+
+                $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+                                ." from zhubo, ShowSite, ZhuboTag"
+                                ." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ( ZhuboTag.tag_id = 32 or ZhuboTag.tag_id = 33 or ZhuboTag.tag_id = 34 ) order by zhubo.fans desc limit 5";
+                $command = $connection->createCommand($sql_cmd);
+                array_push($top5_dataProvider,$command->queryAll());
+
+                $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+                                ." from zhubo, ShowSite, ZhuboTag"
+                                ." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ( ZhuboTag.tag_id = 113 or ZhuboTag.tag_id = 114 or ZhuboTag.tag_id = 115 ) order by zhubo.fans desc limit 5";
+                $command = $connection->createCommand($sql_cmd);
+                array_push($top5_dataProvider,$command->queryAll());
+
+
+                $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+                                ." from zhubo, ShowSite, ZhuboTag"
+                                ." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = 21 order by zhubo.fans desc limit 5";
+                $command = $connection->createCommand($sql_cmd);
+                array_push($top5_dataProvider,$command->queryAll());
+
+
+                $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+                                ." from zhubo, ShowSite, ZhuboTag"
+                                ." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = 23 order by zhubo.fans desc limit 5";
+                $command = $connection->createCommand($sql_cmd);
+                array_push($top5_dataProvider,$command->queryAll());
+
+
+                $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+                                ." from zhubo, ShowSite, ZhuboTag"
+                                ." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = 102 order by zhubo.fans desc limit 5";
+                $command = $connection->createCommand($sql_cmd);
+                array_push($top5_dataProvider,$command->queryAll());
+
+
+                $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+                                ." from zhubo, ShowSite, ZhuboTag"
+                                ." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = 7 order by zhubo.fans desc limit 5";
+                $command = $connection->createCommand($sql_cmd);
+                array_push($top5_dataProvider,$command->queryAll());
+
+
+                $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+                                ." from zhubo, ShowSite, ZhuboTag"
+                                ." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = 29 order by zhubo.fans desc limit 5";
+                $command = $connection->createCommand($sql_cmd);
+                array_push($top5_dataProvider,$command->queryAll());
+
 		$this->render('index',array(
 			'dataProvider'=>$top5_dataProvider,
 		));

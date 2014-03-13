@@ -58,13 +58,33 @@
 
 		<!--分页-->
 		<div class="list_con_pageindex">
-			<span class="list_pagenum page_cur"><a href="#">1</a></span><span
+			<?php 
+				if (!isset($page)) {
+					$page = 1;
+				}
+				
+				if ($pageCount >= 2) {
+					for ($index = 1; $index <= $pageCount; $index++){
+						if ($index != $page) {
+							$url = Yii::app()->createUrl('xiuchang/index',array('page'=>$index));
+							echo '<span class="list_pagenum"><a href="'. $url . '">' . $index . '</a></span>';
+						} else {
+							echo '<span class="list_pagenum page_cur"><a href="#">' . $index . '</a></span>';
+						}
+					}
+					
+					$nextPage = ($page < $pageCount)? ($page+1):$page;
+					$url = Yii::app()->createUrl('favorate/index',array('page'=>$nextPage));
+					echo '<a href="'. $url . '"><span class="list_pagenext"></span></a>';
+				}
+			?>
+			<!-- span class="list_pagenum page_cur"><a href="#">1</a></span><span
 				class="list_pagenum"><a href="#">2</a></span><span
 				class="list_pagenum"><a href="#">3</a></span><span
 				class="list_pagenum">4</span><span class="list_pagenum">5</span><span
 				class="list_pagenum">6</span><span class="list_pagenum">7</span><span
 				class="list_pagenum">8</span><span class="list_pagenum">9</span><span
-				class="list_pagenum">10</span><span class="list_pagenext"></span>
+				class="list_pagenum">10</span><span class="list_pagenext"></span-->
 		</div>
 <?php };?>
 		
@@ -92,7 +112,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-	
 	    //分页鼠标hover效果
 	    $(".list_pagenum a").hover(function(){
 			$(this).parent().addClass("list_pagenum_hover");

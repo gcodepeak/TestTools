@@ -60,14 +60,30 @@ class XiuChangController extends Controller
 		
 		// 获取当前分页
 		$page = 1;
-		if(isset($_GET['p'])) {
-			$page = $_GET['p'];
+		if(isset($_GET['page'])) {
+			$page = $_GET['page'];
 		}
+		
 		$pageSize = 12;
-		$startIndex = ($page - 1) * $pageSize;
+		if(isset($_GET['pageSize'])) {
+			$page = $_GET['pageSize'];
+		}
 		
 		$connection = Yii::app()->db;
 		
+		// 查询整体数据的大小，确定分页总数
+		$sql_cmd = "select count(*) from zhubo where zhubo.site_id = :siteid";
+		$command = $connection->createCommand($sql_cmd);
+		$command->bindParam(":siteid", $_GET['site']);
+		$totalSize = $command->queryScalar();
+		$pageCount = ($totalSize + $pageSize - 1) / $pageSize;
+		
+		if ($page > $pageCount) {
+			$page = 1;
+		}
+		$startIndex = ($page - 1) * $pageSize;
+		
+		// 查询对应分页的数据
 		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
 				." from zhubo"
 				." where zhubo.site_id = :siteid order by zhubo.is_live desc, zhubo.fans desc limit :startIndex, :pageSize";
@@ -85,7 +101,8 @@ class XiuChangController extends Controller
 			'showSiteName'=>$showSiteName,
 			'dataProvider'=>$dataProvider,
 			'site'=>$_GET['site'],
-			'p'=>$page,
+			'page'=>$page,
+			'pageCount'=>$pageCount,
 		));
 	}
 }

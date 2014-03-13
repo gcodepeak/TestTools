@@ -129,10 +129,10 @@
         </div>
         
         <div class="footer_right clearfix">
-        	<div class="footer_con_cpu">
-	            <div class="bdsharebuttonbox bdshare-button-style0-32 footer_share" data-tag="share_footer" data-bd-bind="1393773940056">
-	                <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina"></a>
-	                <a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq"></a>
+            <div class="footer_con_cpu">
+            	<div class="bdsharebuttonbox bdshare-button-style0-32 footer_share" data-tag="share_footer" data-bd-bind="1393773940056">
+	                <a title="在新浪微博关注我" href="#" class="bds_tsina new_sina_icon" style="background-position: -1px -103px;" data-cmd="tsina"></a>
+	                <a title="在腾讯微博关注我" href="#" class="bds_tqq new_qq_icon" style="background-position: -35px -273px;" data-cmd="tqq"></a>
 	            </div>
 	            <div class="row-fluid footer_cup">
 	                <p>© 2013-2023 MEILIZHUBO.COM</p>
@@ -140,11 +140,10 @@
 	                <p class="cup_3">京ICP备12050577号</p>
 	            </div>
 	        	<div class="footer_cup_icon">
-	            	<img src="<?php echo Yii::app()->request->baseUrl;?>/images/footer_logo.png">
+	            	<img src="/images/footer_logo.png">
 	         	</div>
-	         	<div class="footer_image_saomiao">
-		            <img src="<?php echo Yii::app()->request->baseUrl;?>/images/icon_footer_saomiao.png" alt="" title="扫一扫，关注我的官方微博">
-		        </div>
+            </div>
+         	<div class="footer_image_saomiao" title="扫一扫，关注我的官方微博">
 	        </div>
     	</div>
     </div>
@@ -163,6 +162,11 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+jQuery('body').on('click','#yt0',function(){
+	return false;
+});
 
 <?php 
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/homepage.js");

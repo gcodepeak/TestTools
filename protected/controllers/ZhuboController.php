@@ -132,38 +132,17 @@ class ZhuboController extends Controller
 	
 	public function actionHomepage()
 	{
-		$top_14_criteria=new CDbCriteria;
-		$top_14_criteria->limit = 14;
-        $top_14_criteria->order = 'fans DESC';
-        $top_14_criteria->addCondition("is_live=1");
+		$connection = Yii::app()->db;
 		
-		$top_14_dataProvider=new CActiveDataProvider('Zhubo',
-				array('criteria'=> $top_14_criteria,
-						'pagination'=>FALSE));
-		/*
-		$jingtiaoxixuan_criteria=new CDbCriteria;
-		$jingtiaoxixuan_criteria->limit = 8;
-                $jingtiaoxixuan_criteria->order = 'fans DESC';
-                $jingtiaoxixuan_criteria->addCondition("is_live=1");
-		
-		$jingtiaoxixuan_dataProvider=new CActiveDataProvider('Zhubo',
-			array('criteria'=> $jingtiaoxixuan_criteria,
-					 'pagination'=>FALSE));
-		
-		
-		$zuijiaxinren_criteria=new CDbCriteria;
-		$zuijiaxinren_criteria->limit = 12;
-                $zuijiaxinren_criteria->order = 'fans DESC';
-                $zuijiaxinren_criteria->addCondition("is_live=1");
-		
-		$zuijiaxinren_dataProvider=new CActiveDataProvider('Zhubo',
-				array('criteria'=> $zuijiaxinren_criteria,
-		 				'pagination'=>FALSE));
-		*/
+		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id and is_live = 1 "
+				." order by zhubo.fans desc limit 14";
+		$command = $connection->createCommand($sql_cmd);	
+		$top_14_dataProvider = $command->queryAll();
 		
 		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
 				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
-		$connection = Yii::app()->db;
+		
 		$command = $connection->createCommand($sql_cmd);
 		$jingtiaoxixuan_dataProvider = $command->queryAll();
 		
@@ -189,6 +168,49 @@ class ZhuboController extends Controller
 				'jingtiaoxixuan_dataProvider'=>$jingtiaoxixuan_dataProvider,
 				'zuijiaxinren_dataProvider'=>$zuijiaxinren_dataProvider,
 				'top5_dataProvider'=>$top5_dataProvider,
+		));
+	}
+	
+	/* ajax */
+	public function actionTop14()
+	{
+		// 获取当前分页
+		$page = 1;
+		if(isset($_GET['page'])) {
+			$page = $_GET['page'];
+		}
+		
+		$pageSize = 14;
+			
+		$connection = Yii::app()->db;
+		
+		// 查询整体数据的大小，确定分页总数
+		$sql_cmd = "select count(*) from zhubo where is_live='1';";
+		$command = $connection->createCommand($sql_cmd);
+		$totalSize = $command->queryScalar();
+		$pageCount = ($totalSize + $pageSize - 1) / $pageSize;
+		//print $pageCount;
+		
+		if ($page > $pageCount) {
+			$page = 1;
+		}		
+		$startIndex = ($page - 1) * $pageSize;
+		
+		// 查询对应分页的数据
+		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id and is_live = 1 "
+				." order by zhubo.fans desc limit :startIndex, :pageSize";
+		//print $sql_cmd;
+		$command = $connection->createCommand($sql_cmd);
+		$command->bindParam(":startIndex", $startIndex);
+		$command->bindParam(":pageSize", $pageSize);
+		
+		$dataProvider = $command->queryAll();
+		//print_r($dataProvider);
+		
+		$this->renderPartial("_top_14",
+				array('dataProvider'=>$dataProvider,
+					'page'=>$page,
 		));
 	}
 	

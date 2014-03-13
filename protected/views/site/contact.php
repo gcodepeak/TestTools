@@ -29,7 +29,7 @@ If you have business inquiries or other questions, please fill out the following
 	'id'=>'contact-form',
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
+	'validateOnSubmit'=>true,
 	),
 )); ?>
 

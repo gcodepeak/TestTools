@@ -14,7 +14,7 @@
 	<div id="top_14">
 	<?php
 		$this->renderPartial("_top_14",
-			array('dataProvider'=>$top_14_dataProvider)); 
+			array('dataProvider'=>$top_14_dataProvider,'page'=>1,)); 
 	?>
 	</div>
 </div>

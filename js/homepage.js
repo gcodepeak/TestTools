@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     //bar菜单效果
     $("#navmenu_fav").mousemove(function(e){
@@ -52,10 +53,16 @@ $(document).ready(function(){
         var Range = Max - Min;   
         var Rand = Math.random();   
         return(Min + Math.round(Rand * Range));   
-    } 
+    }
+    
     //换一换功能
     $(".huanyihuan").click(function(){
+        //var page = $('#huanyihuan').attr("rel");
     	//请求服务端返回数据
+    	//jQuery.ajax({'url':'/zhubo/top14?page='+page,'cache':false,'success':function(html){
+        //        $("#top_14").html(html);
+        //}});
+    	//alert('OK'+page);
         //
         var al = new Array();
         for (var i=1; i <= 14; i++) {
@@ -271,6 +278,7 @@ $(document).ready(function(){
         $(b).removeClass("icon_login_hover");
         $(span).removeClass("spanhover");
     });
+    
     loginEvent();
     function loginEvent()
     {

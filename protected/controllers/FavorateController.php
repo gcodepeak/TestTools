@@ -52,8 +52,31 @@ class FavorateController extends Controller
 	 */
 	public function actionIndex()
 	{
+		// 获取当前分页
+		$page = 1;
+		if(isset($_GET['page'])) {
+			$page = $_GET['page'];
+		}
+		
+		$pageSize = 12;
+		if(isset($_GET['pageSize'])) {
+			$page = $_GET['pageSize'];
+		}
+		
 		$connection = Yii::app()->db;
 		
+		// 查询整体数据的大小，确定分页总数
+		$sql_cmd = "select count(*) from zhubo where zhubo.site_id = :siteid";
+		$command = $connection->createCommand($sql_cmd);
+		$command->bindParam(":siteid", $_GET['site']);
+		$totalSize = $command->queryScalar();
+		$pageCount = ($totalSize + $pageSize - 1) / $pageSize;
+		
+		if ($page > $pageCount) {
+			$page = 1;
+		}
+		$startIndex = ($page - 1) * $pageSize;
+		// 查询当前分页的数据
 		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, last_live_time"
 				." from zhubo, ShowSite"
 				." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
@@ -62,6 +85,8 @@ class FavorateController extends Controller
 		
 		$this->render('index',array(
 			'dataProvider'=>$top5_dataProvider,
+			'page'=>$page,
+			'pageCount'=>$pageCount,
 		));
 	}
 }
