@@ -32,7 +32,7 @@ class ZhuboTagController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','toTag','doTag','admin','delete'),
+				'actions'=>array('create','update','toTag','doTag','admin','delete','taged'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -95,37 +95,113 @@ class ZhuboTagController extends Controller
 		}else{
 			throw new CHttpException(500,'错误的访问.');
 		}
-		
+
 		if(isset($_POST['submitButton']))
 		{
+			$taged_ids = array();
+			// 标记已经添加的tag
+			$sql_cmd = "select distinct tag_id from ZhuboTag where zhubo_id = :zhubo_id";
+			$command = Yii::app()->db->createCommand($sql_cmd);
+			$command->bindParam(":zhubo_id", $_GET['zhubo_id']);
+			$tageds = $command->queryAll();
+			//print_r($tageds);
+			
+			foreach($tageds as $tag){
+				array_push($taged_ids, $tag['tag_id']);
+			}
+			//print_r($taged_ids);
+			
+			$to_move_tags = $taged_ids;
+			
 			if (isset($_POST['selected_tags']))
 			{
-				$model->tag_time = date("Y-m-d H:i:s",time());
-				$model->user_id = Yii::app()->user->id;
-				foreach ($_POST['selected_tags'] as $tag_id)
-				{
-					$model->tag_id = $tag_id;
-					if(!$model->save())
+				// 求需要被标记的tag
+				$to_tags = array_diff($_POST['selected_tags'], $taged_ids);
+				foreach ($to_tags as $tag){
+					//print "to tag: ".$tag;
+					$model=new ZhuboTag;
+					$model->zhubo_id = $zhubo_id;
+					$model->tag_id = $tag;
+					$model->tag_time = date("Y-m-d H:i:s",time());
+					$model->user_id = Yii::app()->user->id;
+					if(!$model->save()){
 						throw new CHttpException(500,'插入tag失败，数据库错误.');
+					}
 				}
-				$this->redirect(array('/zhuboTag/toTag'));
+				// 求需要被取消标记的tag
+				$to_move_tags = array_diff($taged_ids, $_POST['selected_tags']);
 			}
+			
+			foreach ($to_move_tags as $tag){
+				//print "to move tag: ".$tag;
+				$sql = "select * from ZhuboTag where zhubo_id = ".$zhubo_id." and tag_id = ".$tag.";";
+				//print $sql;
+				$models = ZhuboTag::model()->findAllBySql($sql);
+				foreach ($models as $model){
+					if(!$model->delete()){
+						throw new CHttpException(500,'插入tag失败，数据库错误.');
+					}
+				}
+			}
+			
+			$this->redirect(array('/zhuboTag/toTag'));
+			
 		}
 		
-		// 获取全tag列表
-		//$tags = Tag::model()->findAll();
-		$tags = new CActiveDataProvider('Tag', array(
-				'pagination'=>array(
-						'pageSize'=>100,
-				),
-				'sort'=>array(
-						'defaultOrder' => 'id',
-				),
-		));
+		// 重新计算已经被标记的tag数组
+		$sql_cmd = "select distinct tag_id from ZhuboTag where zhubo_id = :zhubo_id";
+		$command = Yii::app()->db->createCommand($sql_cmd);
+		$command->bindParam(":zhubo_id", $_GET['zhubo_id']);
+		$tageds = $command->queryAll();
+		//print_r($tageds);
+		
+		$taged_ids = array();
+		foreach($tageds as $tag){
+			array_push($taged_ids, $tag['tag_id']);
+		}
+		//print_r($taged_ids);
+		
+		// 其中0是留给后面作为一个可更新的标记字段
+		$sql_cmd = "select id, name, class_1, class_2, 0 from Tag where status = 1";
+		$command = Yii::app()->db->createCommand($sql_cmd);
+		$tags = $command->queryAll();
+		//print_r($tags);
+		
+		// 更新标记
+		foreach ($tags as $key=>$tag){
+			if(in_array($tag['id'], $taged_ids)){
+				$tags[$key][0] = 1;
+			}
+		}
+		//print_r($tags);
+		
+		// 组装标记表
+		// tags[class_1][class_2][name][{tag}]
+		$tag_arr = array();
+		foreach ($tags as $key=>$tag){
+			if(! array_key_exists($tag['class_1'], $tag_arr)){
+				$tag_arr[$tag['class_1']] = array();
+				//print $tag['class_1'];
+			}
+			if(! array_key_exists($tag['class_2'], $tag_arr[$tag['class_1']])){
+				$tag_arr[$tag['class_1']][$tag['class_2']] = array();
+			}
+			$tag_arr[$tag['class_1']][$tag['class_2']][$tag['name']] = array();
+			
+			$tag_arr[$tag['class_1']][$tag['class_2']][$tag['name']]['id'] = $tag['id'];
+			
+			if(in_array($tag['id'], $taged_ids)){
+				//$tags[$key][0] = 1;
+				$tag_arr[$tag['class_1']][$tag['class_2']][$tag['name']]['checked'] = 1;
+			}else{
+				$tag_arr[$tag['class_1']][$tag['class_2']][$tag['name']]['checked'] = 0;
+			}
+		}
+		//print_r($tag_arr);
 		
 		$this->render('doTag',array(
 			'model'=>$model,
-			'tags' =>$tags,
+			'tags' =>$tag_arr,
 		));
 	}
 
@@ -188,7 +264,7 @@ class ZhuboTagController extends Controller
 		if(isset($_GET['ZhuboTag']))
 			$model->attributes=$_GET['ZhuboTag'];
 
-		$this->render('admin',array(
+		$this->render('taged',array(
 			'model'=>$model,
 		));
 	}
@@ -200,11 +276,62 @@ class ZhuboTagController extends Controller
 		$zhubo->unsetAttributes();  // clear any default values
 		if(isset($_GET['Zhubo'])){
 			$zhubo->attributes=$_GET['Zhubo'];
-			//$zhubo->;
+			//print_r($zhubo);
 		}
 		
 		$this->render('toTag',array(
-				'zhubo'=>$zhubo,
+			'zhubo'=>$zhubo,
+		));
+	}
+	
+	// 已经标注的主播
+	public function actionTaged()
+	{
+		/*$zhubo=new Zhubo('tagedSearch');
+		$zhubo->unsetAttributes();  // clear any default values
+		if(isset($_GET['Zhubo'])){
+			$zhubo->attributes=$_GET['Zhubo'];
+			//print_r($zhubo);
+		}*/
+		$conditions = ' ';
+		$search = array();
+		if(isset($_POST['Search'])){
+			//print_r($_POST['Search']);
+			$search = $_POST['Search'];
+			if ($search['tagName'] != ''){
+				$conditions = $conditions . " and Tag.name like '%" . $search['tagName'] . "%' ";
+			}
+			if ($search['zhuboName'] != ''){
+				$conditions = $conditions . " and zhubo.name like '%" . $search['zhuboName'] . "%' ";
+			}
+			if ($search['siteName'] != ''){
+				$conditions = $conditions . " and ShowSite.name like '%" . $search['siteName'] . "%' ";
+			}
+			if ($search['is_live'] != ''){
+				$conditions = $conditions . " and zhubo.is_live = '" . $search['is_live'] . "' ";
+			}
+			if ($search['username'] != ''){
+				$conditions = $conditions . " and User.username like '%" . $search['username'] . "%' ";
+			}
+		}
+		
+		// 标记已经添加的tag
+		$sql_cmd = "select zhubo.id as id, local_id, zhubo.name as name, ShowSite.name as SiteName, is_live, username ".
+					", GROUP_CONCAT(Tag.name ORDER BY Tag.id DESC SEPARATOR '  ') as tageds ".
+					" from zhubo, ZhuboTag, Tag, ShowSite, User ".
+					" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and ShowSite.id = zhubo.site_id and ZhuboTag.user_id = User.id ".
+					$conditions.
+					" group by id order by zhubo.hots desc, ZhuboTag.tag_time desc";
+		
+		$command = Yii::app()->db->createCommand($sql_cmd);
+		//$command->bindParam(":zhubo_id", $_GET['zhubo_id']);
+		$taged_zhobos = $command->queryAll();
+		
+		//print_r($taged_zhobos);
+		
+		$this->render('taged',array(
+			'zhubos'=>$taged_zhobos,
+			'search'=>$search,
 		));
 	}
 

@@ -32,7 +32,7 @@ class TagController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','admin','delete','hide'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -71,7 +71,7 @@ class TagController extends Controller
 		{
 			$model->attributes=$_POST['Tag'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -112,6 +112,27 @@ class TagController extends Controller
 	{
 		$this->loadModel($id)->delete();
 
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
+	
+	/**
+	 * 隐藏一个标签
+	 * @param unknown $id
+	 */
+	public function actionHide($id)
+	{
+		//$this->loadModel($id)->delete();
+		// 将标签的状态设置成无效
+		$model = Tag::model()->findByPk($id);
+		if ($model == null){
+			
+		}
+		// 切换显示/隐藏状态
+		$model->status = $model->status ^ 1;
+		$model->save();
+	
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));

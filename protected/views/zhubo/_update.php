@@ -87,14 +87,6 @@
 	</div>
 
 	<div class="control-group">
-		<?php echo $form->labelEx($model,'last_live_time',array('class'=>' control-label',)); ?>
-		<div class="controls">
-		<?php echo $form->textField($model,'last_live_time',array('class'=>'span10')); ?>
-		<?php echo $form->error($model,'last_live_time'); ?>
-		</div>
-	</div>
-
-	<div class="control-group">
 		<?php echo $form->labelEx($model,'photos',array('class'=>' control-label',)); ?>
 		<div class="controls">
 		<?php echo $form->textArea($model,'photos',array('rows'=>2, 'cols'=>50,'class'=>'span10')); ?>

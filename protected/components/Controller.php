@@ -88,4 +88,21 @@ class Controller extends CController
 	   		return preg_replace($p,"",$sip[0]);
 	   	}else{return "获取本地IP失败！";}
    }
+	
+	/**
+	 * Smarty assign()方法
+	 */
+	public function assign($key, $value) {
+		Yii::app ()->smarty->assign($key, $value);
+	}
+	
+	/**
+	 * Smarty display()方法
+	 */
+	public function display($view) {
+		Yii::app()->smarty->display ($view);
+	}
+	
+	/** session **/
+	//protected $session = Yii::app()->session;
 }
