@@ -1053,7 +1053,7 @@ vertical-align: middle;
 .new_peo_image_icon
 {
 	background: url(../images/icon_zb_big.png) 0px 0px no-repeat;
-	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src="../interface/images/icon_zb_big.png");
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src="../images/icon_zb_big.png");
 	_background:none;
 	display:block;
 	width:55px;

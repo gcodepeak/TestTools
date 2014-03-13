@@ -19,7 +19,7 @@
 <?php
 	//Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery-1.10.2.min.js");
-	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/bootstrap.min.js");
+	//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/bootstrap.min.js");
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/login.js");
 ?>
 
@@ -66,7 +66,7 @@
 		<div class="bar_right">
 			<div class="clearfix">
 				<div class="bar_login_lab">
-					<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>
+					<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录</a>
 					<span class="bar_login_clew">:</span>
 				</div>
 				<div class="bar_login">

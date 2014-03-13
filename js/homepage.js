@@ -108,8 +108,8 @@ $(document).ready(function(){
                      flag = "122";
                      break;
            	}
-            $.ajax({'url':'/zhubo/jingtiaoxixuan?tag='+flag,type:"get",'success':function(html){
-                        $("#jingtiaoxixuan").html($("#jingtiaoxixuan").html());
+            jQuery.ajax({'url':'/zhubo/jingtiaoxixuan?tag='+flag,'cache':false,'success':function(html){
+                        $("#jingtiaoxixuan").html(html);
                         imageHover($("#jingtiaoxixuan").find(".category_image_div_big a"));
                         addLoveEvent($("#jingtiaoxixuan").find(".gz_bt"));
                     }});

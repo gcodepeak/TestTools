@@ -18,10 +18,12 @@
 			</span>
 		</div>
 		<!--图内容-->
-		
+
 		<div class="list_con_list clearfix">
 			<!--广告上部分内容-->
-			<div class="top_con_title"><span>活泼范</span><span>小清新</span><span>好声音</span><span>女神</span><span>气质型</span></div>
+			<div class="top_con_title">
+				<span>活泼范</span><span>小清新</span><span>好声音</span><span>女神</span><span>气质型</span>
+			</div>
 			<div class="top_con_img clearfix">	
 				<?php
 					$index = 0;
@@ -31,14 +33,16 @@
 					} 
 				?>
 			</div>
-			
+
 			<!--广告-->
 			<div class="top_con_top_ad">
 				<img src="/images/toplist_ad.png" alt="">
 			</div>
-			
+
 			<!--广告下部分内容-->
-			<div class="top_con_title"><span>活泼范</span><span>小清新</span><span>好声音</span><span>女神</span><span>气质型</span></div>
+			<div class="top_con_title">
+				<span>活泼范</span><span>小清新</span><span>好声音</span><span>女神</span><span>气质型</span>
+			</div>
 			<div class="top_con_img clearfix">	
 				<?php
 					$index = 0;
@@ -49,6 +53,17 @@
 				?>
 			</div>
 		</div>
-	</div>	
-	
+	</div>
 </div>
+
+<script type="text/javascript">
+ 	//测试点击切榜，只用于测试，页面加载可以输出在html上,或者用于榜单的异步请求
+        $(".top_month_bt").click(function(){
+            $(this).addClass("select");
+            $(".top_week_bt").removeClass("select");
+        });
+        $(".top_week_bt").click(function(){
+            $(this).addClass("select");
+            $(".top_month_bt").removeClass("select");
+        });
+</script>

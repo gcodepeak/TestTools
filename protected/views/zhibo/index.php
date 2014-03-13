@@ -5,8 +5,7 @@
 	window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89343201.js?cdnversion='+~(-new Date()/36e5)];
 </script>
 
-<link rel="stylesheet" type="text/css"
-	href="<?php echo Yii::app()->request->baseUrl; ?>/css/zhubo_new.css" />
+<link rel="stylesheet" type="text/css" href="/css/zhubo_new.css" />
 
 <div class="zb_left_per clearfix">
 	<div class="zb_left_sdiv">
@@ -42,7 +41,7 @@
 				<!-- 换一换按钮 -->
 				<div class="zb_change_bt">
 					<b class="zb_change_peo"></b>
-					<b class="zb_gohome"><a href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>"></a></b>
+					<a href="<?php echo Yii::app()->createUrl('zhubo/homepage');?>"><b class="zb_gohome"></b></a>
 				</div>
 			</div>
 
@@ -85,12 +84,7 @@ $(document).ready(function(){
 			$(".zb_right").animate( { marginLeft: 0}, 500 );
 		}
 	});
-	$(".new_peo_image_big a").mousemove(function(){
-        $(this).css("margin","-1px");
-    }); 
-    $(".new_peo_image_big a").mouseout(function(){
-        $(this).css("margin","0px");
-    });
+
     $(".zb_change_peo").mousemove(function(){
         $(this).addClass("zb_change_peo_hover");
     }); 
@@ -103,93 +97,14 @@ $(document).ready(function(){
     $(".zb_gohome").mouseout(function(){
         $(this).removeClass("zb_gohome_hover");
     });
-    //关注hover 效果
-    $(".zb_gz_bt").mousemove(function(){
-        var rel = $(this).attr("rel");
-        if(rel!=1)
-        {
-            $(this).addClass("no_gz_hover");
-        }
-        else
-        {
-            $(this).addClass("gz_hover");
-        }
-    });
-    $(".zb_gz_bt").mouseout(function(){
-        var rel = $(this).attr("rel");
-        if(rel!=1)
-        {
-            $(this).removeClass("no_gz_hover");
-        }
-        else
-        {
-            $(this).removeClass("gz_hover");
-        }
-    });
-    //关注按钮
-    $(".zb_gz_bt").click(function(){
-        var rel = $(this).attr("rel");
-        var uid = $(this).attr("uid");
-        if(rel!=1)
-        {
-            //
-            $(this).removeClass("no_gz_hover");
-            $(this).removeClass("gz_info");
-            
-            $(this).attr("rel","1");
-            $(this).addClass("gz_info");
-            var span = $(this).find('span');
-            var num = parseInt($(span).html());
-            $(span).html(num+1);
-        }
-        else
-        {
-            $(this).removeClass("gz_hover");
-            $(this).removeClass("no_gz_hover");
-            //如果请求网络成功
-            $(this).attr("rel","0");
-            $(this).removeClass("gz_info");
-        }
-    });
     
-    //加关注&&取消关注
-    $(".gz_bt").click(function(){
-        var className = $(this).attr("class");
-        var uid = $(this).attr("uid");
-        
-        if(className == "gz_bt")
-        {
-            //发出请求加关注
-    //        jQuery.ajax({'url':'http://www.meilizhubo.com/xxx',data:"uid=" + uid,
-    //       'success':function(msg){
-    //        	var error = msg.error;
-    //        	if(error==0)
-    //            {
-                    $(this).attr("class","gz_bt_ok");
-                    $(this).attr("title","取消关注");     
-    //            }
-    //        }});
-        }
-        else if(className == "gz_bt_ok")
-        {
-            //发出取消关注请求
-     //       jQuery.ajax({'url':'http://www.meilizhubo.com/xxx',data:"uid=" + uid,
-      //      'success':function(msg){
-     //       	var error = msg.error;
-     //       	if(error==0)
-     //           {
-                    $(this).attr("class","gz_bt");
-        	        $(this).attr("title","加入关注");    
-     //           }
-    //        }});
-        }
-        return false;
-    });
     
     //换一组
     $(".zb_change_peo").click(function(){
-    
     });
-    //
+
+    //设置收起框距离顶部高度
+    var h = $(".zb_left").height()
+    $(".zb_ss_bt").offset({top:(h-200)/2});
 });
 </script>

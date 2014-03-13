@@ -23,7 +23,7 @@ foreach ($dataProvider as $data){
 					<div class="new_peo_image_title">
 						<span><?php echo $data['name'];?></span> <b class="gz_bt" rel="id1"></b>
 					</div> 
-					<?php if ($data['is_live']) {?>
+					<?php if ($data['is_live'] == '1' ) {?>
 						<b class="new_peo_image_icon"></b>
 					<?php }?>
 				</a>
@@ -35,7 +35,7 @@ foreach ($dataProvider as $data){
 			</div>
 			<div>
 				<span class="span_left">粉丝/</span>
-				<span class="span_right"><?php echo $data['fans'];?></span>
+				<span class="span_right"><?php echo number_format($data['fans']);?></span>
 				<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$data['id'],))?>"><span class="span_icon"></span></a>
 			</div>
 		</div>
