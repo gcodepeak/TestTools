@@ -13,7 +13,7 @@
 
 	<?php
 		//Yii::app()->clientScript->scriptMap=array('jquery.js'=>false,);
-		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery-1.10.2.min.js");
+		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery.min.js");
 		//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/bootstrap.min.js");
 		Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/commend.js");
 	?>

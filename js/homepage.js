@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     //bar菜单效果
     $("#navmenu_fav").mousemove(function(e){
@@ -56,14 +55,16 @@ $(document).ready(function(){
     }
     
     //换一换功能
-    $(".huanyihuan").click(function(){
-        //var page = $('#huanyihuan').attr("rel");
+function changeTop14(obj){
+    $(obj).click(function(){
     	//请求服务端返回数据
-    	//jQuery.ajax({'url':'/zhubo/top14?page='+page,'cache':false,'success':function(html){
-        //        $("#top_14").html(html);
-        //}});
-    	//alert('OK'+page);
-        //
+        var page = $('#huanyihuan').attr("rel");
+        jQuery.ajax({'url':'/zhubo/top14?page='+page,'cache':false,'success':function(html){
+                    $("#top_14").html(html);
+                    changeTop14($(".huanyihuan"));
+                    }});
+                 //alert('OK'+page);
+                 
         var al = new Array();
         for (var i=1; i <= 14; i++) {
             var obj = $('.top14_'+i).clone();
@@ -85,7 +86,9 @@ $(document).ready(function(){
     	}
 		return false;
     });
-
+}
+changeTop14($(".huanyihuan"));
+                  
     //精挑细选切换
     $('.row-fluid .fluid_tag').each(function(){
         var $this = jQuery(this),$a = $this.find('a');
@@ -278,7 +281,6 @@ $(document).ready(function(){
         $(b).removeClass("icon_login_hover");
         $(span).removeClass("spanhover");
     });
-    
     loginEvent();
     function loginEvent()
     {
