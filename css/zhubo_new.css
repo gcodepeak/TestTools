@@ -213,9 +213,10 @@ a{
 }
 .zb_ad
 {
-	border:1px solid #3485d6;
+	/*border:1px solid #3485d6;*/
 	margin:0 6px 2px;
 	background-color: #FAFAFA;
+	text-align: center;
 }
 .zb_ss_bt
 {

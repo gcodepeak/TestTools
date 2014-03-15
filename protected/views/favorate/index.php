@@ -81,7 +81,12 @@
 				}
 				
 				if ($pageCount >= 2) {
-					for ($index = 1; $index <= $pageCount; $index++){
+					$first = $page - 3;
+					if ($first <= 0){
+						$first = 1;
+					}
+						
+					for ($index = $first; $index <= $first + 10 && $index <= $pageCount; $index++){
 						if ($index != $page) {
 							$url = Yii::app()->createUrl('xiuchang/index',array('page'=>$index));
 							echo '<span class="list_pagenum"><a href="'. $url . '">' . $index . '</a></span>';
