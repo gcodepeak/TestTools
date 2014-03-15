@@ -191,14 +191,15 @@ class ZhuboController extends Controller
 		$pageCount = ($totalSize + $pageSize - 1) / $pageSize;
 		//print $pageCount;
 		
-		if ($page > $pageCount) {
+		// 最后一个页可能不够$pageSize个主播，所以丢弃
+		if ($page >= $pageCount) {
 			$page = 1;
 		}		
 		$startIndex = ($page - 1) * $pageSize;
 		
 		// 查询对应分页的数据
 		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
-				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id and is_live = 1 "
+				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id and is_live = 1 and head_img like '/images/%' "
 				." order by zhubo.fans desc limit :startIndex, :pageSize";
 		//print $sql_cmd;
 		$command = $connection->createCommand($sql_cmd);

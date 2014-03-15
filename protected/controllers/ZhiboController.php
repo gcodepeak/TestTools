@@ -21,17 +21,35 @@ class ZhiboController extends Controller
 		
 		// 找到对应的zhubo
 		$zhubo = Zhubo::model()->findByPk($id);
-			
-		// 提供换一换列表
-		$criteria=new CDbCriteria;
-		$criteria->limit = 2;
 		
-		$dataProvider=new CActiveDataProvider('Zhubo',
-				array('criteria'=> $criteria,
-						'pagination'=>FALSE));
+		$connection = Yii::app()->db;
+		$sql_cmd = "select id, name, head_img, is_live "
+				." from zhubo where is_live = 1 "
+				." order by zhubo.fans desc limit 2";
+		$command = $connection->createCommand($sql_cmd);
+		$dataProvider = $command->queryAll();
 		
 		$this->render('index',array('zhubo'=>$zhubo,
-				'dataProvider'=>$dataProvider->getData()));
+				'dataProvider'=>$dataProvider));
+	}
+	
+	public function actionRandom(){
+		// 查询整体数据的大小
+		$connection = Yii::app()->db;
+		
+		$sql_cmd = "select count(*) from zhubo where is_live='1';";
+		$command = $connection->createCommand($sql_cmd);
+		$totalSize = $command->queryScalar();
+		
+		$index = rand(1, $totalSize-2);
+		$sql_cmd = "select id, name, head_img, is_live "
+				." from zhubo where is_live = 1 "
+				." order by zhubo.fans desc limit $index, 2";
+		$command = $connection->createCommand($sql_cmd);
+		$dataProvider = $command->queryAll();
+	
+		$this->renderPartial('_zhubo',array(
+				'dataProvider'=>$dataProvider));
 	}
 
 	// Uncomment the following methods and override them if needed

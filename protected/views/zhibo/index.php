@@ -32,12 +32,13 @@
 			</div>
 
 			<!-- 换一换主播 -->
-			<div class="zb_change clearfix" id='random'>
-				<?php	
-					$this->renderPartial("_zhubo",
-						array('dataProvider'=>$dataProvider));
-				?>
-
+			<div class="zb_change clearfix">
+				<div id='random'>
+					<?php	
+						$this->renderPartial("_zhubo",
+							array('dataProvider'=>$dataProvider));
+					?>
+				</div>
 				<!-- 换一换按钮 -->
 				<div class="zb_change_bt">
 					<b class="zb_change_peo"></b>
@@ -154,6 +155,10 @@ $(document).ready(function(){
     
     //换一组
     $(".zb_change_peo").click(function(){
+    	jQuery.ajax({'url':'/zhibo/random','cache':false,'success':function(html){
+            $("#random").html(html);
+            //changeTop14($(".huanyihuan"));
+            }});
     });
 
     //设置收起框距离顶部高度
