@@ -48,18 +48,13 @@
 			?>
 		</div>
 		
-		<div class="list_con_list clearfix">	
-			<!--广告-->
-			<div class="top_con_top_ad">
-				<div style="width:960px,height:90px;margin:0 auto;">
-					<script type="text/javascript">
-						var sogou_ad_id=319476;
-						var sogou_ad_height=90;
-						var sogou_ad_width=960;
-					</script>
-					<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
-				</div>
-			</div>
+		<div style="width:960px,height:90px;margin:20px auto;text-align:center">
+			<script type="text/javascript">
+				var sogou_ad_id=319476;
+				var sogou_ad_height=90;
+				var sogou_ad_width=960;
+			</script>
+			<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 		</div>
 
 		<div class="list_con_list clearfix">
@@ -110,15 +105,13 @@
 		</div>
 		
 		<!--广告-->
-		<div class="top_con_top_ad">
-			<div style="width:960px,height:90px;margin:0 auto;">
-				<script type="text/javascript">
-					var sogou_ad_id=319477;
-					var sogou_ad_height=90;
-					var sogou_ad_width=960;
-				</script>
-				<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
-			</div>
+		<div style="width:960px,height:90px;margin:20px auto;text-align:center">
+			<script type="text/javascript">
+				var sogou_ad_id=319477;
+				var sogou_ad_height=90;
+				var sogou_ad_width=960;
+			</script>
+			<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 		</div>
 <?php };?>
 		
