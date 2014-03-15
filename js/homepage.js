@@ -55,39 +55,39 @@ $(document).ready(function(){
     }
     
     //换一换功能
-function changeTop14(obj){
-    $(obj).click(function(){
-    	//请求服务端返回数据
-        var page = $('#huanyihuan').attr("rel");
-        jQuery.ajax({'url':'/zhubo/top14?page='+page,'cache':false,'success':function(html){
-                    $("#top_14").html(html);
-                    changeTop14($(".huanyihuan"));
-                    }});
-                 //alert('OK'+page);
-                 
-        var al = new Array();
-        for (var i=1; i <= 14; i++) {
-            var obj = $('.top14_'+i).clone();
-            al.push($(obj).html());
-        };
-        
-    	for (var i=1; i <= 14; i++) {
-    	    var curObj = $("#top_14").find('.top14_'+i),a = $(curObj).find('a');
-            var insertHtml = al[i-1];
-            curObj.append(insertHtml);
-            //动画，随机时间
-            var time = getRandomNum(1000,1500);
-            $(a).animate( { height: 0}, time,'',function(){
-                var par = $(this).parent();
-                $(this).remove();
-                topEvent(par);
-                addLoveEvent(par.find(".gz_bt"));
-            });
-    	}
-		return false;
-    });
-}
-changeTop14($(".huanyihuan"));
+	function changeTop14(obj){
+	    $(obj).click(function(){
+	    	//请求服务端返回数据
+	        var page = $('#huanyihuan').attr("rel");
+	        jQuery.ajax({'url':'/zhubo/top14?page='+page,'cache':false,'success':function(html){
+	                    $("#top_14").html(html);
+	                    changeTop14($(".huanyihuan"));
+	                    }});
+	                 //alert('OK'+page);
+	                 
+	        var al = new Array();
+	        for (var i=1; i <= 14; i++) {
+	            var obj = $('.top14_'+i).clone();
+	            al.push($(obj).html());
+	        };
+	        
+	    	for (var i=1; i <= 14; i++) {
+	    	    var curObj = $("#top_14").find('.top14_'+i),a = $(curObj).find('a');
+	            var insertHtml = al[i-1];
+	            curObj.append(insertHtml);
+	            //动画，随机时间
+	            var time = getRandomNum(1000,1500);
+	            $(a).animate( { height: 0}, time,'',function(){
+	                var par = $(this).parent();
+	                $(this).remove();
+	                topEvent(par);
+	                addLoveEvent(par.find(".gz_bt"));
+	            });
+	    	}
+			return false;
+	    });
+	}
+	changeTop14($(".huanyihuan"));
                   
     //精挑细选切换
     $('.row-fluid .fluid_tag').each(function(){

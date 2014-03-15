@@ -10,8 +10,14 @@
 	<div class="list_con">
 		<!--标题-->
 		<div class="list_con_titlebar">
-			<span class="list_c_t1">我的关注</span> <span class="list_t_ad"> <img
-				src="/images/list_ad.png" alt="">
+			<span class="list_c_t1">我的关注</span> 
+			<span class="list_t_ad">
+				<script type="text/javascript">
+					var sogou_ad_id=319479;
+					var sogou_ad_height=60;
+					var sogou_ad_width=468;
+				</script>
+				<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 			</span>
 		</div>
 <?php if (count($dataProvider) <= 0) { ?>		
@@ -40,12 +46,23 @@
 						array('dataProvider'=>$dataProvider));
 				//} 
 			?>
-			
+		</div>
+		
+		<div class="list_con_list clearfix">	
 			<!--广告-->
 			<div class="top_con_top_ad">
-				<img src="/images/toplist_ad.png" alt="">
+				<div style="width:960px,height:90px;margin:0 auto;">
+					<script type="text/javascript">
+						var sogou_ad_id=319476;
+						var sogou_ad_height=90;
+						var sogou_ad_width=960;
+					</script>
+					<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+				</div>
 			</div>
+		</div>
 
+		<div class="list_con_list clearfix">
 			<!--广告下部分内容-->
 			<?php
 				//$index = 0;
@@ -85,6 +102,18 @@
 				class="list_pagenum">6</span><span class="list_pagenum">7</span><span
 				class="list_pagenum">8</span><span class="list_pagenum">9</span><span
 				class="list_pagenum">10</span><span class="list_pagenext"></span-->
+		</div>
+		
+		<!--广告-->
+		<div class="top_con_top_ad">
+			<div style="width:960px,height:90px;margin:0 auto;">
+				<script type="text/javascript">
+					var sogou_ad_id=319477;
+					var sogou_ad_height=90;
+					var sogou_ad_width=960;
+				</script>
+				<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+			</div>
 		</div>
 <?php };?>
 		

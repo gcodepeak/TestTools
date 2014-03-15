@@ -48,12 +48,11 @@
 			<!-- 广告 -->
 			<div class="zb_ad">
 				<script type="text/javascript">
-			            var sogou_ad_id=109874;
-			            var sogou_ad_height=150;
-			            var sogou_ad_width=180;
-			         </script>
-				<script language='JavaScript' type='text/javascript'
-					src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+					var sogou_ad_id=319494;
+					var sogou_ad_height=150;
+					var sogou_ad_width=180;
+				</script>
+				<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 			</div>
 
 			<!-- 收缩按钮 -->
@@ -84,6 +83,60 @@ $(document).ready(function(){
 			$(".zb_right").animate( { marginLeft: 0}, 500 );
 		}
 	});
+
+	//关注hover 效果
+    $(".zb_gz_bt").mousemove(function(){
+        var rel = $(this).attr("rel");
+        if(rel!=1)
+        {
+            $(this).addClass("no_gz_hover");
+        }
+        else
+        {
+            $(this).addClass("gz_hover");
+        }
+    });
+    $(".zb_gz_bt").mouseout(function(){
+        var rel = $(this).attr("rel");
+        if(rel!=1)
+        {
+            $(this).removeClass("no_gz_hover");
+        }
+        else
+        {
+            $(this).removeClass("gz_hover");
+        }
+    });
+
+    //关注按钮
+    $(".zb_gz_bt").click(function(){
+        var rel = $(this).attr("rel");
+        var uid = $(this).attr("uid");
+        if(rel!=1)
+        {
+            //
+            $(this).removeClass("no_gz_hover");
+            $(this).removeClass("gz_info");
+            
+            $(this).attr("rel","1");
+            $(this).addClass("gz_info");
+            var span = $(this).find('span');
+            var num = parseInt($(span).html());
+            $(span).html(num+1);
+        }
+        else
+        {
+            $(this).removeClass("gz_hover");
+            $(this).removeClass("no_gz_hover");
+            //如果请求网络成功
+            $(this).attr("rel","0");
+            $(this).removeClass("gz_info");
+
+            var span = $(this).find('span');
+            var num = parseInt($(span).html());
+            $(span).html(num-1);
+        }
+    });
 
     $(".zb_change_peo").mousemove(function(){
         $(this).addClass("zb_change_peo_hover");

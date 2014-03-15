@@ -18,7 +18,12 @@
 				class="list_t_span"><a href="#">历史悠久</a></span> 
 			</div>
 			<span class="list_t_ad">
-				<img src="/images/list_ad.png" alt="">
+				<script type="text/javascript">
+				var sogou_ad_id=319160;
+				var sogou_ad_height=60;
+				var sogou_ad_width=234;
+				</script>
+				<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 			</span>
 		</div>
 		<!--图内容-->
@@ -60,6 +65,15 @@
 			<span class="list_pagenum">8</span><span class="list_pagenum">9</span>
 			<span class="list_pagenum">10</span>
 			<span class="list_pagenext"></span-->
+		</div>
+		
+		<div style="width:960px,height:90px;margin:20px auto;">
+			<script type="text/javascript">
+			var sogou_ad_id=319155;
+			var sogou_ad_height=90;
+			var sogou_ad_width=960;
+			</script>
+			<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 		</div>
 	</div>
 </div>

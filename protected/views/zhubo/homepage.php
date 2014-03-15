@@ -124,14 +124,14 @@
 	        </div>
 	    </div>
         
-		    <div class="row-fluid" style="width:960px,height:95px;margin:0 auto;">
-		    	<script type="text/javascript">
-					var sogou_ad_id=307408;
-					var sogou_ad_height=90;
-					var sogou_ad_width=960;
-				</script>
-				<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
-		    </div>
+	    <div class="row-fluid" style="width:960px,height:90px;margin:0 auto;">
+	    	<script type="text/javascript">
+				var sogou_ad_id=307408;
+				var sogou_ad_height=90;
+				var sogou_ad_width=960;
+			</script>
+			<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+	    </div>
     </div>
     
     <!-- 右侧 -->
@@ -159,6 +159,15 @@
 						array('dataProvider'=>$top5_dataProvider)); 
 				?>
         	</div>
+        </div>
+        
+        <div class="mtop5">
+        	<script type="text/javascript">
+			var sogou_ad_id=319152;
+			var sogou_ad_height=600;
+			var sogou_ad_width=160;
+			</script>
+			<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
         </div>
 	</div>
 	<div class="goto_top"></div>

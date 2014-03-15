@@ -210,7 +210,7 @@ class ZhuboController extends Controller
 		
 		$this->renderPartial("_top_14",
 				array('dataProvider'=>$dataProvider,
-					'page'=>$page,
+					'page'=>$page + 1,
 		));
 	}
 	
