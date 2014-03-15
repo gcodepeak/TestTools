@@ -46,15 +46,13 @@
 			</div>
 
 			<!--广告-->
-			<div class="top_con_top_ad">
-				<div style="width:960px,height:90px;margin:0 auto;">
-					<script type="text/javascript">
-						var sogou_ad_id=319452;
-						var sogou_ad_height=90;
-						var sogou_ad_width=960;
-					</script>
-					<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
-				</div>
+			<div style="width:960px,height:90px;margin:20px auto;text-align:center">
+				<script type="text/javascript">
+					var sogou_ad_id=319452;
+					var sogou_ad_height=90;
+					var sogou_ad_width=960;
+				</script>
+				<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 			</div>
 
 			<!--广告下部分内容-->
@@ -72,15 +70,13 @@
 			</div>
 			
 			<!--广告-->
-			<div class="top_con_top_ad">
-				<div style="width:960px,height:90px;margin:0 auto;">
-					<script type="text/javascript">
-						var sogou_ad_id=319454;
-						var sogou_ad_height=90;
-						var sogou_ad_width=960;
-					</script>
-					<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
-				</div>
+			<div style="width:960px,height:90px;margin:20px auto;text-align:center">
+				<script type="text/javascript">
+					var sogou_ad_id=319454;
+					var sogou_ad_height=90;
+					var sogou_ad_width=960;
+				</script>
+				<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 			</div>
 		</div>
 	</div>

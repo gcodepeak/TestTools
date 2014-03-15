@@ -36,31 +36,30 @@
 			?>
 		</div>
 
+		<?php if ($pageCount >= 2) { ?>
 		<!--分页-->
 		<div class="list_con_pageindex">
 			<?php 
 				if (!isset($page)) {
 					$page = 1;
 				}
-				if ($pageCount >= 2) {
-					$first = $page - 3;
-					if ($first <= 0){
-						$first = 1;
-					}
-					
-					for ($index = $first; $index <= $first + 10 && $index <= $pageCount; $index++){
-						if ($index != $page) {
-							$url = Yii::app()->createUrl('xiuchang/index',array('page'=>$index,'site'=>$site));
-							echo '<span class="list_pagenum"><a href="'. $url . '">' . $index . '</a></span>';
-						} else {
-							echo '<span class="list_pagenum page_cur"><a href="#">' . $index . '</a></span>';
-						}
-					}
-					
-					$nextPage = ($page < $pageCount)? ($page+1):$page;
-					$url = Yii::app()->createUrl('xiuchang/index',array('page'=>$nextPage,'site'=>$site));
-					echo '<a href="'. $url . '"><span class="list_pagenext"></span></a>';
+				$first = $page - 3;
+				if ($first <= 0){
+					$first = 1;
 				}
+				
+				for ($index = $first; $index <= $first + 10 && $index <= $pageCount; $index++){
+					if ($index != $page) {
+						$url = Yii::app()->createUrl('xiuchang/index',array('page'=>$index,'site'=>$site));
+						echo '<span class="list_pagenum"><a href="'. $url . '">' . $index . '</a></span>';
+					} else {
+						echo '<span class="list_pagenum page_cur"><a href="#">' . $index . '</a></span>';
+					}
+				}
+				
+				$nextPage = ($page < $pageCount)? ($page+1):$page;
+				$url = Yii::app()->createUrl('xiuchang/index',array('page'=>$nextPage,'site'=>$site));
+				echo '<a href="'. $url . '"><span class="list_pagenext"></span></a>';
 			?>
 			<!-- span class="list_pagenum page_cur"><a href="#">1</a></span>
 			<span class="list_pagenum"><a href="#">2</a></span>
@@ -71,6 +70,7 @@
 			<span class="list_pagenum">10</span>
 			<span class="list_pagenext"></span-->
 		</div>
+		<?php } ?>
 		
 		<div style="width:960px,height:90px;margin:20px auto;text-align:center">
 			<script type="text/javascript">
