@@ -36,7 +36,11 @@ foreach ($dataProvider as $data){
 			<div>
 				<span class="span_left">粉丝/</span>
 				<span class="span_right"><?php echo number_format($data['fans']);?></span>
-				<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$data['id'],))?>"><span class="span_icon"></span></a>
+				<?php if ($data['is_live'] == '1' ) {?>
+				<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$data['id'],))?>">
+					<span class="span_icon"></span>
+				</a>
+				<?php }?>
 			</div>
 		</div>
 	</div>
@@ -57,7 +61,11 @@ foreach ($dataProvider as $data){
 			</div>
 			<div>
 				<span class="span_left">粉丝/</span> <span class="span_right"><?php echo $data['fans'];?></span>
-				<span class="span_icon"></span>
+				<?php if ($data['is_live'] == '1' ) {?>
+				<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$data['id'],))?>">
+					<span class="span_icon"></span>
+				</a>
+				<?php }?>
 			</div>
 		</div>
 	</div>

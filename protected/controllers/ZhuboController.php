@@ -132,29 +132,18 @@ class ZhuboController extends Controller
 	
 	public function actionHomepage()
 	{
+		$selector = new Selector();
+		$selector->select();
+		
+		$top_14_dataProvider = $selector->top14_dataProvider;
+		
+		$jingtiaoxixuan_dataProvider = $selector->jingtiaoxixuan_dataProvider['1'];
+		//Tool::setTags($jingtiaoxixuan_dataProvider);
+		
+		$zuijiaxinren_dataProvider = $selector->zuijiaxinren_dataProvider;
+		//Tool::setTags($zuijiaxinren_dataProvider);
+		
 		$connection = Yii::app()->db;
-		
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
-				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id and is_live = 1 "
-				." order by zhubo.fans desc limit 14";
-		$command = $connection->createCommand($sql_cmd);	
-		$top_14_dataProvider = $command->queryAll();
-		
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
-				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
-		//print $sql_cmd;
-		$command = $connection->createCommand($sql_cmd);
-		$jingtiaoxixuan_dataProvider = $command->queryAll();
-		Tool::setTags($jingtiaoxixuan_dataProvider);
-		
-		
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
-					." from zhubo, ShowSite"
-					." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 12";
-		$command = $connection->createCommand($sql_cmd);
-		$zuijiaxinren_dataProvider = $command->queryAll();
-		Tool::setTags($zuijiaxinren_dataProvider);
-		
 		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
 				." from zhubo, ShowSite"
 				." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 5";
@@ -221,9 +210,14 @@ class ZhuboController extends Controller
 	public function actionJingtiaoxixuan()
 	{
 		//if(Yii::app()->request->isAjaxRequest){
+		$selector = new Selector();
+		$selector->select();
+		$dataProider = $selector->jingtiaoxixuan_dataProvider;
 		
-		if(isset($_GET['tag']) && $_GET['tag'] != '')
+		if(isset($_GET['tag']) && is_numeric($_GET['tag']) && array_key_exists($_GET['tag'], $dataProider))
 		{
+			$jingtiaoxixuan_dataProvider = $selector->jingtiaoxixuan_dataProvider[$_GET['tag']];
+			/*
 			$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
 						." from zhubo, ShowSite, ZhuboTag"
 						." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = :tag_id order by zhubo.is_live desc, zhubo.fans desc limit 8";
@@ -232,12 +226,16 @@ class ZhuboController extends Controller
 			// 绑定参数
 			$command->bindParam(":tag_id", $_GET['tag']);
 			$jingtiaoxixuan_dataProvider = $command->queryAll();
+			*/
+			
 		} else {
-			$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
-					." from zhubo, ShowSite where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
-			$connection = Yii::app()->db;
-			$command = $connection->createCommand($sql_cmd);
-			$jingtiaoxixuan_dataProvider = $command->queryAll();
+			//$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
+			//		." from zhubo, ShowSite where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
+			//$connection = Yii::app()->db;
+			//$command = $connection->createCommand($sql_cmd);
+			//$jingtiaoxixuan_dataProvider = $command->queryAll();
+			
+			$jingtiaoxixuan_dataProvider = $dataProider['1'];
 		}
 	
 		$this->renderPartial("_jingtiaoxixuan",
@@ -247,6 +245,7 @@ class ZhuboController extends Controller
 	/* ajax */
 	public function actionZuijiaxinren()
 	{
+		/*
 		if(isset($_GET['time']) && $_GET['time'] != '')
 		{
 			// 待添加时间条件
@@ -265,7 +264,10 @@ class ZhuboController extends Controller
 			$connection = Yii::app()->db;
 			$command = $connection->createCommand($sql_cmd);
 			$zuijiaxinren_dataProvider = $command->queryAll();
-		}
+		}*/
+		$selector = new Selector();
+		$selector->select();
+		$zuijiaxinren_dataProvider = $selector->zuijiaxinren_dataProvider;
 	
 		$this->renderPartial("_zuijiaxinren",
 				array('dataProvider'=>$zuijiaxinren_dataProvider));

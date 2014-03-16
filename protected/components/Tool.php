@@ -1,6 +1,6 @@
 <?php
 
-Yii::import('application.components.Controller');
+//Yii::import('application.components.Controller');
 
 class Tool{
 	public static $MAX_NAME_LEN = 8;

@@ -94,6 +94,7 @@ class XiuChangController extends Controller
 		$command->bindParam(":pageSize", $pageSize);
 		
 		$dataProvider = $command->queryAll();
+		Tool::setTags($dataProvider);
 		
 		$showSiteName = ShowSite::model()->findByPk($_GET['site'])->name;
 		
