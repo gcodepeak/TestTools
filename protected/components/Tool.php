@@ -72,7 +72,6 @@ public static function addTags($dataProvider) {
 			//print_r($data['tagids']);
 		}	
 	}
-	
 	return ;
 }
 
