@@ -32,7 +32,7 @@ class ZhuboTagController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','toTag','doTag','admin','delete','taged'),
+				'actions'=>array('create','update','toTag','doTag','admin','delete','taged','tags'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -50,7 +50,7 @@ class ZhuboTagController extends Controller
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
-	{
+	{		
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
@@ -334,7 +334,8 @@ class ZhuboTagController extends Controller
 			'search'=>$search,
 		));
 	}
-
+	
+	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

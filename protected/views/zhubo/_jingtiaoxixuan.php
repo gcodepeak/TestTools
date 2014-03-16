@@ -4,6 +4,10 @@
 ?>
 
 <?php 
+//$tags = Tool::getTags(array());
+
+//print_r($tags);
+
 $index = 0;
 foreach ($dataProvider as $data){
 ?>
@@ -24,9 +28,17 @@ foreach ($dataProvider as $data){
 		<div class="category_time_div_right"><span class="icon icon_peo"></span><span><?php echo number_format($data['hots'])?></span></div>
 	</div>
     <div class="category_tag_div">
-        <span class="c_tag1"><a href="#">小清新</a></span>
+        <!-- span class="c_tag1"><a href="#">小清新</a></span>
         <span class="c_tag2"><a href="#">活泼</a></span>
-        <span class="c_tag3"><a href="#">骨子里</a></span>
+        <span class="c_tag3"><a href="#">骨子里</a></span-->
+<?php 
+	if (isset($data['tagids'])){
+		$count = count($data['tagids']);
+		for ( $i = 0; $i < $count; $i++){
+			print '<span class="c_tag'. ($i + 1). '"><a href="#">'. $data['tags'][$i] .'</a></span>';
+		}
+	}
+?>
     </div>
 </div>
 

@@ -81,10 +81,12 @@ class FavorateController extends Controller
 				." from zhubo, ShowSite"
 				." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
 		$command = $connection->createCommand($sql_cmd);
-		$top5_dataProvider = $command->queryAll();
+		$dataProvider = $command->queryAll();
+		
+		Tool::addTags(&$dataProvider);
 		
 		$this->render('index',array(
-			'dataProvider'=>$top5_dataProvider,
+			'dataProvider'=>$dataProvider,
 			'page'=>$page,
 			'pageCount'=>$pageCount,
 		));
