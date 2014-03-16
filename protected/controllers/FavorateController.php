@@ -1,6 +1,6 @@
 <?php
 
-require_once('Tool.php');
+Yii::import('application.components.Controller');
 
 class FavorateController extends Controller
 {
