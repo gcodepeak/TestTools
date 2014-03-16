@@ -3,7 +3,7 @@
 Yii::import('application.components.Controller');
 
 class Tool {
-public static $MAX_NAME_LEN = 6;
+public static $MAX_NAME_LEN = 8;
 
 public static function getName($name){
 	if(strlen($name) > Tool::$MAX_NAME_LEN){

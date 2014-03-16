@@ -16,7 +16,7 @@ foreach ($dataProvider as $data){
 				target="_blank"> <img src="<?php echo $data['head_img']?>"
 				alt="<?php echo $data['name']?>">
 				<div class="new_peo_image_title">
-					<span><?php echo $data['name']?></span> <b class="gz_bt" rel="id1"></b>
+					<span><?php echo Tool::getName($data['name']);?></span> <b class="gz_bt" rel="id1"></b>
 				</div> 
 				<?php if ($data['is_live']) {?>
 				<b class="new_peo_image_icon"></b>

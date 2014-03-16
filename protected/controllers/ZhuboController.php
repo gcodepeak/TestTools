@@ -153,7 +153,7 @@ class ZhuboController extends Controller
 					." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 12";
 		$command = $connection->createCommand($sql_cmd);
 		$zuijiaxinren_dataProvider = $command->queryAll();
-		//ZhuboController::addTags(&$zuijiaxinren_dataProvider);
+		//Tool::addTags(&$zuijiaxinren_dataProvider);
 		
 		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
 				." from zhubo, ShowSite"

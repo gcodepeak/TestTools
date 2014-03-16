@@ -63,7 +63,7 @@ $(document).ready(function(){
 	        	 var al = new Array();
                  al = $(html).find(".topflag");
                  var bt = $(html).find(".topflag_bt");
-                 $(".topflag_bt").html(bt);
+                 $(".topflag_bt").html(bt.html());
 //                 for (var i=1; i <= 14; i++) {
 //                 var obj = $('.top14_'+i).clone();
 //                     al.push($(obj).html());
@@ -71,7 +71,7 @@ $(document).ready(function(){
 
                  for (var i=1; i <= 14; i++) {
 	                 var curObj = $("#top_14").find('.top14_'+i),a = $(curObj).find('a');
-	                 var insertHtml = al[i-1];
+	                 var insertHtml = $(al[i-1]).html();
 	                 curObj.append(insertHtml);
 	                 //动画，随机时间
 	                 var time = getRandomNum(1000,1500);
@@ -83,7 +83,6 @@ $(document).ready(function(){
 	                      addLoveEvent(par.find(".gz_bt"));
 	                      });
                  }
-                 return false;
                  
                  changeTop14($(".huanyihuan"));
                 //$("#top_14").html(html);

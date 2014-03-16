@@ -743,6 +743,7 @@ position: relative;
 .new_peo_div .new_peo_tag
 {
     padding-top: 5px;
+	height: 25px;
 }
 .new_peo_div .category_time_div span
 {
@@ -1188,7 +1189,7 @@ width: 100%;background-color:#F4F4F4;
 	display:none;
 }
 
-/***узуж╡Ц****/
+/***О©╫О©╫О©╫ж╡О©╫****/
 .dialog-overlay {
 	BACKGROUND: gray; FILTER: alpha(opacity:50); opacity: 0.5;
 }

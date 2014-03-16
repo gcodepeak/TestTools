@@ -61,7 +61,7 @@
         		</div>
         	</div>
         	 
-		    <div class="row-fluid" id="zuijiaxinren">
+		    <div class="row-fluid clearfix" id="zuijiaxinren">
 		    	<?php	
 					$this->renderPartial("_zuijiaxinren",
 						array('dataProvider'=>$zuijiaxinren_dataProvider)); 
