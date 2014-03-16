@@ -14,7 +14,7 @@ for ($index=0; $index < count($dataProvider); $index++) {
 ?>
 
 <?php if ($index == 0 || $index == 4 || $index == 7) { ?>
-	<li class="head_cube doublesize top14_<?php echo $index+1;?>" data-id="<?php echo $index;?>">
+	<li class="head_cube doublesize top14_<?php echo $index+1;?> topflag" data-id="<?php echo $index;?>">
 		<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$top14s[$index]['id'],))?>" target="_blank">
 			<img alt="" src="<?php echo $top14s[$index]['head_img']?>" style="display: block;">
 				<div class="tc_gz_div gz_big">
@@ -29,7 +29,7 @@ for ($index=0; $index < count($dataProvider); $index++) {
 		</a>
 	</li>
 <?php } else { ?>
-	<li class="head_cube top14_<?php echo $index+1;?>" data-id="<?php echo $index;?>">
+	<li class="head_cube top14_<?php echo $index+1;?> topflag" data-id="<?php echo $index;?>">
 		<a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$top14s[$index]['id'],))?>" target="_blank">
 			<img alt="" src="<?php echo $top14s[$index]['head_img']?>">
 			<div class="tc_gz_div gz_sim">
@@ -45,7 +45,7 @@ for ($index=0; $index < count($dataProvider); $index++) {
 	</li>
 <?php }
 }?>
-		<li class="head_cube top14_15" data-id="14">
+		<li class="head_cube top14_15 topflag_bt" data-id="14">
 			<span class="huanyihuan"><a style="width:100%;height:100%;display:block;" href="#" id="huanyihuan" rel="<?php echo $page;?>"></a></span>
 		</li>
 	</ul>
