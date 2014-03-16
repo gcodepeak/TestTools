@@ -20,6 +20,7 @@ public static function utf8Substr($str, $from, $len)
 			'$1',$str);
 }
 
+
 /*
  * input: $ids,想要获取的对象主播
 * output: 每个主播对应的tag

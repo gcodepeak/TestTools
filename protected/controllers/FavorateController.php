@@ -1,5 +1,7 @@
 <?php
 
+require_once('Tool.php');
+
 class FavorateController extends Controller
 {
 	/**
