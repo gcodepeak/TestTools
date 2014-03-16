@@ -137,18 +137,17 @@ class ZhuboController extends Controller
 		
 		$top_14_dataProvider = $selector->top14_dataProvider;
 		
-		$jingtiaoxixuan_dataProvider = $selector->jingtiaoxixuan_dataProvider['1'];
-		//Tool::setTags($jingtiaoxixuan_dataProvider);
+		$jingtiaoxixuan_dataProvider = $selector->jingtiaoxixuan_dataProvider['0'];
+		Tool::setTags($jingtiaoxixuan_dataProvider);
 		
 		$zuijiaxinren_dataProvider = $selector->zuijiaxinren_dataProvider;
-		//Tool::setTags($zuijiaxinren_dataProvider);
+		Tool::setTags($zuijiaxinren_dataProvider);
 		
-		$connection = Yii::app()->db;
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
-				." from zhubo, ShowSite"
-				." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 5";
-		$command = $connection->createCommand($sql_cmd);
-		$top5_dataProvider = $command->queryAll();
+		$week_top5_dataProvider = array();
+		$selector->select_week_top5($week_top5_dataProvider);
+		
+		$month_top5_dataProvider = array();
+		$selector->select_month_top5($month_top5_dataProvider);
 		
 		// 添加展现log
 		//Yii::log("zhubo/homepage","info","system.web.Controller");
@@ -157,7 +156,8 @@ class ZhuboController extends Controller
 				'top_14_dataProvider'=>$top_14_dataProvider,
 				'jingtiaoxixuan_dataProvider'=>$jingtiaoxixuan_dataProvider,
 				'zuijiaxinren_dataProvider'=>$zuijiaxinren_dataProvider,
-				'top5_dataProvider'=>$top5_dataProvider,
+				'week_top5_dataProvider'=>$week_top5_dataProvider,
+				'month_top5_dataProvider'=>$month_top5_dataProvider,
 		));
 	}
 	
@@ -171,7 +171,8 @@ class ZhuboController extends Controller
 		}
 		
 		$pageSize = 14;
-			
+
+		/*
 		$connection = Yii::app()->db;
 		
 		// 查询整体数据的大小，确定分页总数
@@ -198,7 +199,13 @@ class ZhuboController extends Controller
 		$command->bindParam(":pageSize", $pageSize);
 		
 		$dataProvider = $command->queryAll();
+		*/
 		//print_r($dataProvider);
+		$selector = new Selector();
+		$selector->select();
+		
+		$dataProvider = array();
+		$selector->select_next_top14($dataProvider, $page, $pageSize);
 		
 		$this->renderPartial("_top_14",
 				array('dataProvider'=>$dataProvider,
@@ -217,27 +224,13 @@ class ZhuboController extends Controller
 		if(isset($_GET['tag']) && is_numeric($_GET['tag']) && array_key_exists($_GET['tag'], $dataProider))
 		{
 			$jingtiaoxixuan_dataProvider = $selector->jingtiaoxixuan_dataProvider[$_GET['tag']];
-			/*
-			$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
-						." from zhubo, ShowSite, ZhuboTag"
-						." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = :tag_id order by zhubo.is_live desc, zhubo.fans desc limit 8";
-			$connection = Yii::app()->db;
-			$command = $connection->createCommand($sql_cmd);
-			// 绑定参数
-			$command->bindParam(":tag_id", $_GET['tag']);
-			$jingtiaoxixuan_dataProvider = $command->queryAll();
-			*/
 			
-		} else {
-			//$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
-			//		." from zhubo, ShowSite where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
-			//$connection = Yii::app()->db;
-			//$command = $connection->createCommand($sql_cmd);
-			//$jingtiaoxixuan_dataProvider = $command->queryAll();
-			
-			$jingtiaoxixuan_dataProvider = $dataProider['1'];
+		} else {			
+			$jingtiaoxixuan_dataProvider = $dataProider['0'];
 		}
 	
+		Tool::setTags($jingtiaoxixuan_dataProvider);
+		
 		$this->renderPartial("_jingtiaoxixuan",
 				array('dataProvider'=>$jingtiaoxixuan_dataProvider));
 	}
@@ -245,30 +238,12 @@ class ZhuboController extends Controller
 	/* ajax */
 	public function actionZuijiaxinren()
 	{
-		/*
-		if(isset($_GET['time']) && $_GET['time'] != '')
-		{
-			// 待添加时间条件
-			$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
-					." from zhubo, ShowSite"
-					." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 12";
-			$connection = Yii::app()->db;
-			$command = $connection->createCommand($sql_cmd);
-			// 绑定参数
-			$zuijiaxinren_dataProvider = $command->queryAll();
-			
-		} else {
-			$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
-					." from zhubo, ShowSite"
-					." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 12";
-			$connection = Yii::app()->db;
-			$command = $connection->createCommand($sql_cmd);
-			$zuijiaxinren_dataProvider = $command->queryAll();
-		}*/
 		$selector = new Selector();
 		$selector->select();
 		$zuijiaxinren_dataProvider = $selector->zuijiaxinren_dataProvider;
-	
+		
+		Tool::setTags($zuijiaxinren_dataProvider);
+		
 		$this->renderPartial("_zuijiaxinren",
 				array('dataProvider'=>$zuijiaxinren_dataProvider));
 	}

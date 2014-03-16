@@ -144,7 +144,7 @@
 		    <div class="mtop5_list" id="top_hots_5">
 				<?php	
 					$this->renderPartial("_top_5",
-						array('dataProvider'=>$top5_dataProvider)); 
+						array('dataProvider'=>$week_top5_dataProvider)); 
 				?>
         	</div>
         </div>
@@ -156,7 +156,7 @@
 		    <div class="mtop5_list" id="top_wealth_5">
         		<?php	
 					$this->renderPartial("_top_5",
-						array('dataProvider'=>$top5_dataProvider)); 
+						array('dataProvider'=>$month_top5_dataProvider)); 
 				?>
         	</div>
         </div>
