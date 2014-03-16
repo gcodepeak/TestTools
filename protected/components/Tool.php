@@ -1,5 +1,7 @@
 <?php
-	
+
+Yii::import('application.components.Controller');
+
 class Tool {
 public static $MAX_NAME_LEN = 6;
 
@@ -27,7 +29,6 @@ public static function utf8Substr($str, $from, $len)
 */
 public static function getTags($ids){
 	$ids_str = implode(',', $ids);
-	//print_r($ids_str);
 	$sql_cmd = "select zhubo.id as id ".
 			", SUBSTRING_INDEX(GROUP_CONCAT(Tag.id ORDER BY Tag.id DESC),',',3) as tagids ".
 			", SUBSTRING_INDEX(GROUP_CONCAT(Tag.name ORDER BY Tag.id DESC),',',3) as tags ".
@@ -37,10 +38,8 @@ public static function getTags($ids){
 			" group by id";
 	//print $sql_cmd;
 	$command = Yii::app()->db->createCommand($sql_cmd);
-	//$command->bindParam(":zhubo_id", $_GET['zhubo_id']);
 	$taged_zhobos = $command->queryAll();
 
-	//print_r($taged_zhobos);
 	$result = array();
 	foreach ($taged_zhobos as $tz) {
 		$id_arr = explode(',', $tz['tagids']);
@@ -74,7 +73,6 @@ public static function addTags($dataProvider) {
 	}
 	return ;
 }
-
 	
 };
 
