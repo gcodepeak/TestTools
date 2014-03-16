@@ -2,7 +2,7 @@
 
 Yii::import('application.components.Controller');
 
-class Tool {
+class Tool extends Controller{
 public static $MAX_NAME_LEN = 8;
 
 public static function getName($name){
