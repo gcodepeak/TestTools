@@ -85,7 +85,7 @@ class FavorateController extends Controller
 		$command = $connection->createCommand($sql_cmd);
 		$dataProvider = $command->queryAll();
 		
-		Tool::addTags(&$dataProvider);
+		GetTag::addTags(&$dataProvider);
 		
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
