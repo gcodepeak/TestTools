@@ -317,42 +317,43 @@ $(document).ready(function(){
                 //跳转去登录？？
         		QC.Login({//按默认样式插入QQ登录按钮
 					btnId:"qq_login_btn"	//插入按钮的节点id
+				}, function(reqData, opts){//登录成功
+					//登录成功后修改右上角
+	                loginDiv.close();
+	                $(".bar_login_lab").html("<span class='bar_login_clew'>亲，欢迎回来！</span>");
+	                var html = "<b class='login_b'></b><span class=''>李开复XX，</span><a class='logout_a' href='#'>退出登录</a>";
+	                $(".bar_loginout_div").html(html);
+	                $(".bar_login_div").hide();
+	                $(".bar_loginout_div").show();
+	                //此处需要判断是什么类型登录，赋给class不一样
+	                //微博：$(".bar_loginout_div").addClass("icon_weibo");
+	                //qq：$(".bar_loginout_div").addClass("icon_qq");
+	                //人人：$(".bar_loginout_div").addClass("icon_renren");
+	                $(".bar_loginout_div").addClass("icon_qq");
+	                $(".bar_loginout_div" ).hover(function(){
+	                    var b = $(this).find("b");
+	                    var span = $(this).find("span");
+	                    var a = $(this).find("a");
+	                    $(b).addClass("icon_login_hover ");
+	                    $(span).addClass("spanhover");
+	                    $(a).addClass("a_hover");
+	                },function(){
+	                    var b = $(this).find("b");
+	                    var span = $(this).find("span");
+	                    var a = $(this).find("a");
+	                    $(b).removeClass("icon_login_hover");
+	                    $(span).removeClass("spanhover");
+	                    $(a).removeClass("a_hover");
+	                });
+	                $(".logout_a" ).click(function(){
+	                    var html_clew = '<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>';
+	                    $(".bar_login_lab").html(html_clew);
+	                    $(".bar_login_div").show();
+	                    $(".bar_loginout_div").hide();
+	                });
+				}, function(opts){//注销成功
+			         alert('QQ登录 注销成功');
 				});
-        		
-                //登录成功后修改右上角
-                loginDiv.close();
-                $(".bar_login_lab").html("<span class='bar_login_clew'>亲，欢迎回来！</span>");
-                var html = "<b class='login_b'></b><span class=''>李开复XX，</span><a class='logout_a' href='#'>退出登录</a>";
-                $(".bar_loginout_div").html(html);
-                $(".bar_login_div").hide();
-                $(".bar_loginout_div").show();
-                //此处需要判断是什么类型登录，赋给class不一样
-                //微博：$(".bar_loginout_div").addClass("icon_weibo");
-                //qq：$(".bar_loginout_div").addClass("icon_qq");
-                //人人：$(".bar_loginout_div").addClass("icon_renren");
-                $(".bar_loginout_div").addClass("icon_qq");
-                $(".bar_loginout_div" ).hover(function(){
-                    var b = $(this).find("b");
-                    var span = $(this).find("span");
-                    var a = $(this).find("a");
-                    $(b).addClass("icon_login_hover ");
-                    $(span).addClass("spanhover");
-                    $(a).addClass("a_hover");
-                },function(){
-                    var b = $(this).find("b");
-                    var span = $(this).find("span");
-                    var a = $(this).find("a");
-                    $(b).removeClass("icon_login_hover");
-                    $(span).removeClass("spanhover");
-                    $(a).removeClass("a_hover");
-                });
-                $(".logout_a" ).click(function(){
-                    var html_clew = '<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>';
-                    $(".bar_login_lab").html(html_clew);
-                    $(".bar_login_div").show();
-                    $(".bar_loginout_div").hide();
-                });
-                
             });
         });    
     }

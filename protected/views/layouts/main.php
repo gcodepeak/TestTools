@@ -32,7 +32,7 @@
 
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey="" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
-		data-appid="101029271" data-redirecturi="/call_back.html" charset="utf-8"></script>
+		data-appid="101029271" data-redirecturi="http://www.meilizhubo.com/call_back.html" charset="utf-8"></script>
 </head>
 
 <script>
