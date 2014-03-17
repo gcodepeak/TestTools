@@ -32,7 +32,7 @@
 
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey="" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
-		data-appid="101029271" data-redirecturi="http://www.meilizhubo.com/call_back.html" charset="utf-8"></script>
+		data-appid="101029271" data-redirecturi="/call_back.html" charset="utf-8"></script>
 </head>
 
 <script>
@@ -151,10 +151,11 @@
 
 <div id="login_div" style="display:none;">
 	<div id="login_content">
+			
 		<div class="login_img">
 			<img src="<?php echo Yii::app()->request->baseUrl;?>/images/login_weibo.png" alt="">
 		</div>
-		<div class="login_img">
+		<div class="login_img"  id="qq_login_btn">
 			<img src="<?php echo Yii::app()->request->baseUrl;?>/images/login_qq.png" alt="">
 		</div>
 		<div class="login_img">

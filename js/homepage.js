@@ -315,7 +315,10 @@ $(document).ready(function(){
         $(".login_img img").each(function(){
         	$(this).click(function() {
                 //跳转去登录？？
-                
+        		QC.Login({//按默认样式插入QQ登录按钮
+					btnId:"qq_login_btn"	//插入按钮的节点id
+				});
+        		
                 //登录成功后修改右上角
                 loginDiv.close();
                 $(".bar_login_lab").html("<span class='bar_login_clew'>亲，欢迎回来！</span>");
