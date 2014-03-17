@@ -103,6 +103,16 @@
              </div>
         </div-->
         
+        <!-- 广告 -->
+       	<div class="row-fluid" style="width:960px,height:90px;margin:20px auto;">
+	    	<script type="text/javascript">
+				var sogou_ad_id=307408;
+				var sogou_ad_height=90;
+				var sogou_ad_width=960;
+			</script>
+			<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+	    </div>
+	    
         <!-- 主播来源 -->
 	    <div class="zhubo_from_div">
 	        <div class="clearfix">
@@ -122,15 +132,6 @@
 	                <li class="form_top form_end"><a class="zb_form_link" href="#"><div class="zb_image_tz"></div></a></li>
 	            </ul>
 	        </div>
-	    </div>
-        
-	    <div class="row-fluid" style="width:960px,height:90px;margin:0 auto;">
-	    	<script type="text/javascript">
-				var sogou_ad_id=307408;
-				var sogou_ad_height=90;
-				var sogou_ad_width=960;
-			</script>
-			<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 	    </div>
     </div>
     
