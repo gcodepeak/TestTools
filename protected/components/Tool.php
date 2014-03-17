@@ -44,6 +44,11 @@ class Tool{
 		foreach ($taged_zhobos as $tz) {
 			$id_arr = explode(',', $tz['tagids']);
 			$tag_arr = explode(',', $tz['tags']);
+			// 去除数字结尾的tag级别,比如"好声音1"，修改成"好声音"
+			foreach ($tag_arr as &$tag){
+				$tag = trim($tag, "1234");
+			}
+			
 			$tags[$tz['id']]['tagids'] = $id_arr;
 			$tags[$tz['id']]['tags'] = $tag_arr;
 		}

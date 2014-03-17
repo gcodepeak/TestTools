@@ -35,7 +35,13 @@ foreach ($dataProvider as $data){
 <?php 
 	if (isset($data['tagids'])){
 		$count = count($data['tagids']);
+		$length = 0;
 		for ( $i = 0; $i < $count; $i++){
+			$length += strlen($data['tags'][$i]);
+			// 最佳新人下面的标签最多只能显示7个字，每个字占3个字节
+			if ($length > 3 * 7){
+				break;
+			}
 			print '<span class="c_tag'. ($i + 1). '"><a href="#">'. $data['tags'][$i] .'</a></span>';
 		}
 	}
