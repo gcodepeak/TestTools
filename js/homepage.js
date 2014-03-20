@@ -330,6 +330,7 @@ $(document).ready(function(){
         $(".login_img img").each(function(){
         	$(this).click(function() {
                 //跳转去登录？？
+        		
         		alert('login success');
 				//登录成功后修改右上角
 	            loginDiv.close();
