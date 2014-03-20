@@ -37,6 +37,10 @@ class ContactForm extends CFormModel
 	{
 		return array(
 			'verifyCode'=>'Verification Code',
+			'name'=>'您的称呼',
+			'email'=>'您的邮箱',
+			'subject'=>'意见主题',
+			'body'=>'意见内容',
 		);
 	}
 }

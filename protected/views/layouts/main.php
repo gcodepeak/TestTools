@@ -29,7 +29,7 @@
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
     <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i">
-
+	<meta property="wb:webmaster" content="6fde5ee71fe33f5e" />
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey="" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
 		data-appid="101029271" data-redirecturi="http://www.meilizhubo.com/call_back.html" charset="utf-8"></script>
@@ -80,12 +80,12 @@
 				<ul class="bar_nav">
 					<li class="dropdown bar_home"><a id="nav_home" href="<?php echo Yii::app()->request->baseUrl;?>/zhubo/homepage" hidefocus="true"
 					style="color:#ba2c49;" >主播大厅</a></li>
-						<li class="dropdown bar_gz disabled"><a id="nav_care" class="tooltips" href="<?php echo Yii::app()->createUrl("favorate");?>" >我的关注</a></li>
+						<li class="dropdown bar_gz disabled"><a id="nav_care" class="tooltips" href="<?php echo Yii::app()->createUrl("guanzhu");?>" >我的关注</a></li>
 						<li id="navmenu_fav" class="dropdown bar_sl">
 							<a id="nav_fav" href="javascript:void(0)" hidefocus="true" class="dropdown-toggle tooltips">收录站点<b></b></a>
 						</li>
                         <li class="dropdown bar_rank"><a id="nav_contact" href="/topList" hidefocus="true">排行榜</a></li>
-						<li class="dropdown"><a id="nav_contact" href="#" hidefocus="true">网站合作</a></li>
+						<li class="dropdown"><a id="nav_contact" href="/site/contact" hidefocus="true">网站合作</a></li>
                     </ul>
                  </div>
                         <div class="bar_nav_sitelist">

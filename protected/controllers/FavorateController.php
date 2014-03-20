@@ -94,4 +94,54 @@ class FavorateController extends Controller
 			'pageCount'=>$pageCount,
 		));
 	}
+	
+	/**
+	 * 添加关注, Ajax
+	 */
+	public function actionAddFavorate()
+	{
+		// 获取想要关注的主播的id
+		if(！ isset($_GET['id'])) {
+			throw new CHttpException(404,'错误的访问，请指定需要关注的主播.');
+			return;
+		}
+
+		// 获取当前用户
+		$userid = Yii::app()->user->id;
+		
+		// 插入新的关注记录
+		
+		
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		
+	
+		$connection = Yii::app()->db;
+	
+		// 查询整体数据的大小，确定分页总数
+		$sql_cmd = "select count(*) from zhubo where zhubo.site_id = :siteid";
+		$command = $connection->createCommand($sql_cmd);
+		$command->bindParam(":siteid", $_GET['site']);
+		$totalSize = $command->queryScalar();
+		$pageCount = ($totalSize + $pageSize - 1) / $pageSize;
+	
+		if ($page > $pageCount) {
+			$page = 1;
+		}
+		$startIndex = ($page - 1) * $pageSize;
+		// 查询当前分页的数据
+		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, last_live_time"
+				." from zhubo, ShowSite"
+				." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
+		$command = $connection->createCommand($sql_cmd);
+		$dataProvider = $command->queryAll();
+	
+		Tool::setTags($dataProvider);
+	
+		$this->render('index',array(
+				'dataProvider'=>$dataProvider,
+				'page'=>$page,
+				'pageCount'=>$pageCount,
+		));
+	}
 }
