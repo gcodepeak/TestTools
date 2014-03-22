@@ -202,14 +202,13 @@ class ZhuboController extends Controller
 		*/
 		//print_r($dataProvider);
 		$selector = new Selector();
-		$selector->select();
 		
 		$dataProvider = array();
 		$selector->select_next_top14($dataProvider, $page, $pageSize);
 		
 		$this->renderPartial("_top_14",
 				array('dataProvider'=>$dataProvider,
-					'page'=>$page + 1,
+					'page'=>$page+1,
 		));
 	}
 	

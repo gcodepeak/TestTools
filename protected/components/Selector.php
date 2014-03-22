@@ -89,7 +89,7 @@ class Selector{
 		$sql_cmd = "select ".self::$SELECT_COLS
 				." from zhubo, ShowSite, ZhuboTag "
 				." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id "
-				." and is_live = 0 ".$condition
+				." and is_live = 0 and (ZhuboTag.tag_id < 31 or ZhuboTag.tag_id > 34) ".$condition
 				." order by zhubo.fans desc limit ".self::$LIMIT;
 		$command = $connection->createCommand($sql_cmd);
 		$not_live_list = $command->queryAll();
@@ -210,7 +210,7 @@ class Selector{
 		return;
 	}
 	
-	public function select_next_top14(&$dataProvider, $page, $pageSize) {
+	public function select_next_top14(&$dataProvider, &$page, $pageSize) {
 		// 先重新分配
 		$this->select();
 		
@@ -242,6 +242,7 @@ class Selector{
 		// 如果到达队列末尾，主播不够14个了，那么重新显示首个top14
 		if (count($dataProvider) < $pageSize) {
 			$dataProvider = $this->top14_dataProvider;
+			$page = 0;
 		}
 		
 		return;
