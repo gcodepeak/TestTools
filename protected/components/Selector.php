@@ -6,7 +6,7 @@
  * 这个组件负责推选主播
  */
 class Selector{
-	
+
 private $top14_ids;
 private $jingtiaoxixuan_ids;
 private $zuijiaxinren_ids;
@@ -55,7 +55,7 @@ public $zuijiaxinren_dataProvider;
 		$sql_cmd = "select distinct(zhubo.id) as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
 				." from zhubo, ShowSite, ZhuboTag "
 				." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id ".$condition 
-				." order by zhubo.fans desc limit 14";
+				." order by zhubo.is_live desc, zhubo.fans desc limit 14";
 		//print $sql_cmd;
 		$command = $connection->createCommand($sql_cmd);
 		$dataProvider = $command->queryAll();
@@ -223,7 +223,7 @@ public $zuijiaxinren_dataProvider;
 		$sql_cmd = "select distinct(zhubo.id) as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
 				." from zhubo, ShowSite, ZhuboTag "
 				." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id ".$condition
-				." order by zhubo.fans desc limit :startIndex, :pageSize";
+				." order by is_live desc, zhubo.fans desc limit :startIndex, :pageSize";
 		$command = $connection->createCommand($sql_cmd);
 		$command->bindParam(":startIndex", $startIndex);
 		$command->bindParam(":pageSize", $pageSize);
