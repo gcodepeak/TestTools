@@ -68,6 +68,9 @@ CREATE TABLE IF NOT EXISTS `Tag` (
   `name` varchar(64),
   `class_1` varchar(32),
   `class_2` varchar(32),
+  `level` tinyint default 0,
+  `show_name` varchar(64),
+  `weight` tinyint default 0,
   `status` tinyint default 1, /* 1:valide 2:deleted*/
 )
 ENGINE=InnoDB,

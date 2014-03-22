@@ -46,7 +46,9 @@ class Selector{
 		$this->select_top14($this->top14_dataProvider);
 		$this->select_jingtiaoxixuan($this->jingtiaoxixuan_dataProvider);
 		$this->select_zuijiaxinren($this->zuijiaxinren_dataProvider);
-		//print_r($this->top14_dataProvider);	
+		//print_r($this->top14_dataProvider);
+		
+		
 	}
 	
 	/*
@@ -70,9 +72,10 @@ class Selector{
 				." and is_live = 1 and ZhuboTag.tag_id >= 31 and ZhuboTag.tag_id <= 34 ".$condition 
 				." order by zhubo.fans desc limit ".self::$LIMIT;
 
+		//print $sql_cmd;
 		$command = $connection->createCommand($sql_cmd);
 		$live_lady_list = $command->queryAll();
-		//print count($live_lady_list);
+		print count($live_lady_list);
 		
 		// 正在直播，并且尚未标记的主播
 		$sql_cmd = "select ".self::$SELECT_COLS
@@ -83,7 +86,7 @@ class Selector{
 		//print $sql_cmd;
 		$command = $connection->createCommand($sql_cmd);
 		$live_not_taged_list = $command->queryAll();
-		//print count($live_not_taged_list);
+		print count($live_not_taged_list);
 		
 		// 不在直播，并且被标记的主播
 		$sql_cmd = "select ".self::$SELECT_COLS
@@ -91,9 +94,10 @@ class Selector{
 				." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id "
 				." and is_live = 0 ".$condition
 				." order by zhubo.fans desc limit ".self::$LIMIT;
+		//print $sql_cmd;
 		$command = $connection->createCommand($sql_cmd);
 		$not_live_list = $command->queryAll();
-		//print count($not_live_list);
+		print count($not_live_list);
 		
 		// 将上面的几个队列合并成一个队列
 		$this->zhubo_list = array_merge($live_lady_list, $live_not_taged_list, $not_live_list);
@@ -109,9 +113,40 @@ class Selector{
 	 * 	3. 非直播 & 女神&其它tag
 	 */
 	private function select_top14(&$dataProvider) {
-
+		/*
+		$connection = Yii::app()->db;
+		
+		// 先确定在top14的区上能显示的tag的主播
+		//$tag_ids = "(31,32,33,34,44,50,53,54,80,81)";
+		$tag_ids = "()";
+		$condition = "";
+		if ($tag_ids != '()') {
+			$condition = " and tag_id in ".$tag_ids." ";
+		}
+		$sql_cmd = "select ".self::$SELECT_COLS
+				." from zhubo, ShowSite, ZhuboTag "
+				." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id ".$condition 
+				." order by zhubo.is_live desc, zhubo.fans desc limit 14";
+		//print $sql_cmd;
+		$command = $connection->createCommand($sql_cmd);
+		$dataProvider = $command->queryAll();
+		*/
+		
 		// 从候选队列中挑选主播
 		$dataProvider = array_slice($this->zhubo_list, 0, self::$TOP_COUNT);
+		
+		/*
+		$count = count($dataProvider);
+		if ($count < $TOP_COUNT){
+			$tmp = array_slice($this->live_not_taged_list, 0, $TOP_COUNT-$count);
+			$dataProvider = array_merge($dataProvider, $tmp);
+		}
+		
+		$count = count($dataProvider);
+		if ($count < $TOP_COUNT){
+			$tmp = array_slice($this->not_live_list, 0, $TOP_COUNT-$count);
+			$dataProvider = array_merge($dataProvider, $tmp);
+		}*/
 		
 		// 将已经选出的主播添加到记录中, 供后续去重
 		$ids = array();
@@ -181,7 +216,44 @@ class Selector{
 		return;
 	}
 	
-	public function select_zuijiaxinren(&$dataProvider){		
+	public function select_zuijiaxinren(&$dataProvider){
+		/*
+		$connection = Yii::app()->db;
+		
+		$condition = "";
+		$selected_ids = "";
+			
+		if (! empty($this->top14_ids)) {
+			$selected_ids = $selected_ids.implode(',', $this->top14_ids);
+		}
+			
+		if (! empty($this->jingtiaoxixuan_ids)) {
+			if ($selected_ids != "") {
+				$selected_ids = $selected_ids.",";
+			}
+			$selected_ids = $selected_ids.implode(',', $this->jingtiaoxixuan_ids);
+		}
+		
+		if (! empty($this->zuijiaxinren_ids)) {
+			if ($selected_ids != "") {
+				$selected_ids = $selected_ids.",";
+			}
+			$selected_ids = $selected_ids.implode(',', $this->zuijiaxinren_ids);
+		}
+			
+		if ($selected_ids != "") {
+			$condition = " and zhubo.id not in (".$selected_ids.") ";
+		}
+		
+		$sql_cmd = "select distinct(zhubo.id) as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
+					." from zhubo, ShowSite, ZhuboTag"
+					." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id ".$condition
+					."order by zhubo.is_live desc, zhubo.fans desc limit 12";
+		//print $sql_cmd;
+		$command = $connection->createCommand($sql_cmd);
+		$dataProvider = $command->queryAll();
+		*/
+		
 		// 从zhubo_list中捞出未使用的
 		$count = 0;
 		foreach ($this->zhubo_list as $zhubo) {
@@ -194,6 +266,7 @@ class Selector{
 			
 			array_push($dataProvider, $zhubo);
 			$count++;
+			//print $count;
 			
 			if($count >= self::$ZUIJIAXINREN_COUNT){
 				break;
@@ -204,46 +277,73 @@ class Selector{
 		array_walk($dataProvider, function($v, $k) use(&$ids){
 			$ids[$k] = $v['id'];
 		});
-		
-		$this->zuijiaxinren_ids = $ids;
+		array_merge($this->zuijiaxinren_ids, $ids);
 
 		return;
 	}
 	
 	public function select_next_top14(&$dataProvider, $page, $pageSize) {
-		// 先重新分配
-		$this->select();
-		
-		$count = 0;
-		foreach ($this->zhubo_list as $zhubo) {
-			if (in_array($zhubo['id'], $this->top14_ids)) {
-				continue;
-			}
-			if (in_array($zhubo['id'], $this->jingtiaoxixuan_ids)) {
-				continue;
-			}
-			if (in_array($zhubo['id'], $this->zuijiaxinren_ids)) {
-				continue;
-			}
-			
-			$count++;
-			// 前$page页丢弃
-			if ($count <= $page * $pageSize) {
-				continue;
-			}
-			
-			array_push($dataProvider, $zhubo);
-			
-			if($count >= ($page+1) * $pageSize) {
-				break;
-			}
+		$connection = Yii::app()->db;
+	
+		// 先确定在top14的区上能显示的tag的主播
+		//$tag_ids = "(31,32,33,34,44,50,53,54,80,81)";
+		$tag_ids = "()";
+		$condition = "";
+		if ($tag_ids != '()') {
+			$condition = " and tag_id in ".$tag_ids." ";
 		}
+		
+		$selected_ids = "";
+			
+		if (! empty($this->top14_ids)) {
+			$selected_ids = $selected_ids.implode(',', $this->top14_ids);
+		}
+			
+		if (! empty($this->jingtiaoxixuan_ids)) {
+			if ($selected_ids != "") {
+				$selected_ids = $selected_ids.",";
+			}
+			$selected_ids = $selected_ids.implode(',', $this->jingtiaoxixuan_ids);
+		}
+		
+		if (! empty($this->zuijiaxinren_ids)) {
+			if ($selected_ids != "") {
+				$selected_ids = $selected_ids.",";
+			}
+			$selected_ids = $selected_ids.implode(',', $this->zuijiaxinren_ids);
+		}
+			
+		if ($selected_ids != "") {
+			$condition = $condition." and zhubo.id not in (".$selected_ids.") ";
+		}
+		
+		// 查询整体数据的大小，确定分页总数
+		$sql_cmd = "select count(distinct(zhubo.id))"
+				." from zhubo, ShowSite, ZhuboTag "
+				." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id ".$condition ;
+		$command = $connection->createCommand($sql_cmd);
+		$totalSize = $command->queryScalar();
+		$pageCount = ($totalSize + $pageSize - 1) / $pageSize;
+		//print $pageCount;
+		
+		// 最后一个页可能不够$pageSize个主播，所以丢弃
+		if ($page >= $pageCount) {
+			$page = 1;
+		}
+		$startIndex = ($page - 1) * $pageSize;
+		//print $startIndex;
+		
+		$sql_cmd = "select distinct(zhubo.id) as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+				." from zhubo, ShowSite, ZhuboTag "
+				." where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id ".$condition
+				." order by is_live desc, zhubo.fans desc limit :startIndex, :pageSize";
+		$command = $connection->createCommand($sql_cmd);
+		$command->bindParam(":startIndex", $startIndex);
+		$command->bindParam(":pageSize", $pageSize);
+		
+		$dataProvider = $command->queryAll();
 
-		// 如果到达队列末尾，主播不够14个了，那么重新显示首个top14
-		if (count($dataProvider) < $pageSize) {
-			$dataProvider = $this->top14_dataProvider;
-		}
-		
+		//return $dataProvider;
 		return;
 	}
 	

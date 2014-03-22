@@ -40,8 +40,12 @@ table td {
 		<input size="20" maxlength="32" name="Tag[class_1]" id="Tag_class_1" type="text" />
 		<label for="Tag_class_2">二级分类</label>		
 		<input size="20" maxlength="32" name="Tag[class_2]" id="Tag_class_2" type="text" />
-		<label for="Tag_name">Tag</label>
+		<label for="Tag_name">Tag名称</label>
 		<input size="20" maxlength="64" name="Tag[name]" id="Tag_name" type="text" />
+		<label for="Tag_show_name">级别</label>
+		<input size="20" maxlength="64" name="Tag[show_name]" id="show_name" type="text" />
+		<label for="Tag_weight">权重</label>
+		<input size="20" maxlength="64" name="Tag[weight]" id="weight" type="text" />
 		<span>&nbsp&nbsp&nbsp&nbsp</span>
 		<input type="submit" name="yt0" value="创建" />
 	</div>
@@ -56,6 +60,8 @@ table td {
 		'class_1',
 		'class_2',
 		'name',
+		'show_name',
+		'weight',
 		'status',
 		array(
 			'class'=>'CButtonColumn',

@@ -45,17 +45,22 @@ table td {
 		/>
 		
 		<label>秀场名称</label>
-		<input size="10" maxlength="10" name="Search[siteName]" type="text" placeholder="我秀"
+		<input size="6" maxlength="10" name="Search[siteName]" type="text" placeholder="我秀"
 		<?php if(isset($search['siteName'])) echo 'value="'.$search['siteName'].'"' ?>
 		/>
 		
 		<label>正在直播(0/1)</label>
-		<input size="10" maxlength="10" name="Search[is_live]" type="text" placeholder="1"
+		<input size="1" maxlength="2" name="Search[is_live]" type="text" placeholder="1"
 		<?php if(isset($search['is_live'])) echo 'value="'.$search['is_live'].'"'; ?>
 		/>
 		
+		<label>已修图(0/1)</label>
+		<input size="1" maxlength="2" name="Search[modified]" type="text" placeholder="1"
+		<?php if(isset($search['modified'])) echo 'value="'.$search['modified'].'"'; ?>
+		/>
+		
 		<label>标注人</label>		
-		<input size="10" maxlength="10" name="Search[username]" type="text" placeholder="xiaoming"
+		<input size="6" maxlength="10" name="Search[username]" type="text" placeholder="xiaoming"
 		<?php if(isset($search['username'])) echo 'value="'.$search['username'].'"' ?>
 		/>
 		
@@ -63,7 +68,7 @@ table td {
 		
 		<a href="/zhuboTag/taged">清空搜索条件</a>
 		
-		<label>(框内是提示，请自行输入条件，支持部分匹配)</label>
+		<label>(框内灰色文字只是提示，请自己输入条件，支持部分匹配)</label>
 	</div>
 </form>
 
@@ -76,6 +81,7 @@ table td {
 <th>昵称</th>
 <th>秀场</th>
 <th>直播</th>
+<th>已修图</th>
 <th>标注人</th>
 <th>Tags</th>
 <th>修改主播信息</th>
@@ -98,6 +104,12 @@ foreach ($zhubos as $zhubo){
 	print '<td>'.$zhubo['name'].'</td>';
 	print '<td>'.$zhubo['SiteName'].'</td>';
 	print '<td>'.$zhubo['is_live'].'</td>';
+	// 如果head_image路径包含"modified_img",则表示已经修图
+	if(strpos($zhubo['head_img'],'modified_img') != false){
+		print '<td>1</td>';
+	} else {
+		print '<td>0</td>';
+	}
 	print '<td>'.$zhubo['username'].'</td>';
 	print '<td>'.$zhubo['tageds'].'</td>';
 	print '<td><a target="_blank" title="打tag" href="/zhubo/update/'.$zhubo['id'].'">修改主播信息</a></td>';

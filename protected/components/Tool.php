@@ -3,7 +3,7 @@
 //Yii::import('application.components.Controller');
 
 class Tool{
-	public static $MAX_NAME_LEN = 8;
+	public static $MAX_NAME_LEN = 7;
 	
 	public static function getName($name){
 		if(strlen($name) > Tool::$MAX_NAME_LEN){
@@ -33,7 +33,7 @@ class Tool{
 				", SUBSTRING_INDEX(GROUP_CONCAT(Tag.id ORDER BY Tag.id DESC),',',3) as tagids ".
 				", SUBSTRING_INDEX(GROUP_CONCAT(Tag.name ORDER BY Tag.id DESC),',',3) as tags ".
 				" from zhubo, ZhuboTag, Tag ".
-				" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id ".
+				" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.status = 1 ".
 				" and zhubo.id in (" . $ids_str . ")".
 				" group by id";
 		//print $sql_cmd;

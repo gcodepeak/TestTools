@@ -20,6 +20,13 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('class_2')); ?>:</b>
 	<?php echo CHtml::encode($data->class_2); ?>
 	<br />
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('show_name')); ?>:</b>
+	<?php echo CHtml::encode($data->show_name); ?>
+	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('weight')); ?>:</b>
+	<?php echo CHtml::encode($data->weight); ?>
+	<br />
 
 </div>

@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Tag #<?php echo $model->id; ?></h1>
+<h1>查看标签，ID： #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -25,5 +25,7 @@ $this->menu=array(
 		'name',
 		'class_1',
 		'class_2',
+		'show_name',
+		'weight',
 	),
 )); ?>

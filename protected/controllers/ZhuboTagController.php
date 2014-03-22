@@ -313,10 +313,15 @@ class ZhuboTagController extends Controller
 			if ($search['username'] != ''){
 				$conditions = $conditions . " and User.username like '%" . $search['username'] . "%' ";
 			}
+			if ($search['modified'] == '0'){
+				$conditions = $conditions . " and zhubo.head_img not like '%modified_img%' ";
+			} else if ($search['modified'] == '1'){
+				$conditions = $conditions . " and zhubo.head_img like '%modified_img%' ";
+			}
 		}
 		
 		// 标记已经添加的tag
-		$sql_cmd = "select zhubo.id as id, local_id, zhubo.name as name, ShowSite.name as SiteName, is_live, username ".
+		$sql_cmd = "select zhubo.id as id, local_id, zhubo.name as name, ShowSite.name as SiteName, is_live, username, head_img ".
 					", GROUP_CONCAT(Tag.name ORDER BY Tag.id DESC SEPARATOR '  ') as tageds ".
 					" from zhubo, ZhuboTag, Tag, ShowSite, User ".
 					" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and ShowSite.id = zhubo.site_id and ZhuboTag.user_id = User.id ".

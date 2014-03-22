@@ -8,6 +8,8 @@
  * @property string $name
  * @property string $class_1
  * @property string $class_2
+ * @property integer $show_name
+ * @property integer $weight
  * @property integer $status
  *
  * The followings are the available model relations:
@@ -41,12 +43,12 @@ class Tag extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('status', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>64),
+			array('status,weight', 'numerical', 'integerOnly'=>true),
+			array('name, show_name', 'length', 'max'=>64),
 			array('class_1, class_2', 'length', 'max'=>32),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, class_1, class_2, status', 'safe', 'on'=>'search'),
+			array('id, name, class_1, class_2, weight, show_name, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,7 +74,9 @@ class Tag extends CActiveRecord
 			'name' => 'Tag',
 			'class_1' => '一级分类',
 			'class_2' => '二级分类',
+			'show_name' => '显示名称',
 			'status' => '有效',
+			'weight' => '权重',
 		);
 	}
 
@@ -92,6 +96,8 @@ class Tag extends CActiveRecord
 		$criteria->compare('class_1',$this->class_1,true);
 		$criteria->compare('class_2',$this->class_2,true);
 		$criteria->compare('status',$this->status);
+		$criteria->compare('weight',$this->weight);
+		$criteria->compare('show_name',$this->show_name);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
