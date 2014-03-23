@@ -312,11 +312,26 @@ $(document).ready(function(){
     }
     
     QC.Login({						//按默认样式插入QQ登录按钮
-		btnId:"qq_login_btn"		//插入按钮的节点id
+		btnId:"qq_login_btn",		//插入按钮的节点id
+		scope:"all",
+		size:"A_XL",
 	}, function(reqData, opts){		//登录成功
 		if(QC.Login.check()){		//如果已登录
 			QC.Login.getMe(function(openId, accessToken){
 				alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
+				if(openId){
+                    $.ajax({  
+                        type:"POST",  
+                        url:"./?mod=ajax&app=ajax_login&act=qq",  
+                        async:false,  
+                        data:{'openid':openId,'access':accessToken,'login':'only'},  
+                        success: function(msg){  
+                             if(msg == 'yes'){  
+                                //这里是你的操作  
+                             }  
+                        }  
+                     });  
+                }
 			});
 			//这里可以调用自己的保存接口
 			//...
@@ -325,13 +340,25 @@ $(document).ready(function(){
         alert('QQ登录 注销成功');
 	});
     
-    WB2.anyWhere(function(W){
+	
+	WB2.anyWhere(function(W){
     	W.widget.connectButton({
     		id: "wb_connect_btn",	
     		type:'1,2',
     		callback : {
     			login:function(o){	//登录后的回调函数
-    				alert("微博账户登录成功: "+o.screen_name)	
+    				alert("微博账户登录成功: "+o.screen_name);
+    				 $.ajax({  
+                         type:"POST",  
+                         url:"./?mod=ajax&app=ajax_login&act=weibo",  
+                         async:false,  
+                         data:{'login':'only'},  
+                         success: function(msg){  
+                              if(msg == 'yes'){  
+                                 	//你的操作 
+                              }  
+                         }  
+                      });	
     			},
     			logout:function(){	//退出后的回调函数
     				alert('logout');
@@ -385,4 +412,10 @@ $(document).ready(function(){
             });
         });   
     } */ 
+	function loginout(){
+		QC.Login.signOut();
+		WB2.logout(function(){
+			//callback function
+		});
+	}
 });
