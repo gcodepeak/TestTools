@@ -1056,6 +1056,21 @@ vertical-align: middle;
 {
     font-size:20px;
 }
+
+.live_image_icon
+{
+	background: url(../images/icon_zb_big.png) 0px 0px no-repeat;
+	_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src="../images/icon_zb_big.png");
+	_background:none;
+	display:block;
+	width:55px;
+	height:55px;
+	position:absolute;
+	right:0px;
+	top:2px;
+	_right:1px;
+}
+
 .new_peo_image_icon
 {
 	background: url(../images/icon_zb_big.png) 0px 0px no-repeat;

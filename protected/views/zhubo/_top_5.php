@@ -19,7 +19,7 @@ foreach ($dataProvider as $data){
 				<a nobod="1" href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$data['id'],))?>"
 					target="_blank"><img
 					src="<?php echo $data['head_img'];?>"
-					alt="<?php echo $data['name'];?>">
+					alt="<?php echo Tool::getSmallName($data['name']);?>">
 					<div class="new_peo_image_title">
 						<span><?php echo $data['name'];?></span> <b class="gz_bt" rel="id1"></b>
 					</div> 

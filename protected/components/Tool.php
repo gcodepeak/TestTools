@@ -3,7 +3,10 @@
 //Yii::import('application.components.Controller');
 
 class Tool{
-	public static $MAX_NAME_LEN = 7;
+	public static $MAX_NAME_LEN = 12;		// 大图的名字
+	public static $MAX_SMALL_NAME_LEN = 7;	// 小图的名字
+	public static $MAX_TAG_NUM = 3;
+	
 	
 	public static function getName($name){
 		if(strlen($name) > Tool::$MAX_NAME_LEN){
@@ -11,6 +14,14 @@ class Tool{
 			return Tool::utf8Substr($name, 0, Tool::$MAX_NAME_LEN);
 		}
 		
+		return $name;
+	}
+	
+	public static function getSmallName($name){
+		if(strlen($name) > Tool::$MAX_SMALL_NAME_LEN){
+			return Tool::utf8Substr($name, 0, Tool::$MAX_SMALL_NAME_LEN);
+		}
+	
 		return $name;
 	}
 	
@@ -30,8 +41,8 @@ class Tool{
 		});
 		$ids_str = implode(',', $ids);
 		$sql_cmd = "select zhubo.id as id ".
-				", SUBSTRING_INDEX(GROUP_CONCAT(Tag.id ORDER BY Tag.id DESC),',',3) as tagids ".
-				", SUBSTRING_INDEX(GROUP_CONCAT(Tag.name ORDER BY Tag.id DESC),',',3) as tags ".
+				", SUBSTRING_INDEX(GROUP_CONCAT(Tag.id ORDER BY Tag.weight), ',' , ".self::$MAX_TAG_NUM .") as tagids ".
+				", SUBSTRING_INDEX(GROUP_CONCAT(Tag.name ORDER BY Tag.weight), ',' , ".self::$MAX_TAG_NUM .") as tags ".
 				" from zhubo, ZhuboTag, Tag ".
 				" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.status = 1 ".
 				" and zhubo.id in (" . $ids_str . ")".

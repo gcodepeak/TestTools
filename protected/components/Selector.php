@@ -9,7 +9,7 @@ class Selector{
 
 	// 选取的列
 	private static $SELECT_COLS = "distinct(zhubo.id) as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time";
-	private static $LIMIT = 100;
+	private static $LIMIT = 20;
 	private static $TOP_COUNT = 14;
 	private static $JINGTIAOXIXUAN_COUNT = 8;
 	private static $ZUIJIAXINREN_COUNT = 12; 

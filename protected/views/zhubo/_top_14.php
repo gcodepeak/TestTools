@@ -26,7 +26,7 @@ for ($index=0; $index < count($dataProvider); $index++) {
 			<img alt="" src="<?php echo $top14s[$rank]['head_img']?>" style="display: block;">
 				<div class="tc_gz_div gz_big">
 					<div class="fc_div clearfix">
-	                	<span class="fc_div_name"><?php echo $top14s[$rank]['name'];?></span>
+	                	<span class="fc_div_name"><?php echo Tool::getName($top14s[$rank]['name']);?></span>
 	                    <span class="gz_bt" uid="<?php echo $index?>"></span>
 	                </div>
 					<div style="display:inline;">观众/<span style="color:#666;font-size:16px;"><?php echo number_format($top14s[$rank]['fans']);?></span><span class="icon icon_peo"></span></div>
@@ -41,7 +41,7 @@ for ($index=0; $index < count($dataProvider); $index++) {
 			<img alt="" src="<?php echo $top14s[$rank]['head_img']?>">
 			<div class="tc_gz_div gz_sim">
 				<div class="fc_div clearfix">
-                	<span class="fc_div_name"><?php echo $top14s[$rank]['name'];?></span>
+                	<span class="fc_div_name"><?php echo Tool::getSmallName($top14s[$rank]['name']);?></span>
                     <span class="gz_bt" uid="<?php echo $index?>"></span>
                 </div>
                 <p>观众/<span style="color:#666;font-size:12px;"><?php echo number_format($top14s[$rank]['fans']);?></span><span class="icon icon_peo"></span></p>

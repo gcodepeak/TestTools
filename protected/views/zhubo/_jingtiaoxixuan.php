@@ -19,12 +19,15 @@ foreach ($dataProvider as $data){
 			<div class="category_image_title">
                 <span><?php echo Tool::getName($data['name']);?></span>
                 <b class="gz_bt" rel="id1"></b>
-            </div></a>
-            
+            </div>
+            <!-- ?php if ($data['is_live']) {?>
+				<b class="live_image_icon"></b>
+			<!--?php }?-->
+            </a>  
 		</div>
 	</div>
 	<div class="category_time_div clearfix">
-		<div class="category_time_div_left"><span class="kb_time_s">开播:</span><span class="kb_time"><!-- ?php echo $data['last_live_time'];?--></span><span class="icon icon_split"></span></div>
+		<div class="category_time_div_left"><span class="kb_time_s">开播:</span><span class="kb_time"><?php echo substr($data['last_live_time'], -8, 5);?></span><span class="icon icon_split"></span></div>
 		<div class="category_time_div_right"><span class="icon icon_peo"></span><span><?php echo number_format($data['hots'])?></span></div>
 	</div>
     <div class="category_tag_div">
@@ -34,7 +37,14 @@ foreach ($dataProvider as $data){
 <?php 
 	if (isset($data['tagids'])){
 		$count = count($data['tagids']);
+		$length = 0;
 		for ( $i = 0; $i < $count; $i++){
+			$length += strlen($data['tags'][$i]);
+			// 最佳新人下面的标签最多只能显示10个字，每个字占3个字节
+			if ($length > 3 * 10){
+				break;
+			}
+			
 			print '<span class="c_tag'. ($i + 1). '"><a href="#">'. $data['tags'][$i] .'</a></span>';
 		}
 	}

@@ -16,7 +16,7 @@ foreach ($dataProvider as $data){
 				target="_blank"> <img src="<?php echo $data['head_img']?>"
 				alt="<?php echo $data['name']?>">
 				<div class="new_peo_image_title">
-					<span><?php echo Tool::getName($data['name']);?></span> <b class="gz_bt" rel="id1"></b>
+					<span><?php echo Tool::getSmallName($data['name']);?></span> <b class="gz_bt" rel="id1"></b>
 				</div> 
 				<?php if ($data['is_live']) {?>
 				<b class="new_peo_image_icon"></b>
@@ -25,7 +25,7 @@ foreach ($dataProvider as $data){
 		</div>
 	</div>
 	<div class="category_time_div new_peo_time_div clearfix">
-		<div class="category_time_div_left"><span class="kb_time_s">开播:</span><span class="kb_time"><!--?php echo $data['last_live_time'];?--></span><span class="icon icon_split"></span></div>
+		<div class="category_time_div_left"><span class="kb_time_s">开播:</span><span class="kb_time"><?php echo substr($data['last_live_time'],-8,5);?></span><span class="icon icon_split"></span></div>
 		<div class="category_time_div_right"><span class="icon icon_peo"></span><span><?php echo number_format($data['hots'])?></span></div>
 	</div>
 	<div class="category_tag_div new_peo_tag">
