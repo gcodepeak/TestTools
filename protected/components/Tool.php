@@ -42,9 +42,9 @@ class Tool{
 		$ids_str = implode(',', $ids);
 		$sql_cmd = "select zhubo.id as id ".
 				", SUBSTRING_INDEX(GROUP_CONCAT(Tag.id ORDER BY Tag.weight), ',' , ".self::$MAX_TAG_NUM .") as tagids ".
-				", SUBSTRING_INDEX(GROUP_CONCAT(Tag.name ORDER BY Tag.weight), ',' , ".self::$MAX_TAG_NUM .") as tags ".
+				", SUBSTRING_INDEX(GROUP_CONCAT(Tag.show_name ORDER BY Tag.weight), ',' , ".self::$MAX_TAG_NUM .") as tags ".
 				" from zhubo, ZhuboTag, Tag ".
-				" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.status = 1 ".
+				" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.status = 1 and Tag.weight!= 0".
 				" and zhubo.id in (" . $ids_str . ")".
 				" group by id";
 		//print $sql_cmd;
