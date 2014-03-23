@@ -115,6 +115,7 @@ $(document).ready(function(){
     }
     addLoveEvent($(".gz_bt"));
     
+    /*
     //登录hover
     var loginDiv;
     $(".icon_weibo").hover(function(){
@@ -215,5 +216,5 @@ $(document).ready(function(){
                 
             });
         });    
-    }
+    }*/
 });

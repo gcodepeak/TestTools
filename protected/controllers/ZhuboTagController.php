@@ -324,7 +324,7 @@ class ZhuboTagController extends Controller
 		$sql_cmd = "select zhubo.id as id, local_id, zhubo.name as name, ShowSite.name as SiteName, is_live, username, head_img ".
 					", GROUP_CONCAT(Tag.name ORDER BY Tag.id DESC SEPARATOR '  ') as tageds ".
 					" from zhubo, ZhuboTag, Tag, ShowSite, User ".
-					" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and ShowSite.id = zhubo.site_id and ZhuboTag.user_id = User.id ".
+					" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and ShowSite.id = zhubo.site_id and ZhuboTag.user_id = User.id and Tag.status = 1 ".
 					$conditions.
 					" group by id order by zhubo.hots desc, ZhuboTag.tag_time desc";
 		

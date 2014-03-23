@@ -311,10 +311,10 @@ $(document).ready(function(){
         });
     }
     
-    QC.Login({//按默认样式插入QQ登录按钮
-		btnId:"qq_login_btn"	//插入按钮的节点id
-	}, function(reqData, opts){//登录成功
-		if(QC.Login.check()){//如果已登录
+    QC.Login({						//按默认样式插入QQ登录按钮
+		btnId:"qq_login_btn"		//插入按钮的节点id
+	}, function(reqData, opts){		//登录成功
+		if(QC.Login.check()){		//如果已登录
 			QC.Login.getMe(function(openId, accessToken){
 				alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
 			});
@@ -325,6 +325,22 @@ $(document).ready(function(){
         alert('QQ登录 注销成功');
 	});
     
+    WB2.anyWhere(function(W){
+    	W.widget.connectButton({
+    		id: "wb_connect_btn",	
+    		type:'1,2',
+    		callback : {
+    			login:function(o){	//登录后的回调函数
+    				alert("微博账户登录成功: "+o.screen_name)	
+    			},
+    			logout:function(){	//退出后的回调函数
+    				alert('logout');
+    			}
+    		}
+    	});
+    });
+    
+    /*
     function userlogin()
     {
         $(".login_img img").each(function(){
@@ -359,6 +375,7 @@ $(document).ready(function(){
 	                $(span).removeClass("spanhover");
 	                $(a).removeClass("a_hover");
 	            });
+	            
 	            $(".logout_a" ).click(function(){
 	                var html_clew = '<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>';
 	                $(".bar_login_lab").html(html_clew);
@@ -366,6 +383,6 @@ $(document).ready(function(){
 	                $(".bar_loginout_div").hide();
 	            });
             });
-        });    
-    }
+        });   
+    } */ 
 });
