@@ -4,6 +4,7 @@
 ?>
 
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="/css/yii/detailview/style.css" />
 
 <h1 style="text-align: center">主播详细信息</h1>
 
