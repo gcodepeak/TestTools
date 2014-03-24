@@ -31,7 +31,7 @@ foreach ($dataProvider as $data){
 		</div>
 		<div class="list_cont">
 			<div>
-				<span class="span_left">选自/</span><span class="span_right"><?php echo $data['showSiteName'];?></span>
+				<span class="span_left">选自/</span><span class="span_right"><?php echo $data['siteName'];?></span>
 			</div>
 			<div>
 				<span class="span_left">粉丝/</span>
@@ -57,7 +57,7 @@ foreach ($dataProvider as $data){
 					class="gz_bt" rel="id1"></b>
 			</div>
 			<div>
-				<span class="span_left">选自/</span><span class="span_right"><?php echo $data['showSiteName'];?></span>
+				<span class="span_left">选自/</span><span class="span_right"><?php echo $data['siteName'];?></span>
 			</div>
 			<div>
 				<span class="span_left">粉丝/</span> <span class="span_right"><?php echo $data['fans'];?></span>

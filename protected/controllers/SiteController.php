@@ -67,7 +67,7 @@ class SiteController extends Controller
 					"Content-type: text/plain; charset=UTF-8";
 
 				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				Yii::app()->user->setFlash('contact','感谢您的来信，我们会尽快回复.');
 				$this->refresh();
 			}
 		}
@@ -104,8 +104,28 @@ class SiteController extends Controller
 	/**
 	 * 使用三方账号登录
 	 * */
-	public function actionLogin2()
+	public function QQLogin()
 	{
+		if(emptyempty($_POST['openid']) || emptyempty($_POST['access'])){
+			echo "no";
+			exit;
+		}
+		
+		$this->open_id = $_POST['openid'];
+		$this->access = $_POST['access'];
+		
+		$qc = new QC($this->access,$this->open_id);     //对数据进行校验
+		$arr = $qc->get_user_info();
+		
+		$result = $this->save_qq($arr);      //保存数据
+		if(!emptyempty($result)){
+			echo "yes";
+			exit;
+		} else {
+			echo "no";
+			exit;
+		}
+		
 		$model=new LoginForm;
 	
 		// if it is ajax validation request

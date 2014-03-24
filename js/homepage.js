@@ -298,6 +298,14 @@ $(document).ready(function(){
             userlogin();
         });
         $(".icon_qq" ).click(function() {
+        	/*
+        	QC.Login.showPopup({
+    		   appId:"101029271",
+    		   redirectURI:"http://www.meilizhubo.com"
+    		});
+        	return;
+        	*/
+        	
             var html = $("#login_content").html();
             loginDiv = dialog(html);
             loginDiv.show();

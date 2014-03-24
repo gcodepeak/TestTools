@@ -96,6 +96,37 @@ class ZhuboController extends Controller
 		if(isset($_POST['Zhubo']))
 		{
 			$model->attributes=$_POST['Zhubo'];
+			
+			if ((($_FILES["file"]["type"] == "image/gif")
+					|| ($_FILES["file"]["type"] == "image/jpeg")
+					|| ($_FILES["file"]["type"] == "image/pjpeg"))
+					&& ($_FILES["file"]["size"] < 500000))
+			{
+				if ($_FILES["file"]["error"] > 0)
+				{
+					echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+				}
+				else
+				{
+					$index = 1;
+					$file_name="images/static_image/modified_img/"
+							.$model->site_id.'-'.$model->local_id."-a0".$index.".jpg";
+					while (file_exists($file_name))
+					{
+						$index ++;
+						$file_name = "images/static_image/modified_img/"
+							.$model->site_id.'-'.$model->local_id."-a0".$index.".jpg";
+					}
+					print $_FILES["file"]["tmp_name"].$file_name;
+					move_uploaded_file($_FILES["file"]["tmp_name"], $file_name);
+					$model->head_img = '/'.$file_name;
+				}
+			}
+			else
+			{
+				echo "Invalid file";
+			}
+			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -172,35 +203,6 @@ class ZhuboController extends Controller
 		
 		$pageSize = 14;
 
-		/*
-		$connection = Yii::app()->db;
-		
-		// 查询整体数据的大小，确定分页总数
-		$sql_cmd = "select count(*) from zhubo where is_live='1';";// and head_img like '/images/%';";
-		$command = $connection->createCommand($sql_cmd);
-		$totalSize = $command->queryScalar();
-		$pageCount = ($totalSize + $pageSize - 1) / $pageSize;
-		//print $pageCount;
-		
-		// 最后一个页可能不够$pageSize个主播，所以丢弃
-		if ($page >= $pageCount) {
-			$page = 1;
-		}		
-		$startIndex = ($page - 1) * $pageSize;
-		//print $startIndex;
-		
-		// 查询对应分页的数据
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
-				." from zhubo, ShowSite where zhubo.site_id = ShowSite.id and is_live = 1 "
-				." order by zhubo.fans desc limit :startIndex, :pageSize";
-		//print $sql_cmd;
-		$command = $connection->createCommand($sql_cmd);
-		$command->bindParam(":startIndex", $startIndex);
-		$command->bindParam(":pageSize", $pageSize);
-		
-		$dataProvider = $command->queryAll();
-		*/
-		//print_r($dataProvider);
 		$selector = new Selector();
 		
 		$dataProvider = array();

@@ -3,12 +3,17 @@
 /* @var $model Zhubo */
 /* @var $form CActiveForm */
 ?>
-<div style="width: 80%;margin:10px auto;">
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+
+<div style="width: 80%;margin:0 auto;">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'zhubo-form',
 	'enableAjaxValidation'=>false,
 	'htmlOptions'=>array (
 		'class'=>'form-horizontal',
+		'enctype'=>'multipart/form-data',
+		'method'=>'post',
 	)
 )); ?>
 
@@ -25,8 +30,9 @@
 	<div class="control-group">
 		<?php echo $form->labelEx($model,'head_img',array('class'=>' control-label',)); ?>
 		<div class="controls">
-		<?php echo $form->textField($model,'head_img',array('size'=>60,'maxlength'=>128,'class'=>'span10')); ?>
+		<?php echo $form->textField($model,'head_img',array('size'=>60,'maxlength'=>128,'class'=>'span7')); ?>
 		<?php echo $form->error($model,'head_img'); ?>
+		<input type="file" name="file" id="file" /> 
 		</div>
 	</div>
 

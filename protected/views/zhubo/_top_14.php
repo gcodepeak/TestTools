@@ -31,7 +31,7 @@ for ($index=0; $index < count($dataProvider); $index++) {
 	                </div>
 					<div style="display:inline;">观众/<span style="color:#666;font-size:16px;"><?php echo number_format($top14s[$rank]['fans']);?></span><span class="icon icon_peo"></span></div>
 				<div style="display:inline;margin-left:50px;">粉丝/<span style="color:#666;font-size:16px;"><?php echo number_format($top14s[$rank]['fans']);?></span></div>
-				<p style="padding-top:10px;">选自/<span style="color:#666;font-size:16px;"><?php echo $top14s[$rank]['showSiteName'];?></span></p>
+				<p style="padding-top:10px;">选自/<span style="color:#666;font-size:16px;"><?php echo $top14s[$rank]['siteName'];?></span></p>
 			</div>
 		</a>
 	</li>
@@ -46,7 +46,7 @@ for ($index=0; $index < count($dataProvider); $index++) {
                 </div>
                 <p>观众/<span style="color:#666;font-size:12px;"><?php echo number_format($top14s[$rank]['fans']);?></span><span class="icon icon_peo"></span></p>
                 <p>粉丝/<span style="color:#666;font-size:12px;"><?php echo number_format($top14s[$rank]['fans']);?></span></p>
-                <p>选自/<span style="color:#666;font-size:12px;"><?php echo $top14s[$rank]['showSiteName'];?></span></p>
+                <p>选自/<span style="color:#666;font-size:12px;"><?php echo $top14s[$rank]['siteName'];?></span></p>
             </div>
         </a>
 	</li>

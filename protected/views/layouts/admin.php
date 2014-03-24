@@ -67,6 +67,7 @@
 							array('label'=>'TAG管理', 'url'=>array('tag/admin')),
 							array('label'=>'已标注主播', 'url'=>array('zhuboTag/taged')),
 							array('label'=>'未标注主播', 'url'=>array('zhuboTag/toTag')),
+							array('label'=>'首页主播', 'url'=>array('zhuboTag/onlineToTag')),
 							array('label'=>'登录', 'url'=>array('site/login'), 'visible'=>Yii::app()->user->isGuest),
 							array('label'=>'注销('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 						),

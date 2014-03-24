@@ -5,7 +5,7 @@
 class Tool{
 	public static $MAX_NAME_LEN = 12;		// 大图的名字
 	public static $MAX_SMALL_NAME_LEN = 7;	// 小图的名字
-	public static $MAX_TAG_NUM = 3;
+	public static $MAX_TAG_NUM = 5;
 	
 	
 	public static function getName($name){

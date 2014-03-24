@@ -24,8 +24,8 @@
 	<div class="bar_left_par">
 		<!-- 精挑细选部分 -->
         	<div class="row-fluid clearfix" style="margin-bottom: 26px;">
-				<div class="span2  pull-left" style="margin-top:10px;">
-					<span style="font-size: 32px;color:#7f7f7f;">精挑细选</span>
+			<div class="span2  pull-left" style="margin-top:10px;">
+				<span style="font-size: 32px;color:#7f7f7f;">精挑细选</span>
 				</div>
 				<div class="span2 fluid_tag">
 					<a href="#" id="yt1"><span class="zhubo_tag" rel="list1">All</span></a></div>
@@ -39,12 +39,21 @@
                     <a href="#" id="yt5"><span class="zhubo_tag" rel="list5">好声音</span></a></div>
                 <b class="sanjiao"></b>
 			</div>
-			<div class="row-fluid clearfix" id='jingtiaoxixuan'>
-	        	<?php	
-					$this->renderPartial("_jingtiaoxixuan",
-						array('dataProvider'=>$jingtiaoxixuan_dataProvider)); 
-				?>
-        	</div>
+		<div class="row-fluid clearfix" id='jingtiaoxixuan'>
+        	<?php	
+				$this->renderPartial("_jingtiaoxixuan",
+					array('dataProvider'=>$jingtiaoxixuan_dataProvider)); 
+			?>
+        </div>
+        
+        <div class="row-fluid" style="width:960px,height:90px;margin:20px auto;">
+	    	<script type="text/javascript">
+				var sogou_ad_id=322402;
+				var sogou_ad_height=90;
+				var sogou_ad_width=960;
+			</script>
+			<script language='JavaScript' type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+	    </div>
         	
         <!-- 最佳新人部分 -->
         <div class="peo_new_par clearfix">

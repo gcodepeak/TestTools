@@ -3,8 +3,9 @@
 /* @var $model Zhubo */
 ?>
 
-<h1>查看主播详细信息</h1>
+<h1 style="text-align: center">主播详细信息</h1>
 
+<div style="text-align: center;width:70%;margin:0 auto;">
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
@@ -32,3 +33,4 @@
 		'photos',
 	),
 )); ?>
+</div>

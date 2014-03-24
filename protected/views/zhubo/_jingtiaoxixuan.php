@@ -20,14 +20,14 @@ foreach ($dataProvider as $data){
                 <span><?php echo Tool::getName($data['name']);?></span>
                 <b class="gz_bt" rel="id1"></b>
             </div>
-            <!-- ?php if ($data['is_live']) {?>
+            <?php if ($data['is_live']) {?>
 				<b class="live_image_icon"></b>
-			<!--?php }?-->
+			<?php }?>
             </a>  
 		</div>
 	</div>
 	<div class="category_time_div clearfix">
-		<div class="category_time_div_left"><span class="kb_time_s">开播:</span><span class="kb_time"><?php echo substr($data['last_live_time'], -8, 5);?></span><span class="icon icon_split"></span></div>
+		<div class="category_time_div_left"><span class="kb_time_s">开播:</span><span class="kb_time"><?php echo substr($data['last_live_time'], -8, 5);?></span><!--span class="icon icon_split"></span--></div>
 		<div class="category_time_div_right"><span class="icon icon_peo"></span><span><?php echo number_format($data['hots'])?></span></div>
 	</div>
     <div class="category_tag_div">

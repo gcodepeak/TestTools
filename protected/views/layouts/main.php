@@ -33,7 +33,9 @@
 	<meta property="wb:webmaster" content="6fde5ee71fe33f5e" />
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3208590814" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
-		data-appid="101029271" data-redirecturi="http://www.meilizhubo.com/call_back.html" charset="utf-8"></script>
+		data-appid="101029271" data-redirecturi="http://www.meilizhubo.com" charset="utf-8"></script>
+	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
+		charset="utf-8" data-callback="true"></script>
 </head>
 
 <script>
@@ -94,8 +96,8 @@
                         <div class="bar_nav_fav_menu">
                             <div class="bar_nav_fav_menu1"><a href="/xiuchang/index?site=1">我秀</a></div>
                             <div><a href="/xiuchang/index?site=2">YY</a></div>
-                            <div><a href="/xiuchang/index?site=3"">Sina</a></div>
-                            <div><a href="/xiuchang/index?site=4"">六间房</a></div>
+                            <!-- div><a href="/xiuchang/index?site=3">酷我</a></div-->
+                            <div><a href="/xiuchang/index?site=4">六间房</a></div>
                         </div>
 				</div>
 			</div>

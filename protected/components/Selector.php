@@ -8,8 +8,8 @@
 class Selector{
 
 	// 选取的列
-	private static $SELECT_COLS = "distinct(zhubo.id) as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time";
-	private static $LIMIT = 20;
+	private static $SELECT_COLS = "distinct(zhubo.id) as id, local_id, zhubo.name as name, head_img, ShowSite.name as siteName, hots, fans, is_live, last_live_time";
+	private static $LIMIT = 2000;
 	private static $TOP_COUNT = 14;
 	private static $JINGTIAOXIXUAN_COUNT = 8;
 	private static $ZUIJIAXINREN_COUNT = 12; 
@@ -160,7 +160,7 @@ class Selector{
 			}
 			
 			// 去除已经在top14和jingtiaoxixuan中的zhubo
-			$sql_cmd = "select distinct(zhubo.id) as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, is_live, last_live_time"
+			$sql_cmd = "select ".self::$SELECT_COLS
 					." from zhubo, ShowSite, ZhuboTag where zhubo.site_id = ShowSite.id and zhubo.id = ZhuboTag.zhubo_id ".$condition
 					." order by zhubo.is_live desc, zhubo.fans desc limit 8";
 			//print $sql_cmd;
@@ -250,7 +250,7 @@ class Selector{
 	
 	public function select_week_top5(&$dataProvider) {
 		$connection = Yii::app()->db;
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as siteName, hots, fans, is_live, last_live_time"
 				." from zhubo, ShowSite"
 				." where zhubo.site_id = ShowSite.id order by zhubo.fans desc limit 5";
 		$command = $connection->createCommand($sql_cmd);
@@ -261,7 +261,7 @@ class Selector{
 	
 	public function select_month_top5(&$dataProvider) {
 		$connection = Yii::app()->db;
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, is_live, last_live_time"
+		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as siteName, hots, fans, is_live, last_live_time"
 				." from zhubo, ShowSite"
 				." where zhubo.site_id = ShowSite.id order by zhubo.fans desc limit 5,5";
 		$command = $connection->createCommand($sql_cmd);

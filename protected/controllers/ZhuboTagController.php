@@ -32,7 +32,7 @@ class ZhuboTagController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','toTag','doTag','admin','delete','taged','tags'),
+				'actions'=>array('create','update','toTag','doTag','onlineToTag','admin','delete','taged','tags'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -284,6 +284,43 @@ class ZhuboTagController extends Controller
 		));
 	}
 	
+	// 正在直播且未标注的主播
+	public function actionOnlineToTag()
+	{
+		$selector = new Selector();
+		$selector->select();
+		
+		$top_14_dataProvider = $selector->top14_dataProvider;
+		
+		
+		
+		$zuijiaxinren_dataProvider = $selector->zuijiaxinren_dataProvider;
+		Tool::setTags($zuijiaxinren_dataProvider);
+		
+		$zhubo = array_merge($top_14_dataProvider, $zuijiaxinren_dataProvider);
+		
+		$jingtiaoxixuan_dataProviders = $selector->jingtiaoxixuan_dataProvider;
+		foreach ($jingtiaoxixuan_dataProviders as $dp) {
+			Tool::setTags($dp);
+			$zhubo = array_merge($zhubo,$dp);
+		}
+		
+		// 去除已经标注的主播
+		
+		/*
+		$zhubo=new Zhubo('toTagSearch');
+		$zhubo->unsetAttributes();  // clear any default values
+		if(isset($_GET['Zhubo'])){
+			$zhubo->attributes=$_GET['Zhubo'];
+			//print_r($zhubo);
+		}
+		*/
+	
+		$this->render('onlineToTag',array(
+				'zhubos'=>$zhubo,
+		));
+	}
+	
 	// 已经标注的主播
 	public function actionTaged()
 	{
@@ -321,7 +358,7 @@ class ZhuboTagController extends Controller
 		}
 		
 		// 标记已经添加的tag
-		$sql_cmd = "select zhubo.id as id, local_id, zhubo.name as name, ShowSite.name as SiteName, is_live, username, head_img ".
+		$sql_cmd = "select zhubo.id as id, local_id, zhubo.name as name, ShowSite.name as siteName, is_live, username, head_img ".
 					", GROUP_CONCAT(Tag.name ORDER BY Tag.id DESC SEPARATOR '  ') as tageds ".
 					" from zhubo, ZhuboTag, Tag, ShowSite, User ".
 					" where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and ShowSite.id = zhubo.site_id and ZhuboTag.user_id = User.id and Tag.status = 1 ".

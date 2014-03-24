@@ -102,7 +102,7 @@ foreach ($zhubos as $zhubo){
 	print '<td>'.$zhubo['id'].'</td>';
 	print '<td>'.$zhubo['local_id'].'</td>';
 	print '<td>'.$zhubo['name'].'</td>';
-	print '<td>'.$zhubo['SiteName'].'</td>';
+	print '<td>'.$zhubo['siteName'].'</td>';
 	print '<td>'.$zhubo['is_live'].'</td>';
 	// 如果head_image路径包含"modified_img",则表示已经修图
 	if(strpos($zhubo['head_img'],'modified_img') != false){
