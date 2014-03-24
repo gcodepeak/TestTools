@@ -11,11 +11,11 @@
 		<!--标题-->
 		<div class="list_con_titlebar clearfix">
 			<div class="list_con_titlebar_left">
-			<span class="list_c_t1"><?php echo $showSiteName;?></span><span
-				class="list_t_span type_cur"><a href="#">主播最多</a></span><b></b><span
-				class="list_t_span"><a href="#">粉丝最多</a></span><b></b><span
-				class="list_t_span"><a href="#">大富大贵</a></span><b></b><span
-				class="list_t_span"><a href="#">历史悠久</a></span> 
+			<span class="list_c_t1"><?php echo $showSiteName;?></span>
+				<!-- span class="list_t_span type_cur"><a href="#">主播最多</a></span><b></b>
+				<span class="list_t_span"><a href="#">粉丝最多</a></span><b></b>
+				<span class="list_t_span"><a href="#">大富大贵</a></span><b></b>
+				<span class="list_t_span"><a href="#">历史悠久</a></span--> 
 			</div>
 			<span class="list_t_ad">
 				<script type="text/javascript">

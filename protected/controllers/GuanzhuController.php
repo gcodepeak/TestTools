@@ -169,7 +169,7 @@ class GuanzhuController extends Controller
 		}
 		$startIndex = ($page - 1) * $pageSize;
 		// 查询当前分页的数据
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as showSiteName, hots, fans, last_live_time"
+		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, ShowSite.name as siteName, hots, fans, is_live, last_live_time"
 				." from zhubo, ShowSite"
 				." where zhubo.site_id = ShowSite.id order by zhubo.is_live desc, zhubo.fans desc limit 8";
 		$command = $connection->createCommand($sql_cmd);

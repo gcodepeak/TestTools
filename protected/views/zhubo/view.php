@@ -3,6 +3,8 @@
 /* @var $model Zhubo */
 ?>
 
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+
 <h1 style="text-align: center">主播详细信息</h1>
 
 <div style="text-align: center;width:70%;margin:0 auto;">

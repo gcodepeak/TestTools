@@ -11,13 +11,13 @@
 		<!--标题-->
 		<div class="list_con_titlebar">
 			<span class="list_c_t1">主播排行榜</span>
-			<span class="list_t_span month_cur">
+			<!-- span class="list_t_span month_cur">
 				<a class="top_month_bt select"
 				href="#"></a>
 			</span>
 			<span class="list_t_span week_cur">
 				<a class="top_week_bt" href="#"></a>
-			</span>
+			</span-->
 			
 			<span class="list_t_ad"> 
 				<script type="text/javascript">
