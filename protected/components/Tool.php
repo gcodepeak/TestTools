@@ -79,7 +79,7 @@ class Tool{
 	}
 	
 	// 渠道码
-	public static $SITE_KEY_MAP = array('4'=>'4016');
+	public static $SITE_KEY_MAP = array('1'=>'4016','2'=>'4016','3'=>'4016','4'=>'4016','5'=>'4016','6'=>'4016');
 	
 	// 重组直播URL,添加渠道码
 	public static function reformURL($url, $site_id, $id){
