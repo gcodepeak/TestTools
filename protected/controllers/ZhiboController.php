@@ -33,16 +33,22 @@ class ZhiboController extends Controller
 		$sql_cmd = "select SUBSTRING_INDEX(GROUP_CONCAT(Tag.show_name ORDER BY Tag.weight), ',' , 5) as tags ".
 				" from ZhuboTag, Tag ".
 				" where ZhuboTag.tag_id = Tag.id and Tag.status = 1 and Tag.weight!= 0".
-				" and zhubo_id = " . $zhubo->zhubo_id . ")";
+				" and zhubo_id = " . $zhubo->id .";";
 
 		$command = $connection->createCommand($sql_cmd);
 		$tags = $command->queryScalar();
 		
+		$showSiteName = ShowSite::model()->findByPk($zhubo->site_id)->name;
+		
 		// 修改pageTitle
 		$this->setPageTitle($zhubo->name."直播间 - 美女主播视频聊天室_视频K歌 - 美丽主播");
 		
-		$this->keywords = $tags.",美丽主播秀场,视频聊天,视频聊天室,视频交友,".$zhubo->name."%直播,%主播昵称%视频";
-		$this->description = "美丽主播秀场%主播昵称%直播间提供主播%主播昵称%的K歌曲、视频、资料、照片、粉丝群、动态等各种信息。".$zhubo->name.' '.$zhubo->fans;
+		$this->keywords = "美丽主播秀场,视频聊天,视频聊天室,视频交友,".$zhubo->name."%直播,%主播昵称%视频";
+		if ($tags != "") {
+			$this->keywords = $tags.",".$this->keywords;
+		}
+		
+		$this->description = "美丽主播秀场%".$showSiteName."%直播间提供主播%".$zhubo->name."%的K歌曲、视频、资料、照片、粉丝群、动态等各种信息。".$zhubo->name.' '.$zhubo->fans;
 		
 		$this->render('index',array('zhubo'=>$zhubo,
 				'dataProvider'=>$dataProvider));
