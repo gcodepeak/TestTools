@@ -1,7 +1,6 @@
 <?php
 /* @var $this ZhuboController */
 /* @var $dataProvider CActiveDataProvider */
-
 ?>
 
 <link rel="stylesheet" type="text/css" href="/css/zhubo.css" />

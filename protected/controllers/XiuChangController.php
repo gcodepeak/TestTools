@@ -97,7 +97,11 @@ class XiuChangController extends Controller
 		Tool::setTags($dataProvider);
 		
 		$showSiteName = ShowSite::model()->findByPk($_GET['site'])->name;
-		
+		// 修改pageTitle
+		$this->setPageTitle($showSiteName." - 全部美女主播 - 美丽主播");
+		$this->keywords = $showSiteName.",主播大全,美女主播,美女视频,美女直播,秀场,视频聊天,视频交友";
+		$this->description="美丽主播是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。"
+							."支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。";
 		$this->render('index',array(
 			'showSiteName'=>$showSiteName,
 			'dataProvider'=>$dataProvider,

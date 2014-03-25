@@ -4,13 +4,13 @@
 <html xmlns:wb="http://open.weibo.com/wb">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="language" content="en" />
+<meta name="language" content="zh_CN" />
 <meta name="keywords"
-	content="美女主播,美女视频,美女直播,秀场,视频聊天,视频交友,美女视频聊天,美女视频直播秀" />
+	content="<?php echo CHtml::encode($this->keywords);?>" />
 <meta name="description"
-	content="meilizhubo 美女主播导航是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。" />
+	content="<?php echo CHtml::encode($this->description);?>" />
 <meta name="robots"
-	content="<?php Yii::getPathOfAlias('webroot')?>/robots.txt" />
+	content="content="noindex,nofollow"" />
 
 <link rel="stylesheet" type="text/css" href="/css/nav.css" />
 <link rel="stylesheet" type="text/css" href="/css/homeindex.css" />
@@ -27,7 +27,7 @@
 <script src="/js/iepngfix.js" language="javascript" type="text/javascript"></script>
 <![endif]-->
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+	<title><?php echo CHtml::encode($this->pageTitle);?></title>
     <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i">
 	<meta property="qc:admins" content="1214624635655141205276375" />
 	<meta property="wb:webmaster" content="6fde5ee71fe33f5e" />

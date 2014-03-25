@@ -21,6 +21,10 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 	
+	public $keywords="美丽主播";
+	
+	public $description="美丽主播";
+	
 	protected function beforeAction($obj_action){
 		$log_col_arr = array();
 		

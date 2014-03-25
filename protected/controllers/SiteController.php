@@ -3,7 +3,7 @@
 class SiteController extends Controller
 {
 	public $layout='//layouts/homepage';
-	
+
 	/**
 	 * Declares class-based actions.
 	 */
