@@ -65,7 +65,7 @@
 	<!-- 右边 -->
 	<div class="zb_right">
 		<iframe id="zhibo_iframe" name="_zhibo_target"
-			src="<?php echo $zhubo->url;?>"
+			src="<?php echo Tool::reformURL($zhubo->url, $zhubo->site_id, $zhubo->id);?>"
 			style="width: 100%; min-height: 700px; height: 700px; border: 0px solid #fff;"></iframe>
 	</div>
 </div>

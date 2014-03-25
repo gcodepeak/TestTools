@@ -35,6 +35,10 @@ class Tool{
 	
 	// 注意参数是引用!
 	public static function setTags(&$dataProvider){
+		if(count($dataProvider) <= 0){
+			return;
+		}
+		
 		$ids = array();
 		array_walk($dataProvider, function($v, $k) use(&$ids){
 			$ids[$k] = $v['id'];
@@ -72,6 +76,43 @@ class Tool{
 				//print_r($data['tagids']);
 			}
 		}
+	}
+	
+	// 渠道码
+	public static $SITE_KEY_MAP = array('4'=>'4016');
+	
+	// 重组直播URL,添加渠道码
+	public static function reformURL($url, $site_id, $id){
+		if (! array_key_exists($site_id, self::$SITE_KEY_MAP)) {
+			return $url;
+		}
+		
+		$key = self::$SITE_KEY_MAP[$site_id].$id;
+		
+		if (strpos($url, "?") != false){
+			$new_url = $url."&from=".$key;
+		} else {
+			$new_url = $url."?from=".$key;
+		}
+		
+		return $new_url;
+	}
+	
+	public static function generateURL($site_id, $zhubo_id){
+		print $site_id.$zhubo_id;
+		return;
+		$url = "";
+		if (array_key_exists($site_id, self::$SITE_KEY_MAP)) {
+			$url = Yii::app()->createUrl('zhibo/zhibo',array('id'=>$zhubo_id));
+		} else {
+			$id = sprintf("%6d", $zhubo_id);
+			$key = self::$SITE_KEY_MAP[$site_id].$id;
+			
+			$url = Yii::app()->createUrl('zhibo/zhibo',array('id'=>$zhubo_id,'from'=>$key));
+		}
+		
+		print $url;
+		return $url;
 	}
 
 };
