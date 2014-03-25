@@ -87,7 +87,8 @@ class Tool{
 			return $url;
 		}
 		
-		$key = self::$SITE_KEY_MAP[$site_id].$id;
+		$reform_id = sprintf("%6d", $id);
+		$key = self::$SITE_KEY_MAP[$site_id].$reform_id;
 		
 		if (strpos($url, "?") != false){
 			$new_url = $url."&from=".$key;
