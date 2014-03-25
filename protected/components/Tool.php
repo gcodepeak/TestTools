@@ -79,7 +79,7 @@ class Tool{
 	}
 	
 	// 渠道码
-	public static $SITE_KEY_MAP = array('4'=>'4016');
+	public static $SITE_KEY_MAP = array('1'=>'4016');
 	
 	// 重组直播URL,添加渠道码
 	public static function reformURL($url, $site_id, $id){
@@ -87,7 +87,7 @@ class Tool{
 			return $url;
 		}
 		
-		$reform_id = sprintf("%6d", $id);
+		$reform_id = sprintf("%06d", $id);
 		$key = self::$SITE_KEY_MAP[$site_id].$reform_id;
 		
 		if (strpos($url, "?") != false){
