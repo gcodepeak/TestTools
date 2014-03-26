@@ -74,7 +74,9 @@
 				</div>
 				<div class="bar_login">
 					<div class="bar_login_div">
-						<a title="用新浪微博账号登录" href="#" class="icon_weibo" data-cmd="tsina"><b></b><span>微博</span></a><a title="用QQ号登录" href="#" class="icon_qq" data-cmd="tqq"><b></b><span>QQ</span></a><a title="用人人账号登录" href="#" class="icon_renren" data-cmd="tqq"><b></b><span>人人</span></a>
+						<a title="用新浪微博账号登录" href="#" class="icon_weibo" data-cmd="tsina"><b></b><span>微博</span></a>
+						<a title="用QQ号登录" href="#" class="icon_qq" data-cmd="tqq"><b></b><span>QQ</span></a>
+						<a title="用人人账号登录" href="#" class="icon_renren" data-cmd="tqq"><b></b><span>人人</span></a>
 					</div>
 					<div class="bar_loginout_div"></div>
 				</div>

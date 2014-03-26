@@ -287,15 +287,33 @@ $(document).ready(function(){
         $(b).removeClass("icon_login_hover");
         $(span).removeClass("spanhover");
     });
+    
     loginEvent();
     function loginEvent()
     {
         //登录点击
         $(".icon_weibo" ).click(function() {
+        	/*
             var html = $("#login_content").html();
             loginDiv = dialog(html);
             loginDiv.show();
             userlogin();
+            */
+        	WB2.login(function(){
+        		//callback function
+        		alert("微博账户登录成功: "+o.screen_name);
+				$.ajax({  
+	                type:"POST",  
+	                url:"./?mod=ajax&app=ajax_login&act=weibo",  
+	                async:false,  
+	                data:{'login':'only'},  
+	                success: function(msg){  
+	                     if(msg == 'yes'){  
+	                        	//你的操作 
+	                     }  
+	                }  
+	            });
+        	});
         });
         $(".icon_qq" ).click(function() {
         	/*
