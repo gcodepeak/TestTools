@@ -29,7 +29,7 @@
 
 	<title><?php echo CHtml::encode($this->pageTitle);?></title>
     <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i">
-	<meta property="qc:admins" content="1214624635655141205276375" />
+	<meta property="qc:admins" content="2566260732655141205276375"/>
 	<meta property="wb:webmaster" content="6fde5ee71fe33f5e" />
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3208590814" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
