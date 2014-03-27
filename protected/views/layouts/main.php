@@ -33,7 +33,7 @@
 	<meta property="wb:webmaster" content="6fde5ee71fe33f5e" />
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3208590814" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
-		data-appid="101029271" data-redirecturi="http://www.meilizhubo.com" charset="utf-8"></script>
+		data-appid="101047673" data-redirecturi="http://www.meilizhubo.com" charset="utf-8"></script>
 	<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" 
 		charset="utf-8" data-callback="true"></script>
 </head>
