@@ -319,8 +319,8 @@ $(document).ready(function(){
         $(".icon_qq" ).click(function() {
         	//以下为按钮点击事件的逻辑。注意这里要重新打开窗口
         	//否则后面跳转到QQ登录，授权页面时会直接缩小当前浏览器的窗口，而不是打开新窗口
-        	var A=window.open("oauth/index.php","TencentLogin",
-        	   "width=450,height=320,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+        	//var A=window.open("oauth/index.php","TencentLogin",
+        	//   "width=450,height=320,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1");
         	
         	//return;
             var html = $("#login_content").html();
@@ -338,12 +338,49 @@ $(document).ready(function(){
         });
     }
     
+    QC.Login({}, 
+    	function (reqData, opts) {//登录成功
+	        //alert("登录成功");
+    		// 关闭登录窗口
+	        loginDiv.close();
+	        
+	        QC.Login.getMe(function(openId, accessToken){
+				//alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
+				if(openId){
+                    $.ajax({  
+                        type:"POST",  
+                        url:"site/QQLogin",
+                        async:false,
+                        data:{'openid':openId,'access':accessToken,'login':'only'},  
+                        success: function(msg){
+                             if(msg != ''){
+                            	 alert(msg);
+                             }
+                        }  
+                     });  
+                }
+			});
+	        
+	        $(".bar_login_lab").html("<span class='bar_login_clew'>亲，欢迎回来！</span>");
+            var html = "<b class='login_b'></b><span class=''>"+reqData.nickname+"，</span><a class='logout_a' href='javascript:QC.Login.signOut()'>退出登录</a>";
+            $(".bar_loginout_div").html(html);
+            $(".bar_login_div").hide();
+            $(".bar_loginout_div").show();
+	    }, function (opts) {
+	        //alert('注销成功');
+	        var html_clew = '<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>';
+            $(".bar_login_lab").html(html_clew);
+            $(".bar_login_div").show();
+            $(".bar_loginout_div").hide();
+	    }
+	);
+    
     function qq_login()
     { 	
 	    $("#qq_login_btn img").click(function() {
 	    	QC.Login.showPopup({
 	 		   appId:"101047673",
-	 		   redirectURI:"http://www.meilizhubo.com"
+	 		   //redirectURI:"http://www.meilizhubo.com"
 	 		});
 	    });
     	/*
@@ -458,32 +495,33 @@ $(document).ready(function(){
 	} */ 
     
     /* 如果已登录 */
+    /*
     if(QC.Login.check()){		//如果已登录
 		QC.Login.getMe(function(openId, accessToken){
 			alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
-			/*
+			
 			if(openId){
                 $.ajax({  
                     type:"POST",  
-                    url:"./?mod=ajax&app=ajax_login&act=qq",  
-                    async:false,  
+                    url:"site/QQLogin",
+                    async:false,
                     data:{'openid':openId,'access':accessToken,'login':'only'},  
                     success: function(msg){  
                          if(msg == 'yes'){  
                             //这里是你的操作  
+                        	//登录成功后修改右上角
+                             //loginDiv.close();
+                 			$(".bar_login_lab").html("<span class='bar_login_clew'>亲，欢迎回来！</span>");
+                             var html = "<b class='login_b'></b><span class=''>李开复XX，</span><a class='logout_a' href='javascript:QC.Login.signOut()'>退出登录</a>";
+                             $(".bar_loginout_div").html(html);
+                             $(".bar_login_div").hide();
+                             $(".bar_loginout_div").show();
                          }  
                     }  
                  });
-            }*/
-			//登录成功后修改右上角
-            //loginDiv.close();
-			$(".bar_login_lab").html("<span class='bar_login_clew'>亲，欢迎回来！</span>");
-            var html = "<b class='login_b'></b><span class=''>李开复XX，</span><a class='logout_a' href='#'>退出登录</a>";
-            $(".bar_loginout_div").html(html);
-            $(".bar_login_div").hide();
-            $(".bar_loginout_div").show();
+            }
 		});
 		//这里可以调用自己的保存接口
 		//...
-	}
+	}*/
 });

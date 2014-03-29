@@ -75,4 +75,36 @@ class LoginForm extends CFormModel
 		
 		return false;
 	}
+	
+	public function loginNoPassword()
+	{
+		if($this->_identity===null)
+		{
+			$user = User::model()->findByAttributes(array('username'=>$this->username));
+			
+			// 如果用户尚未存在，那么新建一个
+			if ($user === null){
+				
+				$model=new User;
+				$model->register_time = new CDbExpression('NOW()');
+				$model->username = $this->username;
+				$model->password = md5($this->username);
+				$model->save();
+				//if($model->save())
+				//	$this->redirect(array('view','id'=>$model->id));
+				
+			}
+			$this->_identity=new UserIdentity($this->username,$this->password);
+			$this->_identity->authenticate();
+		}
+		
+		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)
+		{
+			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
+			Yii::app()->user->login($this->_identity,$duration);
+			return true;
+		}
+		
+		return false;
+	}
 }

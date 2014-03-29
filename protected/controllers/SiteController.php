@@ -104,48 +104,26 @@ class SiteController extends Controller
 	/**
 	 * 使用三方账号登录
 	 * */
-	public function QQLogin()
+	public function actionQQLogin()
 	{
-		if(emptyempty($_POST['openid']) || emptyempty($_POST['access'])){
-			echo "no";
-			exit;
+		if(empty($_POST['openid']) || empty($_POST['access'])){
+			echo "no openid or access infomation, login failed";
+			return -1;
 		}
 		
-		$this->open_id = $_POST['openid'];
-		$this->access = $_POST['access'];
-		
-		$qc = new QC($this->access,$this->open_id);     //对数据进行校验
-		$arr = $qc->get_user_info();
-		
-		$result = $this->save_qq($arr);      //保存数据
-		if(!emptyempty($result)){
-			echo "yes";
-			exit;
-		} else {
-			echo "no";
-			exit;
-		}
+		$openid = $_POST['openid'];
+		$access = $_POST['access'];
 		
 		$model=new LoginForm;
-	
+		$model->username = $openid;
+		
+		$model->loginNoPassword();
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-	
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				//$this->redirect(Yii::app()->user->returnUrl);
-				$this->redirect("/zhubo/admin");
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
 	}
 
 	/**
