@@ -164,7 +164,7 @@
 		<div class="login_img"  id="qq_login_btn">
 			<img src="<?php echo Yii::app()->request->baseUrl;?>/images/login_qq.png" alt="">
 		</div>
-		<div class="login_img">
+		<div class="login_img" id="renren_login_btn">
 			<img src="<?php echo Yii::app()->request->baseUrl;?>/images/login_renren.png" alt="">
 		</div>
 	</div>
