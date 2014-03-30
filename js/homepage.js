@@ -332,7 +332,7 @@ $(document).ready(function(){
                         data:{'openid':openId,'access':accessToken,'login':'only'},  
                         success: function(msg){
                              if(msg != ''){
-                            	 alert(msg);
+                            	 //alert(msg);
                              }
                         }  
                      });  
@@ -367,12 +367,13 @@ $(document).ready(function(){
     { 	
 	    $("#wb_login_btn img").click(function() {
 	    	alert("try to login with weibo");
-	    	WB2.login(function(){
-        		//callback function
-        		alert("微博账户登录成功: "+o.screen_name);
+	    	WB2.login(
+	    		function(o){ //callback function
+        		//alert("微博账户登录成功: "+o.screen_name);
+	    		alert("微博账户登录成功: ");
 				$.ajax({
 	                type:"POST",  
-	                url:"./?mod=ajax&app=ajax_login&act=weibo",  
+	                url:"site/weiboLogin",  
 	                async:false,  
 	                data:{'login':'only'},  
 	                success: function(msg){  
