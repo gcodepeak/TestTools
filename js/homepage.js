@@ -321,23 +321,24 @@ $(document).ready(function(){
 	        //alert("登录成功");
     		// 关闭登录窗口
 	        loginDiv.close();
-	        
-	        QC.Login.getMe(function(openId, accessToken){
-				//alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
-				if(openId){
-                    $.ajax({  
-                        type:"POST",  
-                        url:"site/QQLogin",
-                        async:false,
-                        data:{'openid':openId,'access':accessToken,'login':'only'},  
-                        success: function(msg){
-                             if(msg != ''){
-                            	 //alert(msg);
-                             }
-                        }  
-                     });  
-                }
-			});
+	        if (QC.Login.check()) {
+		        QC.Login.getMe(function(openId, accessToken){
+					//alert(["当前登录用户的", "openId为："+openId, "accessToken为："+accessToken].join("\n"));
+					if(openId){
+	                    $.ajax({  
+	                        type:"POST",  
+	                        url:"site/ThirdLogin",
+	                        async:false,
+	                        data:{'openid':openId,'name':reqData.nickname,'source':'qq','login':'only'},  
+	                        success: function(msg){
+	                             if(msg != ''){
+	                            	 //alert(msg);
+	                             }
+	                        }  
+	                     });  
+	                }
+				});
+	        }
 	        
 	        $(".bar_login_lab").html("<span class='bar_login_clew'>亲，欢迎回来！</span>");
             var html = "<b class='login_b'></b><span class=''>"+reqData.nickname+"，</span><a class='logout_a' href='javascript:QC.Login.signOut()'>退出登录</a>";
@@ -370,47 +371,38 @@ $(document).ready(function(){
 	    	WB2.login(
 	    		function(){ //callback function
         		//alert("微博账户登录成功: "+o.screen_name);
-	    		alert("微博账户登录成功: ");
+	    		//alert("微博账户登录成功: ");
+	  		        
+		    		var getUser = function(W, uid) {
+		    			// 得到/users/show.json之后的回调函数
+		    			var callback = function(result) {
+		    				var name = result.name;
+		    				// 请求服务器登录
+		    				$.ajax({
+		    	                type:"POST",  
+		    	                url:"site/ThirdLogin",
+		    	                async:false,
+		                        data:{'openid':uid,'name':name,'source':'sina','login':'only'}, 
+		    	                success: function(msg){  
+		    	                     if(msg == 'yes'){  
+		    	                        	//你的操作 
+		    	                     }
+		    	                }  
+		    	            });
+		    			};
+		    			
+		    			W.parseCMD("/users/show.json", callback, { uid: uid }, { method: 'get' });
+		    		}
 	    		// 获取用户信息
-  		          WB2.anyWhere(function(W) {
+  		        WB2.anyWhere(function(W) {
   		            W.parseCMD("/account/get_uid.json",
-  		            function(sResult, bStatus){
-  		              alert(sResult);
-  		            },
-  		            {
-  		              method: 'post'
-  		            });
-  		            //function(r1, s1) { getUser(W, r1.uid); }, {}, { method: 'get' });
-  		            // W.parseCMD("/account/profile/email.json",
-  		            //   function(r, s) { console.log(r); },{},{method:'get'});
-  		          });
-
-  		        /*
-	    		var getUser = function(W, uid) {
-	    			var callback = function(result) {
-	    				console.log(result);
-	    		          $('<h1>').text(result.name).appendTo($('body'));
-	    		          var list = $('<ul>');
-	    		          for(each in result) {
-	    		            console.log(each);
-	    		            $('<li>').text(each+': '+result[each]).appendTo(list);
-	    		          }
-	    		          list.appendTo($('body'));
-	    			};
-	    			W.parseCMD("/users/show.json", callback, { uid: uid }, { method: 'get' });
-	    		}
-	    		
-				$.ajax({
-	                type:"POST",  
-	                url:"site/weiboLogin",  
-	                async:false,  
-	                data:{'login':'only'},  
-	                success: function(msg){  
-	                     if(msg == 'yes'){  
-	                        	//你的操作 
-	                     }  
-	                }  
-	            });*/
+  		            function(r1, s1) {
+  		            	// 获取到uid之后，调用上面的getUser进一步获取用户名，并注册或者登录
+  		            	getUser(W, r1.uid);
+  		            }, 
+  		            {}, 
+  		            { method: 'get' });
+  		        });
         	});
 	    });
     }

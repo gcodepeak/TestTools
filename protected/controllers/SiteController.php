@@ -104,15 +104,16 @@ class SiteController extends Controller
 	/**
 	 * 使用三方账号登录
 	 * */
-	public function actionQQLogin()
+	public function actionThirdLogin()
 	{
-		if(empty($_POST['openid']) || empty($_POST['access'])){
-			echo "no openid or access infomation, login failed";
+		if(empty($_POST['openid']) || empty($_POST['name']) || empty($_POST['source'])){
+			echo "no openid, name or source infomation, login failed";
 			return -1;
 		}
 		
 		$openid = $_POST['openid'];
-		$access = $_POST['access'];
+		$name = $_POST['name'];
+		$source = $_POST['source'];
 		
 		$model=new LoginForm;
 		$model->username = $openid;
