@@ -342,15 +342,9 @@ $(document).ready(function(){
 	        
 	        $(".bar_login_lab").html("<span class='bar_login_clew'>亲，欢迎回来！</span>");
             var html = "<b class='login_b'></b><span class=''>"+reqData.nickname+"，</span><a class='logout_a' href='javascript:QC.Login.signOut()'>退出登录</a>";
-            $(".bar_loginout_div").html(html);
-            $(".bar_login_div").hide();
-            $(".bar_loginout_div").show();
+            user_login(html,'qq');
 	    }, function (opts) {
-	        //alert('注销成功');
-	        var html_clew = '<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>';
-            $(".bar_login_lab").html(html_clew);
-            $(".bar_login_div").show();
-            $(".bar_loginout_div").hide();
+	        user_logout();
 	    }
 	);
     
@@ -367,12 +361,8 @@ $(document).ready(function(){
     function wb_login()
     { 	
 	    $("#wb_login_btn img").click(function() {
-	    	alert("try to login with weibo");
 	    	WB2.login(
-	    		function(){ //callback function
-        		//alert("微博账户登录成功: "+o.screen_name);
-	    		//alert("微博账户登录成功: ");
-	  		        
+	    		function(){ //callback function 		        
 		    		var getUser = function(W, uid) {
 		    			// 得到/users/show.json之后的回调函数
 		    			var callback = function(result) {
@@ -389,6 +379,10 @@ $(document).ready(function(){
 		    	                     }
 		    	                }  
 		    	            });
+		    				
+		    				$(".bar_login_lab").html("<span class='bar_login_clew'>亲，欢迎回来！</span>");
+		    	            var html = "<b class='login_b'></b><span class=''>"+name+"，</span><a class='logout_a' href='javascript:WB2.logout();javascript:user_logout();'>退出登录</a>";
+		    	            user_login(html,'weibo');
 		    			};
 		    			
 		    			W.parseCMD("/users/show.json", callback, { uid: uid }, { method: 'get' });
@@ -408,35 +402,49 @@ $(document).ready(function(){
     }
     
     
+    function user_login(html, type) {
+    	$(".bar_loginout_div").html(html);
+        $(".bar_login_div").hide();
+        $(".bar_loginout_div").show();
+        //此处需要判断是什么类型登录，赋给class不一样
+        //微博：$(".bar_loginout_div").addClass("icon_weibo");
+        //qq：$(".bar_loginout_div").addClass("icon_qq");
+        //人人：$(".bar_loginout_div").addClass("icon_renren");
+
+        if (type == 'qq'){
+        	$(".bar_loginout_div").addClass("icon_qq");
+        } else if (type == 'weibo'){
+        	$(".bar_loginout_div").addClass("icon_weibo");
+        } else if (type == 'renren') {
+        	$(".bar_loginout_div").addClass("icon_renren");
+        }
+        
+        $(".bar_loginout_div" ).hover(function(){
+            var b = $(this).find("b");
+            var span = $(this).find("span");
+            var a = $(this).find("a");
+            $(b).addClass("icon_login_hover ");
+            $(span).addClass("spanhover");
+            $(a).addClass("a_hover");
+        },function(){
+            var b = $(this).find("b");
+            var span = $(this).find("span");
+            var a = $(this).find("a");
+            $(b).removeClass("icon_login_hover");
+            $(span).removeClass("spanhover");
+            $(a).removeClass("a_hover");
+        });
+    }
+    
+    function user_logout() {
+    	//alert('注销成功');
+        var html_clew = '<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>';
+        $(".bar_login_lab").html(html_clew);
+        $(".bar_login_div").show();
+        $(".bar_loginout_div").hide();
+    }
     
 /*	
-	WB2.anyWhere(function(W){
-    	W.widget.connectButton({
-    		id: "wb_connect_btn",	
-    		type:'1,2',
-    		callback : {
-    			login:function(o){	//登录后的回调函数
-    				alert("微博账户登录成功: "+o.screen_name);
-    				 $.ajax({  
-                         type:"POST",  
-                         url:"./?mod=ajax&app=ajax_login&act=weibo",  
-                         async:false,  
-                         data:{'login':'only'},  
-                         success: function(msg){  
-                              if(msg == 'yes'){  
-                                 	//你的操作 
-                              }  
-                         }  
-                      });	
-    			},
-    			logout:function(){	//退出后的回调函数
-    				alert('logout');
-    			}
-    		}
-    	});
-    });
-    
-
     function userlogin()
     {
         $(".login_img img").each(function(){
