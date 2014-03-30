@@ -368,9 +368,38 @@ $(document).ready(function(){
 	    $("#wb_login_btn img").click(function() {
 	    	alert("try to login with weibo");
 	    	WB2.login(
-	    		function(o){ //callback function
+	    		function(){ //callback function
         		//alert("微博账户登录成功: "+o.screen_name);
 	    		alert("微博账户登录成功: ");
+	    		// 获取用户信息
+  		          WB2.anyWhere(function(W) {
+  		            W.parseCMD("/account/get_uid.json",
+  		            function(sResult, bStatus){
+  		              alert(sResult);
+  		            },
+  		            {
+  		              method: 'post'
+  		            });
+  		            //function(r1, s1) { getUser(W, r1.uid); }, {}, { method: 'get' });
+  		            // W.parseCMD("/account/profile/email.json",
+  		            //   function(r, s) { console.log(r); },{},{method:'get'});
+  		          });
+
+  		        /*
+	    		var getUser = function(W, uid) {
+	    			var callback = function(result) {
+	    				console.log(result);
+	    		          $('<h1>').text(result.name).appendTo($('body'));
+	    		          var list = $('<ul>');
+	    		          for(each in result) {
+	    		            console.log(each);
+	    		            $('<li>').text(each+': '+result[each]).appendTo(list);
+	    		          }
+	    		          list.appendTo($('body'));
+	    			};
+	    			W.parseCMD("/users/show.json", callback, { uid: uid }, { method: 'get' });
+	    		}
+	    		
 				$.ajax({
 	                type:"POST",  
 	                url:"site/weiboLogin",  
@@ -381,10 +410,12 @@ $(document).ready(function(){
 	                        	//你的操作 
 	                     }  
 	                }  
-	            });
+	            });*/
         	});
 	    });
     }
+    
+    
     
 /*	
 	WB2.anyWhere(function(W){
