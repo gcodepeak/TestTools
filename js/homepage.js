@@ -288,6 +288,48 @@ $(document).ready(function(){
         $(span).removeClass("spanhover");
     });
     
+    function user_login(html, type) {
+    	$(".bar_loginout_div").html(html);
+        $(".bar_login_div").hide();
+        $(".bar_loginout_div").show();
+        //此处需要判断是什么类型登录，赋给class不一样
+        //微博：$(".bar_loginout_div").addClass("icon_weibo");
+        //qq：$(".bar_loginout_div").addClass("icon_qq");
+        //人人：$(".bar_loginout_div").addClass("icon_renren");
+
+        if (type == 'qq'){
+        	$(".bar_loginout_div").addClass("icon_qq");
+        } else if (type == 'weibo'){
+        	$(".bar_loginout_div").addClass("icon_weibo");
+        } else if (type == 'renren') {
+        	$(".bar_loginout_div").addClass("icon_renren");
+        }
+        
+        $(".bar_loginout_div" ).hover(function(){
+            var b = $(this).find("b");
+            var span = $(this).find("span");
+            var a = $(this).find("a");
+            $(b).addClass("icon_login_hover ");
+            $(span).addClass("spanhover");
+            $(a).addClass("a_hover");
+        },function(){
+            var b = $(this).find("b");
+            var span = $(this).find("span");
+            var a = $(this).find("a");
+            $(b).removeClass("icon_login_hover");
+            $(span).removeClass("spanhover");
+            $(a).removeClass("a_hover");
+        });
+    }
+    
+    function user_logout() {
+    	//alert('注销成功');
+        var html_clew = '<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>';
+        $(".bar_login_lab").html(html_clew);
+        $(".bar_login_div").show();
+        $(".bar_loginout_div").hide();
+    }
+    
     loginEvent();
     function loginEvent()
     {
@@ -361,6 +403,7 @@ $(document).ready(function(){
     function wb_login()
     { 	
 	    $("#wb_login_btn img").click(function() {
+	    	loginDiv.close();
 	    	WB2.login(
 	    		function(){ //callback function 		        
 		    		var getUser = function(W, uid) {
@@ -399,49 +442,6 @@ $(document).ready(function(){
   		        });
         	});
 	    });
-    }
-    
-    
-    function user_login(html, type) {
-    	$(".bar_loginout_div").html(html);
-        $(".bar_login_div").hide();
-        $(".bar_loginout_div").show();
-        //此处需要判断是什么类型登录，赋给class不一样
-        //微博：$(".bar_loginout_div").addClass("icon_weibo");
-        //qq：$(".bar_loginout_div").addClass("icon_qq");
-        //人人：$(".bar_loginout_div").addClass("icon_renren");
-
-        if (type == 'qq'){
-        	$(".bar_loginout_div").addClass("icon_qq");
-        } else if (type == 'weibo'){
-        	$(".bar_loginout_div").addClass("icon_weibo");
-        } else if (type == 'renren') {
-        	$(".bar_loginout_div").addClass("icon_renren");
-        }
-        
-        $(".bar_loginout_div" ).hover(function(){
-            var b = $(this).find("b");
-            var span = $(this).find("span");
-            var a = $(this).find("a");
-            $(b).addClass("icon_login_hover ");
-            $(span).addClass("spanhover");
-            $(a).addClass("a_hover");
-        },function(){
-            var b = $(this).find("b");
-            var span = $(this).find("span");
-            var a = $(this).find("a");
-            $(b).removeClass("icon_login_hover");
-            $(span).removeClass("spanhover");
-            $(a).removeClass("a_hover");
-        });
-    }
-    
-    function user_logout() {
-    	//alert('注销成功');
-        var html_clew = '<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录:</a>';
-        $(".bar_login_lab").html(html_clew);
-        $(".bar_login_div").show();
-        $(".bar_loginout_div").hide();
     }
     
 /*	
