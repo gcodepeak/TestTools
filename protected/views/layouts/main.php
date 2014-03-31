@@ -21,6 +21,7 @@
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/jquery.min.js");
 	//Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/bootstrap.min.js");
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/login.js");
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/homepage.js");
 ?>
 
 <!--[if IE 6]>
@@ -76,16 +77,32 @@
 		<div class="bar_right">
 			<div class="clearfix">
 				<div class="bar_login_lab">
-					<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录</a>
-					<span class="bar_login_clew">:</span>
+					<?php if (Yii::app()->user->isGuest) { ?>
+						<span class="bar_login_clew">请用以下帐号</span><a class="bar_login_bt">登录</a>
+						<span class="bar_login_clew">:</span>
+					<?php } else { ?>
+						<span class='bar_login_clew'>亲，欢迎回来！</span>
+					<?php }?>
 				</div>
 				<div class="bar_login">
-					<div class="bar_login_div">
-						<a title="用新浪微博账号登录" href="#" class="icon_weibo" data-cmd="tsina"><b></b><span>微博</span></a>
-						<a title="用QQ号登录" href="#" class="icon_qq" data-cmd="tqq"><b></b><span>QQ</span></a>
-						<a title="用人人账号登录" href="#" class="icon_renren" data-cmd="tqq"><b></b><span>人人</span></a>
-					</div>
-					<div class="bar_loginout_div"></div>
+					<?php if (Yii::app()->user->isGuest) { ?>
+						<div class="bar_login_div">
+					<?php } else {?>
+						<div class="bar_login_div" style="display: none;">
+					<?php } ?>
+							<a title="用新浪微博账号登录" href="#" class="icon_weibo" data-cmd="tsina"><b></b><span>微博</span></a>
+							<a title="用QQ号登录" href="#" class="icon_qq" data-cmd="tqq"><b></b><span>QQ</span></a>
+							<a title="用人人账号登录" href="#" class="icon_renren" data-cmd="tqq"><b></b><span>人人</span></a>
+						</div>
+					<?php if (Yii::app()->user->isGuest) { ?>
+						<div class="bar_loginout_div"></div>
+					<?php } else {?>
+						<div class="bar_loginout_div icon_qq" style="display: block;">
+							<b class='login_b'></b>
+							<span class=''>"+<?php echo Tool::getSmallName(Yii::app()->user->name);?>，</span>
+							<a class='logout_a' href='#'>退出登录</a>
+						</div>
+					<?php } ?>
 				</div>
 			</div>
 			<div>
@@ -181,9 +198,6 @@ jQuery('body').on('click','#yt0',function(){
 	return false;
 });
 </script>
-<?php 
-	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl."/js/homepage.js");
-?>
 <!-- footer -->
 
 </body>

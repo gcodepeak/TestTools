@@ -110,6 +110,7 @@ class SiteController extends Controller
 			echo "no openid, name or source infomation, login failed";
 			return -1;
 		}
+		//Yii::trace("enter actionThirdLogin", "debug.login");
 		
 		$openid = $_POST['openid'];
 		$name = $_POST['name'];
@@ -118,14 +119,13 @@ class SiteController extends Controller
 		$model=new LoginForm;
 		$model->username = $openid;
 		
+		$model->rememberMe = true;
+		
 		$model->loginNoPassword();
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			//echo CActiveForm::validate($model);
-			CActiveForm::validate($model);
-			Yii::app()->end();
-		}
+		//Yii::trace("enter validate and login", "debug.*");
+		//echo CActiveForm::validate($model);
+		//$model->validate() && $model->login();
+		Yii::app()->end();
 	}
 
 	/**
@@ -135,6 +135,6 @@ class SiteController extends Controller
 	{
 		Yii::app()->user->logout();
 		//$this->redirect(Yii::app()->homeUrl);
-		$this->redirect("/site/login");
+		$this->redirect("/zhubo/homepage");
 	}
 }

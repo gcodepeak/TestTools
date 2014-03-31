@@ -70,6 +70,7 @@ class LoginForm extends CFormModel
 		{
 			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
 			Yii::app()->user->login($this->_identity,$duration);
+			Yii::trace("login success, name: ".$this->username, "debug.*");
 			return true;
 		}
 		
@@ -88,13 +89,12 @@ class LoginForm extends CFormModel
 				$model=new User;
 				$model->register_time = new CDbExpression('NOW()');
 				$model->username = $this->username;
-				$model->password = md5($this->username);
+				$model->password = $this->username;
 				$model->save();
-				//if($model->save())
-				//	$this->redirect(array('view','id'=>$model->id));
-				
+				Yii::trace("saved new user", "debug.*");
 			}
-			$this->_identity=new UserIdentity($this->username,$this->password);
+			// 使用用户名当密码
+			$this->_identity=new UserIdentity($this->username,$this->username);
 			$this->_identity->authenticate();
 		}
 		
@@ -102,6 +102,7 @@ class LoginForm extends CFormModel
 		{
 			$duration=$this->rememberMe ? 3600*24*30 : 0; // 30 days
 			Yii::app()->user->login($this->_identity,$duration);
+			
 			return true;
 		}
 		

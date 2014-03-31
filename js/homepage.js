@@ -328,7 +328,29 @@ $(document).ready(function(){
         $(".bar_login_lab").html(html_clew);
         $(".bar_login_div").show();
         $(".bar_loginout_div").hide();
+        
+        // 请求服务器的logout
+    	top.location='/site/logout';
     }
+    
+    // 根据参数选择调用对应的三方登录的logout函数，然后请求服务器的logout
+    function logout(source) {
+    	if (source=="qq") {
+    		QC.Login.signOut();
+    		
+    	} else if (source == "weibo") {
+    		WB2.logout(function(){
+    			//callback function
+    		});
+    	}
+    	
+    	// 请求服务器的logout
+    	top.location='/site/logout';
+    }
+    
+    $(".logout_a").click(function(){
+    	logout('qq');
+    });
     
     loginEvent();
     function loginEvent()
@@ -369,7 +391,7 @@ $(document).ready(function(){
 					if(openId){
 	                    $.ajax({  
 	                        type:"POST",  
-	                        url:"site/ThirdLogin",
+	                        url:"/site/ThirdLogin",
 	                        async:false,
 	                        data:{'openid':openId,'name':reqData.nickname,'source':'qq','login':'only'},  
 	                        success: function(msg){

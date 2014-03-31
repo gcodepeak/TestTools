@@ -39,7 +39,7 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
 		} else {
 			//print_r($user->password);
-			print_r($user->encrypt($this->password));
+			//print_r($user->encrypt($this->password));
 			if ($user->password != $user->encrypt($this->password)) {
 				$this->errorCode = self::ERROR_PASSWORD_INVALID;
 			} else {
