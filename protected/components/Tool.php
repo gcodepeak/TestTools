@@ -78,6 +78,37 @@ class Tool{
 		}
 	}
 	
+	public static function setGuanzhu(&$dataProvider){
+		if(count($dataProvider) <= 0){
+			return;
+		}
+		
+		$ids = array();
+		array_walk($dataProvider, function($v, $k) use(&$ids){
+			$ids[$k] = $v['id'];
+		});
+		$ids_str = implode(',', $ids);
+		
+		// 获取当前用户
+		$userid = Yii::app()->user->id;
+		
+		$sql_cmd = "select zhubo_id as id from Guanzhu where status = 1 and user_id = ". $userid ." and zhubo_id in (".$ids_str.")";
+		//print $sql_cmd;
+		$command = Yii::app()->db->createCommand($sql_cmd);
+		$guanzhus = $command->queryAll();
+		
+		$guanzhu_ids = array();
+		array_walk($guanzhus, function($v, $k) use(&$ids){
+			$guanzhu_ids[$k] = $v['id'];
+		});
+		
+		foreach ($dataProvider as $gz) {
+			if (in_array($gz['id'], $guanzhu_ids)) {
+				$gz['guanzhu'] = 1;
+			}
+		}
+	}
+	
 	// 渠道码
 	public static $SITE_KEY_MAP = array('1'=>'4016','2'=>'4016','3'=>'4016','4'=>'4016','5'=>'4016','6'=>'4016');
 	

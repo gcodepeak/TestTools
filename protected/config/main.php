@@ -110,6 +110,13 @@ return array(
 					'categories'=> 'show.*',
 					'logFile'=> 'show.log',
 				),
+				// show log
+				array(
+					'class'=>'CFileLogRoute',
+					'levels'=>'info',
+					'categories'=> 'guanzhu.*',
+					'logFile'=> 'guanzhu.log',
+				),
 			),
 		),
 	),

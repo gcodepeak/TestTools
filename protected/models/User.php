@@ -7,9 +7,12 @@
  * @property string $id
  * @property string $username
  * @property string $password
+ * @property string $showName
+ * @property integer $loginType
  * @property string $register_time
  *
  * The followings are the available model relations:
+ * @property Guanzhu[] $guanzhus
  * @property ZhuboTag[] $zhuboTags
  */
 class User extends CActiveRecord
@@ -41,11 +44,13 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('username, password', 'required'),
-			array('username, password', 'length', 'max'=>64),
+			array('loginType', 'numerical', 'integerOnly'=>true),
+			array('username, password', 'length', 'max'=>256),
+			array('showName', 'length', 'max'=>64),
 			array('register_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, username, password, register_time', 'safe', 'on'=>'search'),
+			array('id, username, password, register_time, showName, loginType', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +62,7 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'guanzhus' => array(self::HAS_MANY, 'Guanzhu', 'user_id'),
 			'zhuboTags' => array(self::HAS_MANY, 'ZhuboTag', 'user_id'),
 		);
 	}
@@ -71,6 +77,8 @@ class User extends CActiveRecord
 			'username' => 'Username',
 			'password' => 'Password',
 			'register_time' => 'Register Time',
+			'showName' => 'Show Name',
+			'loginType' => 'Login Type',
 		);
 	}
 	
@@ -99,6 +107,8 @@ class User extends CActiveRecord
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('register_time',$this->register_time,true);
+		$criteria->compare('showName',$this->showName,true);
+		$criteria->compare('loginType',$this->loginType);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

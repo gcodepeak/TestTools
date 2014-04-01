@@ -8,6 +8,8 @@
 class UserIdentity extends CUserIdentity
 {
 	private $_id;
+	private $_name;
+	
 	/**
 	 * Authenticates a user.
 	 * The example implementation makes sure if the username and password
@@ -17,40 +19,32 @@ class UserIdentity extends CUserIdentity
 	 * @return boolean whether authentication succeeds.
 	 */
 	public function authenticate()
-	{
-	/* default impl
-		$users=array(
-			// username => password
-			'demo'=>'demo',
-			'admin'=>'admin',
-		);
-		if(!isset($users[$this->username]))
-			$this->errorCode=self::ERROR_USERNAME_INVALID;
-		elseif($users[$this->username]!==$this->password)
-			$this->errorCode=self::ERROR_PASSWORD_INVALID;
-		else
-			$this->errorCode=self::ERROR_NONE;
-		return !$this->errorCode;
-		*/
-		
+	{		
+		Yii::trace("UserIdentity authenticate begin", "debug.*");
 		$user = User::model()->findByAttributes(array('username'=>$this->username));
 		
 		if ($user === null){
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
 		} else {
-			//print_r($user->password);
-			//print_r($user->encrypt($this->password));
 			if ($user->password != $user->encrypt($this->password)) {
 				$this->errorCode = self::ERROR_PASSWORD_INVALID;
 			} else {
 				$this->_id = $user->id;
+				$this->_name = $user->showName;
 				$this->errorCode = self::ERROR_NONE;
 			}
 		}
+		
+		Yii::trace("UserIdentity errorCode: ".$this->errorCode, "debug.*");
 		return !$this->errorCode;
 	}
 	
 	public function getId(){
 		return $this->_id;
+	}
+	
+	// 返回用户的showName
+	public function getName(){
+		return $this->_name;
 	}
 }

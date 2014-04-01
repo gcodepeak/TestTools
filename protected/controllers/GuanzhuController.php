@@ -32,11 +32,11 @@ class GuanzhuController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','add','del'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -80,9 +80,15 @@ class GuanzhuController extends Controller
 	}
 	
 
+	// 添加关注
 	public function actionAdd(){
+		if (Yii::app()->user->isGuest) {
+			echo -1;
+			return;
+		}
+		
 		// 获取想要关注的主播的id
-		if(! isset($_GET['id'])) {
+		if(! isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			throw new CHttpException(404,'错误的访问，请指定需要关注的主播.');
 			return;
 		}
@@ -91,10 +97,21 @@ class GuanzhuController extends Controller
 		$userid = Yii::app()->user->id;
 		
 		// 插入新的关注记录
-		if(! isset($_GET['ajax'])){
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		$model = new Guanzhu();
+		$model->user_id = $userid;
+		$model->zhubo_id = $_GET['id'];
+		$model->add_time = new CDbExpression('NOW()');
+		//$model->del_time;
+		$model->status = 1;
+		
+		$ret = 0;
+		if (!$model->save()){
+			$ret = 1;
 		}
 		
+		Yii::log("add\t".$userid."\t".$_GET['id']."\t".$model->add_time,"info","guanzhu.add");
+		
+		echo $ret;
 	}
 
 	/**
@@ -121,18 +138,35 @@ class GuanzhuController extends Controller
 		));
 	}
 
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
-		$this->loadModel($id)->delete();
 
+	// 取消关注
+	public function actionDel($id)
+	{
+		if (Yii::app()->user->isGuest) {
+			echo -1;
+			return;
+		}
+		
+		//$this->loadModel($id)->delete();
+		// 获取想要关注的主播的id
+		if(! isset($_GET['id']) || !is_numeric($_GET['id'])) {
+			throw new CHttpException(404,'错误的访问，请指定需要关注的主播.');
+			return;
+		}
+		
+		// 获取当前用户
+		$userid = Yii::app()->user->id;
+		
+		$del_time = new CDbExpression('NOW()');
+
+		$sql_cmd = "update Guanzhu set status = 0, del_time = '".$del_time."' where status = 1 and zhubo_id = ".$id." and user_id = ".$userid;
+		$command = Yii::app()->db->createCommand($sql_cmd);
+		$rowCount = $command->execute();
+
+		Yii::log('del\t'.$userid."\t".$id."\t".$del_time."\t".$rowCount,"info","guanzhu.del");
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		// if(!isset($_GET['ajax']))
+		//	$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**

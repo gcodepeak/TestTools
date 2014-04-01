@@ -99,7 +99,7 @@
 					<?php } else {?>
 						<div class="bar_loginout_div icon_qq" style="display: block;">
 							<b class='login_b'></b>
-							<span class=''>"+<?php echo Tool::getSmallName(Yii::app()->user->name);?>，</span>
+							<span><?php echo Tool::getName(Yii::app()->user->name);?>，</span>
 							<a class='logout_a' href='#'>退出登录</a>
 						</div>
 					<?php } ?>

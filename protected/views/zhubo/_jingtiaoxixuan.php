@@ -18,7 +18,7 @@ foreach ($dataProvider as $data){
             <a href="<?php echo Yii::app()->createUrl('zhibo/zhibo',array('id'=>$data['id'],))?>" target="_blank"><img src="<?php echo $data['head_img']?>" alt="<?php echo $data['name']?>" />
 			<div class="category_image_title">
                 <span><?php echo Tool::getName($data['name']);?></span>
-                <b class="gz_bt" rel="id1"></b>
+                <b class="gz_bt" rel="id1" uid="<?php echo $data['id']?>"></b>
             </div>
             <?php if ($data['is_live']) {?>
 				<b class="live_image_icon"></b>

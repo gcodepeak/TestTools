@@ -207,36 +207,38 @@ $(document).ready(function(){
     function addLoveEvent(obj){
         $(obj).each(function(){
             $(this).click(function(){
+            	// 如果尚未登录，弹出登录窗
+            	
                 var flag = $(this).attr("rel_g");
                 var uid = $(this).attr("uid");
                 
                 if(!flag || flag==0)
                 {
                     //发出请求加关注
-            //        jQuery.ajax({'url':'http://www.meilizhubo.com/xxx',data:"uid=" + uid,
-            //       'success':function(msg){
-            //        	var error = msg.error;
-            //        	if(error==0)
-            //            {
+                    jQuery.ajax({'url':'/guanzhu/add',data:"id=" + uid,
+                   'success':function(msg){
+                    	var error = msg.error;
+                    	if(error==0)
+                        {
                             $(this).attr("class","gz_bt_ok");
                             $(this).attr("title","取消关注");
                             $(this).attr("rel_g","1");    
-            //            }
-            //        }});
+                        }
+                    }});
                 }
                 else
                 {
                     //发出取消关注请求
-             //       jQuery.ajax({'url':'http://www.meilizhubo.com/xxx',data:"uid=" + uid,
-              //      'success':function(msg){
-             //       	var error = msg.error;
-             //       	if(error==0)
-             //           {
+                    jQuery.ajax({'url':'/guanzhu/del',data:"id=" + uid,
+                    'success':function(msg){
+                    	var error = msg.error;
+                    	if(error==0)
+                        {
                             $(this).attr("class","gz_bt");
                 	        $(this).attr("title","加入我的关注");
-                            $(this).attr("rel_g","0");     
-             //           }
-            //        }});
+                            $(this).attr("rel_g","0");    
+                        }
+                    }});
                 }
                 return false;
             });

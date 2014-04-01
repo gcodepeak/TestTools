@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS `User` (
   `id` int unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `username` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL,
-  `loginType` tinyint default 0, /** 登录方式：0：注册用户；1:新浪微博；2:QQ；**/
+  `showName` varchar(64),
+  `loginType` tinyint default 0, /** 登录方式：0：注册用户；1:新浪微博；2:QQ；3:人人**/
   `register_time` datetime
 )
 ENGINE=InnoDB,
@@ -98,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `Guanzhu` (
   `zhubo_id` int unsigned,
   `add_time` datetime,
   `del_time` datetime,
-  status tinyint default 0, /** 状态 0：关注；1：取消关注 **/
+  status tinyint default 0, /** 状态 1：关注；0：取消关注 **/
   foreign key (zhubo_id) references zhubo(id),
   foreign key (user_id) references User(id)
 )

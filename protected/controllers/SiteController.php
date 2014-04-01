@@ -118,6 +118,15 @@ class SiteController extends Controller
 		
 		$model=new LoginForm;
 		$model->username = $openid;
+		$model->showName = $name;
+		
+		if ($_POST['source'] == 'weibo') {
+			$model->loginType = 1;
+		} elseif ($_POST['source'] == 'qq') {
+			$model->loginType = 2;
+		} elseif ($_POST['source'] == 'renren') {
+			$model->loginType = 3;
+		}
 		
 		$model->rememberMe = true;
 		
