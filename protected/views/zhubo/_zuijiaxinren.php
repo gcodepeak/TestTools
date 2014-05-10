@@ -42,7 +42,8 @@ foreach ($dataProvider as $data){
 			if ($length > 3 * 7){
 				break;
 			}
-			print '<span class="c_tag'. ($i + 1). '"><a href="#">'. $data['tags'][$i] .'</a></span>';
+			$url = Yii::app()->createUrl("/tagedzhubo/index",array('tagName'=>$data['tags'][$i])) ;
+			print '<span class="c_tag'. ($i + 1). '"><a href="'.$url.'">'. $data['tags'][$i] .'</a></span>';
 		}
 	}
 ?>
