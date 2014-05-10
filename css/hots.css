@@ -3,7 +3,7 @@
 .list_content
 {
 	width: 520px;
-	height:336px;
+	height:360px;
 	border:1px solid #d7d9d9;
 	margin: 0 auto;
 }
@@ -15,7 +15,7 @@
 
 .list_con_list
 {
-	margin: 2px auto;
+	margin: 0px auto;
 	width: 510px;
 }
 
