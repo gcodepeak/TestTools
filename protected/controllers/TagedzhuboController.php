@@ -57,10 +57,10 @@ class TagedzhuboController extends Controller
 		$connection = Yii::app()->db;
 		
 		// 查询对应分页的数据
-	        $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
-				." from zhubo, ZhuboTag, Tag"
-				." where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.show_name = :tagName "
-				." order by zhubo.is_live desc, zhubo.fans desc limit :pageSize";
+	    $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
+					." from zhubo, ZhuboTag, Tag"
+					." where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.show_name = :tagName "
+					." order by zhubo.is_live desc, zhubo.fans desc limit :pageSize";
 		//print $sql_cmd;
 		$command = $connection->createCommand($sql_cmd);
 		$command->bindParam(":tagName", $tagName);
@@ -78,7 +78,6 @@ class TagedzhuboController extends Controller
 		//$tags = $command->queryAll();
 		$tags = $strategy["hots_tags"];
 		
-		//$showSiteName = ShowSite::model()->findByPk($_GET['site'])->name;
 		// 修改pageTitle
 		//$this->setPageTitle($showSiteName." - 全部美女主播 - 美丽主播");
 		//$this->keywords = $showSiteName.",主播大全,美女主播,美女视频,美女直播,秀场,视频聊天,视频交友";
@@ -97,10 +96,12 @@ class TagedzhuboController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$tagid = "";
-		if(isset($_GET['tagid']) && $_GET['tagid'] != '')
+		$strategy = include_once(dirname(__FILE__).'/../config/strategy.php');
+		
+		$tagName = "女神";
+		if(isset($_GET['tagName']) && $_GET['tagName'] != '')
 		{
-			$tagid = $_GET['tagid'];
+			$tagName = $_GET['tagName'];
 		}
 		
 		// 获取当前分页
@@ -118,9 +119,11 @@ class TagedzhuboController extends Controller
 		
 		// 查询整体数据的大小，确定分页总数
 		//$sql_cmd = "select count(*) from zhubo where zhubo.site_id = :siteid";
-		$sql_cmd = "select count(*) from zhubo";
+		$sql_cmd = "select count(distinct zhubo.id) "
+				." from zhubo, ZhuboTag, Tag"
+				." where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.show_name = :tagName ";
 		$command = $connection->createCommand($sql_cmd);
-		//$command->bindParam(":siteid", $_GET['site']);
+		$command->bindParam(":tagName", $tagName);
 		$totalSize = $command->queryScalar();
 		$pageCount = ($totalSize + $pageSize - 1) / $pageSize;
 		
@@ -130,12 +133,13 @@ class TagedzhuboController extends Controller
 		$startIndex = ($page - 1) * $pageSize;
 		
 		// 查询对应分页的数据
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
-				." from zhubo"
-				." where zhubo.site_id = :siteid order by zhubo.is_live desc, zhubo.fans desc limit :startIndex, :pageSize";
+		$sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
+				." from zhubo, ZhuboTag, Tag"
+				." where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.show_name = :tagName "
+				." order by zhubo.is_live desc, zhubo.fans desc limit :startIndex, :pageSize";
 		//print $sql_cmd;
 		$command = $connection->createCommand($sql_cmd);
-		$command->bindParam(":siteid", $_GET['site']);
+		$command->bindParam(":tagName", $tagName);
 		$command->bindParam(":startIndex", $startIndex);
 		$command->bindParam(":pageSize", $pageSize);
 		
@@ -145,16 +149,17 @@ class TagedzhuboController extends Controller
 		$dataProvider = $command->queryAll();
 		Tool::setTags($dataProvider);
 		
-		$showSiteName = ShowSite::model()->findByPk($_GET['site'])->name;
+		$tags = $strategy["hots_tags"];
+		
 		// 修改pageTitle
-		$this->setPageTitle($showSiteName." - 全部美女主播 - 美丽主播");
-		$this->keywords = $showSiteName.",主播大全,美女主播,美女视频,美女直播,秀场,视频聊天,视频交友";
+		//$this->setPageTitle($showSiteName." - 全部美女主播 - 美丽主播");
+		//$this->keywords = $showSiteName.",主播大全,美女主播,美女视频,美女直播,秀场,视频聊天,视频交友";
 		$this->description="美丽主播是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。"
 							."支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。";
 		$this->render('index',array(
-			'showSiteName'=>$showSiteName,
 			'dataProvider'=>$dataProvider,
-			'site'=>$_GET['site'],
+			'tagName'=>$tagName,
+			'tags'=>$tags,
 			'page'=>$page,
 			'pageCount'=>$pageCount,
 		));

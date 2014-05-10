@@ -3,7 +3,7 @@
 .list_content
 {
 	width: 520px;
-	height:336px;
+	height:360px;
 	border:1px solid #d7d9d9;
 	margin: 0 auto;
 }
@@ -67,3 +67,4 @@
 .hit a {
 	font-weight:bold;
 }
+

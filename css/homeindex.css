@@ -178,15 +178,24 @@ position: relative;
 }
 .bar_home
 {
-    margin-right: 70px;
+    margin-right: 50px;
 }
 .bar_gz
 {
-    margin-right: 56px;
+    margin-right: 40px;
+}
+.bar_taged
+{
+    margin-left: 20px;
+	margin-right: 20px;
 }
 .bar_space
 {
     margin-right: 53px;
+}
+.bar_rank{
+    margin-left: 30px;
+    margin-right: 30px;
 }
 .bar_nav li
 {
@@ -217,15 +226,12 @@ position: relative;
 	*vertical-align:5px;
 	_vertical-align:-4px;
 }
-.bar_rank{
-    margin-left: 40px;
-    margin-right: 53px;
-}
+
 .bar_nav_sitelist
 {
     position: absolute;
     top: 48px;
-    left: 270px;
+    left: 234px;
     z-index: 1000;
     float: left;
     width: 150px;

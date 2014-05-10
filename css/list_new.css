@@ -105,3 +105,9 @@
 	border: 1px solid #FF4B70;
 	display:block;
 }
+
+.new_peo_tag_big span{
+    font-size: 18px;
+    padding: 3px 10px;
+	margin-left:10px;
+}
