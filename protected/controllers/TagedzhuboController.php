@@ -57,7 +57,7 @@ class TagedzhuboController extends Controller
 		$connection = Yii::app()->db;
 		
 		// 查询对应分页的数据
-		$sql_cmd = "select zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
+	        $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
 				." from zhubo, ZhuboTag, Tag"
 				." where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.show_name = :tagName "
 				." order by zhubo.is_live desc, zhubo.fans desc limit :pageSize";

@@ -24,7 +24,7 @@
 							if ($length > 3 * 30){
 								break;
 							}
-							$url = Yii::app()->createUrl("/tagedZhubo/hots",array('tagName'=>$tags[$i])) ;
+							$url = Yii::app()->createUrl("/tagedzhubo/hots",array('tagName'=>$tags[$i])) ;
 							$hrefClass = "";
 							if ($tagName == $tags[$i]) {
 								$hrefClass = "hit";
