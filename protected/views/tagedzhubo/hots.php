@@ -24,7 +24,7 @@
 							if ($length > 3 * 30){
 								break;
 							}
-							$url = Yii::app()->createUrl("/tagedzhubo/hots",array('tagName'=>$tags[$i])) ;
+							$url = Yii::app()->createUrl("/tagedzhubo/index",array('tagName'=>$tags[$i])) ;
 							$hrefClass = "";
 							if ($tagName == $tags[$i]) {
 								$hrefClass = "hit";
@@ -34,7 +34,7 @@
 					}
 				?>
 
-				<a href="#" style="color:#0000FF;float:right;margin-right:10px;">更多></a>
+				<a href="<?php echo Yii::app()->createUrl('/tagedzhubo/index');?>" style="color:#0000FF;float:right;margin-right:10px;">更多></a>
 			</div>
 		</div>
 
