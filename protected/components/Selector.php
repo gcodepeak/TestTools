@@ -11,6 +11,7 @@ class Selector{
 	private static $SELECT_COLS = "distinct(zhubo.id) as id, local_id, zhubo.name as name, head_img, ShowSite.name as siteName, hots, fans, is_live, last_live_time";
 	private static $LIMIT = 2000;
 	private static $TOP_COUNT = 14;
+	private static $HOTS_COUNT = 6;
 	private static $JINGTIAOXIXUAN_COUNT = 8;
 	private static $ZUIJIAXINREN_COUNT = 12; 
 	
@@ -24,7 +25,7 @@ class Selector{
 	
 	private $zhubo_list;
 	private $live_lady_list;		// 正在直播，并且被标记为女神的主播
-	private $live_not_taged_list;	// 正在直播，并且尚未标记的主播
+	private $live_not_taged_list;	        // 正在直播，并且尚未标记的主播
 	private $not_live_list;			// 不在直播，并且被标记的主播
 
 	function __construct(){	
@@ -38,7 +39,7 @@ class Selector{
 	}
 	
 	/*
-	 * 对外接口，调用改接口后，会设置好所有展现的队列，按需获取对应的队列结果即可。
+	 * 对外接口，调用该接口后，会设置好所有展现的队列，按需获取对应的队列结果即可。
 	 */
 	public function select() {
 		$this->fill_lists();
@@ -49,6 +50,18 @@ class Selector{
 		//print_r($this->top14_dataProvider);	
 	}
 	
+        /*
+	 * 对外接口, 挑选前6个热门主播，推送到热点资讯端, 不用考虑其它队列
+	 */
+	public function select_hots() {
+		// 设置所有队列
+		$this->fill_lists();
+		// 从候选队列中挑选主播
+		$dataProvider = array_slice($this->zhubo_list, 0, self::$HOTS_COUNT);
+		
+		return $dataProvider;
+	}
+
 	/*
 	 * 填充各个队列
 	 */
@@ -109,7 +122,6 @@ class Selector{
 	 * 	3. 非直播 & 女神&其它tag
 	 */
 	private function select_top14(&$dataProvider) {
-
 		// 从候选队列中挑选主播
 		$dataProvider = array_slice($this->zhubo_list, 0, self::$TOP_COUNT);
 		
@@ -123,6 +135,7 @@ class Selector{
 		
 		return;
 	}
+
 
 	//
 	private function select_jingtiaoxixuan(&$dataProvider){

@@ -2,33 +2,33 @@
 
 .list_content
 {
-	width: 520px;
-	height:360px;
-	border:1px solid #d7d9d9;
+	width: 515px;
+	height:346px;
+	border:0px solid #d7d9d9;
 	margin: 0 auto;
 }
 .list_con
 {
 	margin: 0 auto;
-	width: 510px;
+	width: 513px;
 }
 
 .list_con_list
 {
 	margin: 0px auto;
-	width: 510px;
+	width: 513px;
 }
 
 .list_con_titlebar
 {
-	padding:1px 0 5px 4px;
+	padding:1px 0 3px 6px;
 }
 
 .list_con_titlebar_left
 {
 	float: left;
-	width: 400px;
-	margin-top: 1px;
+	width: 500px;
+	margin-top: 0px;
 }
 .list_c_t1
 {
@@ -38,7 +38,7 @@
 }
 .list_t_span
 {
-	margin: 0 9px;
+	margin: 0 5px;
 }
 .list_t_span a
 {
@@ -56,7 +56,7 @@
 }
 
 .new_peo_div {
-	padding: 0 5px 10px 3px;
+	padding: 0 5px 5px 6px;
 }
 
 .new_peo_tag span {

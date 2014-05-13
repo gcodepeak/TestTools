@@ -24,17 +24,17 @@
 							if ($length > 3 * 30){
 								break;
 							}
-							$url = Yii::app()->createUrl("/tagedzhubo/index",array('tagName'=>$tags[$i])) ;
+							$url = Yii::app()->createUrl("/tagedzhubo/index",array('tagName'=>$tags[$i]));
 							$hrefClass = "";
 							if ($tagName == $tags[$i]) {
 								$hrefClass = "hit";
 							}
-							print '<span class="c_tag'. ($i % 5 + 1). '"><a href="'. $url .'" class="'. $hrefClass .'">'. $tags[$i] .'</a></span>';
+							print '<span class="c_tag'. ($i % 5 + 1). '"><a href="'. $url .'" class="'. $hrefClass .'" target="_blank">'. $tags[$i] .'</a></span>';
 						}
 					}
 				?>
 
-				<a href="<?php echo Yii::app()->createUrl('/tagedzhubo/index');?>" style="color:#0000FF;float:right;margin-right:10px;">更多></a>
+				<a href="<?php echo Yii::app()->createUrl('/zhubo/homepage');?>" style="color:#0000FF;float:right;margin-right:10px;" target="_blank">更多></a>
 			</div>
 		</div>
 

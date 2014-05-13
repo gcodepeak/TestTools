@@ -42,7 +42,7 @@ class TagedzhuboController extends Controller
 	/**
 	 * 提供热点资讯的主播列表, 输入参数（可选）为标签号,输出为6个主播的iframe
 	 */
-	public function actionHots()
+	public function actionHotsDynamic()
 	{
 		$this->layout='//layouts/hots';
 		$strategy = include_once(dirname(__FILE__).'/../config/strategy.php');
@@ -57,7 +57,7 @@ class TagedzhuboController extends Controller
 		$connection = Yii::app()->db;
 		
 		// 查询对应分页的数据
-	    $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
+	        $sql_cmd = "select distinct zhubo.id as id, zhubo.name as name, head_img, hots, fans, is_live, last_live_time"
 					." from zhubo, ZhuboTag, Tag"
 					." where zhubo.id = ZhuboTag.zhubo_id and ZhuboTag.tag_id = Tag.id and Tag.show_name = :tagName "
 					." order by zhubo.is_live desc, zhubo.fans desc limit :pageSize";
@@ -82,6 +82,33 @@ class TagedzhuboController extends Controller
 		//$this->setPageTitle($showSiteName." - 全部美女主播 - 美丽主播");
 		//$this->keywords = $showSiteName.",主播大全,美女主播,美女视频,美女直播,秀场,视频聊天,视频交友";
 		$this->description="美丽主播是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。"
+							."支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。";
+		$this->render('hots',array(
+			'tagName'=>$tagName,
+			'dataProvider'=>$dataProvider,
+			'tags'=>$tags,
+		));
+	}
+
+	public function actionHots()
+	{
+		$this->layout='//layouts/hots';
+		$strategy = include_once(dirname(__FILE__).'/../config/strategy.php');
+		$tagName = "女神"; // 暂时设置一个默认值
+		
+		$selector = new Selector();
+		$dataProvider = $selector->select_hots();
+			
+		$log_msg = "tagName:".$tagName;
+		Yii::log($log_msg,'trace','debug.tagedzhubo.hots');
+		
+                // 从配置文件中读取tag列表
+		$tags = $strategy["hots_tags"];
+		
+		// 修改pageTitle
+		$this->setPageTitle($tagName." - 全部美女主播 - 美丽主播");
+		$this->keywords = $tagName.",主播大全,美女主播,美女视频,美女直播,秀场,视频聊天,视频交友";
+		$this->description = "美丽主播是一站式真人互动视频直播导航网站。汇集9158,六间房,56我秀,酷狗繁星,激动星秀等众多知名网站的实时美女视频直播信息。"
 							."支持数十万人同时在线视频聊天、在线K歌跳舞、视频交友。赶快加入，免费赏鉴万千美女更能在线与美女在线聊天。";
 		$this->render('hots',array(
 			'tagName'=>$tagName,

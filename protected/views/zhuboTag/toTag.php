@@ -34,7 +34,7 @@ table td {
 </style>
 
 <p style="margin-top: 10px;">你可以使用比较操作符 (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) 在列顶端进行搜索. &nbsp&nbsp 秀场编号和名称对应关系：<span style="color:red">1:我秀；2:YY；3:新浪；4:6间房</span>
+or <b>=</b>) 在列顶端进行搜索. &nbsp&nbsp 秀场编号和名称对应关系：<span style="color:red">1:我秀；2:YY；3:新浪；4:6间房; 5:酷我</span>
 &nbsp&nbsp
 <!-- ?php echo CHtml::link('显示高级搜索','#',array('class'=>'search-button')); ?-->
 </p>

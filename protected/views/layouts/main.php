@@ -31,7 +31,7 @@
 	<title><?php echo CHtml::encode($this->pageTitle);?></title>
     
     <!-- Google 统计 -->
-    <meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i">
+    <!--meta name="domain_verify" content="pmrgi33nmfuw4ir2ejwwk2lmnf5gq5lcn4xgg33neiwcez3vnfsceorcgm2gkmrymqzdmnrzgrsdinbwhfqtizrqhaytmnzymrswenzyge2celbcoruw2zktmf3gkir2geztqojyhaytgmbvgizdi7i"-->
 	
 	<!-- QQ 账号登录相关 -->
 	<meta property="qc:admins" content="2566260732655141205276375" />
@@ -54,16 +54,8 @@
 </script>
 
 <body>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<?php include_once(dirname(__FILE__)."/../../components/Analyticstracking.php")?>
 
-  ga('create', 'UA-47546160-1', 'meilizhubo.com');
-  ga('send', 'pageview');
-
-</script>
 
 <div class="clearfix" style="width:100%;background-color: #fefefe;">
 	<div class="topbar_bg"></div>

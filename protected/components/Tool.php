@@ -114,6 +114,13 @@ class Tool{
 	
 	// 重组直播URL,添加渠道码
 	public static function reformURL($url, $site_id, $id){
+		// 如果是酷我，修改成特殊的形式
+		// http://x.kuwo.cn/363821 => http://x.kuwo.cn/KuwoLive/OpenLiveRoomLink?rid=363821&from=4016000001
+		if ($site_id == 5) {
+			// 把.cn/替换成.cn/KuwoLive/OpenLiveRoomLink?rid=
+			$url = str_replace("x.kuwo.cn/","x.kuwo.cn/KuwoLive/OpenLiveRoomLink?rid=", $url);
+		}
+
 		if (! array_key_exists($site_id, self::$SITE_KEY_MAP)) {
 			return $url;
 		}

@@ -182,7 +182,7 @@ class ZhuboController extends Controller
 		
 		$top_14_dataProvider = $selector->top14_dataProvider;
 		
-		$jingtiaoxixuan_dataProvider = $selector->jingtiaoxixuan_dataProvider['0'];
+		$jingtiaoxixuan_dataProvider = $selector->jingtiaoxixuan_dataProvider[0];
 		Tool::setTags($jingtiaoxixuan_dataProvider);
 		
 		$zuijiaxinren_dataProvider = $selector->zuijiaxinren_dataProvider;
