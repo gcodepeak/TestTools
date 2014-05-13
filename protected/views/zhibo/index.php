@@ -12,7 +12,7 @@
 		<div class="zb_left clearfix">
 			<div class="zb_left_titlediv">
 				<span class="goto_homepage"><a
-					href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>">返回大厅</a><b></b></span>
+					href="<?php echo Yii::app()->createUrl('zhubo/homepage')?>" onclick="javascript:ga('send', 'pageview', '/zhibo/go_home_top');">返回大厅</a><b></b></span>
 			</div>
 			<!-- 当前主播信息 -->
 			<div class="zb_info">
@@ -77,11 +77,13 @@ $(document).ready(function(){
 		if (left < 0) {
 			$(".zb_left_sdiv").animate( { left: 0}, 500 );
 			$(".zb_right").animate( { marginLeft: 195}, 500 );
+	                ga("send", "pageview", "/zhibo/open_left_bar");
 		}
 		else
 		{
 			$(".zb_left_sdiv").animate( { left: -185}, 500 );
 			$(".zb_right").animate( { marginLeft: 0}, 500 );
+	                ga("send", "pageview", "/zhibo/close_left_bar");
 		}
 	});
 
@@ -124,6 +126,7 @@ $(document).ready(function(){
             var span = $(this).find('span');
             var num = parseInt($(span).html());
             $(span).html(num+1);
+	    ga("send", "pageview", "/zhibo/add_guanzhu_big");
         }
         else
         {
@@ -136,6 +139,7 @@ $(document).ready(function(){
             var span = $(this).find('span');
             var num = parseInt($(span).html());
             $(span).html(num-1);
+	    ga("send", "pageview", "/zhibo/del_guanzhu_big");
         }
     });
 
@@ -155,6 +159,8 @@ $(document).ready(function(){
     
     //换一组
     $(".zb_change_peo").click(function(){
+        // 向ga添加标记
+	ga("send", "pageview", "/zhibo/change");
     	jQuery.ajax({'url':'/zhibo/random','cache':false,'success':function(html){
             $("#random").html(html);
             //changeTop14($(".huanyihuan"));

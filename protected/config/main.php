@@ -73,8 +73,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=127.0.0.1;port=3306;dbname=meilizhubo',
 			'emulatePrepare' => true,
-			'username' => 'test',
-			'password' => 'test',
+			'username' => 'online',
+			'password' => 'meilizhubo@online',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
