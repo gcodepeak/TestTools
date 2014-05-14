@@ -10,24 +10,24 @@
 .list_con
 {
 	margin: 0 auto;
-	width: 513px;
+	width: 515px;
 }
 
 .list_con_list
 {
 	margin: 0px auto;
-	width: 513px;
+	width: 515px;
 }
 
 .list_con_titlebar
 {
-	padding:1px 0 3px 6px;
+	padding:1px 0 3px 4px;
 }
 
 .list_con_titlebar_left
 {
 	float: left;
-	width: 500px;
+	width: 510px;
 	margin-top: 0px;
 }
 .list_c_t1
@@ -55,8 +55,13 @@
 	color: #999;
 }
 
+.category_tag_div
+{
+  padding-top: 2px;
+}
+
 .new_peo_div {
-	padding: 0 5px 5px 6px;
+    padding: 0 5px 5px 3px;
 }
 
 .new_peo_tag span {

@@ -34,7 +34,7 @@
 					}
 				?>
 
-				<a href="<?php echo Yii::app()->createUrl('/zhubo/homepage');?>" style="color:#0000FF;float:right;margin-right:10px;" target="_blank">更多></a>
+				<a href="<?php echo Yii::app()->createUrl('/zhubo/homepage');?>" style="color:#0000FF;margin-right:5px;" target="_blank">更多></a>
 			</div>
 		</div>
 
