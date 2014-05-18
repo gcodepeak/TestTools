@@ -46,8 +46,9 @@
 			?>
 		</div>
 		
-		<div style="width:468px,height:60px;margin:0px auto;text-align:center">
-			<img src="<?php  echo Yii::app()->request->baseUrl.'/images/m-ad-app.jpg';?>"/>
+		<div style="width:500px,height:60px;margin:0px 3px;">
+			<!--img src="<php  echo Yii::app()->request->baseUrl.'/images/m-ad-app.jpg';?>" style="margin-left:-15px;"/-->
+			<script type="text/javascript">BAIDU_CLB_fillSlot("915139");</script>
 			<!--script type="text/javascript">
 				var sogou_ad_id=334449;
 				var sogou_ad_height=60;

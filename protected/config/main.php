@@ -125,7 +125,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'gcodepeak@gmail.com',
+		'adminEmail'=>'xiaoming@meilizhubo.com,xiaoyu@meilizhubo.com,xiaolin@meilizhubo.com,xiaolu@meilizhubo.com,xiaozhu@meilizhubo.com',
 		'pageTitle'=>'美丽主播 - 主播导航 - 美女视频 - 美女直播 - 视频聊天 - 视频交友',
 	),
 );

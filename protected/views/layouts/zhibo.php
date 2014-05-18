@@ -20,6 +20,8 @@
 	<script src="/js/iepngfix.js" language="javascript" type="text/javascript"></script>
 <![endif]-->
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+<!--百度统计代码 --!>
+<script>var _hmt = _hmt || [];(function() {  var hm = document.createElement("script");  hm.src = "//hm.baidu.com/hm.js?dd8b42ae9653d81dc159afb43920d560";  var s = document.getElementsByTagName("script")[0];   s.parentNode.insertBefore(hm, s);})();</script>
 </head>
 
 <body>

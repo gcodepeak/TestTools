@@ -23,10 +23,13 @@
 	<script src="/js/iepngfix.js" language="javascript" type="text/javascript"></script>
 <![endif]-->
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
 </head>
 
 <body>
 <?php include_once(dirname(__FILE__)."/../../components/Analyticstracking.php")?>
 	<?php echo $content; ?>
+<!-- 百度统计代码 --!>
+<!-- script>var _hmt = _hmt || [];(function() {  var hm = document.createElement("script");  hm.src = "//hm.baidu.com/hm.js?dd8b42ae9653d81dc159afb43920d560";  var s = document.getElementsByTagName("script")[0];   s.parentNode.insertBefore(hm, s);})();</script-->
 </body>
 </html>
