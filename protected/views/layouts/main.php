@@ -108,8 +108,9 @@
 							<a id="nav_fav" href="javascript:void(0)" hidefocus="true" class="dropdown-toggle tooltips">收录站点<b></b></a>
 						</li>
 						<li class="dropdown bar_taged"><a id="nav_contact" href="/tagedzhubo" hidefocus="true">分类精选</a></li>
-                        <li class="dropdown bar_rank"><a id="nav_contact" href="/topList" hidefocus="true">排行榜</a></li>
-						<li class="dropdown"><a id="nav_contact" href="/site/contact" hidefocus="true">网站合作</a></li>
+                        			<li class="dropdown bar_rank"><a id="nav_contact" href="/topList" hidefocus="true">排行榜</a></li>
+						<li class="dropdown bar_hezuo"><a id="nav_contact" href="/site/contact" hidefocus="true">网站合作</a></li>
+						<li class="dropdown bar_baohuai"><a id="nav_contact" href="http://www.baohuai.com" hidefocus="true">保护爱</a></li>
                     </ul>
                  </div>
                         <div class="bar_nav_sitelist">
@@ -135,17 +136,15 @@
             <p class="footer_left_link_title"><strong>友情链接</strong></p>
             <div class="footer_link_div">
 	            <ul class="clearfix">
-	                <li><a href="http://mm.56.com/" target="_blank" title="美女主播">美女主播</a></li>
+	                <li><a href="http://www.meilizhubo.com/" target="_blank" title="美女主播">美女主播</a></li>
+	                <li><a href="http://www.docin.com/" target="_blank" title="豆丁网">豆丁网</a></li>
 	                <li><a href="http://xiu.56.com/" target="_blank" title="我秀">我秀</a></li>
 	                <li><a href="http://www.6.cn/" target="_blank" title="6间房">6间房</a></li>
 	                <li><a href="http://x.joy.cn/" target="_blank" title="星秀">星秀</a></li>
 	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
-	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
-	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
-	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
-	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
-	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
-	             	<li><a href="http://fanxing.kugou.com/" target="_blank" title="酷狗繁星">酷狗繁星</a></li>
+	             	<li><a href="http://www.baohuai.com/" target="_blank" title="保护爱">保护爱</a></li>
+	             	<li><a href="http://www.ku6.com/" target="_blank" title="酷6网">酷6网</a></li>
+	             	<li><a href="http://www.aipai.com/" target="_blank" title="爱拍网">爱拍网</a></li>
 	                <li><a class="ftu" href="mailto:sites@meilizhubo.com?subject=申请友情链接：贵网站名称" target="_blank" title="申请友链">[+申请友链]</a></li>
 	            </ul>
 	        </div>
