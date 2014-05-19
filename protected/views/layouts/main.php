@@ -104,9 +104,9 @@
 					<li class="dropdown bar_baohuai"><a id="nav_contact" href="http://www.baohuai.com" hidefocus="true">保护爱</a></li>
 					<li class="dropdown bar_hezuo"><a id="nav_contact" href="/site/contact" hidefocus="true">网站合作</a></li>
                         		<li class="dropdown bar_rank"><a id="nav_contact" href="/topList" hidefocus="true">排行榜</a></li>
-					<li class="dropdown bar_taged"><a id="nav_contact" href="/tagedzhubo" hidefocus="true">分类精选</a></li>
 				 	<li id="navmenu_fav" class="dropdown bar_sl"><a id="nav_fav" href="javascript:void(0)" hidefocus="true" class="dropdown-toggle tooltips">收录站点<b></b></a></li>
 					<li class="dropdown bar_gz disabled"><a id="nav_care" class="tooltips" href="<?php echo Yii::app()->createUrl("guanzhu");?>" >我的关注</a></li>
+					<li class="dropdown bar_taged"><a id="nav_contact" href="/tagedzhubo" hidefocus="true">分类精选</a></li>
 					<li class="dropdown bar_home"><a id="nav_home" href="<?php echo Yii::app()->request->baseUrl;?>/zhubo/homepage" hidefocus="true"
 					style="color:#ba2c49;" >主播大厅</a></li>
                     </ul>
