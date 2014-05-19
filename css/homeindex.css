@@ -51,7 +51,7 @@ img
 }
 .bar_right
 {
-width:750px;
+width:950px;
 float: right;
 position: relative;
 }
@@ -65,7 +65,7 @@ position: relative;
 {
     padding-top: 6px;
     float: left;
-    margin-left: 262px;
+    margin-left: 462px;
     width: 311px;
     text-align: right;
 	_width: 211px;
@@ -207,7 +207,7 @@ position: relative;
 }
 .bar_nav li
 {
-    float: left;
+    float: right;
     height: 34px;
     line-height: 34px;
     background-color: #fefefe;
@@ -239,7 +239,7 @@ position: relative;
 {
     position: absolute;
     top: 48px;
-    left: 204px;
+    left: 442px;
     z-index: 1000;
     float: left;
     width: 150px;
