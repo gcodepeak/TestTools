@@ -4,6 +4,45 @@
 <script>
 	window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89343201.js?cdnversion='+~(-new Date()/36e5)];
 </script>
+
+<style>
+*{padding:0;margin:0; font-size:12px;}
+ol,ul,li{list-style:none}
+img{border:none}
+.box{ width:564px; height:361px; margin:20px auto; position:absolute;top:50px;left:300px;}
+.ad_time{ width:554px; height:351px; background:#000; filter:alpha(opacity=50);-moz-opacity:0.5;opacity: 0.5; padding:5px; position:absolute; top:0; left:0; color:#fff;}
+.ad_time span{ font-weight:bold; color:#cc0; padding:0 5px;}
+.close{ width:49px; height:20px; background:url(/test/close.png) no-repeat; position:absolute; top:0; right:0; cursor:pointer;}
+.btn{ width:100px; height:30px; background:#eee; border:1px solid #ddd; font:normal 12px/30px ''; text-align:center; margin:20px auto; cursor:pointer;}
+</style>
+
+<script>
+function lxfEndtime(){
+        $t=$('#t').html();
+        if($t!=0){
+                $('#t').html($t-1);
+                $i=setTimeout("lxfEndtime()",1000);
+        }else{
+                $('.box').hide();
+                $('#t').html(6);
+                $('.ad_time').css({'width':'554px','height':'351px'});
+                clearTimeout($i);
+        }
+};
+
+$(document).ready(function(){
+	$('.box').show();
+	$('.ad_time').animate({width:110,height:18},'slow');
+	lxfEndtime();
+
+        $('.close').click(function(){
+                $('.box').hide();
+                $('#t').html(6);
+                $('.ad_time').css({'width':'554px','height':'351px'});
+                clearTimeout($i);
+        })
+});
+</script>
 	
 <link rel="stylesheet" type="text/css" href="/css/zhubo_new.css" />
 
@@ -63,10 +102,18 @@
 		</div>
 	</div>
 	<!-- 右边 -->
-	<div class="zb_right">
-		<iframe id="zhibo_iframe" name="_zhibo_target"
-			src="<?php echo Tool::reformURL($zhubo->url, $zhubo->site_id, $zhubo->id);?>"
-			style="width: 100%; min-height: 700px; height: 700px; border: 0px solid #fff;"></iframe>
+	<div class="zb_right" style="position:relative">
+		<div style="position:relative;left:0;top:0;width:100%;">
+			<iframe id="zhibo_iframe" name="_zhibo_target"
+				src="<?php echo Tool::reformURL($zhubo->url, $zhubo->site_id, $zhubo->id);?>"
+				style="width: 100%; min-height: 700px; height: 700px; border: 0px solid #fff;">
+			</iframe>
+		<div>
+		<div class="box">
+			<div class="ad"><a href="/" target="_blank"><img src="/test/ad.jpg" /></a></div>
+			<div class="ad_time">时间还剩<span id="t">5</span>秒</div>
+			<div class="close"></div>
+		</div>
 	</div>
 </div>
 
