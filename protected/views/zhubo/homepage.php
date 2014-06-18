@@ -130,14 +130,14 @@
 	        </div>
 	        <div class="zb_form_img_div">
 	            <ul class="clearfix">
-	                <li><a class="zb_form_link" href="#"><div class="zb_image_wx"></div></a></li>
-	                <li><a class="zb_form_link" href="#"><div class="zb_image_6u"></div></a></li>
-	                <li><a class="zb_form_link" href="#"><div class="zb_image_xx"></div></a></li>
-	                <li class="form_end"><a class="zb_form_link" href="#"><div class="zb_image_9158"></div></a></li>
-	                <li class="form_top"><a class="zb_form_link" href="#"><div class="zb_image_kg"></div></a></li>
-	                <li class="form_top"><a class="zb_form_link" href="#"><div class="zb_image_sh"></div></a></li>
-	                <li class="form_top"><a class="zb_form_link" href="#"><div class="zb_image_5b"></div></a></li>
-	                <li class="form_top form_end"><a class="zb_form_link" href="#"><div class="zb_image_tz"></div></a></li>
+	                <li><a class="zb_form_link" href="http://www.woxiu.com" target="_blank"><div class="zb_image_wx"></div></a></li>
+	                <li><a class="zb_form_link" href="http://www.6.cn" target="_blank"><div class="zb_image_6u"></div></a></li>
+	                <li><a class="zb_form_link" href="http://www.yy.com" target="_blank"><div class="zb_image_xx"></div></a></li>
+	                <li class="form_end"><a class="zb_form_link" href="http://www.9158.com/" target="_blank"><div class="zb_image_9158"></div></a></li>
+	                <li class="form_top"><a class="zb_form_link" href="http://fanxing.kugou.com" target="_blank"><div class="zb_image_kg"></div></a></li>
+	                <li class="form_top"><a class="zb_form_link" href="http://x.kuwo.cn" target="_blank"><div class="zb_image_sh"></div></a></li>
+	                <li class="form_top"><a class="zb_form_link" href="http://www.xiu8.com" target="_blank"><div class="zb_image_5b"></div></a></li>
+	                <li class="form_top form_end"><a class="zb_form_link" href="http://www.xingmeng.com" target="_blank"><div class="zb_image_tz"></div></a></li>
 	            </ul>
 	        </div>
 	    </div>

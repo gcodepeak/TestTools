@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>js贴片倒计时代码</title>
+<style>
+*{padding:0;margin:0; font-size:12px;}
+ol,ul,li{list-style:none}
+img{border:none}
+.box{ width:564px; height:361px; margin:20px auto; position:relative; display:none;}
+.ad_time{ width:554px; height:351px; background:#000; filter:alpha(opacity=50);-moz-opacity:0.5;opacity: 0.5; padding:5px; position:absolute; top:0; left:0; color:#fff;}
+.ad_time span{ font-weight:bold; color:#cc0; padding:0 5px;}
+.close{ width:49px; height:20px; background:url(/test/close.png) no-repeat; position:absolute; top:0; right:0; cursor:pointer;}
+.btn{ width:100px; height:30px; background:#eee; border:1px solid #ddd; font:normal 12px/30px '寰蒋闆呴粦'; text-align:center; margin:20px auto; cursor:pointer;}
+</style>
+<script type="text/javascript" src="/js/jquery.min.js" language="javascript"></script>
+<script type="text/javascript" language="javascript">
+function lxfEndtime(){
+	$t=$('#t').html();
+	if($t!=0){
+		$('#t').html($t-1);
+		$i=setTimeout("lxfEndtime()",1000);
+	}else{
+		$('.box').hide();
+		$('.btn').show();
+		$('#t').html(6);
+		$('.ad_time').css({'width':'554px','height':'351px'});
+		clearTimeout($i);
+	}
+};
+$(document).ready(function(){
+	$('.btn').live('click',function(){
+		$('.box').show();
+		$(this).hide();
+		$('.ad_time').animate({width:110,height:18},'slow');
+		lxfEndtime();
+	})
+	$('.close').click(function(){
+		$('.box').hide();
+		$('.btn').show();
+		$('#t').html(6);
+		$('.ad_time').css({'width':'554px','height':'351px'});
+		clearTimeout($i);
+	})
+});
+</script>
+</head>
+<body>
+<!--代码开始-->
+<div class="box">
+	<div class="ad"><a href="/" target="_blank"><img src="/test/ad.jpg" /></a></div>
+	<div class="ad_time">时间还剩<span id="t">50</span>秒</div>
+	<div class="close"></div>
+</div>
+<div class="btn">点击显示效果</div>
+<!--代码结束-->
+</body>
+</html>
