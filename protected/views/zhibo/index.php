@@ -9,11 +9,10 @@
 *{padding:0;margin:0; font-size:12px;}
 ol,ul,li{list-style:none}
 img{border:none}
-.box{ width:564px; height:361px; margin:20px auto; position:absolute;top:50px;left:300px;}
-.ad_time{ width:554px; height:351px; background:#000; filter:alpha(opacity=50);-moz-opacity:0.5;opacity: 0.5; padding:5px; position:absolute; top:0; left:0; color:#fff;}
+.box{ width:360px; height:300px; margin:20px auto; position:absolute;top:50px;left:300px;}
+.ad_time{ width:350px; height:300px; background:#000; filter:alpha(opacity=50);-moz-opacity:0.5;opacity: 0.5; padding:5px; position:absolute; top:0; left:0; color:#fff;}
 .ad_time span{ font-weight:bold; color:#cc0; padding:0 5px;}
-.close{ width:49px; height:20px; background:url(/test/close.png) no-repeat; position:absolute; top:0; right:0; cursor:pointer;}
-.btn{ width:100px; height:30px; background:#eee; border:1px solid #ddd; font:normal 12px/30px ''; text-align:center; margin:20px auto; cursor:pointer;}
+.close{ width:49px; height:20px; background:url(/images/ad_close.png) no-repeat; position:absolute; top:0; right:0; cursor:pointer;}
 </style>
 
 <script>
@@ -25,20 +24,20 @@ function lxfEndtime(){
         }else{
                 $('.box').hide();
                 $('#t').html(6);
-                $('.ad_time').css({'width':'554px','height':'351px'});
+                $('.ad_time').css({'width':'360px','height':'300px'});
                 clearTimeout($i);
         }
 };
 
 $(document).ready(function(){
 	$('.box').show();
-	$('.ad_time').animate({width:110,height:18},'slow');
+	$('.ad_time').animate({width:90,height:15},'slow');
 	lxfEndtime();
 
         $('.close').click(function(){
                 $('.box').hide();
                 $('#t').html(6);
-                $('.ad_time').css({'width':'554px','height':'351px'});
+                $('.ad_time').css({'width':'360px','height':'300px'});
                 clearTimeout($i);
         })
 });
@@ -110,7 +109,15 @@ $(document).ready(function(){
 			</iframe>
 		<div>
 		<div class="box">
-			<div class="ad"><a href="/" target="_blank"><img src="/test/ad.jpg" /></a></div>
+			<!--div class="ad"><a href="/" target="_blank"><img src="/test/ad.jpg" /></a></div--!>
+			<div class="ad">
+				<script type="text/javascript">
+				var sogou_ad_id=334476;
+				var sogou_ad_height=300;
+				var sogou_ad_width=360;
+				</script>
+				<script type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
+			</div>
 			<div class="ad_time">时间还剩<span id="t">5</span>秒</div>
 			<div class="close"></div>
 		</div>
