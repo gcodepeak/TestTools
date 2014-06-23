@@ -9,7 +9,9 @@
 *{padding:0;margin:0; font-size:12px;}
 ol,ul,li{list-style:none}
 img{border:none}
-.box{ width:360px; height:300px; margin:20px auto; position:absolute;top:50px;left:300px;}
+.box{ width:360px; height:400px; margin:20px auto; position:absolute;top:20px;left:300px;}
+.comments{ width:360px; height:40px; margin:2px auto;text-float:center;font-size:18px;}
+.comments span{ font-weight:bold; color:red; padding:0 5px; font-size:18px;}
 .ad_time{ width:350px; height:300px; background:#000; filter:alpha(opacity=50);-moz-opacity:0.5;opacity: 0.5; padding:5px; position:absolute; top:0; left:0; color:#fff;}
 .ad_time span{ font-weight:bold; color:#cc0; padding:0 5px;}
 .close{ width:49px; height:20px; background:url(/images/ad_close.png) no-repeat; position:absolute; top:0; right:0; cursor:pointer;}
@@ -23,22 +25,25 @@ function lxfEndtime(){
                 $i=setTimeout("lxfEndtime()",1000);
         }else{
                 $('.box').hide();
+		$('#zhibo_iframe').show();
                 $('#t').html(6);
-                $('.ad_time').css({'width':'360px','height':'300px'});
+                //$('.ad_time').css({'width':'360px','height':'300px'});
                 clearTimeout($i);
         }
 };
 
 $(document).ready(function(){
+	$('#zhibo_iframe').hide();
 	$('.box').show();
-	$('.ad_time').animate({width:90,height:15},'slow');
+	//$('.ad_time').animate({width:90,height:15},'slow');
 	lxfEndtime();
 
         $('.close').click(function(){
                 $('.box').hide();
                 $('#t').html(6);
-                $('.ad_time').css({'width':'360px','height':'300px'});
+                //$('.ad_time').css({'width':'360px','height':'300px'});
                 clearTimeout($i);
+		$('#zhibo_iframe').show();
         })
 });
 </script>
@@ -110,7 +115,8 @@ $(document).ready(function(){
 		<div>
 		<div class="box">
 			<!--div class="ad"><a href="/" target="_blank"><img src="/test/ad.jpg" /></a></div--!>
-			<div class="ad">
+			<div class="comments">您将跳转到第三方网站, 还剩<span id="t">5</span>秒</div>
+			<div class="float-ads">
 				<script type="text/javascript">
 				var sogou_ad_id=334476;
 				var sogou_ad_height=300;
@@ -118,7 +124,7 @@ $(document).ready(function(){
 				</script>
 				<script type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 			</div>
-			<div class="ad_time">时间还剩<span id="t">15</span>秒</div>
+			<!--div class="ad_time">时间还剩<span id="t">50</span>秒</div-->
 			<div class="close"></div>
 		</div>
 	</div>
