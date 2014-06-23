@@ -146,6 +146,15 @@
 	             	<li><a href="http://www.youku.com/" target="_blank" title="优酷">优酷</a></li>
 	             	<li><a href="http://www.baofeng.com/" target="_blank" title="暴风">暴风</a></li>
 	             	<li><a href="http://www.boosj.com" target="_blank" title="播视网">播视网</a></li>
+
+	             	<li><a href="http://www.baidu.com" target="_blank" title="百度">百度</a></li>
+	             	<li><a href="http://www.sina.com" target="_blank" title="新浪">新浪</a></li>
+	             	<li><a href="http://www.sohu.com" target="_blank" title="搜狐">搜狐</a></li>
+	             	<li><a href="http://www.qq.com" target="_blank" title="腾讯">腾讯</a></li>
+	             	<li><a href="http://www.google.com.hk" target="_blank" title="谷歌">谷歌</a></li>
+	             	<li><a href="http://www.163.com" target="_blank" title="网易">网易</a></li>
+	             	<li><a href="http://www.jd.com" target="_blank" title="京东">京东</a></li>
+	             	<li><a href="http://www.taobao.com" target="_blank" title="淘宝">淘宝</a></li>
 	                <!--li><a href="http://www.meilizhubo.com/" target="_blank" title="美女主播">美女主播</a></li>
 	                <li><a href="http://www.docin.com/" target="_blank" title="豆丁网">豆丁网</a></li>
 	                <li><a href="http://xiu.56.com/" target="_blank" title="我秀">我秀</a></li>
