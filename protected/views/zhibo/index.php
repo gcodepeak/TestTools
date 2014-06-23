@@ -118,7 +118,7 @@ $(document).ready(function(){
 				</script>
 				<script type='text/javascript' src='http://images.sohu.com/cs/jsfile/js/c.js'></script>
 			</div>
-			<div class="ad_time">时间还剩<span id="t">5</span>秒</div>
+			<div class="ad_time">时间还剩<span id="t">15</span>秒</div>
 			<div class="close"></div>
 		</div>
 	</div>
